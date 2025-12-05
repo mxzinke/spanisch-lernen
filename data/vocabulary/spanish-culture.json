@@ -1,0 +1,286 @@
+{
+  "category": "spanish-culture",
+  "name": "Spanische Kultur",
+  "words": [
+    {
+      "id": "culture_flamenco",
+      "spanish": "el flamenco",
+      "german": "der Flamenco",
+      "example": "Me encanta bailar flamenco en las fiestas.",
+      "exampleDe": "Ich liebe es, auf Festen Flamenco zu tanzen."
+    },
+    {
+      "id": "culture_siesta",
+      "spanish": "la siesta",
+      "german": "die Siesta (Mittagsruhe)",
+      "example": "Muchas tiendas cierran durante la siesta.",
+      "exampleDe": "Viele Geschäfte schließen während der Siesta."
+    },
+    {
+      "id": "culture_fiesta",
+      "spanish": "la fiesta",
+      "german": "das Fest",
+      "example": "Las fiestas en España duran hasta la madrugada.",
+      "exampleDe": "Die Feste in Spanien dauern bis zum Morgengrauen."
+    },
+    {
+      "id": "culture_corrida",
+      "spanish": "la corrida de toros",
+      "german": "der Stierkampf",
+      "example": "La corrida de toros es una tradición controvertida.",
+      "exampleDe": "Der Stierkampf ist eine umstrittene Tradition."
+    },
+    {
+      "id": "culture_tapas",
+      "spanish": "las tapas",
+      "german": "die Tapas (kleine Häppchen)",
+      "example": "Vamos a tomar unas tapas en el bar.",
+      "exampleDe": "Lass uns ein paar Tapas in der Bar essen."
+    },
+    {
+      "id": "culture_paella",
+      "spanish": "la paella",
+      "german": "die Paella (Reisgericht)",
+      "example": "La paella valenciana lleva pollo y conejo.",
+      "exampleDe": "Die valencianische Paella enthält Huhn und Kaninchen."
+    },
+    {
+      "id": "culture_sangria",
+      "spanish": "la sangría",
+      "german": "die Sangria (Rotweinpunsch)",
+      "example": "En verano me gusta beber sangría bien fría.",
+      "exampleDe": "Im Sommer trinke ich gerne gut gekühlte Sangria."
+    },
+    {
+      "id": "culture_feria",
+      "spanish": "la feria",
+      "german": "die Volksfest/Messe",
+      "example": "La Feria de Abril en Sevilla es muy famosa.",
+      "exampleDe": "Die Aprilmesse in Sevilla ist sehr berühmt."
+    },
+    {
+      "id": "culture_semana_santa",
+      "spanish": "la Semana Santa",
+      "german": "die Karwoche",
+      "example": "En Semana Santa hay procesiones por toda España.",
+      "exampleDe": "In der Karwoche gibt es Prozessionen in ganz Spanien."
+    },
+    {
+      "id": "culture_nochevieja",
+      "spanish": "la Nochevieja",
+      "german": "Silvester",
+      "example": "En Nochevieja comemos doce uvas a medianoche.",
+      "exampleDe": "An Silvester essen wir um Mitternacht zwölf Weintrauben."
+    },
+    {
+      "id": "culture_reyes_magos",
+      "spanish": "los Reyes Magos",
+      "german": "die Heiligen Drei Könige",
+      "example": "Los niños reciben regalos de los Reyes Magos el 6 de enero.",
+      "exampleDe": "Die Kinder bekommen am 6. Januar Geschenke von den Heiligen Drei Königen."
+    },
+    {
+      "id": "culture_plaza_mayor",
+      "spanish": "la Plaza Mayor",
+      "german": "der Hauptplatz",
+      "example": "La Plaza Mayor es el centro de la vida social.",
+      "exampleDe": "Der Hauptplatz ist das Zentrum des sozialen Lebens."
+    },
+    {
+      "id": "culture_churros",
+      "spanish": "los churros",
+      "german": "die Churros (frittiertes Gebäck)",
+      "example": "Me encanta desayunar churros con chocolate.",
+      "exampleDe": "Ich liebe es, Churros mit Schokolade zu frühstücken."
+    },
+    {
+      "id": "culture_tortilla",
+      "spanish": "la tortilla española",
+      "german": "das spanische Kartoffelomelett",
+      "example": "La tortilla española se hace con patatas y huevos.",
+      "exampleDe": "Das spanische Omelett wird mit Kartoffeln und Eiern gemacht."
+    },
+    {
+      "id": "culture_tinto_verano",
+      "spanish": "el tinto de verano",
+      "german": "Rotweinschorle",
+      "example": "El tinto de verano es una bebida refrescante.",
+      "exampleDe": "Die Rotweinschorle ist ein erfrischendes Getränk."
+    },
+    {
+      "id": "culture_tertulia",
+      "spanish": "la tertulia",
+      "german": "die Gesprächsrunde",
+      "example": "Los intelectuales se reúnen en tertulias literarias.",
+      "exampleDe": "Die Intellektuellen treffen sich zu literarischen Gesprächsrunden."
+    },
+    {
+      "id": "culture_sobremesa",
+      "spanish": "la sobremesa",
+      "german": "das Tischgespräch nach dem Essen",
+      "example": "La sobremesa puede durar horas en España.",
+      "exampleDe": "Das Tischgespräch nach dem Essen kann in Spanien stundenlang dauern."
+    },
+    {
+      "id": "culture_botellon",
+      "spanish": "el botellón",
+      "german": "das öffentliche Trinken (meist von Jugendlichen)",
+      "example": "Los jóvenes hacen botellón en las plazas los fines de semana.",
+      "exampleDe": "Die Jugendlichen trinken am Wochenende auf den Plätzen."
+    },
+    {
+      "id": "culture_paseo",
+      "spanish": "el paseo",
+      "german": "der Spaziergang",
+      "example": "Por la tarde, la gente sale a dar un paseo.",
+      "exampleDe": "Am Abend gehen die Leute spazieren."
+    },
+    {
+      "id": "culture_torero",
+      "spanish": "el torero",
+      "german": "der Stierkämpfer",
+      "example": "El torero lleva un traje de luces muy elegante.",
+      "exampleDe": "Der Stierkämpfer trägt ein sehr elegantes Kostüm."
+    },
+    {
+      "id": "culture_copla",
+      "spanish": "la copla",
+      "german": "die Copla (spanisches Volkslied)",
+      "example": "Mi abuela cantaba coplas tradicionales.",
+      "exampleDe": "Meine Großmutter sang traditionelle Coplas."
+    },
+    {
+      "id": "culture_jamon",
+      "spanish": "el jamón ibérico",
+      "german": "der iberische Schinken",
+      "example": "El jamón ibérico de bellota es muy apreciado.",
+      "exampleDe": "Der iberische Eichelschinken ist sehr geschätzt."
+    },
+    {
+      "id": "culture_sevillanas",
+      "spanish": "las sevillanas",
+      "german": "die Sevillanas (Tanz)",
+      "example": "Aprendí a bailar sevillanas en la feria.",
+      "exampleDe": "Ich habe gelernt, Sevillanas auf dem Volksfest zu tanzen."
+    },
+    {
+      "id": "culture_roscon_reyes",
+      "spanish": "el roscón de Reyes",
+      "german": "der Dreikönigskuchen",
+      "example": "El roscón de Reyes tiene una sorpresa dentro.",
+      "exampleDe": "Der Dreikönigskuchen hat eine Überraschung drin."
+    },
+    {
+      "id": "culture_mantilla",
+      "spanish": "la mantilla",
+      "german": "der Spitzenschleier",
+      "example": "Las mujeres llevan mantilla en Semana Santa.",
+      "exampleDe": "Die Frauen tragen in der Karwoche Spitzenschleier."
+    },
+    {
+      "id": "culture_romeria",
+      "spanish": "la romería",
+      "german": "die Wallfahrt",
+      "example": "La Romería del Rocío atrae a miles de peregrinos.",
+      "exampleDe": "Die Rocío-Wallfahrt zieht Tausende von Pilgern an."
+    },
+    {
+      "id": "culture_gazpacho",
+      "spanish": "el gazpacho",
+      "german": "die kalte Gemüsesuppe",
+      "example": "El gazpacho es perfecto para los días calurosos.",
+      "exampleDe": "Gazpacho ist perfekt für heiße Tage."
+    },
+    {
+      "id": "culture_castanuelas",
+      "spanish": "las castañuelas",
+      "german": "die Kastagnetten",
+      "example": "Las castañuelas son típicas del flamenco.",
+      "exampleDe": "Die Kastagnetten sind typisch für den Flamenco."
+    },
+    {
+      "id": "culture_verbena",
+      "spanish": "la verbena",
+      "german": "das Straßenfest",
+      "example": "En verano hay verbenas populares todas las noches.",
+      "exampleDe": "Im Sommer gibt es jede Nacht Straßenfeste."
+    },
+    {
+      "id": "culture_patio",
+      "spanish": "el patio andaluz",
+      "german": "der andalusische Innenhof",
+      "example": "Los patios de Córdoba están llenos de flores.",
+      "exampleDe": "Die Innenhöfe von Córdoba sind voller Blumen."
+    },
+    {
+      "id": "culture_horchata",
+      "spanish": "la horchata",
+      "german": "die Erdmandelmilch",
+      "example": "La horchata de chufa es típica de Valencia.",
+      "exampleDe": "Die Erdmandelmilch ist typisch für Valencia."
+    },
+    {
+      "id": "culture_churro_chocolate",
+      "spanish": "chocolate con churros",
+      "german": "heiße Schokolade mit Churros",
+      "example": "Después de la fiesta tomamos chocolate con churros.",
+      "exampleDe": "Nach dem Fest trinken wir heiße Schokolade mit Churros."
+    },
+    {
+      "id": "culture_siesta_horario",
+      "spanish": "el horario de siesta",
+      "german": "die Siesta-Zeit",
+      "example": "El horario de siesta es entre las dos y las cinco.",
+      "exampleDe": "Die Siesta-Zeit ist zwischen zwei und fünf Uhr."
+    },
+    {
+      "id": "culture_procesion",
+      "spanish": "la procesión",
+      "german": "die Prozession",
+      "example": "Las procesiones de Semana Santa son muy emotivas.",
+      "exampleDe": "Die Karwochenprozessionen sind sehr emotional."
+    },
+    {
+      "id": "culture_cajon",
+      "spanish": "el cajón flamenco",
+      "german": "die Cajón (Perkussionsinstrument)",
+      "example": "El cajón se usa para acompañar el flamenco.",
+      "exampleDe": "Die Cajón wird verwendet, um den Flamenco zu begleiten."
+    },
+    {
+      "id": "culture_madrugada",
+      "spanish": "la madrugada",
+      "german": "die frühen Morgenstunden",
+      "example": "En España la fiesta dura hasta la madrugada.",
+      "exampleDe": "In Spanien dauert das Fest bis in die frühen Morgenstunden."
+    },
+    {
+      "id": "culture_tapear",
+      "spanish": "ir de tapas",
+      "german": "auf Tapas-Tour gehen",
+      "example": "Los domingos nos gusta ir de tapas con amigos.",
+      "exampleDe": "Sonntags gehen wir gerne mit Freunden auf Tapas-Tour."
+    },
+    {
+      "id": "culture_traje_luces",
+      "spanish": "el traje de luces",
+      "german": "das Stierkämpferkostüm",
+      "example": "El traje de luces está bordado con hilos de oro.",
+      "exampleDe": "Das Stierkämpferkostüm ist mit Goldfäden bestickt."
+    },
+    {
+      "id": "culture_tuna",
+      "spanish": "la tuna",
+      "german": "die Tuna (studentische Musikgruppe)",
+      "example": "La tuna canta serenatas por las calles.",
+      "exampleDe": "Die Tuna singt Ständchen auf den Straßen."
+    },
+    {
+      "id": "culture_abanico",
+      "spanish": "el abanico",
+      "german": "der Fächer",
+      "example": "Las mujeres usan el abanico en las ferias.",
+      "exampleDe": "Die Frauen benutzen den Fächer auf den Volksfesten."
+    }
+  ]
+}

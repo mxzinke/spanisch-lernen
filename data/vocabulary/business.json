@@ -1,0 +1,286 @@
+{
+  "category": "business",
+  "name": "Wirtschaft & Business",
+  "words": [
+    {
+      "id": "business_001",
+      "spanish": "la empresa",
+      "german": "das Unternehmen",
+      "example": "Mi empresa tiene más de 100 empleados.",
+      "exampleDe": "Mein Unternehmen hat mehr als 100 Mitarbeiter."
+    },
+    {
+      "id": "business_002",
+      "spanish": "el negocio",
+      "german": "das Geschäft",
+      "example": "El negocio va muy bien este año.",
+      "exampleDe": "Das Geschäft läuft dieses Jahr sehr gut."
+    },
+    {
+      "id": "business_003",
+      "spanish": "el comercio",
+      "german": "der Handel",
+      "example": "El comercio internacional ha crecido mucho.",
+      "exampleDe": "Der internationale Handel ist stark gewachsen."
+    },
+    {
+      "id": "business_004",
+      "spanish": "el mercado",
+      "german": "der Markt",
+      "example": "Vamos a entrar en un nuevo mercado.",
+      "exampleDe": "Wir werden in einen neuen Markt eintreten."
+    },
+    {
+      "id": "business_005",
+      "spanish": "el producto",
+      "german": "das Produkt",
+      "example": "Nuestro producto es de alta calidad.",
+      "exampleDe": "Unser Produkt ist von hoher Qualität."
+    },
+    {
+      "id": "business_006",
+      "spanish": "la venta",
+      "german": "der Verkauf",
+      "example": "Las ventas aumentaron un 20 por ciento.",
+      "exampleDe": "Die Verkäufe sind um 20 Prozent gestiegen."
+    },
+    {
+      "id": "business_007",
+      "spanish": "la compra",
+      "german": "der Kauf",
+      "example": "La compra de la empresa fue exitosa.",
+      "exampleDe": "Der Kauf des Unternehmens war erfolgreich."
+    },
+    {
+      "id": "business_008",
+      "spanish": "la ganancia",
+      "german": "der Gewinn",
+      "example": "Obtuvimos una ganancia de un millón de euros.",
+      "exampleDe": "Wir erzielten einen Gewinn von einer Million Euro."
+    },
+    {
+      "id": "business_009",
+      "spanish": "la pérdida",
+      "german": "der Verlust",
+      "example": "La empresa tuvo pérdidas este trimestre.",
+      "exampleDe": "Das Unternehmen machte dieses Quartal Verluste."
+    },
+    {
+      "id": "business_010",
+      "spanish": "la inversión",
+      "german": "die Investition",
+      "example": "Necesitamos más inversión para crecer.",
+      "exampleDe": "Wir brauchen mehr Investitionen, um zu wachsen."
+    },
+    {
+      "id": "business_011",
+      "spanish": "la acción",
+      "german": "die Aktie",
+      "example": "Las acciones de la empresa subieron hoy.",
+      "exampleDe": "Die Aktien des Unternehmens stiegen heute."
+    },
+    {
+      "id": "business_012",
+      "spanish": "la bolsa",
+      "german": "die Börse",
+      "example": "La bolsa cerró con ganancias.",
+      "exampleDe": "Die Börse schloss mit Gewinnen."
+    },
+    {
+      "id": "business_013",
+      "spanish": "la exportación",
+      "german": "der Export",
+      "example": "La exportación de vino es muy importante.",
+      "exampleDe": "Der Weinexport ist sehr wichtig."
+    },
+    {
+      "id": "business_014",
+      "spanish": "la importación",
+      "german": "der Import",
+      "example": "Reducimos la importación de materias primas.",
+      "exampleDe": "Wir reduzierten den Import von Rohstoffen."
+    },
+    {
+      "id": "business_015",
+      "spanish": "la competencia",
+      "german": "der Wettbewerb",
+      "example": "La competencia en este sector es muy fuerte.",
+      "exampleDe": "Der Wettbewerb in diesem Sektor ist sehr stark."
+    },
+    {
+      "id": "business_016",
+      "spanish": "el cliente",
+      "german": "der Kunde",
+      "example": "El cliente siempre tiene la razón.",
+      "exampleDe": "Der Kunde hat immer recht."
+    },
+    {
+      "id": "business_017",
+      "spanish": "el proveedor",
+      "german": "der Lieferant",
+      "example": "Buscamos un nuevo proveedor de materiales.",
+      "exampleDe": "Wir suchen einen neuen Materiallieferanten."
+    },
+    {
+      "id": "business_018",
+      "spanish": "el contrato",
+      "german": "der Vertrag",
+      "example": "Firmamos el contrato ayer.",
+      "exampleDe": "Wir unterzeichneten den Vertrag gestern."
+    },
+    {
+      "id": "business_019",
+      "spanish": "la negociación",
+      "german": "die Verhandlung",
+      "example": "La negociación fue muy difícil.",
+      "exampleDe": "Die Verhandlung war sehr schwierig."
+    },
+    {
+      "id": "business_020",
+      "spanish": "el gerente",
+      "german": "der Manager",
+      "example": "El gerente de ventas presentó los resultados.",
+      "exampleDe": "Der Verkaufsmanager präsentierte die Ergebnisse."
+    },
+    {
+      "id": "business_021",
+      "spanish": "el jefe",
+      "german": "der Chef",
+      "example": "Mi jefe está de viaje de negocios.",
+      "exampleDe": "Mein Chef ist auf Geschäftsreise."
+    },
+    {
+      "id": "business_022",
+      "spanish": "el empleado",
+      "german": "der Mitarbeiter",
+      "example": "Los empleados recibieron un aumento.",
+      "exampleDe": "Die Mitarbeiter bekamen eine Gehaltserhöhung."
+    },
+    {
+      "id": "business_023",
+      "spanish": "la reunión",
+      "german": "das Meeting",
+      "example": "Tenemos una reunión importante mañana.",
+      "exampleDe": "Wir haben morgen ein wichtiges Meeting."
+    },
+    {
+      "id": "business_024",
+      "spanish": "la presentación",
+      "german": "die Präsentation",
+      "example": "La presentación fue un éxito.",
+      "exampleDe": "Die Präsentation war ein Erfolg."
+    },
+    {
+      "id": "business_025",
+      "spanish": "el presupuesto",
+      "german": "das Budget",
+      "example": "Necesitamos reducir el presupuesto.",
+      "exampleDe": "Wir müssen das Budget reduzieren."
+    },
+    {
+      "id": "business_026",
+      "spanish": "los costos",
+      "german": "die Kosten",
+      "example": "Los costos de producción han aumentado.",
+      "exampleDe": "Die Produktionskosten sind gestiegen."
+    },
+    {
+      "id": "business_027",
+      "spanish": "la factura",
+      "german": "die Rechnung",
+      "example": "¿Recibiste la factura del proveedor?",
+      "exampleDe": "Hast du die Rechnung vom Lieferanten erhalten?"
+    },
+    {
+      "id": "business_028",
+      "spanish": "el ingreso",
+      "german": "das Einkommen/der Umsatz",
+      "example": "Los ingresos del trimestre fueron buenos.",
+      "exampleDe": "Die Einnahmen des Quartals waren gut."
+    },
+    {
+      "id": "business_029",
+      "spanish": "el crecimiento",
+      "german": "das Wachstum",
+      "example": "El crecimiento de la empresa es constante.",
+      "exampleDe": "Das Wachstum des Unternehmens ist konstant."
+    },
+    {
+      "id": "business_030",
+      "spanish": "la estrategia",
+      "german": "die Strategie",
+      "example": "Desarrollamos una nueva estrategia de marketing.",
+      "exampleDe": "Wir entwickelten eine neue Marketingstrategie."
+    },
+    {
+      "id": "business_031",
+      "spanish": "el socio",
+      "german": "der Partner/Geschäftspartner",
+      "example": "Buscamos un socio comercial en Europa.",
+      "exampleDe": "Wir suchen einen Geschäftspartner in Europa."
+    },
+    {
+      "id": "business_032",
+      "spanish": "la marca",
+      "german": "die Marke",
+      "example": "Nuestra marca es muy conocida.",
+      "exampleDe": "Unsere Marke ist sehr bekannt."
+    },
+    {
+      "id": "business_033",
+      "spanish": "el proyecto",
+      "german": "das Projekt",
+      "example": "El proyecto terminará en tres meses.",
+      "exampleDe": "Das Projekt wird in drei Monaten fertig sein."
+    },
+    {
+      "id": "business_034",
+      "spanish": "la oficina",
+      "german": "das Büro",
+      "example": "Trabajo en la oficina central.",
+      "exampleDe": "Ich arbeite im Hauptbüro."
+    },
+    {
+      "id": "business_035",
+      "spanish": "el mercadeo",
+      "german": "das Marketing",
+      "example": "Invertimos mucho en mercadeo digital.",
+      "exampleDe": "Wir investieren viel in digitales Marketing."
+    },
+    {
+      "id": "business_036",
+      "spanish": "la publicidad",
+      "german": "die Werbung",
+      "example": "La publicidad en redes sociales funciona bien.",
+      "exampleDe": "Die Werbung in sozialen Netzwerken funktioniert gut."
+    },
+    {
+      "id": "business_037",
+      "spanish": "el salario",
+      "german": "das Gehalt",
+      "example": "El salario es competitivo.",
+      "exampleDe": "Das Gehalt ist wettbewerbsfähig."
+    },
+    {
+      "id": "business_038",
+      "spanish": "la industria",
+      "german": "die Industrie",
+      "example": "Trabajamos en la industria tecnológica.",
+      "exampleDe": "Wir arbeiten in der Technologiebranche."
+    },
+    {
+      "id": "business_039",
+      "spanish": "el consumidor",
+      "german": "der Verbraucher",
+      "example": "El consumidor prefiere productos ecológicos.",
+      "exampleDe": "Der Verbraucher bevorzugt ökologische Produkte."
+    },
+    {
+      "id": "business_040",
+      "spanish": "la economía",
+      "german": "die Wirtschaft",
+      "example": "La economía del país está mejorando.",
+      "exampleDe": "Die Wirtschaft des Landes verbessert sich."
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "category": "finance",
+  "name": "Finanzen & Bank",
+  "words": [
+    {
+      "id": "finance_bank",
+      "spanish": "el banco",
+      "german": "die Bank",
+      "example": "Voy al banco para abrir una cuenta.",
+      "exampleDe": "Ich gehe zur Bank, um ein Konto zu eröffnen."
+    },
+    {
+      "id": "finance_account",
+      "spanish": "la cuenta",
+      "german": "das Konto",
+      "example": "Mi cuenta tiene un saldo positivo.",
+      "exampleDe": "Mein Konto hat einen positiven Saldo."
+    },
+    {
+      "id": "finance_checking_account",
+      "spanish": "la cuenta corriente",
+      "german": "das Girokonto",
+      "example": "Uso mi cuenta corriente para los gastos diarios.",
+      "exampleDe": "Ich nutze mein Girokonto für tägliche Ausgaben."
+    },
+    {
+      "id": "finance_savings_account",
+      "spanish": "la cuenta de ahorro",
+      "german": "das Sparkonto",
+      "example": "Guardo dinero en mi cuenta de ahorro.",
+      "exampleDe": "Ich lege Geld auf meinem Sparkonto an."
+    },
+    {
+      "id": "finance_transfer",
+      "spanish": "la transferencia",
+      "german": "die Überweisung",
+      "example": "Hice una transferencia bancaria ayer.",
+      "exampleDe": "Ich habe gestern eine Banküberweisung gemacht."
+    },
+    {
+      "id": "finance_atm",
+      "spanish": "el cajero automático",
+      "german": "der Geldautomat",
+      "example": "Necesito buscar un cajero automático.",
+      "exampleDe": "Ich muss einen Geldautomaten suchen."
+    },
+    {
+      "id": "finance_pin",
+      "spanish": "el PIN",
+      "german": "die PIN",
+      "example": "No recuerdo mi PIN de la tarjeta.",
+      "exampleDe": "Ich erinnere mich nicht an meine Karten-PIN."
+    },
+    {
+      "id": "finance_credit_card",
+      "spanish": "la tarjeta de crédito",
+      "german": "die Kreditkarte",
+      "example": "Pago con tarjeta de crédito en internet.",
+      "exampleDe": "Ich bezahle im Internet mit Kreditkarte."
+    },
+    {
+      "id": "finance_debit_card",
+      "spanish": "la tarjeta de débito",
+      "german": "die EC-Karte",
+      "example": "Prefiero usar mi tarjeta de débito.",
+      "exampleDe": "Ich benutze lieber meine EC-Karte."
+    },
+    {
+      "id": "finance_cash",
+      "spanish": "el efectivo",
+      "german": "das Bargeld",
+      "example": "Siempre llevo algo de efectivo encima.",
+      "exampleDe": "Ich habe immer etwas Bargeld dabei."
+    },
+    {
+      "id": "finance_withdraw",
+      "spanish": "retirar dinero",
+      "german": "Geld abheben",
+      "example": "Voy a retirar dinero del cajero.",
+      "exampleDe": "Ich werde Geld am Automaten abheben."
+    },
+    {
+      "id": "finance_deposit",
+      "spanish": "ingresar dinero",
+      "german": "Geld einzahlen",
+      "example": "Quiero ingresar dinero en mi cuenta.",
+      "exampleDe": "Ich möchte Geld auf mein Konto einzahlen."
+    },
+    {
+      "id": "finance_balance",
+      "spanish": "el saldo",
+      "german": "der Kontostand",
+      "example": "Consulto el saldo de mi cuenta regularmente.",
+      "exampleDe": "Ich überprüfe regelmäßig meinen Kontostand."
+    },
+    {
+      "id": "finance_interest",
+      "spanish": "los intereses",
+      "german": "die Zinsen",
+      "example": "Los intereses de mi préstamo son bajos.",
+      "exampleDe": "Die Zinsen meines Kredits sind niedrig."
+    },
+    {
+      "id": "finance_loan",
+      "spanish": "el préstamo",
+      "german": "der Kredit",
+      "example": "Solicité un préstamo para comprar un coche.",
+      "exampleDe": "Ich habe einen Kredit für ein Auto beantragt."
+    },
+    {
+      "id": "finance_credit",
+      "spanish": "el crédito",
+      "german": "das Darlehen",
+      "example": "El banco me concedió un crédito.",
+      "exampleDe": "Die Bank hat mir ein Darlehen gewährt."
+    },
+    {
+      "id": "finance_mortgage",
+      "spanish": "la hipoteca",
+      "german": "die Hypothek",
+      "example": "Estoy pagando la hipoteca de mi casa.",
+      "exampleDe": "Ich zahle die Hypothek für mein Haus ab."
+    },
+    {
+      "id": "finance_debt",
+      "spanish": "la deuda",
+      "german": "die Schulden",
+      "example": "Quiero pagar todas mis deudas este año.",
+      "exampleDe": "Ich möchte dieses Jahr alle meine Schulden abbezahlen."
+    },
+    {
+      "id": "finance_save",
+      "spanish": "ahorrar",
+      "german": "sparen",
+      "example": "Intento ahorrar dinero cada mes.",
+      "exampleDe": "Ich versuche, jeden Monat Geld zu sparen."
+    },
+    {
+      "id": "finance_invoice",
+      "spanish": "la factura",
+      "german": "die Rechnung",
+      "example": "Tengo que pagar la factura de la luz.",
+      "exampleDe": "Ich muss die Stromrechnung bezahlen."
+    },
+    {
+      "id": "finance_pay",
+      "spanish": "pagar",
+      "german": "bezahlen",
+      "example": "Voy a pagar la cuenta ahora.",
+      "exampleDe": "Ich werde jetzt die Rechnung bezahlen."
+    },
+    {
+      "id": "finance_fee",
+      "spanish": "la comisión",
+      "german": "die Gebühr",
+      "example": "El banco cobra una comisión por transferencias.",
+      "exampleDe": "Die Bank erhebt eine Gebühr für Überweisungen."
+    },
+    {
+      "id": "finance_exchange_rate",
+      "spanish": "el tipo de cambio",
+      "german": "der Wechselkurs",
+      "example": "El tipo de cambio está muy favorable hoy.",
+      "exampleDe": "Der Wechselkurs ist heute sehr günstig."
+    },
+    {
+      "id": "finance_euro",
+      "spanish": "el euro",
+      "german": "der Euro",
+      "example": "Esto cuesta veinte euros.",
+      "exampleDe": "Das kostet zwanzig Euro."
+    },
+    {
+      "id": "finance_currency",
+      "spanish": "la moneda",
+      "german": "die Währung",
+      "example": "¿Cuál es la moneda de este país?",
+      "exampleDe": "Was ist die Währung dieses Landes?"
+    },
+    {
+      "id": "finance_money",
+      "spanish": "el dinero",
+      "german": "das Geld",
+      "example": "Necesito cambiar dinero.",
+      "exampleDe": "Ich muss Geld wechseln."
+    },
+    {
+      "id": "finance_payment",
+      "spanish": "el pago",
+      "german": "die Zahlung",
+      "example": "El pago se realizó correctamente.",
+      "exampleDe": "Die Zahlung wurde erfolgreich durchgeführt."
+    },
+    {
+      "id": "finance_budget",
+      "spanish": "el presupuesto",
+      "german": "das Budget",
+      "example": "Tengo que ajustarme a mi presupuesto mensual.",
+      "exampleDe": "Ich muss mich an mein monatliches Budget halten."
+    },
+    {
+      "id": "finance_expense",
+      "spanish": "el gasto",
+      "german": "die Ausgabe",
+      "example": "Mis gastos este mes fueron altos.",
+      "exampleDe": "Meine Ausgaben waren diesen Monat hoch."
+    },
+    {
+      "id": "finance_income",
+      "spanish": "los ingresos",
+      "german": "das Einkommen",
+      "example": "Mis ingresos mensuales son estables.",
+      "exampleDe": "Mein monatliches Einkommen ist stabil."
+    },
+    {
+      "id": "finance_investment",
+      "spanish": "la inversión",
+      "german": "die Investition",
+      "example": "Hice una buena inversión en acciones.",
+      "exampleDe": "Ich habe eine gute Investition in Aktien gemacht."
+    },
+    {
+      "id": "finance_receipt",
+      "spanish": "el recibo",
+      "german": "die Quittung",
+      "example": "Necesito el recibo para mi declaración de impuestos.",
+      "exampleDe": "Ich brauche die Quittung für meine Steuererklärung."
+    },
+    {
+      "id": "finance_coin",
+      "spanish": "la moneda",
+      "german": "die Münze",
+      "example": "Tengo muchas monedas en el bolsillo.",
+      "exampleDe": "Ich habe viele Münzen in der Tasche."
+    },
+    {
+      "id": "finance_bill",
+      "spanish": "el billete",
+      "german": "der Geldschein",
+      "example": "¿Tienes un billete de diez euros?",
+      "exampleDe": "Hast du einen Zehn-Euro-Schein?"
+    },
+    {
+      "id": "finance_wallet",
+      "spanish": "la cartera",
+      "german": "die Geldbörse",
+      "example": "Perdí mi cartera con todo el dinero.",
+      "exampleDe": "Ich habe meine Geldbörse mit dem ganzen Geld verloren."
+    },
+    {
+      "id": "finance_signature",
+      "spanish": "la firma",
+      "german": "die Unterschrift",
+      "example": "Necesito tu firma en este documento.",
+      "exampleDe": "Ich brauche deine Unterschrift auf diesem Dokument."
+    },
+    {
+      "id": "finance_statement",
+      "spanish": "el extracto bancario",
+      "german": "der Kontoauszug",
+      "example": "Reviso mi extracto bancario cada mes.",
+      "exampleDe": "Ich überprüfe meinen Kontoauszug jeden Monat."
+    },
+    {
+      "id": "finance_tax",
+      "spanish": "el impuesto",
+      "german": "die Steuer",
+      "example": "Tengo que pagar los impuestos este trimestre.",
+      "exampleDe": "Ich muss dieses Quartal die Steuern bezahlen."
+    },
+    {
+      "id": "finance_insurance",
+      "spanish": "el seguro",
+      "german": "die Versicherung",
+      "example": "Contraté un seguro de vida.",
+      "exampleDe": "Ich habe eine Lebensversicherung abgeschlossen."
+    },
+    {
+      "id": "finance_branch",
+      "spanish": "la sucursal",
+      "german": "die Filiale",
+      "example": "Hay una sucursal del banco cerca de aquí.",
+      "exampleDe": "Es gibt eine Bankfiliale in der Nähe."
+    }
+  ]
+}

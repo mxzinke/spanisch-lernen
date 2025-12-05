@@ -1,0 +1,258 @@
+{
+  "category": "shapes",
+  "name": "Formen & Maße",
+  "words": [
+    {
+      "id": "shapes_circle",
+      "spanish": "el círculo",
+      "german": "der Kreis",
+      "example": "Los niños dibujan un círculo en el papel.",
+      "exampleDe": "Die Kinder zeichnen einen Kreis auf das Papier."
+    },
+    {
+      "id": "shapes_square",
+      "spanish": "el cuadrado",
+      "german": "das Quadrat",
+      "example": "La ventana tiene forma de cuadrado.",
+      "exampleDe": "Das Fenster hat die Form eines Quadrats."
+    },
+    {
+      "id": "shapes_triangle",
+      "spanish": "el triángulo",
+      "german": "das Dreieck",
+      "example": "El triángulo tiene tres lados.",
+      "exampleDe": "Das Dreieck hat drei Seiten."
+    },
+    {
+      "id": "shapes_rectangle",
+      "spanish": "el rectángulo",
+      "german": "das Rechteck",
+      "example": "La mesa es un rectángulo grande.",
+      "exampleDe": "Der Tisch ist ein großes Rechteck."
+    },
+    {
+      "id": "shapes_oval",
+      "spanish": "el óvalo",
+      "german": "das Oval",
+      "example": "Su cara tiene forma de óvalo.",
+      "exampleDe": "Ihr Gesicht hat eine ovale Form."
+    },
+    {
+      "id": "shapes_sphere",
+      "spanish": "la esfera",
+      "german": "die Kugel",
+      "example": "La Tierra es una esfera.",
+      "exampleDe": "Die Erde ist eine Kugel."
+    },
+    {
+      "id": "shapes_cube",
+      "spanish": "el cubo",
+      "german": "der Würfel",
+      "example": "El cubo tiene seis caras iguales.",
+      "exampleDe": "Der Würfel hat sechs gleiche Seiten."
+    },
+    {
+      "id": "shapes_pyramid",
+      "spanish": "la pirámide",
+      "german": "die Pyramide",
+      "example": "Las pirámides de Egipto son muy antiguas.",
+      "exampleDe": "Die Pyramiden von Ägypten sind sehr alt."
+    },
+    {
+      "id": "shapes_length",
+      "spanish": "la longitud",
+      "german": "die Länge",
+      "example": "¿Cuál es la longitud del río?",
+      "exampleDe": "Wie lang ist der Fluss?"
+    },
+    {
+      "id": "shapes_width",
+      "spanish": "la anchura",
+      "german": "die Breite",
+      "example": "La anchura de la calle es de cinco metros.",
+      "exampleDe": "Die Breite der Straße beträgt fünf Meter."
+    },
+    {
+      "id": "shapes_height",
+      "spanish": "la altura",
+      "german": "die Höhe",
+      "example": "La altura de la montaña es impresionante.",
+      "exampleDe": "Die Höhe des Berges ist beeindruckend."
+    },
+    {
+      "id": "shapes_depth",
+      "spanish": "la profundidad",
+      "german": "die Tiefe",
+      "example": "La profundidad del océano es desconocida.",
+      "exampleDe": "Die Tiefe des Ozeans ist unbekannt."
+    },
+    {
+      "id": "shapes_area",
+      "spanish": "el área",
+      "german": "die Fläche",
+      "example": "El área del parque es muy grande.",
+      "exampleDe": "Die Fläche des Parks ist sehr groß."
+    },
+    {
+      "id": "shapes_volume",
+      "spanish": "el volumen",
+      "german": "das Volumen",
+      "example": "¿Cuál es el volumen de esta caja?",
+      "exampleDe": "Wie groß ist das Volumen dieser Schachtel?"
+    },
+    {
+      "id": "shapes_weight",
+      "spanish": "el peso",
+      "german": "das Gewicht",
+      "example": "El peso del paquete es de dos kilos.",
+      "exampleDe": "Das Gewicht des Pakets beträgt zwei Kilo."
+    },
+    {
+      "id": "shapes_distance",
+      "spanish": "la distancia",
+      "german": "die Distanz / Entfernung",
+      "example": "La distancia entre las ciudades es corta.",
+      "exampleDe": "Die Entfernung zwischen den Städten ist kurz."
+    },
+    {
+      "id": "shapes_meter",
+      "spanish": "el metro",
+      "german": "der Meter",
+      "example": "La habitación mide tres metros de ancho.",
+      "exampleDe": "Das Zimmer ist drei Meter breit."
+    },
+    {
+      "id": "shapes_centimeter",
+      "spanish": "el centímetro",
+      "german": "der Zentimeter",
+      "example": "El lápiz tiene quince centímetros de largo.",
+      "exampleDe": "Der Bleistift ist fünfzehn Zentimeter lang."
+    },
+    {
+      "id": "shapes_kilometer",
+      "spanish": "el kilómetro",
+      "german": "der Kilometer",
+      "example": "Caminamos cinco kilómetros hoy.",
+      "exampleDe": "Wir sind heute fünf Kilometer gelaufen."
+    },
+    {
+      "id": "shapes_millimeter",
+      "spanish": "el milímetro",
+      "german": "der Millimeter",
+      "example": "El grosor del papel es un milímetro.",
+      "exampleDe": "Die Dicke des Papiers beträgt einen Millimeter."
+    },
+    {
+      "id": "shapes_liter",
+      "spanish": "el litro",
+      "german": "der Liter",
+      "example": "Necesito comprar dos litros de leche.",
+      "exampleDe": "Ich muss zwei Liter Milch kaufen."
+    },
+    {
+      "id": "shapes_milliliter",
+      "spanish": "el mililitro",
+      "german": "der Milliliter",
+      "example": "La receta requiere cien mililitros de agua.",
+      "exampleDe": "Das Rezept benötigt hundert Milliliter Wasser."
+    },
+    {
+      "id": "shapes_gram",
+      "spanish": "el gramo",
+      "german": "das Gramm",
+      "example": "Añade cien gramos de azúcar.",
+      "exampleDe": "Füge hundert Gramm Zucker hinzu."
+    },
+    {
+      "id": "shapes_kilogram",
+      "spanish": "el kilogramo",
+      "german": "das Kilogramm",
+      "example": "Compré un kilogramo de manzanas.",
+      "exampleDe": "Ich habe ein Kilogramm Äpfel gekauft."
+    },
+    {
+      "id": "shapes_ton",
+      "spanish": "la tonelada",
+      "german": "die Tonne",
+      "example": "El camión puede cargar diez toneladas.",
+      "exampleDe": "Der LKW kann zehn Tonnen laden."
+    },
+    {
+      "id": "shapes_size",
+      "spanish": "el tamaño",
+      "german": "die Größe",
+      "example": "El tamaño de la casa es perfecto para nosotros.",
+      "exampleDe": "Die Größe des Hauses ist perfekt für uns."
+    },
+    {
+      "id": "shapes_diameter",
+      "spanish": "el diámetro",
+      "german": "der Durchmesser",
+      "example": "El diámetro del círculo es de diez centímetros.",
+      "exampleDe": "Der Durchmesser des Kreises beträgt zehn Zentimeter."
+    },
+    {
+      "id": "shapes_radius",
+      "spanish": "el radio",
+      "german": "der Radius",
+      "example": "El radio del círculo es cinco centímetros.",
+      "exampleDe": "Der Radius des Kreises beträgt fünf Zentimeter."
+    },
+    {
+      "id": "shapes_angle",
+      "spanish": "el ángulo",
+      "german": "der Winkel",
+      "example": "El ángulo recto mide noventa grados.",
+      "exampleDe": "Der rechte Winkel misst neunzig Grad."
+    },
+    {
+      "id": "shapes_line",
+      "spanish": "la línea",
+      "german": "die Linie",
+      "example": "Dibuja una línea recta con la regla.",
+      "exampleDe": "Zeichne mit dem Lineal eine gerade Linie."
+    },
+    {
+      "id": "shapes_point",
+      "spanish": "el punto",
+      "german": "der Punkt",
+      "example": "Marca un punto en el centro del papel.",
+      "exampleDe": "Markiere einen Punkt in der Mitte des Papiers."
+    },
+    {
+      "id": "shapes_surface",
+      "spanish": "la superficie",
+      "german": "die Oberfläche",
+      "example": "La superficie de la mesa es lisa.",
+      "exampleDe": "Die Oberfläche des Tisches ist glatt."
+    },
+    {
+      "id": "shapes_edge",
+      "spanish": "el borde",
+      "german": "die Kante / der Rand",
+      "example": "Ten cuidado con el borde afilado.",
+      "exampleDe": "Sei vorsichtig mit der scharfen Kante."
+    },
+    {
+      "id": "shapes_corner",
+      "spanish": "la esquina",
+      "german": "die Ecke",
+      "example": "La tienda está en la esquina de la calle.",
+      "exampleDe": "Der Laden ist an der Straßenecke."
+    },
+    {
+      "id": "shapes_thick",
+      "spanish": "grueso",
+      "german": "dick",
+      "example": "El libro es muy grueso.",
+      "exampleDe": "Das Buch ist sehr dick."
+    },
+    {
+      "id": "shapes_thin",
+      "spanish": "delgado",
+      "german": "dünn",
+      "example": "La cuerda es muy delgada.",
+      "exampleDe": "Das Seil ist sehr dünn."
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "category": "materials",
+  "name": "Materialien & Stoffe",
+  "words": [
+    {
+      "id": "mat_001",
+      "spanish": "la madera",
+      "german": "das Holz",
+      "example": "La mesa está hecha de madera de roble.",
+      "exampleDe": "Der Tisch ist aus Eichenholz gemacht."
+    },
+    {
+      "id": "mat_002",
+      "spanish": "el metal",
+      "german": "das Metall",
+      "example": "Este anillo es de metal precioso.",
+      "exampleDe": "Dieser Ring ist aus Edelmetall."
+    },
+    {
+      "id": "mat_003",
+      "spanish": "el plástico",
+      "german": "das Plastik",
+      "example": "Evito comprar botellas de plástico.",
+      "exampleDe": "Ich vermeide es, Plastikflaschen zu kaufen."
+    },
+    {
+      "id": "mat_004",
+      "spanish": "el vidrio",
+      "german": "das Glas",
+      "example": "Las ventanas son de vidrio templado.",
+      "exampleDe": "Die Fenster sind aus gehärtetem Glas."
+    },
+    {
+      "id": "mat_005",
+      "spanish": "la tela",
+      "german": "der Stoff",
+      "example": "Esta tela es muy suave y cómoda.",
+      "exampleDe": "Dieser Stoff ist sehr weich und bequem."
+    },
+    {
+      "id": "mat_006",
+      "spanish": "el cuero",
+      "german": "das Leder",
+      "example": "Me compré una chaqueta de cuero.",
+      "exampleDe": "Ich habe mir eine Lederjacke gekauft."
+    },
+    {
+      "id": "mat_007",
+      "spanish": "la lana",
+      "german": "die Wolle",
+      "example": "Este suéter está hecho de lana pura.",
+      "exampleDe": "Dieser Pullover ist aus reiner Wolle gemacht."
+    },
+    {
+      "id": "mat_008",
+      "spanish": "el algodón",
+      "german": "die Baumwolle",
+      "example": "Prefiero camisetas de algodón.",
+      "exampleDe": "Ich bevorzuge Baumwoll-T-Shirts."
+    },
+    {
+      "id": "mat_009",
+      "spanish": "la seda",
+      "german": "die Seide",
+      "example": "Lleva un pañuelo de seda italiana.",
+      "exampleDe": "Sie trägt ein Tuch aus italienischer Seide."
+    },
+    {
+      "id": "mat_010",
+      "spanish": "el papel",
+      "german": "das Papier",
+      "example": "Necesito papel para imprimir el documento.",
+      "exampleDe": "Ich brauche Papier, um das Dokument zu drucken."
+    },
+    {
+      "id": "mat_011",
+      "spanish": "el cartón",
+      "german": "der Karton",
+      "example": "Guardo los libros en cajas de cartón.",
+      "exampleDe": "Ich bewahre die Bücher in Kartons auf."
+    },
+    {
+      "id": "mat_012",
+      "spanish": "la piedra",
+      "german": "der Stein",
+      "example": "La casa tiene paredes de piedra antigua.",
+      "exampleDe": "Das Haus hat Wände aus altem Stein."
+    },
+    {
+      "id": "mat_013",
+      "spanish": "el hormigón",
+      "german": "der Beton",
+      "example": "El edificio está construido de hormigón armado.",
+      "exampleDe": "Das Gebäude ist aus Stahlbeton gebaut."
+    },
+    {
+      "id": "mat_014",
+      "spanish": "la goma",
+      "german": "das Gummi",
+      "example": "Las suelas de mis zapatos son de goma.",
+      "exampleDe": "Die Sohlen meiner Schuhe sind aus Gummi."
+    },
+    {
+      "id": "mat_015",
+      "spanish": "la cerámica",
+      "german": "die Keramik",
+      "example": "Tengo una colección de jarrones de cerámica.",
+      "exampleDe": "Ich habe eine Sammlung von Keramikvasen."
+    },
+    {
+      "id": "mat_016",
+      "spanish": "el oro",
+      "german": "das Gold",
+      "example": "Mi abuela me regaló un collar de oro.",
+      "exampleDe": "Meine Großmutter schenkte mir eine Goldkette."
+    },
+    {
+      "id": "mat_017",
+      "spanish": "la plata",
+      "german": "das Silber",
+      "example": "Los cubiertos son de plata maciza.",
+      "exampleDe": "Das Besteck ist aus massivem Silber."
+    },
+    {
+      "id": "mat_018",
+      "spanish": "el hierro",
+      "german": "das Eisen",
+      "example": "La reja está hecha de hierro forjado.",
+      "exampleDe": "Das Gitter ist aus Schmiedeeisen gemacht."
+    },
+    {
+      "id": "mat_019",
+      "spanish": "el acero",
+      "german": "der Stahl",
+      "example": "Los cuchillos profesionales son de acero inoxidable.",
+      "exampleDe": "Professionelle Messer sind aus Edelstahl."
+    },
+    {
+      "id": "mat_020",
+      "spanish": "el cobre",
+      "german": "das Kupfer",
+      "example": "Los cables eléctricos están hechos de cobre.",
+      "exampleDe": "Die elektrischen Kabel sind aus Kupfer gemacht."
+    },
+    {
+      "id": "mat_021",
+      "spanish": "el aluminio",
+      "german": "das Aluminium",
+      "example": "La ventana tiene un marco de aluminio.",
+      "exampleDe": "Das Fenster hat einen Aluminiumrahmen."
+    },
+    {
+      "id": "mat_022",
+      "spanish": "el cristal",
+      "german": "das Kristallglas",
+      "example": "Brindamos con copas de cristal fino.",
+      "exampleDe": "Wir stoßen mit Gläsern aus feinem Kristall an."
+    },
+    {
+      "id": "mat_023",
+      "spanish": "el ladrillo",
+      "german": "der Ziegelstein",
+      "example": "La casa antigua está hecha de ladrillo rojo.",
+      "exampleDe": "Das alte Haus ist aus roten Ziegelsteinen gemacht."
+    },
+    {
+      "id": "mat_024",
+      "spanish": "el cemento",
+      "german": "der Zement",
+      "example": "Mezclamos el cemento con agua y arena.",
+      "exampleDe": "Wir mischen den Zement mit Wasser und Sand."
+    },
+    {
+      "id": "mat_025",
+      "spanish": "el yeso",
+      "german": "der Gips",
+      "example": "Las paredes están cubiertas de yeso blanco.",
+      "exampleDe": "Die Wände sind mit weißem Gips bedeckt."
+    },
+    {
+      "id": "mat_026",
+      "spanish": "la porcelana",
+      "german": "das Porzellan",
+      "example": "Mi madre colecciona figuras de porcelana.",
+      "exampleDe": "Meine Mutter sammelt Porzellanfiguren."
+    },
+    {
+      "id": "mat_027",
+      "spanish": "el bronce",
+      "german": "die Bronze",
+      "example": "En el parque hay una estatua de bronce.",
+      "exampleDe": "Im Park gibt es eine Bronzestatue."
+    },
+    {
+      "id": "mat_028",
+      "spanish": "el mármol",
+      "german": "der Marmor",
+      "example": "El suelo del hotel es de mármol blanco.",
+      "exampleDe": "Der Boden des Hotels ist aus weißem Marmor."
+    },
+    {
+      "id": "mat_029",
+      "spanish": "el granito",
+      "german": "der Granit",
+      "example": "La encimera de la cocina es de granito.",
+      "exampleDe": "Die Küchenarbeitsplatte ist aus Granit."
+    },
+    {
+      "id": "mat_030",
+      "spanish": "la arcilla",
+      "german": "der Ton/Lehm",
+      "example": "El artista moldea figuras con arcilla.",
+      "exampleDe": "Der Künstler formt Figuren aus Ton."
+    },
+    {
+      "id": "mat_031",
+      "spanish": "el terciopelo",
+      "german": "der Samt",
+      "example": "El sofá está tapizado en terciopelo azul.",
+      "exampleDe": "Das Sofa ist mit blauem Samt bezogen."
+    },
+    {
+      "id": "mat_032",
+      "spanish": "el lino",
+      "german": "das Leinen",
+      "example": "En verano uso ropa de lino.",
+      "exampleDe": "Im Sommer trage ich Kleidung aus Leinen."
+    },
+    {
+      "id": "mat_033",
+      "spanish": "la fibra",
+      "german": "die Faser",
+      "example": "Esta alfombra está hecha de fibras naturales.",
+      "exampleDe": "Dieser Teppich ist aus Naturfasern gemacht."
+    },
+    {
+      "id": "mat_034",
+      "spanish": "el vidrio templado",
+      "german": "das gehärtete Glas",
+      "example": "La mesa tiene una superficie de vidrio templado.",
+      "exampleDe": "Der Tisch hat eine Oberfläche aus gehärtetem Glas."
+    },
+    {
+      "id": "mat_035",
+      "spanish": "la resina",
+      "german": "das Harz",
+      "example": "Hacen joyas artesanales con resina transparente.",
+      "exampleDe": "Sie stellen handgefertigten Schmuck aus transparentem Harz her."
+    }
+  ]
+}

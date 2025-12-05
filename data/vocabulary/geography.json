@@ -1,0 +1,216 @@
+{
+  "category": "geography",
+  "name": "Geografie",
+  "words": [
+    {
+      "id": "geo_001",
+      "spanish": "el país",
+      "german": "das Land",
+      "example": "España es un país hermoso.",
+      "exampleDe": "Spanien ist ein schönes Land."
+    },
+    {
+      "id": "geo_002",
+      "spanish": "España",
+      "german": "Spanien",
+      "example": "Madrid es la capital de España.",
+      "exampleDe": "Madrid ist die Hauptstadt von Spanien."
+    },
+    {
+      "id": "geo_003",
+      "spanish": "México",
+      "german": "Mexiko",
+      "example": "México tiene una cultura rica.",
+      "exampleDe": "Mexiko hat eine reiche Kultur."
+    },
+    {
+      "id": "geo_004",
+      "spanish": "Argentina",
+      "german": "Argentinien",
+      "example": "Buenos Aires está en Argentina.",
+      "exampleDe": "Buenos Aires liegt in Argentinien."
+    },
+    {
+      "id": "geo_005",
+      "spanish": "Alemania",
+      "german": "Deutschland",
+      "example": "Berlín es la capital de Alemania.",
+      "exampleDe": "Berlin ist die Hauptstadt von Deutschland."
+    },
+    {
+      "id": "geo_006",
+      "spanish": "Francia",
+      "german": "Frankreich",
+      "example": "París es una ciudad en Francia.",
+      "exampleDe": "Paris ist eine Stadt in Frankreich."
+    },
+    {
+      "id": "geo_007",
+      "spanish": "el continente",
+      "german": "der Kontinent",
+      "example": "Europa es un continente pequeño.",
+      "exampleDe": "Europa ist ein kleiner Kontinent."
+    },
+    {
+      "id": "geo_008",
+      "spanish": "Europa",
+      "german": "Europa",
+      "example": "Muchos países están en Europa.",
+      "exampleDe": "Viele Länder liegen in Europa."
+    },
+    {
+      "id": "geo_009",
+      "spanish": "América",
+      "german": "Amerika",
+      "example": "América del Sur es muy grande.",
+      "exampleDe": "Südamerika ist sehr groß."
+    },
+    {
+      "id": "geo_010",
+      "spanish": "el norte",
+      "german": "der Norden",
+      "example": "El norte de España es verde.",
+      "exampleDe": "Der Norden Spaniens ist grün."
+    },
+    {
+      "id": "geo_011",
+      "spanish": "el sur",
+      "german": "der Süden",
+      "example": "Hace calor en el sur.",
+      "exampleDe": "Im Süden ist es heiß."
+    },
+    {
+      "id": "geo_012",
+      "spanish": "el este",
+      "german": "der Osten",
+      "example": "El sol sale por el este.",
+      "exampleDe": "Die Sonne geht im Osten auf."
+    },
+    {
+      "id": "geo_013",
+      "spanish": "el oeste",
+      "german": "der Westen",
+      "example": "California está en el oeste.",
+      "exampleDe": "Kalifornien liegt im Westen."
+    },
+    {
+      "id": "geo_014",
+      "spanish": "la ciudad",
+      "german": "die Stadt",
+      "example": "Barcelona es una ciudad grande.",
+      "exampleDe": "Barcelona ist eine große Stadt."
+    },
+    {
+      "id": "geo_015",
+      "spanish": "la capital",
+      "german": "die Hauptstadt",
+      "example": "¿Cuál es la capital de Chile?",
+      "exampleDe": "Was ist die Hauptstadt von Chile?"
+    },
+    {
+      "id": "geo_016",
+      "spanish": "Madrid",
+      "german": "Madrid",
+      "example": "Madrid está en el centro de España.",
+      "exampleDe": "Madrid liegt im Zentrum von Spanien."
+    },
+    {
+      "id": "geo_017",
+      "spanish": "Barcelona",
+      "german": "Barcelona",
+      "example": "Barcelona tiene una playa bonita.",
+      "exampleDe": "Barcelona hat einen schönen Strand."
+    },
+    {
+      "id": "geo_018",
+      "spanish": "Buenos Aires",
+      "german": "Buenos Aires",
+      "example": "Buenos Aires es una ciudad grande.",
+      "exampleDe": "Buenos Aires ist eine große Stadt."
+    },
+    {
+      "id": "geo_019",
+      "spanish": "la frontera",
+      "german": "die Grenze",
+      "example": "La frontera está cerrada hoy.",
+      "exampleDe": "Die Grenze ist heute geschlossen."
+    },
+    {
+      "id": "geo_020",
+      "spanish": "la costa",
+      "german": "die Küste",
+      "example": "Me gusta vivir en la costa.",
+      "exampleDe": "Ich lebe gerne an der Küste."
+    },
+    {
+      "id": "geo_021",
+      "spanish": "el mar",
+      "german": "das Meer",
+      "example": "El mar Mediterráneo es hermoso.",
+      "exampleDe": "Das Mittelmeer ist schön."
+    },
+    {
+      "id": "geo_022",
+      "spanish": "la montaña",
+      "german": "der Berg",
+      "example": "Los Pirineos son montañas altas.",
+      "exampleDe": "Die Pyrenäen sind hohe Berge."
+    },
+    {
+      "id": "geo_023",
+      "spanish": "el río",
+      "german": "der Fluss",
+      "example": "El río Ebro pasa por Zaragoza.",
+      "exampleDe": "Der Fluss Ebro fließt durch Saragossa."
+    },
+    {
+      "id": "geo_024",
+      "spanish": "la isla",
+      "german": "die Insel",
+      "example": "Mallorca es una isla española.",
+      "exampleDe": "Mallorca ist eine spanische Insel."
+    },
+    {
+      "id": "geo_025",
+      "spanish": "el centro",
+      "german": "das Zentrum",
+      "example": "Vivo en el centro de la ciudad.",
+      "exampleDe": "Ich wohne im Zentrum der Stadt."
+    },
+    {
+      "id": "geo_026",
+      "spanish": "la región",
+      "german": "die Region",
+      "example": "Andalucía es una región del sur.",
+      "exampleDe": "Andalusien ist eine Region im Süden."
+    },
+    {
+      "id": "geo_027",
+      "spanish": "el pueblo",
+      "german": "das Dorf",
+      "example": "Mi pueblo es muy pequeño.",
+      "exampleDe": "Mein Dorf ist sehr klein."
+    },
+    {
+      "id": "geo_028",
+      "spanish": "la playa",
+      "german": "der Strand",
+      "example": "Vamos a la playa en verano.",
+      "exampleDe": "Wir gehen im Sommer zum Strand."
+    },
+    {
+      "id": "geo_029",
+      "spanish": "el desierto",
+      "german": "die Wüste",
+      "example": "El desierto del Sahara es grande.",
+      "exampleDe": "Die Sahara-Wüste ist groß."
+    },
+    {
+      "id": "geo_030",
+      "spanish": "el mapa",
+      "german": "die Karte",
+      "example": "Necesito un mapa de España.",
+      "exampleDe": "Ich brauche eine Karte von Spanien."
+    }
+  ]
+}

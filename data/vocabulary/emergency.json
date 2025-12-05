@@ -1,0 +1,321 @@
+{
+  "category": "emergency",
+  "name": "Notfälle & Krankenhaus",
+  "words": [
+    {
+      "id": "emergency_help",
+      "spanish": "¡Ayuda!",
+      "german": "Hilfe!",
+      "example": "¡Ayuda! ¡Ha habido un accidente!",
+      "exampleDe": "Hilfe! Es gab einen Unfall!"
+    },
+    {
+      "id": "emergency_call_ambulance",
+      "spanish": "¡Llame a una ambulancia!",
+      "german": "Rufen Sie einen Krankenwagen!",
+      "example": "¡Llame a una ambulancia, por favor!",
+      "exampleDe": "Rufen Sie bitte einen Krankenwagen!"
+    },
+    {
+      "id": "emergency_urgency",
+      "spanish": "Es una emergencia",
+      "german": "Es ist ein Notfall",
+      "example": "Es una emergencia, necesito ayuda ahora",
+      "exampleDe": "Es ist ein Notfall, ich brauche jetzt Hilfe"
+    },
+    {
+      "id": "emergency_need_help",
+      "spanish": "Necesito ayuda",
+      "german": "Ich brauche Hilfe",
+      "example": "Necesito ayuda, estoy perdido",
+      "exampleDe": "Ich brauche Hilfe, ich bin verloren"
+    },
+    {
+      "id": "emergency_ambulance",
+      "spanish": "la ambulancia",
+      "german": "der Krankenwagen",
+      "example": "La ambulancia llegará en cinco minutos",
+      "exampleDe": "Der Krankenwagen wird in fünf Minuten ankommen"
+    },
+    {
+      "id": "emergency_police",
+      "spanish": "la policía",
+      "german": "die Polizei",
+      "example": "Llamé a la policía por el accidente",
+      "exampleDe": "Ich habe die Polizei wegen des Unfalls gerufen"
+    },
+    {
+      "id": "emergency_fire_department",
+      "spanish": "los bomberos",
+      "german": "die Feuerwehr",
+      "example": "Los bomberos apagaron el fuego",
+      "exampleDe": "Die Feuerwehr hat das Feuer gelöscht"
+    },
+    {
+      "id": "emergency_rescue_service",
+      "spanish": "el servicio de emergencias",
+      "german": "der Rettungsdienst",
+      "example": "El servicio de emergencias está en camino",
+      "exampleDe": "Der Rettungsdienst ist unterwegs"
+    },
+    {
+      "id": "hospital_emergency_room",
+      "spanish": "urgencias",
+      "german": "die Notaufnahme",
+      "example": "Vaya directamente a urgencias",
+      "exampleDe": "Gehen Sie direkt zur Notaufnahme"
+    },
+    {
+      "id": "hospital_hospital",
+      "spanish": "el hospital",
+      "german": "das Krankenhaus",
+      "example": "¿Dónde está el hospital más cercano?",
+      "exampleDe": "Wo ist das nächste Krankenhaus?"
+    },
+    {
+      "id": "hospital_doctor",
+      "spanish": "el médico / la médica",
+      "german": "der Arzt / die Ärztin",
+      "example": "El médico me examinó en urgencias",
+      "exampleDe": "Der Arzt hat mich in der Notaufnahme untersucht"
+    },
+    {
+      "id": "hospital_nurse",
+      "spanish": "el enfermero / la enfermera",
+      "german": "der Krankenpfleger / die Krankenschwester",
+      "example": "La enfermera tomó mi presión arterial",
+      "exampleDe": "Die Krankenschwester hat meinen Blutdruck gemessen"
+    },
+    {
+      "id": "hospital_examination",
+      "spanish": "el examen médico",
+      "german": "die Untersuchung",
+      "example": "El examen médico duró media hora",
+      "exampleDe": "Die Untersuchung dauerte eine halbe Stunde"
+    },
+    {
+      "id": "hospital_xray",
+      "spanish": "la radiografía",
+      "german": "das Röntgen",
+      "example": "Necesito hacerme una radiografía del brazo",
+      "exampleDe": "Ich muss mein Arm röntgen lassen"
+    },
+    {
+      "id": "hospital_blood_test",
+      "spanish": "el análisis de sangre",
+      "german": "der Bluttest",
+      "example": "Me hicieron un análisis de sangre",
+      "exampleDe": "Sie haben bei mir einen Bluttest gemacht"
+    },
+    {
+      "id": "hospital_operation",
+      "spanish": "la operación",
+      "german": "die Operation",
+      "example": "La operación fue un éxito",
+      "exampleDe": "Die Operation war ein Erfolg"
+    },
+    {
+      "id": "symptom_pain",
+      "spanish": "Tengo dolor",
+      "german": "Ich habe Schmerzen",
+      "example": "Tengo dolor en el pecho",
+      "exampleDe": "Ich habe Schmerzen in der Brust"
+    },
+    {
+      "id": "symptom_dizzy",
+      "spanish": "Me siento mareado/a",
+      "german": "Mir ist schwindelig",
+      "example": "Me siento mareado y débil",
+      "exampleDe": "Mir ist schwindelig und schwach"
+    },
+    {
+      "id": "symptom_breathe",
+      "spanish": "No puedo respirar",
+      "german": "Ich kann nicht atmen",
+      "example": "No puedo respirar bien",
+      "exampleDe": "Ich kann nicht gut atmen"
+    },
+    {
+      "id": "symptom_bleeding",
+      "spanish": "Estoy sangrando",
+      "german": "Ich blute",
+      "example": "Estoy sangrando mucho de la cabeza",
+      "exampleDe": "Ich blute stark am Kopf"
+    },
+    {
+      "id": "symptom_fever",
+      "spanish": "Tengo fiebre",
+      "german": "Ich habe Fieber",
+      "example": "Tengo fiebre desde ayer",
+      "exampleDe": "Ich habe seit gestern Fieber"
+    },
+    {
+      "id": "symptom_nausea",
+      "spanish": "Tengo náuseas",
+      "german": "Mir ist übel",
+      "example": "Tengo náuseas y vómitos",
+      "exampleDe": "Mir ist übel und ich muss erbrechen"
+    },
+    {
+      "id": "body_broken",
+      "spanish": "roto/a",
+      "german": "gebrochen",
+      "example": "Creo que tengo el brazo roto",
+      "exampleDe": "Ich glaube, mein Arm ist gebrochen"
+    },
+    {
+      "id": "body_injured",
+      "spanish": "herido/a",
+      "german": "verletzt",
+      "example": "Está gravemente herido",
+      "exampleDe": "Er ist schwer verletzt"
+    },
+    {
+      "id": "body_wound",
+      "spanish": "la herida",
+      "german": "die Wunde",
+      "example": "La herida necesita puntos",
+      "exampleDe": "Die Wunde braucht Stiche"
+    },
+    {
+      "id": "body_burn",
+      "spanish": "la quemadura",
+      "german": "die Verbrennung",
+      "example": "Tengo una quemadura en la mano",
+      "exampleDe": "Ich habe eine Verbrennung an der Hand"
+    },
+    {
+      "id": "body_head",
+      "spanish": "la cabeza",
+      "german": "der Kopf",
+      "example": "Me duele mucho la cabeza",
+      "exampleDe": "Mein Kopf tut sehr weh"
+    },
+    {
+      "id": "body_chest",
+      "spanish": "el pecho",
+      "german": "die Brust",
+      "example": "Tengo dolor en el pecho",
+      "exampleDe": "Ich habe Schmerzen in der Brust"
+    },
+    {
+      "id": "body_stomach",
+      "spanish": "el estómago",
+      "german": "der Magen/Bauch",
+      "example": "Me duele el estómago desde esta mañana",
+      "exampleDe": "Mein Bauch tut seit heute Morgen weh"
+    },
+    {
+      "id": "body_arm",
+      "spanish": "el brazo",
+      "german": "der Arm",
+      "example": "No puedo mover el brazo",
+      "exampleDe": "Ich kann meinen Arm nicht bewegen"
+    },
+    {
+      "id": "body_leg",
+      "spanish": "la pierna",
+      "german": "das Bein",
+      "example": "Me torcí la pierna jugando fútbol",
+      "exampleDe": "Ich habe mir beim Fußballspielen das Bein verstaucht"
+    },
+    {
+      "id": "body_back",
+      "spanish": "la espalda",
+      "german": "der Rücken",
+      "example": "Tengo un dolor fuerte en la espalda",
+      "exampleDe": "Ich habe starke Rückenschmerzen"
+    },
+    {
+      "id": "question_where_hospital",
+      "spanish": "¿Dónde está el hospital?",
+      "german": "Wo ist das Krankenhaus?",
+      "example": "¿Dónde está el hospital más cercano?",
+      "exampleDe": "Wo ist das nächste Krankenhaus?"
+    },
+    {
+      "id": "question_allergic",
+      "spanish": "¿Es alérgico/a a algo?",
+      "german": "Sind Sie gegen etwas allergisch?",
+      "example": "¿Es alérgico a algún medicamento?",
+      "exampleDe": "Sind Sie gegen irgendein Medikament allergisch?"
+    },
+    {
+      "id": "question_what_happened",
+      "spanish": "¿Qué pasó?",
+      "german": "Was ist passiert?",
+      "example": "¿Qué pasó? ¿Cómo se lesionó?",
+      "exampleDe": "Was ist passiert? Wie haben Sie sich verletzt?"
+    },
+    {
+      "id": "question_how_feel",
+      "spanish": "¿Cómo se siente?",
+      "german": "Wie fühlen Sie sich?",
+      "example": "¿Cómo se siente ahora?",
+      "exampleDe": "Wie fühlen Sie sich jetzt?"
+    },
+    {
+      "id": "admin_insurance",
+      "spanish": "el seguro médico",
+      "german": "die Krankenversicherung",
+      "example": "Necesito su tarjeta de seguro médico",
+      "exampleDe": "Ich brauche Ihre Krankenversicherungskarte"
+    },
+    {
+      "id": "admin_id",
+      "spanish": "el documento de identidad",
+      "german": "der Ausweis",
+      "example": "Por favor, muéstreme su documento de identidad",
+      "exampleDe": "Bitte zeigen Sie mir Ihren Ausweis"
+    },
+    {
+      "id": "admin_form",
+      "spanish": "el formulario",
+      "german": "das Formular",
+      "example": "Tiene que rellenar este formulario",
+      "exampleDe": "Sie müssen dieses Formular ausfüllen"
+    },
+    {
+      "id": "med_medicine",
+      "spanish": "el medicamento",
+      "german": "das Medikament",
+      "example": "Tome este medicamento tres veces al día",
+      "exampleDe": "Nehmen Sie dieses Medikament dreimal täglich"
+    },
+    {
+      "id": "med_prescription",
+      "spanish": "la receta",
+      "german": "das Rezept",
+      "example": "Aquí está su receta médica",
+      "exampleDe": "Hier ist Ihr Rezept"
+    },
+    {
+      "id": "emergency_accident",
+      "spanish": "el accidente",
+      "german": "der Unfall",
+      "example": "Ha habido un accidente de tráfico",
+      "exampleDe": "Es gab einen Verkehrsunfall"
+    },
+    {
+      "id": "emergency_unconscious",
+      "spanish": "inconsciente",
+      "german": "bewusstlos",
+      "example": "La persona está inconsciente",
+      "exampleDe": "Die Person ist bewusstlos"
+    },
+    {
+      "id": "hospital_stretcher",
+      "spanish": "la camilla",
+      "german": "die Trage/Bahre",
+      "example": "Lo llevaron en camilla a urgencias",
+      "exampleDe": "Sie haben ihn auf einer Trage zur Notaufnahme gebracht"
+    },
+    {
+      "id": "emergency_serious",
+      "spanish": "grave",
+      "german": "schwer/ernst",
+      "example": "Es una situación grave",
+      "exampleDe": "Es ist eine ernste Situation"
+    }
+  ]
+}

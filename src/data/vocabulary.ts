@@ -23,6 +23,18 @@ import daily from '../../data/vocabulary/daily.json'
 import restaurant from '../../data/vocabulary/restaurant.json'
 import foodExtended from '../../data/vocabulary/food-extended.json'
 import animals from '../../data/vocabulary/animals.json'
+import geography from '../../data/vocabulary/geography.json'
+import materials from '../../data/vocabulary/materials.json'
+import shapes from '../../data/vocabulary/shapes.json'
+import music from '../../data/vocabulary/music.json'
+import spanishCulture from '../../data/vocabulary/spanish-culture.json'
+import politics from '../../data/vocabulary/politics.json'
+import business from '../../data/vocabulary/business.json'
+import finance from '../../data/vocabulary/finance.json'
+import emergency from '../../data/vocabulary/emergency.json'
+import connectors from '../../data/vocabulary/connectors.json'
+import prepositions from '../../data/vocabulary/prepositions.json'
+import idioms from '../../data/vocabulary/idioms.json'
 
 export const categories: Category[] = [
   greetings,
@@ -47,6 +59,18 @@ export const categories: Category[] = [
   restaurant,
   foodExtended,
   animals,
+  geography,
+  materials,
+  shapes,
+  music,
+  spanishCulture,
+  politics,
+  business,
+  finance,
+  emergency,
+  connectors,
+  prepositions,
+  idioms,
 ]
 
 export const allWords: WordWithCategory[] = categories.flatMap((cat) =>

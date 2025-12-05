@@ -1,0 +1,216 @@
+{
+  "category": "music",
+  "name": "Musik",
+  "words": [
+    {
+      "id": "music_guitar",
+      "spanish": "la guitarra",
+      "german": "die Gitarre",
+      "example": "Mi hermano toca la guitarra muy bien.",
+      "exampleDe": "Mein Bruder spielt sehr gut Gitarre."
+    },
+    {
+      "id": "music_piano",
+      "spanish": "el piano",
+      "german": "das Klavier",
+      "example": "Aprendí a tocar el piano cuando era niño.",
+      "exampleDe": "Ich habe als Kind gelernt, Klavier zu spielen."
+    },
+    {
+      "id": "music_drums",
+      "spanish": "la batería",
+      "german": "das Schlagzeug",
+      "example": "El baterista toca la batería con mucha energía.",
+      "exampleDe": "Der Schlagzeuger spielt mit viel Energie Schlagzeug."
+    },
+    {
+      "id": "music_violin",
+      "spanish": "el violín",
+      "german": "die Geige",
+      "example": "El violín tiene un sonido muy hermoso.",
+      "exampleDe": "Die Geige hat einen sehr schönen Klang."
+    },
+    {
+      "id": "music_flute",
+      "spanish": "la flauta",
+      "german": "die Flöte",
+      "example": "Ella toca la flauta en la orquesta.",
+      "exampleDe": "Sie spielt Flöte im Orchester."
+    },
+    {
+      "id": "music_trumpet",
+      "spanish": "la trompeta",
+      "german": "die Trompete",
+      "example": "La trompeta es un instrumento de viento.",
+      "exampleDe": "Die Trompete ist ein Blasinstrument."
+    },
+    {
+      "id": "music_saxophone",
+      "spanish": "el saxofón",
+      "german": "das Saxophon",
+      "example": "Me encanta el sonido del saxofón en el jazz.",
+      "exampleDe": "Ich liebe den Klang des Saxophons im Jazz."
+    },
+    {
+      "id": "music_bass",
+      "spanish": "el bajo",
+      "german": "der Bass",
+      "example": "El bajo marca el ritmo de la canción.",
+      "exampleDe": "Der Bass gibt den Rhythmus des Liedes vor."
+    },
+    {
+      "id": "music_song",
+      "spanish": "la canción",
+      "german": "das Lied",
+      "example": "Esta canción es muy popular en España.",
+      "exampleDe": "Dieses Lied ist in Spanien sehr beliebt."
+    },
+    {
+      "id": "music_melody",
+      "spanish": "la melodía",
+      "german": "die Melodie",
+      "example": "La melodía de esta canción es muy pegadiza.",
+      "exampleDe": "Die Melodie dieses Liedes ist sehr eingängig."
+    },
+    {
+      "id": "music_rhythm",
+      "spanish": "el ritmo",
+      "german": "der Rhythmus",
+      "example": "Me gusta bailar al ritmo de la música.",
+      "exampleDe": "Ich tanze gerne im Rhythmus der Musik."
+    },
+    {
+      "id": "music_concert",
+      "spanish": "el concierto",
+      "german": "das Konzert",
+      "example": "Vamos al concierto el sábado por la noche.",
+      "exampleDe": "Wir gehen am Samstagabend ins Konzert."
+    },
+    {
+      "id": "music_band",
+      "spanish": "la banda",
+      "german": "die Band",
+      "example": "Mi banda favorita toca rock.",
+      "exampleDe": "Meine Lieblingsband spielt Rock."
+    },
+    {
+      "id": "music_singer",
+      "spanish": "el cantante / la cantante",
+      "german": "der Sänger / die Sängerin",
+      "example": "Ella es una cantante muy talentosa.",
+      "exampleDe": "Sie ist eine sehr talentierte Sängerin."
+    },
+    {
+      "id": "music_musician",
+      "spanish": "el músico / la música",
+      "german": "der Musiker / die Musikerin",
+      "example": "Los músicos ensayan todos los días.",
+      "exampleDe": "Die Musiker proben jeden Tag."
+    },
+    {
+      "id": "music_orchestra",
+      "spanish": "la orquesta",
+      "german": "das Orchester",
+      "example": "La orquesta sinfónica tocará mañana.",
+      "exampleDe": "Das Sinfonieorchester wird morgen spielen."
+    },
+    {
+      "id": "music_rock",
+      "spanish": "el rock",
+      "german": "der Rock",
+      "example": "Me gusta escuchar rock clásico.",
+      "exampleDe": "Ich höre gerne klassischen Rock."
+    },
+    {
+      "id": "music_pop",
+      "spanish": "el pop",
+      "german": "der Pop",
+      "example": "La música pop es muy popular entre los jóvenes.",
+      "exampleDe": "Popmusik ist bei Jugendlichen sehr beliebt."
+    },
+    {
+      "id": "music_classical",
+      "spanish": "la música clásica",
+      "german": "die klassische Musik",
+      "example": "Mi abuelo escucha música clásica todos los días.",
+      "exampleDe": "Mein Großvater hört jeden Tag klassische Musik."
+    },
+    {
+      "id": "music_jazz",
+      "spanish": "el jazz",
+      "german": "der Jazz",
+      "example": "Hay un festival de jazz en la ciudad.",
+      "exampleDe": "Es gibt ein Jazz-Festival in der Stadt."
+    },
+    {
+      "id": "music_note",
+      "spanish": "la nota",
+      "german": "die Note",
+      "example": "Necesito aprender a leer las notas musicales.",
+      "exampleDe": "Ich muss lernen, Noten zu lesen."
+    },
+    {
+      "id": "music_sound",
+      "spanish": "el sonido",
+      "german": "der Klang",
+      "example": "El sonido de este instrumento es único.",
+      "exampleDe": "Der Klang dieses Instruments ist einzigartig."
+    },
+    {
+      "id": "music_to_play",
+      "spanish": "tocar",
+      "german": "spielen (Instrument)",
+      "example": "¿Sabes tocar algún instrumento?",
+      "exampleDe": "Kannst du ein Instrument spielen?"
+    },
+    {
+      "id": "music_to_sing",
+      "spanish": "cantar",
+      "german": "singen",
+      "example": "A ella le encanta cantar en la ducha.",
+      "exampleDe": "Sie singt gerne unter der Dusche."
+    },
+    {
+      "id": "music_to_listen",
+      "spanish": "escuchar",
+      "german": "hören",
+      "example": "Escucho música todos los días.",
+      "exampleDe": "Ich höre jeden Tag Musik."
+    },
+    {
+      "id": "music_album",
+      "spanish": "el álbum",
+      "german": "das Album",
+      "example": "Su nuevo álbum sale la próxima semana.",
+      "exampleDe": "Ihr neues Album erscheint nächste Woche."
+    },
+    {
+      "id": "music_headphones",
+      "spanish": "los auriculares",
+      "german": "die Kopfhörer",
+      "example": "Uso auriculares para escuchar música en el bus.",
+      "exampleDe": "Ich benutze Kopfhörer, um im Bus Musik zu hören."
+    },
+    {
+      "id": "music_volume",
+      "spanish": "el volumen",
+      "german": "die Lautstärke",
+      "example": "Baja el volumen, por favor.",
+      "exampleDe": "Mach bitte die Lautstärke leiser."
+    },
+    {
+      "id": "music_stage",
+      "spanish": "el escenario",
+      "german": "die Bühne",
+      "example": "Los músicos subieron al escenario.",
+      "exampleDe": "Die Musiker betraten die Bühne."
+    },
+    {
+      "id": "music_microphone",
+      "spanish": "el micrófono",
+      "german": "das Mikrofon",
+      "example": "El cantante habló por el micrófono.",
+      "exampleDe": "Der Sänger sprach ins Mikrofon."
+    }
+  ]
+}

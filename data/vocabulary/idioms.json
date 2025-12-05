@@ -1,0 +1,321 @@
+{
+  "category": "idioms",
+  "name": "Redewendungen & Ausdrücke",
+  "words": [
+    {
+      "id": "idiom_001",
+      "spanish": "estar como pez en el agua",
+      "german": "sich pudelwohl fühlen",
+      "example": "En la fiesta, María estaba como pez en el agua.",
+      "exampleDe": "Auf der Party fühlte sich María pudelwohl."
+    },
+    {
+      "id": "idiom_002",
+      "spanish": "costar un ojo de la cara",
+      "german": "ein Vermögen kosten",
+      "example": "Este reloj me costó un ojo de la cara.",
+      "exampleDe": "Diese Uhr hat mich ein Vermögen gekostet."
+    },
+    {
+      "id": "idiom_003",
+      "spanish": "tomar el pelo",
+      "german": "jemanden auf den Arm nehmen",
+      "example": "No te enfades, solo te estoy tomando el pelo.",
+      "exampleDe": "Sei nicht sauer, ich nehme dich nur auf den Arm."
+    },
+    {
+      "id": "idiom_004",
+      "spanish": "no tener pelos en la lengua",
+      "german": "kein Blatt vor den Mund nehmen",
+      "example": "Juan no tiene pelos en la lengua cuando opina.",
+      "exampleDe": "Juan nimmt kein Blatt vor den Mund, wenn er seine Meinung äußert."
+    },
+    {
+      "id": "idiom_005",
+      "spanish": "meter la pata",
+      "german": "ins Fettnäpfchen treten",
+      "example": "Metí la pata al olvidar su cumpleaños.",
+      "exampleDe": "Ich trat ins Fettnäpfchen, als ich ihren Geburtstag vergaß."
+    },
+    {
+      "id": "idiom_006",
+      "spanish": "estar en las nubes",
+      "german": "in den Wolken schweben/unkonzentriert sein",
+      "example": "Hoy estás en las nubes, no me escuchas.",
+      "exampleDe": "Heute schwebst du in den Wolken, du hörst mir nicht zu."
+    },
+    {
+      "id": "idiom_007",
+      "spanish": "ser pan comido",
+      "german": "ein Kinderspiel sein",
+      "example": "Este examen es pan comido para mí.",
+      "exampleDe": "Diese Prüfung ist ein Kinderspiel für mich."
+    },
+    {
+      "id": "idiom_008",
+      "spanish": "quedarse de piedra",
+      "german": "versteinert sein/sprachlos sein",
+      "example": "Me quedé de piedra con la noticia.",
+      "exampleDe": "Ich war sprachlos bei der Nachricht."
+    },
+    {
+      "id": "idiom_009",
+      "spanish": "dar en el clavo",
+      "german": "den Nagel auf den Kopf treffen",
+      "example": "Has dado en el clavo con tu comentario.",
+      "exampleDe": "Du hast den Nagel auf den Kopf getroffen mit deinem Kommentar."
+    },
+    {
+      "id": "idiom_010",
+      "spanish": "no hay mal que por bien no venga",
+      "german": "alles hat sein Gutes",
+      "example": "Perdí el tren, pero conocí a un viejo amigo. No hay mal que por bien no venga.",
+      "exampleDe": "Ich verpasste den Zug, traf aber einen alten Freund. Alles hat sein Gutes."
+    },
+    {
+      "id": "idiom_011",
+      "spanish": "más vale tarde que nunca",
+      "german": "besser spät als nie",
+      "example": "Llegaste tarde, pero más vale tarde que nunca.",
+      "exampleDe": "Du kamst spät, aber besser spät als nie."
+    },
+    {
+      "id": "idiom_012",
+      "spanish": "a mal tiempo, buena cara",
+      "german": "gute Miene zum bösen Spiel machen",
+      "example": "Aunque está lloviendo, a mal tiempo, buena cara.",
+      "exampleDe": "Auch wenn es regnet, gute Miene zum bösen Spiel."
+    },
+    {
+      "id": "idiom_013",
+      "spanish": "buscarle tres pies al gato",
+      "german": "Haare in der Suppe suchen",
+      "example": "No le busques tres pies al gato, acepta la oferta.",
+      "exampleDe": "Suche nicht die Haare in der Suppe, nimm das Angebot an."
+    },
+    {
+      "id": "idiom_014",
+      "spanish": "hacer la vista gorda",
+      "german": "ein Auge zudrücken",
+      "example": "El profesor hizo la vista gorda con mi retraso.",
+      "exampleDe": "Der Lehrer drückte bei meiner Verspätung ein Auge zu."
+    },
+    {
+      "id": "idiom_015",
+      "spanish": "dormirse en los laureles",
+      "german": "sich auf seinen Lorbeeren ausruhen",
+      "example": "No te duermas en los laureles, sigue trabajando.",
+      "exampleDe": "Ruhe dich nicht auf deinen Lorbeeren aus, arbeite weiter."
+    },
+    {
+      "id": "idiom_016",
+      "spanish": "tirar la casa por la ventana",
+      "german": "auf den Putz hauen/klotzen statt kleckern",
+      "example": "Para su boda tiraron la casa por la ventana.",
+      "exampleDe": "Für ihre Hochzeit haben sie auf den Putz gehauen."
+    },
+    {
+      "id": "idiom_017",
+      "spanish": "estar hasta las narices",
+      "german": "die Nase voll haben",
+      "example": "Estoy hasta las narices de este trabajo.",
+      "exampleDe": "Ich habe die Nase voll von dieser Arbeit."
+    },
+    {
+      "id": "idiom_018",
+      "spanish": "ponerse las pilas",
+      "german": "sich ranhalten/Gas geben",
+      "example": "Si quieres aprobar, ponte las pilas.",
+      "exampleDe": "Wenn du bestehen willst, musst du Gas geben."
+    },
+    {
+      "id": "idiom_019",
+      "spanish": "hacer de tripas corazón",
+      "german": "sich ein Herz fassen",
+      "example": "Hice de tripas corazón y hablé con mi jefe.",
+      "exampleDe": "Ich fasste mir ein Herz und sprach mit meinem Chef."
+    },
+    {
+      "id": "idiom_020",
+      "spanish": "echar leña al fuego",
+      "german": "Öl ins Feuer gießen",
+      "example": "Tu comentario echó leña al fuego.",
+      "exampleDe": "Dein Kommentar hat Öl ins Feuer gegossen."
+    },
+    {
+      "id": "idiom_021",
+      "spanish": "estar entre la espada y la pared",
+      "german": "zwischen Baum und Borke sein",
+      "example": "Estoy entre la espada y la pared con esta decisión.",
+      "exampleDe": "Ich bin zwischen Baum und Borke mit dieser Entscheidung."
+    },
+    {
+      "id": "idiom_022",
+      "spanish": "no dar ni golpe",
+      "german": "keinen Finger rühren",
+      "example": "Mi compañero de piso no da ni golpe.",
+      "exampleDe": "Mein Mitbewohner rührt keinen Finger."
+    },
+    {
+      "id": "idiom_023",
+      "spanish": "hacer oídos sordos",
+      "german": "auf taube Ohren stoßen",
+      "example": "Le advertí, pero hizo oídos sordos.",
+      "exampleDe": "Ich warnte ihn, aber es stieß auf taube Ohren."
+    },
+    {
+      "id": "idiom_024",
+      "spanish": "coger el toro por los cuernos",
+      "german": "den Stier bei den Hörnern packen",
+      "example": "Es hora de coger el toro por los cuernos.",
+      "exampleDe": "Es ist Zeit, den Stier bei den Hörnern zu packen."
+    },
+    {
+      "id": "idiom_025",
+      "spanish": "andar con pies de plomo",
+      "german": "vorsichtig vorgehen",
+      "example": "En este tema, hay que andar con pies de plomo.",
+      "exampleDe": "Bei diesem Thema muss man vorsichtig vorgehen."
+    },
+    {
+      "id": "idiom_026",
+      "spanish": "estar como una cabra",
+      "german": "verrückt sein",
+      "example": "Mi primo está como una cabra.",
+      "exampleDe": "Mein Cousin ist verrückt."
+    },
+    {
+      "id": "idiom_027",
+      "spanish": "llover sobre mojado",
+      "german": "ein Unglück kommt selten allein",
+      "example": "Perdí el trabajo y ahora el coche. Llueve sobre mojado.",
+      "exampleDe": "Ich verlor den Job und jetzt das Auto. Ein Unglück kommt selten allein."
+    },
+    {
+      "id": "idiom_028",
+      "spanish": "no tener ni idea",
+      "german": "keine Ahnung haben",
+      "example": "No tengo ni idea de dónde está mi teléfono.",
+      "exampleDe": "Ich habe keine Ahnung, wo mein Handy ist."
+    },
+    {
+      "id": "idiom_029",
+      "spanish": "tirar la toalla",
+      "german": "das Handtuch werfen",
+      "example": "No tires la toalla, sigue intentándolo.",
+      "exampleDe": "Wirf nicht das Handtuch, versuch es weiter."
+    },
+    {
+      "id": "idiom_030",
+      "spanish": "ser uña y carne",
+      "german": "unzertrennlich sein",
+      "example": "Ana y Luis son uña y carne.",
+      "exampleDe": "Ana und Luis sind unzertrennlich."
+    },
+    {
+      "id": "idiom_031",
+      "spanish": "montar un pollo",
+      "german": "Theater machen/eine Szene machen",
+      "example": "No montes un pollo por eso.",
+      "exampleDe": "Mach deswegen kein Theater."
+    },
+    {
+      "id": "idiom_032",
+      "spanish": "poner los puntos sobre las íes",
+      "german": "die Dinge klarstellen",
+      "example": "Voy a poner los puntos sobre las íes.",
+      "exampleDe": "Ich werde die Dinge klarstellen."
+    },
+    {
+      "id": "idiom_033",
+      "spanish": "estar en el ajo",
+      "german": "im Bilde sein/eingeweiht sein",
+      "example": "Ella está en el ajo de todo.",
+      "exampleDe": "Sie ist über alles im Bilde."
+    },
+    {
+      "id": "idiom_034",
+      "spanish": "pasar la noche en blanco",
+      "german": "eine schlaflose Nacht haben",
+      "example": "Pasé la noche en blanco pensando en ti.",
+      "exampleDe": "Ich hatte eine schlaflose Nacht und dachte an dich."
+    },
+    {
+      "id": "idiom_035",
+      "spanish": "estar sin blanca",
+      "german": "pleite sein",
+      "example": "No puedo salir, estoy sin blanca.",
+      "exampleDe": "Ich kann nicht ausgehen, ich bin pleite."
+    },
+    {
+      "id": "idiom_036",
+      "spanish": "hacerse el sueco",
+      "german": "sich dumm stellen",
+      "example": "No te hagas el sueco, sé que me oíste.",
+      "exampleDe": "Stell dich nicht dumm, ich weiß, dass du mich gehört hast."
+    },
+    {
+      "id": "idiom_037",
+      "spanish": "quedarse con alguien",
+      "german": "jemanden veräppeln",
+      "example": "Te estás quedando conmigo, ¿verdad?",
+      "exampleDe": "Du veräppelst mich, oder?"
+    },
+    {
+      "id": "idiom_038",
+      "spanish": "ser la oveja negra",
+      "german": "das schwarze Schaf sein",
+      "example": "Siempre fui la oveja negra de la familia.",
+      "exampleDe": "Ich war immer das schwarze Schaf der Familie."
+    },
+    {
+      "id": "idiom_039",
+      "spanish": "tener mala pata",
+      "german": "Pech haben",
+      "example": "Tengo muy mala pata con los exámenes.",
+      "exampleDe": "Ich habe sehr viel Pech bei Prüfungen."
+    },
+    {
+      "id": "idiom_040",
+      "spanish": "estar hecho polvo",
+      "german": "völlig fertig sein",
+      "example": "Después del viaje estoy hecho polvo.",
+      "exampleDe": "Nach der Reise bin ich völlig fertig."
+    },
+    {
+      "id": "idiom_041",
+      "spanish": "dar calabazas",
+      "german": "einen Korb geben",
+      "example": "Le dio calabazas cuando le pidió salir.",
+      "exampleDe": "Sie gab ihm einen Korb, als er sie um ein Date bat."
+    },
+    {
+      "id": "idiom_042",
+      "spanish": "tener la mosca detrás de la oreja",
+      "german": "misstrauisch sein",
+      "example": "Tengo la mosca detrás de la oreja con esa oferta.",
+      "exampleDe": "Ich bin misstrauisch bei diesem Angebot."
+    },
+    {
+      "id": "idiom_043",
+      "spanish": "romper el hielo",
+      "german": "das Eis brechen",
+      "example": "Contó un chiste para romper el hielo.",
+      "exampleDe": "Er erzählte einen Witz, um das Eis zu brechen."
+    },
+    {
+      "id": "idiom_044",
+      "spanish": "dar gato por liebre",
+      "german": "jemanden übers Ohr hauen",
+      "example": "Me dieron gato por liebre en esa tienda.",
+      "exampleDe": "In diesem Laden haben sie mich übers Ohr gehauen."
+    },
+    {
+      "id": "idiom_045",
+      "spanish": "irse por las ramas",
+      "german": "vom Thema abschweifen",
+      "example": "No te vayas por las ramas, ve al grano.",
+      "exampleDe": "Schweife nicht vom Thema ab, komm zur Sache."
+    }
+  ]
+}

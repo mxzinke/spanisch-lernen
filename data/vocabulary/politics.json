@@ -1,0 +1,356 @@
+{
+  "category": "politics",
+  "name": "Politik & Gesellschaft",
+  "words": [
+    {
+      "id": "pol_gobierno",
+      "spanish": "el gobierno",
+      "german": "die Regierung",
+      "example": "El gobierno anunció nuevas medidas económicas.",
+      "exampleDe": "Die Regierung kündigte neue Wirtschaftsmaßnahmen an."
+    },
+    {
+      "id": "pol_parlamento",
+      "spanish": "el parlamento",
+      "german": "das Parlament",
+      "example": "El parlamento debatió la nueva ley.",
+      "exampleDe": "Das Parlament debattierte das neue Gesetz."
+    },
+    {
+      "id": "pol_presidente",
+      "spanish": "el presidente",
+      "german": "der Präsident",
+      "example": "El presidente dio un discurso sobre la crisis.",
+      "exampleDe": "Der Präsident hielt eine Rede über die Krise."
+    },
+    {
+      "id": "pol_ministra",
+      "spanish": "la ministra",
+      "german": "die Ministerin",
+      "example": "La ministra de educación presentó una reforma.",
+      "exampleDe": "Die Bildungsministerin stellte eine Reform vor."
+    },
+    {
+      "id": "pol_elecciones",
+      "spanish": "las elecciones",
+      "german": "die Wahlen",
+      "example": "Las elecciones se celebrarán en noviembre.",
+      "exampleDe": "Die Wahlen werden im November stattfinden."
+    },
+    {
+      "id": "pol_votar",
+      "spanish": "votar",
+      "german": "wählen",
+      "example": "Todos los ciudadanos tienen derecho a votar.",
+      "exampleDe": "Alle Bürger haben das Recht zu wählen."
+    },
+    {
+      "id": "pol_democracia",
+      "spanish": "la democracia",
+      "german": "die Demokratie",
+      "example": "La democracia garantiza libertades fundamentales.",
+      "exampleDe": "Die Demokratie garantiert grundlegende Freiheiten."
+    },
+    {
+      "id": "pol_partido",
+      "spanish": "el partido",
+      "german": "die Partei",
+      "example": "El partido ganó las elecciones con mayoría.",
+      "exampleDe": "Die Partei gewann die Wahlen mit Mehrheit."
+    },
+    {
+      "id": "pol_ley",
+      "spanish": "la ley",
+      "german": "das Gesetz",
+      "example": "La nueva ley entrará en vigor el próximo mes.",
+      "exampleDe": "Das neue Gesetz tritt nächsten Monat in Kraft."
+    },
+    {
+      "id": "pol_derecho",
+      "spanish": "el derecho",
+      "german": "das Recht",
+      "example": "Tenemos derecho a la libertad de expresión.",
+      "exampleDe": "Wir haben das Recht auf Meinungsfreiheit."
+    },
+    {
+      "id": "pol_ciudadano",
+      "spanish": "el ciudadano",
+      "german": "der Bürger",
+      "example": "Los ciudadanos protestaron contra la corrupción.",
+      "exampleDe": "Die Bürger protestierten gegen die Korruption."
+    },
+    {
+      "id": "pol_estado",
+      "spanish": "el estado",
+      "german": "der Staat",
+      "example": "El estado debe proteger a sus ciudadanos.",
+      "exampleDe": "Der Staat muss seine Bürger schützen."
+    },
+    {
+      "id": "pol_nacion",
+      "spanish": "la nación",
+      "german": "die Nation",
+      "example": "La nación celebró su independencia.",
+      "exampleDe": "Die Nation feierte ihre Unabhängigkeit."
+    },
+    {
+      "id": "pol_guerra",
+      "spanish": "la guerra",
+      "german": "der Krieg",
+      "example": "La guerra causó una crisis humanitaria.",
+      "exampleDe": "Der Krieg verursachte eine humanitäre Krise."
+    },
+    {
+      "id": "pol_paz",
+      "spanish": "la paz",
+      "german": "der Frieden",
+      "example": "Las negociaciones de paz comenzaron ayer.",
+      "exampleDe": "Die Friedensverhandlungen begannen gestern."
+    },
+    {
+      "id": "pol_protesta",
+      "spanish": "la protesta",
+      "german": "der Protest",
+      "example": "La protesta reunió a miles de personas.",
+      "exampleDe": "Der Protest versammelte Tausende von Menschen."
+    },
+    {
+      "id": "pol_manifestacion",
+      "spanish": "la manifestación",
+      "german": "die Demonstration",
+      "example": "La manifestación fue pacífica.",
+      "exampleDe": "Die Demonstration war friedlich."
+    },
+    {
+      "id": "pol_igualdad",
+      "spanish": "la igualdad",
+      "german": "die Gleichheit",
+      "example": "Luchamos por la igualdad de derechos.",
+      "exampleDe": "Wir kämpfen für die Gleichheit der Rechte."
+    },
+    {
+      "id": "pol_libertad",
+      "spanish": "la libertad",
+      "german": "die Freiheit",
+      "example": "La libertad de prensa es esencial.",
+      "exampleDe": "Die Pressefreiheit ist unerlässlich."
+    },
+    {
+      "id": "pol_derechos_humanos",
+      "spanish": "los derechos humanos",
+      "german": "die Menschenrechte",
+      "example": "La organización defiende los derechos humanos.",
+      "exampleDe": "Die Organisation verteidigt die Menschenrechte."
+    },
+    {
+      "id": "pol_medio_ambiente",
+      "spanish": "el medio ambiente",
+      "german": "die Umwelt",
+      "example": "Debemos proteger el medio ambiente.",
+      "exampleDe": "Wir müssen die Umwelt schützen."
+    },
+    {
+      "id": "pol_cambio_climatico",
+      "spanish": "el cambio climático",
+      "german": "der Klimawandel",
+      "example": "El cambio climático es una amenaza global.",
+      "exampleDe": "Der Klimawandel ist eine globale Bedrohung."
+    },
+    {
+      "id": "pol_sostenibilidad",
+      "spanish": "la sostenibilidad",
+      "german": "die Nachhaltigkeit",
+      "example": "La sostenibilidad es clave para el futuro.",
+      "exampleDe": "Nachhaltigkeit ist der Schlüssel für die Zukunft."
+    },
+    {
+      "id": "pol_refugiado",
+      "spanish": "el refugiado",
+      "german": "der Flüchtling",
+      "example": "Los refugiados necesitan ayuda humanitaria.",
+      "exampleDe": "Die Flüchtlinge benötigen humanitäre Hilfe."
+    },
+    {
+      "id": "pol_inmigracion",
+      "spanish": "la inmigración",
+      "german": "die Immigration",
+      "example": "La inmigración es un tema político importante.",
+      "exampleDe": "Die Immigration ist ein wichtiges politisches Thema."
+    },
+    {
+      "id": "pol_sociedad",
+      "spanish": "la sociedad",
+      "german": "die Gesellschaft",
+      "example": "La sociedad debe ser más inclusiva.",
+      "exampleDe": "Die Gesellschaft muss inklusiver werden."
+    },
+    {
+      "id": "pol_medios",
+      "spanish": "los medios",
+      "german": "die Medien",
+      "example": "Los medios informaron sobre el escándalo.",
+      "exampleDe": "Die Medien berichteten über den Skandal."
+    },
+    {
+      "id": "pol_noticias",
+      "spanish": "las noticias",
+      "german": "die Nachrichten",
+      "example": "Vi las noticias en la televisión.",
+      "exampleDe": "Ich sah die Nachrichten im Fernsehen."
+    },
+    {
+      "id": "pol_corrupcion",
+      "spanish": "la corrupción",
+      "german": "die Korruption",
+      "example": "La corrupción es un problema grave.",
+      "exampleDe": "Korruption ist ein ernstes Problem."
+    },
+    {
+      "id": "pol_justicia",
+      "spanish": "la justicia",
+      "german": "die Gerechtigkeit",
+      "example": "Exigimos justicia para las víctimas.",
+      "exampleDe": "Wir fordern Gerechtigkeit für die Opfer."
+    },
+    {
+      "id": "pol_constitucion",
+      "spanish": "la constitución",
+      "german": "die Verfassung",
+      "example": "La constitución protege nuestros derechos.",
+      "exampleDe": "Die Verfassung schützt unsere Rechte."
+    },
+    {
+      "id": "pol_politico",
+      "spanish": "el político",
+      "german": "der Politiker",
+      "example": "El político prometió reducir los impuestos.",
+      "exampleDe": "Der Politiker versprach, die Steuern zu senken."
+    },
+    {
+      "id": "pol_crisis",
+      "spanish": "la crisis",
+      "german": "die Krise",
+      "example": "El país enfrenta una crisis económica.",
+      "exampleDe": "Das Land steht vor einer Wirtschaftskrise."
+    },
+    {
+      "id": "pol_economia",
+      "spanish": "la economía",
+      "german": "die Wirtschaft",
+      "example": "La economía creció un tres por ciento.",
+      "exampleDe": "Die Wirtschaft wuchs um drei Prozent."
+    },
+    {
+      "id": "pol_impuesto",
+      "spanish": "el impuesto",
+      "german": "die Steuer",
+      "example": "Subieron los impuestos este año.",
+      "exampleDe": "Die Steuern wurden dieses Jahr erhöht."
+    },
+    {
+      "id": "pol_desempleo",
+      "spanish": "el desempleo",
+      "german": "die Arbeitslosigkeit",
+      "example": "El desempleo bajó en el último trimestre.",
+      "exampleDe": "Die Arbeitslosigkeit sank im letzten Quartal."
+    },
+    {
+      "id": "pol_sindicato",
+      "spanish": "el sindicato",
+      "german": "die Gewerkschaft",
+      "example": "El sindicato convocó una huelga.",
+      "exampleDe": "Die Gewerkschaft rief einen Streik aus."
+    },
+    {
+      "id": "pol_huelga",
+      "spanish": "la huelga",
+      "german": "der Streik",
+      "example": "La huelga paralizó el transporte público.",
+      "exampleDe": "Der Streik legte den öffentlichen Verkehr lahm."
+    },
+    {
+      "id": "pol_reforma",
+      "spanish": "la reforma",
+      "german": "die Reform",
+      "example": "La reforma laboral fue aprobada.",
+      "exampleDe": "Die Arbeitsreform wurde verabschiedet."
+    },
+    {
+      "id": "pol_conflicto",
+      "spanish": "el conflicto",
+      "german": "der Konflikt",
+      "example": "El conflicto entre ambos países continúa.",
+      "exampleDe": "Der Konflikt zwischen beiden Ländern dauert an."
+    },
+    {
+      "id": "pol_acuerdo",
+      "spanish": "el acuerdo",
+      "german": "das Abkommen",
+      "example": "Firmaron un acuerdo de paz.",
+      "exampleDe": "Sie unterzeichneten ein Friedensabkommen."
+    },
+    {
+      "id": "pol_tratado",
+      "spanish": "el tratado",
+      "german": "der Vertrag",
+      "example": "El tratado internacional fue ratificado.",
+      "exampleDe": "Der internationale Vertrag wurde ratifiziert."
+    },
+    {
+      "id": "pol_diplomacia",
+      "spanish": "la diplomacia",
+      "german": "die Diplomatie",
+      "example": "La diplomacia es clave para resolver conflictos.",
+      "exampleDe": "Diplomatie ist der Schlüssel zur Konfliktlösung."
+    },
+    {
+      "id": "pol_seguridad",
+      "spanish": "la seguridad",
+      "german": "die Sicherheit",
+      "example": "La seguridad nacional es una prioridad.",
+      "exampleDe": "Die nationale Sicherheit ist eine Priorität."
+    },
+    {
+      "id": "pol_terrorismo",
+      "spanish": "el terrorismo",
+      "german": "der Terrorismus",
+      "example": "El gobierno combate el terrorismo.",
+      "exampleDe": "Die Regierung bekämpft den Terrorismus."
+    },
+    {
+      "id": "pol_poblacion",
+      "spanish": "la población",
+      "german": "die Bevölkerung",
+      "example": "La población mundial supera los ocho mil millones.",
+      "exampleDe": "Die Weltbevölkerung übersteigt acht Milliarden."
+    },
+    {
+      "id": "pol_pobreza",
+      "spanish": "la pobreza",
+      "german": "die Armut",
+      "example": "Trabajan para reducir la pobreza.",
+      "exampleDe": "Sie arbeiten daran, die Armut zu reduzieren."
+    },
+    {
+      "id": "pol_educacion",
+      "spanish": "la educación",
+      "german": "die Bildung",
+      "example": "La educación es un derecho fundamental.",
+      "exampleDe": "Bildung ist ein Grundrecht."
+    },
+    {
+      "id": "pol_salud_publica",
+      "spanish": "la salud pública",
+      "german": "die öffentliche Gesundheit",
+      "example": "La salud pública mejoró con las vacunas.",
+      "exampleDe": "Die öffentliche Gesundheit verbesserte sich mit den Impfungen."
+    },
+    {
+      "id": "pol_globalizacion",
+      "spanish": "la globalización",
+      "german": "die Globalisierung",
+      "example": "La globalización conecta a todo el mundo.",
+      "exampleDe": "Die Globalisierung verbindet die ganze Welt."
+    }
+  ]
+}

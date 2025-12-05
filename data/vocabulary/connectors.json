@@ -1,0 +1,286 @@
+{
+  "category": "connectors",
+  "name": "Verbindungswörter",
+  "words": [
+    {
+      "id": "conn_porque",
+      "spanish": "porque",
+      "german": "weil",
+      "example": "No voy porque estoy cansado.",
+      "exampleDe": "Ich gehe nicht, weil ich müde bin."
+    },
+    {
+      "id": "conn_ya_que",
+      "spanish": "ya que",
+      "german": "da",
+      "example": "Vamos en coche ya que llueve.",
+      "exampleDe": "Wir fahren mit dem Auto, da es regnet."
+    },
+    {
+      "id": "conn_como",
+      "spanish": "como",
+      "german": "da, wie",
+      "example": "Como no había nadie, me fui.",
+      "exampleDe": "Da niemand da war, bin ich gegangen."
+    },
+    {
+      "id": "conn_pero",
+      "spanish": "pero",
+      "german": "aber",
+      "example": "Quiero ir, pero no puedo.",
+      "exampleDe": "Ich möchte gehen, aber ich kann nicht."
+    },
+    {
+      "id": "conn_sin_embargo",
+      "spanish": "sin embargo",
+      "german": "jedoch, dennoch",
+      "example": "Es difícil, sin embargo, no imposible.",
+      "exampleDe": "Es ist schwierig, jedoch nicht unmöglich."
+    },
+    {
+      "id": "conn_aunque",
+      "spanish": "aunque",
+      "german": "obwohl, auch wenn",
+      "example": "Saldré aunque llueva.",
+      "exampleDe": "Ich gehe raus, obwohl es regnet."
+    },
+    {
+      "id": "conn_a_pesar_de",
+      "spanish": "a pesar de",
+      "german": "trotz",
+      "example": "Lo hice a pesar del miedo.",
+      "exampleDe": "Ich tat es trotz der Angst."
+    },
+    {
+      "id": "conn_por_eso",
+      "spanish": "por eso",
+      "german": "deshalb, deswegen",
+      "example": "Estaba enfermo, por eso no vine.",
+      "exampleDe": "Ich war krank, deshalb kam ich nicht."
+    },
+    {
+      "id": "conn_por_lo_tanto",
+      "spanish": "por lo tanto",
+      "german": "daher, folglich",
+      "example": "No estudió, por lo tanto suspendió.",
+      "exampleDe": "Er lernte nicht, daher fiel er durch."
+    },
+    {
+      "id": "conn_asi_que",
+      "spanish": "así que",
+      "german": "also, somit",
+      "example": "Tengo hambre, así que voy a comer.",
+      "exampleDe": "Ich habe Hunger, also werde ich essen."
+    },
+    {
+      "id": "conn_si",
+      "spanish": "si",
+      "german": "wenn, falls",
+      "example": "Si llueve, me quedo en casa.",
+      "exampleDe": "Wenn es regnet, bleibe ich zu Hause."
+    },
+    {
+      "id": "conn_en_caso_de_que",
+      "spanish": "en caso de que",
+      "german": "falls",
+      "example": "Llámame en caso de que necesites ayuda.",
+      "exampleDe": "Ruf mich an, falls du Hilfe brauchst."
+    },
+    {
+      "id": "conn_para_que",
+      "spanish": "para que",
+      "german": "damit",
+      "example": "Te lo digo para que lo sepas.",
+      "exampleDe": "Ich sage es dir, damit du es weißt."
+    },
+    {
+      "id": "conn_a_fin_de_que",
+      "spanish": "a fin de que",
+      "german": "um zu, damit",
+      "example": "Lo repito a fin de que lo entiendas.",
+      "exampleDe": "Ich wiederhole es, damit du es verstehst."
+    },
+    {
+      "id": "conn_cuando",
+      "spanish": "cuando",
+      "german": "wenn, als",
+      "example": "Avísame cuando llegues.",
+      "exampleDe": "Sag mir Bescheid, wenn du ankommst."
+    },
+    {
+      "id": "conn_mientras",
+      "spanish": "mientras",
+      "german": "während",
+      "example": "Yo cocino mientras tú limpias.",
+      "exampleDe": "Ich koche, während du putzt."
+    },
+    {
+      "id": "conn_antes_de_que",
+      "spanish": "antes de que",
+      "german": "bevor",
+      "example": "Sal antes de que sea tarde.",
+      "exampleDe": "Geh, bevor es zu spät ist."
+    },
+    {
+      "id": "conn_despues_de_que",
+      "spanish": "después de que",
+      "german": "nachdem",
+      "example": "Hablamos después de que él salió.",
+      "exampleDe": "Wir sprachen, nachdem er gegangen war."
+    },
+    {
+      "id": "conn_ademas",
+      "spanish": "además",
+      "german": "außerdem, zudem",
+      "example": "Es caro y además no me gusta.",
+      "exampleDe": "Es ist teuer und außerdem gefällt es mir nicht."
+    },
+    {
+      "id": "conn_tambien",
+      "spanish": "también",
+      "german": "auch",
+      "example": "Yo también quiero ir.",
+      "exampleDe": "Ich möchte auch gehen."
+    },
+    {
+      "id": "conn_incluso",
+      "spanish": "incluso",
+      "german": "sogar",
+      "example": "Vino incluso mi abuela.",
+      "exampleDe": "Sogar meine Oma kam."
+    },
+    {
+      "id": "conn_y",
+      "spanish": "y",
+      "german": "und",
+      "example": "Tengo un gato y un perro.",
+      "exampleDe": "Ich habe eine Katze und einen Hund."
+    },
+    {
+      "id": "conn_ni_ni",
+      "spanish": "ni...ni",
+      "german": "weder...noch",
+      "example": "No tengo ni tiempo ni dinero.",
+      "exampleDe": "Ich habe weder Zeit noch Geld."
+    },
+    {
+      "id": "conn_o",
+      "spanish": "o",
+      "german": "oder",
+      "example": "¿Café o té?",
+      "exampleDe": "Kaffee oder Tee?"
+    },
+    {
+      "id": "conn_o_bien",
+      "spanish": "o bien",
+      "german": "oder aber, oder auch",
+      "example": "Podemos ir en tren o bien en coche.",
+      "exampleDe": "Wir können mit dem Zug oder aber mit dem Auto fahren."
+    },
+    {
+      "id": "conn_como_comparacion",
+      "spanish": "como",
+      "german": "wie",
+      "example": "Es rápido como el viento.",
+      "exampleDe": "Er ist schnell wie der Wind."
+    },
+    {
+      "id": "conn_igual_que",
+      "spanish": "igual que",
+      "german": "genauso wie",
+      "example": "Ella canta igual que su madre.",
+      "exampleDe": "Sie singt genauso wie ihre Mutter."
+    },
+    {
+      "id": "conn_mas_que",
+      "spanish": "más...que",
+      "german": "mehr...als",
+      "example": "Tengo más libros que tú.",
+      "exampleDe": "Ich habe mehr Bücher als du."
+    },
+    {
+      "id": "conn_menos_que",
+      "spanish": "menos...que",
+      "german": "weniger...als",
+      "example": "Ella come menos que yo.",
+      "exampleDe": "Sie isst weniger als ich."
+    },
+    {
+      "id": "conn_es_decir",
+      "spanish": "es decir",
+      "german": "das heißt",
+      "example": "Llegó tarde, es decir, a las diez.",
+      "exampleDe": "Er kam spät, das heißt um zehn."
+    },
+    {
+      "id": "conn_o_sea",
+      "spanish": "o sea",
+      "german": "also, sprich",
+      "example": "No vino, o sea, no le interesa.",
+      "exampleDe": "Er kam nicht, also interessiert es ihn nicht."
+    },
+    {
+      "id": "conn_por_otro_lado",
+      "spanish": "por otro lado",
+      "german": "andererseits",
+      "example": "Es caro, por otro lado es de calidad.",
+      "exampleDe": "Es ist teuer, andererseits ist es qualitativ hochwertig."
+    },
+    {
+      "id": "conn_en_cambio",
+      "spanish": "en cambio",
+      "german": "hingegen, dagegen",
+      "example": "Él es alto, en cambio ella es baja.",
+      "exampleDe": "Er ist groß, hingegen ist sie klein."
+    },
+    {
+      "id": "conn_no_obstante",
+      "spanish": "no obstante",
+      "german": "trotzdem, nichtsdestotrotz",
+      "example": "Llovía, no obstante salimos.",
+      "exampleDe": "Es regnete, trotzdem gingen wir raus."
+    },
+    {
+      "id": "conn_mientras_tanto",
+      "spanish": "mientras tanto",
+      "german": "inzwischen, währenddessen",
+      "example": "Tú espera, mientras tanto yo cocino.",
+      "exampleDe": "Du wartest, währenddessen koche ich."
+    },
+    {
+      "id": "conn_luego",
+      "spanish": "luego",
+      "german": "dann, später",
+      "example": "Primero comemos, luego vamos al cine.",
+      "exampleDe": "Zuerst essen wir, dann gehen wir ins Kino."
+    },
+    {
+      "id": "conn_entonces",
+      "spanish": "entonces",
+      "german": "dann, also",
+      "example": "Si no vienes, entonces voy solo.",
+      "exampleDe": "Wenn du nicht kommst, dann gehe ich allein."
+    },
+    {
+      "id": "conn_por_cierto",
+      "spanish": "por cierto",
+      "german": "übrigens",
+      "example": "Por cierto, ¿has visto a María?",
+      "exampleDe": "Übrigens, hast du María gesehen?"
+    },
+    {
+      "id": "conn_de_hecho",
+      "spanish": "de hecho",
+      "german": "tatsächlich, in der Tat",
+      "example": "De hecho, ya lo sabía.",
+      "exampleDe": "Tatsächlich wusste ich es schon."
+    },
+    {
+      "id": "conn_en_primer_lugar",
+      "spanish": "en primer lugar",
+      "german": "erstens, zunächst",
+      "example": "En primer lugar, debemos planificar.",
+      "exampleDe": "Zunächst müssen wir planen."
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "category": "prepositions",
+  "name": "Präpositionen & Adverbien",
+  "words": [
+    {
+      "id": "en",
+      "spanish": "En",
+      "german": "In",
+      "example": "Vivo en Madrid.",
+      "exampleDe": "Ich wohne in Madrid."
+    },
+    {
+      "id": "a",
+      "spanish": "A",
+      "german": "Zu / Nach",
+      "example": "Voy a la escuela.",
+      "exampleDe": "Ich gehe zur Schule."
+    },
+    {
+      "id": "de",
+      "spanish": "De",
+      "german": "Von / Aus",
+      "example": "Vengo de Alemania.",
+      "exampleDe": "Ich komme aus Deutschland."
+    },
+    {
+      "id": "por",
+      "spanish": "Por",
+      "german": "Durch / Für",
+      "example": "Pasamos por el parque.",
+      "exampleDe": "Wir gehen durch den Park."
+    },
+    {
+      "id": "para",
+      "spanish": "Para",
+      "german": "Für",
+      "example": "Este regalo es para ti.",
+      "exampleDe": "Dieses Geschenk ist für dich."
+    },
+    {
+      "id": "con",
+      "spanish": "Con",
+      "german": "Mit",
+      "example": "Voy con mis amigos.",
+      "exampleDe": "Ich gehe mit meinen Freunden."
+    },
+    {
+      "id": "sin",
+      "spanish": "Sin",
+      "german": "Ohne",
+      "example": "Café sin azúcar, por favor.",
+      "exampleDe": "Kaffee ohne Zucker, bitte."
+    },
+    {
+      "id": "hacia",
+      "spanish": "Hacia",
+      "german": "In Richtung",
+      "example": "Camino hacia la playa.",
+      "exampleDe": "Ich gehe in Richtung Strand."
+    },
+    {
+      "id": "hasta",
+      "spanish": "Hasta",
+      "german": "Bis",
+      "example": "Trabajo hasta las cinco.",
+      "exampleDe": "Ich arbeite bis fünf Uhr."
+    },
+    {
+      "id": "desde",
+      "spanish": "Desde",
+      "german": "Seit / Von",
+      "example": "Vivo aquí desde 2020.",
+      "exampleDe": "Ich wohne hier seit 2020."
+    },
+    {
+      "id": "entre",
+      "spanish": "Entre",
+      "german": "Zwischen",
+      "example": "El banco está entre la farmacia y el café.",
+      "exampleDe": "Die Bank ist zwischen der Apotheke und dem Café."
+    },
+    {
+      "id": "sobre",
+      "spanish": "Sobre",
+      "german": "Über / Auf",
+      "example": "El libro está sobre la mesa.",
+      "exampleDe": "Das Buch ist auf dem Tisch."
+    },
+    {
+      "id": "bajo",
+      "spanish": "Bajo",
+      "german": "Unter",
+      "example": "El gato está bajo la cama.",
+      "exampleDe": "Die Katze ist unter dem Bett."
+    },
+    {
+      "id": "contra",
+      "spanish": "Contra",
+      "german": "Gegen",
+      "example": "No tengo nada contra esa idea.",
+      "exampleDe": "Ich habe nichts gegen diese Idee."
+    },
+    {
+      "id": "junto_a",
+      "spanish": "Junto a",
+      "german": "Neben",
+      "example": "Siéntate junto a mí.",
+      "exampleDe": "Setz dich neben mich."
+    },
+    {
+      "id": "durante",
+      "spanish": "Durante",
+      "german": "Während",
+      "example": "Trabajo durante el día.",
+      "exampleDe": "Ich arbeite während des Tages."
+    },
+    {
+      "id": "antes_de",
+      "spanish": "Antes de",
+      "german": "Vor",
+      "example": "Llego antes de las ocho.",
+      "exampleDe": "Ich komme vor acht Uhr an."
+    },
+    {
+      "id": "despues_de",
+      "spanish": "Después de",
+      "german": "Nach",
+      "example": "Después de comer voy al cine.",
+      "exampleDe": "Nach dem Essen gehe ich ins Kino."
+    },
+    {
+      "id": "segun",
+      "spanish": "Según",
+      "german": "Gemäß / Laut",
+      "example": "Según el profesor, el examen es fácil.",
+      "exampleDe": "Laut dem Professor ist die Prüfung einfach."
+    },
+    {
+      "id": "cerca",
+      "spanish": "Cerca",
+      "german": "Nah / In der Nähe",
+      "example": "La tienda está muy cerca.",
+      "exampleDe": "Das Geschäft ist sehr nah."
+    },
+    {
+      "id": "lejos",
+      "spanish": "Lejos",
+      "german": "Weit / Fern",
+      "example": "El aeropuerto está lejos del centro.",
+      "exampleDe": "Der Flughafen ist weit vom Zentrum entfernt."
+    },
+    {
+      "id": "arriba",
+      "spanish": "Arriba",
+      "german": "Oben",
+      "example": "Mi habitación está arriba.",
+      "exampleDe": "Mein Zimmer ist oben."
+    },
+    {
+      "id": "abajo",
+      "spanish": "Abajo",
+      "german": "Unten",
+      "example": "La cocina está abajo.",
+      "exampleDe": "Die Küche ist unten."
+    },
+    {
+      "id": "dentro",
+      "spanish": "Dentro",
+      "german": "Drinnen / Innen",
+      "example": "Los niños están dentro de la casa.",
+      "exampleDe": "Die Kinder sind drinnen im Haus."
+    },
+    {
+      "id": "fuera",
+      "spanish": "Fuera",
+      "german": "Draußen / Außen",
+      "example": "Hace frío fuera.",
+      "exampleDe": "Es ist kalt draußen."
+    },
+    {
+      "id": "adelante",
+      "spanish": "Adelante",
+      "german": "Vorne / Vorwärts",
+      "example": "Sigue adelante hasta el semáforo.",
+      "exampleDe": "Geh vorwärts bis zur Ampel."
+    },
+    {
+      "id": "atras",
+      "spanish": "Atrás",
+      "german": "Hinten / Zurück",
+      "example": "Mira atrás, viene un coche.",
+      "exampleDe": "Schau zurück, da kommt ein Auto."
+    },
+    {
+      "id": "luego",
+      "spanish": "Luego",
+      "german": "Dann / Später",
+      "example": "Primero trabajo, luego descanso.",
+      "exampleDe": "Erst arbeite ich, dann ruhe ich mich aus."
+    },
+    {
+      "id": "pronto",
+      "spanish": "Pronto",
+      "german": "Bald",
+      "example": "Nos vemos pronto.",
+      "exampleDe": "Wir sehen uns bald."
+    },
+    {
+      "id": "tarde",
+      "spanish": "Tarde",
+      "german": "Spät",
+      "example": "Hoy llegué tarde al trabajo.",
+      "exampleDe": "Heute kam ich spät zur Arbeit."
+    },
+    {
+      "id": "temprano",
+      "spanish": "Temprano",
+      "german": "Früh",
+      "example": "Me levanto temprano.",
+      "exampleDe": "Ich stehe früh auf."
+    },
+    {
+      "id": "siempre",
+      "spanish": "Siempre",
+      "german": "Immer",
+      "example": "Siempre desayuno café.",
+      "exampleDe": "Ich frühstücke immer Kaffee."
+    },
+    {
+      "id": "nunca",
+      "spanish": "Nunca",
+      "german": "Nie / Niemals",
+      "example": "Nunca he estado en México.",
+      "exampleDe": "Ich war noch nie in Mexiko."
+    },
+    {
+      "id": "ya",
+      "spanish": "Ya",
+      "german": "Schon / Bereits",
+      "example": "Ya terminé mi trabajo.",
+      "exampleDe": "Ich habe meine Arbeit schon beendet."
+    },
+    {
+      "id": "todavia",
+      "spanish": "Todavía",
+      "german": "Noch / Immer noch",
+      "example": "Todavía no he comido.",
+      "exampleDe": "Ich habe noch nicht gegessen."
+    },
+    {
+      "id": "aun",
+      "spanish": "Aún",
+      "german": "Noch / Sogar",
+      "example": "Aún tengo tiempo.",
+      "exampleDe": "Ich habe noch Zeit."
+    },
+    {
+      "id": "bien",
+      "spanish": "Bien",
+      "german": "Gut",
+      "example": "Hablo bien español.",
+      "exampleDe": "Ich spreche gut Spanisch."
+    },
+    {
+      "id": "mal",
+      "spanish": "Mal",
+      "german": "Schlecht",
+      "example": "Me siento mal hoy.",
+      "exampleDe": "Ich fühle mich heute schlecht."
+    },
+    {
+      "id": "rapidamente",
+      "spanish": "Rápidamente",
+      "german": "Schnell",
+      "example": "Corre rápidamente.",
+      "exampleDe": "Er rennt schnell."
+    },
+    {
+      "id": "lentamente",
+      "spanish": "Lentamente",
+      "german": "Langsam",
+      "example": "Habla lentamente, por favor.",
+      "exampleDe": "Sprich bitte langsam."
+    },
+    {
+      "id": "facilmente",
+      "spanish": "Fácilmente",
+      "german": "Leicht / Einfach",
+      "example": "Puedo hacerlo fácilmente.",
+      "exampleDe": "Ich kann es leicht machen."
+    },
+    {
+      "id": "muy",
+      "spanish": "Muy",
+      "german": "Sehr",
+      "example": "Estoy muy contento.",
+      "exampleDe": "Ich bin sehr froh."
+    },
+    {
+      "id": "mucho",
+      "spanish": "Mucho",
+      "german": "Viel",
+      "example": "Me gusta mucho el chocolate.",
+      "exampleDe": "Ich mag Schokolade sehr."
+    },
+    {
+      "id": "poco",
+      "spanish": "Poco",
+      "german": "Wenig",
+      "example": "Tengo poco tiempo.",
+      "exampleDe": "Ich habe wenig Zeit."
+    },
+    {
+      "id": "bastante",
+      "spanish": "Bastante",
+      "german": "Ziemlich / Genug",
+      "example": "Es bastante difícil.",
+      "exampleDe": "Es ist ziemlich schwierig."
+    },
+    {
+      "id": "demasiado",
+      "spanish": "Demasiado",
+      "german": "Zu viel",
+      "example": "Como demasiado dulce.",
+      "exampleDe": "Ich esse zu viel Süßes."
+    }
+  ]
+}

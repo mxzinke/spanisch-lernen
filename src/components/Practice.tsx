@@ -1,33 +1,42 @@
 import { useState, useMemo } from 'preact/hooks'
-import { Flashcard } from './Flashcard.jsx'
-import { MultipleChoice } from './MultipleChoice.jsx'
-import { WriteExercise } from './WriteExercise.jsx'
-import { useProgress } from '../hooks/useProgress.js'
-import { allWords, categories } from '../data/vocabulary.js'
+import type { ExerciseType, WordWithCategory } from '../types'
+import { Flashcard } from './Flashcard'
+import { MultipleChoice } from './MultipleChoice'
+import { WriteExercise } from './WriteExercise'
+import { useProgress } from '../hooks/useProgress'
+import { allWords, categories } from '../data/vocabulary'
 
-const EXERCISE_TYPES = ['flashcard', 'multiple-choice', 'write']
+const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
 
 export function Practice() {
-  const [mode, setMode] = useState(null) // null = Auswahl, sonst Übungstyp
+  const [mode, setMode] = useState<ExerciseType | null>(null)
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 })
-  const { updateWordProgress, getWordsForReview } = useProgress()
+  const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
+  const { updateWordProgress } = useProgress()
 
   // Wörter für diese Sitzung
   const sessionWords = useMemo(() => {
-    let words = selectedCategory === 'all'
-      ? allWords
-      : allWords.filter((w) => w.category === selectedCategory)
+    const words =
+      selectedCategory === 'all' ? allWords : allWords.filter((w) => w.category === selectedCategory)
 
     // Mische und nimm max 10 Wörter pro Sitzung
     return words.sort(() => Math.random() - 0.5).slice(0, 10)
   }, [selectedCategory, mode])
 
+  // Generiere zufällige Übungsreihenfolge für "mixed" Modus
+  useMemo(() => {
+    if (mode === 'mixed') {
+      const order = sessionWords.map(() => EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)])
+      setExerciseOrder(order)
+    }
+  }, [mode, sessionWords])
+
   const currentWord = sessionWords[currentIndex]
   const isComplete = currentIndex >= sessionWords.length
 
-  const handleResult = (correct) => {
+  const handleResult = (correct: boolean) => {
     if (currentWord) {
       updateWordProgress(currentWord.id, correct)
       setSessionStats((prev) => ({
@@ -46,6 +55,7 @@ export function Practice() {
     setMode(null)
     setCurrentIndex(0)
     setSessionStats({ correct: 0, wrong: 0 })
+    setExerciseOrder([])
   }
 
   // Übungsauswahl
@@ -56,7 +66,7 @@ export function Practice() {
           <h2 class="text-xl font-bold mb-4">Kategorie wählen</h2>
           <select
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
             class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-spanish-red focus:outline-none"
           >
             <option value="all">Alle Kategorien</option>
@@ -77,9 +87,7 @@ export function Practice() {
             >
               <span class="text-2xl mr-3">🎴</span>
               <span class="font-bold">Karteikarten</span>
-              <p class="text-sm text-red-100 mt-1 ml-9">
-                Klassisch: Umdrehen & selbst bewerten
-              </p>
+              <p class="text-sm text-red-100 mt-1 ml-9">Klassisch: Umdrehen & selbst bewerten</p>
             </button>
 
             <button
@@ -88,9 +96,7 @@ export function Practice() {
             >
               <span class="text-2xl mr-3">🔘</span>
               <span class="font-bold">Multiple Choice</span>
-              <p class="text-sm text-yellow-800 mt-1 ml-9">
-                Wähle aus 4 Antworten
-              </p>
+              <p class="text-sm text-yellow-800 mt-1 ml-9">Wähle aus 4 Antworten</p>
             </button>
 
             <button
@@ -99,9 +105,7 @@ export function Practice() {
             >
               <span class="text-2xl mr-3">✏️</span>
               <span class="font-bold">Schreiben</span>
-              <p class="text-sm text-green-100 mt-1 ml-9">
-                Tippe die spanische Übersetzung
-              </p>
+              <p class="text-sm text-green-100 mt-1 ml-9">Tippe die spanische Übersetzung</p>
             </button>
 
             <button
@@ -110,9 +114,7 @@ export function Practice() {
             >
               <span class="text-2xl mr-3">🎲</span>
               <span class="font-bold">Gemischt</span>
-              <p class="text-sm text-purple-100 mt-1 ml-9">
-                Zufällige Übungsarten
-              </p>
+              <p class="text-sm text-purple-100 mt-1 ml-9">Zufällige Übungsarten</p>
             </button>
           </div>
         </div>
@@ -127,9 +129,7 @@ export function Practice() {
 
     return (
       <div class="card text-center space-y-6">
-        <div class="text-6xl">
-          {percentage >= 80 ? '🎉' : percentage >= 50 ? '👍' : '💪'}
-        </div>
+        <div class="text-6xl">{percentage >= 80 ? '🎉' : percentage >= 50 ? '👍' : '💪'}</div>
         <h2 class="text-2xl font-bold">Sitzung beendet!</h2>
 
         <div class="grid grid-cols-2 gap-4">
@@ -153,9 +153,7 @@ export function Practice() {
   }
 
   // Aktuelle Übung
-  const exerciseType = mode === 'mixed'
-    ? EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)]
-    : mode
+  const exerciseType: ExerciseType = mode === 'mixed' ? exerciseOrder[currentIndex] || 'flashcard' : mode
 
   return (
     <div class="space-y-4">
@@ -189,9 +187,7 @@ export function Practice() {
       {exerciseType === 'multiple-choice' && (
         <MultipleChoice word={currentWord} allWords={allWords} onResult={handleResult} />
       )}
-      {exerciseType === 'write' && (
-        <WriteExercise word={currentWord} onResult={handleResult} />
-      )}
+      {exerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
     </div>
   )
 }

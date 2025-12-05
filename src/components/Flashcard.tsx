@@ -1,16 +1,23 @@
 import { useState } from 'preact/hooks'
-import { useSpeech } from '../hooks/useSpeech.js'
+import type { WordWithCategory } from '../types'
+import { useSpeech } from '../hooks/useSpeech'
 
-export function Flashcard({ word, onResult, onSkip }) {
+interface Props {
+  word: WordWithCategory
+  onResult: (correct: boolean) => void
+  onSkip: () => void
+}
+
+export function Flashcard({ word, onResult, onSkip }: Props) {
   const [flipped, setFlipped] = useState(false)
   const { speak, isSpeaking } = useSpeech()
 
-  const handleSpeak = (e) => {
+  const handleSpeak = (e: Event) => {
     e.stopPropagation()
     speak(word.spanish)
   }
 
-  const handleResult = (correct) => {
+  const handleResult = (correct: boolean) => {
     setFlipped(false)
     onResult(correct)
   }
@@ -48,16 +55,10 @@ export function Flashcard({ word, onResult, onSkip }) {
 
       {flipped && (
         <div class="flex gap-4">
-          <button
-            onClick={() => handleResult(false)}
-            class="btn btn-danger flex-1 py-3"
-          >
+          <button onClick={() => handleResult(false)} class="btn btn-danger flex-1 py-3">
             ❌ Falsch
           </button>
-          <button
-            onClick={() => handleResult(true)}
-            class="btn btn-success flex-1 py-3"
-          >
+          <button onClick={() => handleResult(true)} class="btn btn-success flex-1 py-3">
             ✓ Richtig
           </button>
         </div>

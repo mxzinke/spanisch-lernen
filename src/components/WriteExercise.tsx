@@ -1,13 +1,19 @@
 import { useState } from 'preact/hooks'
-import { useSpeech } from '../hooks/useSpeech.js'
+import type { WordWithCategory } from '../types'
+import { useSpeech } from '../hooks/useSpeech'
 
-export function WriteExercise({ word, onResult }) {
+interface Props {
+  word: WordWithCategory
+  onResult: (correct: boolean) => void
+}
+
+export function WriteExercise({ word, onResult }: Props) {
   const [input, setInput] = useState('')
   const [showResult, setShowResult] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const { speak } = useSpeech()
 
-  const normalize = (str) => {
+  const normalize = (str: string): string => {
     return str
       .toLowerCase()
       .trim()
@@ -15,7 +21,7 @@ export function WriteExercise({ word, onResult }) {
       .replace(/[\u0300-\u036f]/g, '') // Akzente entfernen für Vergleich
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: Event) => {
     e.preventDefault()
     if (!input.trim()) return
 
@@ -43,18 +49,14 @@ export function WriteExercise({ word, onResult }) {
           <input
             type="text"
             value={input}
-            onInput={(e) => setInput(e.target.value)}
+            onInput={(e) => setInput((e.target as HTMLInputElement).value)}
             placeholder="Spanische Übersetzung..."
             class="w-full p-4 text-xl border-2 border-gray-200 rounded-xl focus:border-spanish-red focus:outline-none"
             autoFocus
             autoComplete="off"
             autoCapitalize="off"
           />
-          <button
-            type="submit"
-            class="btn btn-primary w-full py-3 text-lg"
-            disabled={!input.trim()}
-          >
+          <button type="submit" class="btn btn-primary w-full py-3 text-lg" disabled={!input.trim()}>
             Prüfen
           </button>
         </form>
@@ -79,10 +81,7 @@ export function WriteExercise({ word, onResult }) {
 
               <p class="text-2xl font-bold text-spanish-red mt-2">
                 {word.spanish}
-                <button
-                  onClick={() => speak(word.spanish)}
-                  class="ml-2 text-xl hover:scale-110 transition-transform"
-                >
+                <button onClick={() => speak(word.spanish)} class="ml-2 text-xl hover:scale-110 transition-transform">
                   🔊
                 </button>
               </p>

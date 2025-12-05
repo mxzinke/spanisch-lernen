@@ -1,8 +1,15 @@
 import { useState, useMemo } from 'preact/hooks'
-import { useSpeech } from '../hooks/useSpeech.js'
+import type { WordWithCategory } from '../types'
+import { useSpeech } from '../hooks/useSpeech'
 
-export function MultipleChoice({ word, allWords, onResult }) {
-  const [selected, setSelected] = useState(null)
+interface Props {
+  word: WordWithCategory
+  allWords: WordWithCategory[]
+  onResult: (correct: boolean) => void
+}
+
+export function MultipleChoice({ word, allWords, onResult }: Props) {
+  const [selected, setSelected] = useState<WordWithCategory | null>(null)
   const [showResult, setShowResult] = useState(false)
   const { speak } = useSpeech()
 
@@ -16,7 +23,7 @@ export function MultipleChoice({ word, allWords, onResult }) {
     return [...wrong, word].sort(() => Math.random() - 0.5)
   }, [word, allWords])
 
-  const handleSelect = (option) => {
+  const handleSelect = (option: WordWithCategory) => {
     if (showResult) return
     setSelected(option)
     setShowResult(true)
@@ -30,7 +37,7 @@ export function MultipleChoice({ word, allWords, onResult }) {
     }, 1500)
   }
 
-  const getButtonClass = (option) => {
+  const getButtonClass = (option: WordWithCategory): string => {
     if (!showResult) {
       return 'bg-white hover:bg-gray-50 border-2 border-gray-200'
     }
@@ -48,10 +55,7 @@ export function MultipleChoice({ word, allWords, onResult }) {
       <div class="card text-center">
         <p class="text-sm text-gray-500 mb-2">Was bedeutet...</p>
         <p class="text-3xl font-bold text-spanish-red">{word.spanish}</p>
-        <button
-          onClick={() => speak(word.spanish)}
-          class="mt-2 text-2xl hover:scale-110 transition-transform"
-        >
+        <button onClick={() => speak(word.spanish)} class="mt-2 text-2xl hover:scale-110 transition-transform">
           🔊
         </button>
       </div>
@@ -65,9 +69,7 @@ export function MultipleChoice({ word, allWords, onResult }) {
             class={`w-full p-4 rounded-xl text-left font-medium transition-all ${getButtonClass(option)}`}
           >
             {option.german}
-            {showResult && option.id === word.id && (
-              <span class="float-right">✓</span>
-            )}
+            {showResult && option.id === word.id && <span class="float-right">✓</span>}
             {showResult && option.id === selected?.id && option.id !== word.id && (
               <span class="float-right">✗</span>
             )}
@@ -75,11 +77,7 @@ export function MultipleChoice({ word, allWords, onResult }) {
         ))}
       </div>
 
-      {showResult && (
-        <div class="text-center text-sm text-gray-500">
-          Weiter in einen Moment...
-        </div>
-      )}
+      {showResult && <div class="text-center text-sm text-gray-500">Weiter in einen Moment...</div>}
     </div>
   )
 }

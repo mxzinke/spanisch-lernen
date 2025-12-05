@@ -1,10 +1,18 @@
-export function Navigation({ activeTab, onTabChange }) {
-  const tabs = [
-    { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-    { id: 'practice', label: 'Üben', icon: '✏️' },
-    { id: 'vocabulary', label: 'Vokabeln', icon: '📚' },
-  ]
+import type { TabId } from '../types'
 
+interface Props {
+  activeTab: TabId
+  onTabChange: (tab: TabId) => void
+}
+
+const tabs: { id: TabId; label: string; icon: string }[] = [
+  { id: 'dashboard', label: 'Dashboard', icon: '📊' },
+  { id: 'practice', label: 'Üben', icon: '✏️' },
+  { id: 'vocabulary', label: 'Vokabeln', icon: '📚' },
+  { id: 'settings', label: 'Settings', icon: '⚙️' },
+]
+
+export function Navigation({ activeTab, onTabChange }: Props) {
   return (
     <nav class="bg-white border-b border-gray-200">
       <div class="container mx-auto max-w-2xl">
@@ -20,7 +28,7 @@ export function Navigation({ activeTab, onTabChange }) {
               }`}
             >
               <span class="mr-2">{tab.icon}</span>
-              {tab.label}
+              <span class="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
         </div>

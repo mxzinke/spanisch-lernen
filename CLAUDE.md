@@ -4,9 +4,10 @@ Eine einfache Web-App zum täglichen Spanisch-Üben mit Fokus auf Alltagsvokabul
 
 ## Tech-Stack
 
-- **Preact** - UI-Komponenten
+- **Preact** + **TypeScript** - UI-Komponenten mit Typsicherheit
 - **Vite** - Build-Tool & Dev-Server
 - **TailwindCSS** - Styling
+- **Bun** - JavaScript Runtime & Package Manager
 - **Web Speech API** - Text-to-Speech für spanische Aussprache
 
 ## Befehle
@@ -21,23 +22,25 @@ bun run preview  # Build lokal testen
 
 ```
 src/
-├── main.jsx           # Entry Point
-├── app.jsx            # Haupt-App mit Navigation
+├── main.tsx           # Entry Point
+├── app.tsx            # Haupt-App mit Navigation
+├── types.ts           # TypeScript Type-Definitionen
 ├── components/
-│   ├── Navigation.jsx      # Tab-Navigation (Dashboard, Üben, Vokabeln)
-│   ├── Dashboard.jsx       # Statistiken, Streak, Fortschritt
-│   ├── Practice.jsx        # Übungsauswahl & -ablauf
-│   ├── Flashcard.jsx       # Karteikarten-Übung
-│   ├── MultipleChoice.jsx  # Multiple-Choice-Übung
-│   ├── WriteExercise.jsx   # Schreib-Übung
-│   └── VocabList.jsx       # Vokabel-Übersicht mit Suche
+│   ├── Navigation.tsx     # Tab-Navigation (Dashboard, Üben, Vokabeln, Settings)
+│   ├── Dashboard.tsx      # Statistiken, Streak, Fortschritt
+│   ├── Practice.tsx       # Übungsauswahl & -ablauf
+│   ├── Flashcard.tsx      # Karteikarten-Übung
+│   ├── MultipleChoice.tsx # Multiple-Choice-Übung
+│   ├── WriteExercise.tsx  # Schreib-Übung
+│   ├── VocabList.tsx      # Vokabel-Übersicht mit Suche
+│   └── Settings.tsx       # TTS-Einstellungen, Daten-Reset
 ├── hooks/
-│   ├── useProgress.js      # Lernfortschritt (LocalStorage)
-│   └── useSpeech.js        # Text-to-Speech
+│   ├── useProgress.ts     # Lernfortschritt (LocalStorage)
+│   └── useSpeech.ts       # Text-to-Speech mit Stimmenauswahl
 ├── data/
-│   └── vocabulary.js       # Vokabel-Import & Hilfsfunktionen
+│   └── vocabulary.ts      # Vokabel-Import & Hilfsfunktionen
 └── styles/
-    └── index.css           # Tailwind + Custom Styles
+    └── index.css          # Tailwind + Custom Styles
 
 data/vocabulary/           # Vokabel-JSON-Dateien
 ├── greetings.json
@@ -45,6 +48,25 @@ data/vocabulary/           # Vokabel-JSON-Dateien
 ├── numbers.json
 ├── food.json
 └── market.json
+```
+
+## Typen (src/types.ts)
+
+```typescript
+interface Word {
+  id: string
+  spanish: string
+  german: string
+  example: string
+  exampleDe: string
+}
+
+interface WordProgress {
+  box: number      // Leitner-Box (1-5)
+  lastSeen: string // ISO Datum
+  correct: number
+  wrong: number
+}
 ```
 
 ## Lernmethodik
@@ -57,42 +79,21 @@ data/vocabulary/           # Vokabel-JSON-Dateien
   - Box 5: alle 16 Tage
 - Richtige Antwort → höhere Box, falsche → zurück zu Box 1
 
-## Datenformate
+## TTS (Text-to-Speech)
 
-### Vokabel (JSON)
-```json
-{
-  "id": "hola",
-  "spanish": "Hola",
-  "german": "Hallo",
-  "example": "¡Hola! ¿Cómo estás?",
-  "exampleDe": "Hallo! Wie geht es dir?"
-}
-```
-
-### Fortschritt (LocalStorage: "spanisch-lernen-progress")
-```json
-{
-  "words": {
-    "hola": { "box": 3, "lastSeen": "2025-12-05", "correct": 5, "wrong": 1 }
-  },
-  "stats": {
-    "streak": 7,
-    "lastPractice": "2025-12-05",
-    "totalCorrect": 150,
-    "totalWrong": 30
-  }
-}
-```
+Der `useSpeech` Hook wählt automatisch die beste spanische Stimme:
+- Priorisiert: Monica (macOS), Paulina, Google español, Microsoft Helena
+- Einstellungen (Stimme, Geschwindigkeit) werden in LocalStorage gespeichert
+- Settings-Tab erlaubt manuelle Auswahl
 
 ## Vokabeln erweitern
 
-Neue JSON-Datei in `data/vocabulary/` anlegen und in `src/data/vocabulary.js` importieren:
+Neue JSON-Datei in `data/vocabulary/` anlegen und in `src/data/vocabulary.ts` importieren:
 
-```javascript
+```typescript
 import newCategory from '../../data/vocabulary/new-category.json'
 
-export const categories = [
+export const categories: Category[] = [
   // ... bestehende
   newCategory,
 ]

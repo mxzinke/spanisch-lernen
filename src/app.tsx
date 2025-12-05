@@ -1,11 +1,13 @@
 import { useState } from 'preact/hooks'
-import { Navigation } from './components/Navigation.jsx'
-import { Dashboard } from './components/Dashboard.jsx'
-import { Practice } from './components/Practice.jsx'
-import { VocabList } from './components/VocabList.jsx'
+import type { TabId } from './types'
+import { Navigation } from './components/Navigation'
+import { Dashboard } from './components/Dashboard'
+import { Practice } from './components/Practice'
+import { VocabList } from './components/VocabList'
+import { Settings } from './components/Settings'
 
 export function App() {
-  const [activeTab, setActiveTab] = useState('dashboard')
+  const [activeTab, setActiveTab] = useState<TabId>('dashboard')
 
   return (
     <div class="min-h-screen">
@@ -19,6 +21,7 @@ export function App() {
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'practice' && <Practice />}
         {activeTab === 'vocabulary' && <VocabList />}
+        {activeTab === 'settings' && <Settings />}
       </main>
     </div>
   )

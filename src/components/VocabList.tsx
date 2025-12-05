@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks'
-import { useSpeech } from '../hooks/useSpeech.js'
-import { useProgress } from '../hooks/useProgress.js'
-import { categories, allWords } from '../data/vocabulary.js'
+import { useSpeech } from '../hooks/useSpeech'
+import { useProgress } from '../hooks/useProgress'
+import { categories, allWords } from '../data/vocabulary'
 
 export function VocabList() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -17,7 +17,7 @@ export function VocabList() {
         w.german.toLowerCase().includes(search.toLowerCase())
     )
 
-  const getBoxColor = (box) => {
+  const getBoxColor = (box: number): string => {
     const colors = ['bg-red-100', 'bg-orange-100', 'bg-yellow-100', 'bg-green-100', 'bg-emerald-100']
     return colors[box - 1] || 'bg-gray-100'
   }
@@ -29,13 +29,13 @@ export function VocabList() {
         <input
           type="text"
           value={search}
-          onInput={(e) => setSearch(e.target.value)}
+          onInput={(e) => setSearch((e.target as HTMLInputElement).value)}
           placeholder="🔍 Suchen..."
           class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-spanish-red focus:outline-none"
         />
         <select
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
+          onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
           class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-spanish-red focus:outline-none"
         >
           <option value="all">Alle Kategorien ({allWords.length})</option>
@@ -60,19 +60,14 @@ export function VocabList() {
       {/* Wortliste */}
       <div class="space-y-2">
         {filteredWords.length === 0 ? (
-          <div class="card text-center text-gray-500">
-            Keine Wörter gefunden
-          </div>
+          <div class="card text-center text-gray-500">Keine Wörter gefunden</div>
         ) : (
           filteredWords.map((word) => {
             const wp = getWordProgress(word.id)
             const hasProgress = wp.correct > 0 || wp.wrong > 0
 
             return (
-              <div
-                key={word.id}
-                class={`card p-4 ${hasProgress ? getBoxColor(wp.box) : ''}`}
-              >
+              <div key={word.id} class={`card p-4 ${hasProgress ? getBoxColor(wp.box) : ''}`}>
                 <div class="flex items-start gap-3">
                   <button
                     onClick={() => speak(word.spanish)}
@@ -84,9 +79,7 @@ export function VocabList() {
                     <div class="flex items-center gap-2">
                       <span class="font-bold text-spanish-red">{word.spanish}</span>
                       {hasProgress && (
-                        <span class="text-xs px-2 py-0.5 bg-white/50 rounded">
-                          Box {wp.box}
-                        </span>
+                        <span class="text-xs px-2 py-0.5 bg-white/50 rounded">Box {wp.box}</span>
                       )}
                     </div>
                     <p class="text-gray-700">{word.german}</p>
@@ -106,9 +99,7 @@ export function VocabList() {
       </div>
 
       {/* Anzahl */}
-      <p class="text-center text-sm text-gray-500">
-        {filteredWords.length} Wörter
-      </p>
+      <p class="text-center text-sm text-gray-500">{filteredWords.length} Wörter</p>
     </div>
   )
 }

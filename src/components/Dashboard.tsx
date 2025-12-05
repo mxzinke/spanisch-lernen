@@ -1,5 +1,5 @@
-import { useProgress } from '../hooks/useProgress.js'
-import { allWords, categories } from '../data/vocabulary.js'
+import { useProgress } from '../hooks/useProgress'
+import { allWords, categories } from '../data/vocabulary'
 
 export function Dashboard() {
   const { progress, getStats, getWordsForReview } = useProgress()
@@ -26,9 +26,7 @@ export function Dashboard() {
       <div class="card bg-gradient-to-r from-spanish-red to-red-600 text-white">
         <h2 class="text-xl font-bold">¡Hola! 👋</h2>
         <p class="text-red-100 mt-1">
-          {practicedToday
-            ? 'Du hast heute schon geübt. ¡Muy bien!'
-            : 'Zeit für deine tägliche Übung!'}
+          {practicedToday ? 'Du hast heute schon geübt. ¡Muy bien!' : 'Zeit für deine tägliche Übung!'}
         </p>
       </div>
 
@@ -36,9 +34,7 @@ export function Dashboard() {
       <div class="card text-center">
         <div class="text-5xl mb-2">🔥</div>
         <div class="text-4xl font-bold text-spanish-red">{stats.streak}</div>
-        <p class="text-gray-500">
-          {stats.streak === 1 ? 'Tag' : 'Tage'} in Folge
-        </p>
+        <p class="text-gray-500">{stats.streak === 1 ? 'Tag' : 'Tage'} in Folge</p>
       </div>
 
       {/* Statistiken */}
@@ -73,9 +69,7 @@ export function Dashboard() {
           </div>
           <span class="font-bold text-green-600">
             {stats.totalCorrect + stats.totalWrong > 0
-              ? Math.round(
-                  (stats.totalCorrect / (stats.totalCorrect + stats.totalWrong)) * 100
-                )
+              ? Math.round((stats.totalCorrect / (stats.totalCorrect + stats.totalWrong)) * 100)
               : 0}
             %
           </span>
@@ -106,9 +100,7 @@ export function Dashboard() {
             </div>
           ))}
         </div>
-        <p class="text-xs text-gray-400 mt-3">
-          Box 1 = täglich • Box 5 = alle 16 Tage
-        </p>
+        <p class="text-xs text-gray-400 mt-3">Box 1 = täglich • Box 5 = alle 16 Tage</p>
       </div>
 
       {/* Kategorien */}

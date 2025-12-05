@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useEffect, useCallback } from 'preact/hooks'
+import type { Progress, WordProgress, Stats, WordWithCategory } from '../types'
 
 const STORAGE_KEY = 'spanisch-lernen-progress'
 
-const defaultProgress = {
+const defaultProgress: Progress = {
   words: {},
   stats: {
     streak: 0,
@@ -13,7 +14,7 @@ const defaultProgress = {
 }
 
 export function useProgress() {
-  const [progress, setProgress] = useState(() => {
+  const [progress, setProgress] = useState<Progress>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
       return saved ? JSON.parse(saved) : defaultProgress
@@ -26,15 +27,13 @@ export function useProgress() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
   }, [progress])
 
-  const updateWordProgress = (wordId, correct) => {
+  const updateWordProgress = useCallback((wordId: string, correct: boolean) => {
     setProgress((prev) => {
-      const wordProgress = prev.words[wordId] || { box: 1, correct: 0, wrong: 0 }
+      const wordProgress = prev.words[wordId] || { box: 1, correct: 0, wrong: 0, lastSeen: '' }
       const today = new Date().toISOString().split('T')[0]
 
       // Leitner-System: richtig = höhere Box, falsch = zurück zu Box 1
-      const newBox = correct
-        ? Math.min(wordProgress.box + 1, 5)
-        : 1
+      const newBox = correct ? Math.min(wordProgress.box + 1, 5) : 1
 
       // Streak-Logik
       const lastPractice = prev.stats.lastPractice
@@ -70,33 +69,39 @@ export function useProgress() {
         },
       }
     })
-  }
+  }, [])
 
-  const getWordProgress = (wordId) => {
-    return progress.words[wordId] || { box: 1, correct: 0, wrong: 0 }
-  }
+  const getWordProgress = useCallback(
+    (wordId: string): WordProgress => {
+      return progress.words[wordId] || { box: 1, correct: 0, wrong: 0, lastSeen: '' }
+    },
+    [progress.words]
+  )
 
-  const getStats = () => progress.stats
+  const getStats = useCallback((): Stats => progress.stats, [progress.stats])
 
-  const getWordsForReview = (allWords) => {
-    const today = new Date()
+  const getWordsForReview = useCallback(
+    (allWords: WordWithCategory[]): WordWithCategory[] => {
+      const today = new Date()
 
-    return allWords.filter((word) => {
-      const wp = progress.words[word.id]
-      if (!wp) return true // Neue Wörter immer zeigen
+      return allWords.filter((word) => {
+        const wp = progress.words[word.id]
+        if (!wp) return true // Neue Wörter immer zeigen
 
-      const lastSeen = new Date(wp.lastSeen)
-      const daysSince = Math.floor((today - lastSeen) / (1000 * 60 * 60 * 24))
+        const lastSeen = new Date(wp.lastSeen)
+        const daysSince = Math.floor((today.getTime() - lastSeen.getTime()) / (1000 * 60 * 60 * 24))
 
-      // Box 1: täglich, Box 2: alle 2 Tage, Box 3: alle 4 Tage, etc.
-      const interval = Math.pow(2, wp.box - 1)
-      return daysSince >= interval
-    })
-  }
+        // Box 1: täglich, Box 2: alle 2 Tage, Box 3: alle 4 Tage, etc.
+        const interval = Math.pow(2, wp.box - 1)
+        return daysSince >= interval
+      })
+    },
+    [progress.words]
+  )
 
-  const resetProgress = () => {
+  const resetProgress = useCallback(() => {
     setProgress(defaultProgress)
-  }
+  }, [])
 
   return {
     progress,

@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
+import { SpeakerIcon } from './SpeakerIcon'
 
 interface Props {
   word: WordWithCategory
@@ -18,7 +19,7 @@ export function WriteExercise({ word, onResult }: Props) {
       .toLowerCase()
       .trim()
       .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // Akzente entfernen für Vergleich
+      .replace(/[\u0300-\u036f]/g, '')
   }
 
   const handleSubmit = (e: Event) => {
@@ -39,9 +40,9 @@ export function WriteExercise({ word, onResult }: Props) {
 
   return (
     <div class="space-y-6">
-      <div class="card text-center">
-        <p class="text-sm text-gray-500 mb-2">Übersetze ins Spanische:</p>
-        <p class="text-3xl font-bold text-gray-800">{word.german}</p>
+      <div class="card text-center py-8">
+        <p class="text-sm text-warm-gray mb-3">Übersetze ins Spanische:</p>
+        <p class="text-3xl font-serif font-medium text-warm-brown">{word.german}</p>
       </div>
 
       {!showResult ? (
@@ -51,42 +52,54 @@ export function WriteExercise({ word, onResult }: Props) {
             value={input}
             onInput={(e) => setInput((e.target as HTMLInputElement).value)}
             placeholder="Spanische Übersetzung..."
-            class="w-full p-4 text-xl border-2 border-gray-200 rounded-xl focus:border-spanish-red focus:outline-none"
+            class="input text-lg"
             autoFocus
             autoComplete="off"
             autoCapitalize="off"
           />
-          <button type="submit" class="btn btn-primary w-full py-3 text-lg" disabled={!input.trim()}>
+          <button
+            type="submit"
+            class="btn btn-primary w-full py-3"
+            disabled={!input.trim()}
+          >
             Prüfen
           </button>
         </form>
       ) : (
         <div class="space-y-4">
           <div
-            class={`card ${isCorrect ? 'bg-green-50 border-2 border-green-500' : 'bg-red-50 border-2 border-red-500'}`}
+            class={`card ${
+              isCorrect
+                ? 'bg-olive/5 border border-olive/30'
+                : 'bg-rose-muted/10 border border-rose-muted/30'
+            }`}
           >
-            <div class="text-center">
-              <p class="text-4xl mb-2">{isCorrect ? '🎉' : '😅'}</p>
-              <p class={`text-xl font-bold ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
+            <div class="text-center py-4">
+              <p class={`text-xl font-semibold mb-4 ${isCorrect ? 'text-olive-dark' : 'text-rose-dark'}`}>
                 {isCorrect ? 'Richtig!' : 'Nicht ganz...'}
               </p>
 
               {!isCorrect && (
-                <div class="mt-4 space-y-2">
-                  <p class="text-sm text-gray-600">Deine Antwort:</p>
-                  <p class="text-lg line-through text-red-600">{input}</p>
-                  <p class="text-sm text-gray-600 mt-2">Richtige Antwort:</p>
+                <div class="mb-4">
+                  <p class="text-sm text-warm-gray">Deine Antwort:</p>
+                  <p class="text-lg text-rose-dark line-through">{input}</p>
                 </div>
               )}
 
-              <p class="text-2xl font-bold text-spanish-red mt-2">
-                {word.spanish}
-                <button onClick={() => speak(word.spanish)} class="ml-2 text-xl hover:scale-110 transition-transform">
-                  🔊
-                </button>
+              <p class="text-sm text-warm-gray">
+                {isCorrect ? 'Die Antwort:' : 'Richtige Antwort:'}
               </p>
+              <p class="text-2xl font-serif font-medium text-terracotta mt-1">{word.spanish}</p>
 
-              <p class="text-sm text-gray-500 mt-3 italic">"{word.example}"</p>
+              <button
+                onClick={() => speak(word.spanish)}
+                class="mt-3 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-white/50 rounded-lg transition-colors inline-flex items-center gap-2"
+              >
+                <SpeakerIcon class="w-4 h-4" />
+                Anhören
+              </button>
+
+              <p class="text-sm font-serif text-warm-gray mt-4 italic">„{word.example}"</p>
             </div>
           </div>
 

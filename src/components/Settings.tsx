@@ -16,22 +16,26 @@ export function Settings() {
   }
 
   return (
-    <div class="space-y-6">
-      {/* TTS Einstellungen */}
-      <div class="card">
-        <h2 class="text-xl font-bold mb-4">🔊 Sprachausgabe (TTS)</h2>
+    <div class="space-y-8">
+      {/* TTS Settings */}
+      <section class="card">
+        <h2 class="mb-6 font-serif">Sprachausgabe</h2>
 
         {!isSupported ? (
-          <p class="text-red-600">Dein Browser unterstützt keine Sprachausgabe.</p>
+          <p class="text-rose-dark">
+            Dein Browser unterstützt keine Sprachausgabe.
+          </p>
         ) : (
-          <div class="space-y-4">
-            {/* Stimme wählen */}
+          <div class="space-y-6">
+            {/* Voice selection */}
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Stimme</label>
+              <label class="block text-sm font-medium text-warm-gray mb-2">
+                Stimme
+              </label>
               <select
                 value={currentVoice?.name || ''}
                 onChange={(e) => setVoice((e.target as HTMLSelectElement).value)}
-                class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-spanish-red focus:outline-none"
+                class="select"
               >
                 {voices.length === 0 ? (
                   <option value="">Keine spanischen Stimmen gefunden</option>
@@ -43,14 +47,14 @@ export function Settings() {
                   ))
                 )}
               </select>
-              <p class="text-xs text-gray-500 mt-1">
-                {voices.length} spanische Stimme(n) verfügbar
+              <p class="text-xs text-warm-gray mt-2">
+                {voices.length} spanische {voices.length === 1 ? 'Stimme' : 'Stimmen'} verfügbar
               </p>
             </div>
 
-            {/* Geschwindigkeit */}
+            {/* Speed slider */}
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
+              <label class="block text-sm font-medium text-warm-gray mb-2">
                 Geschwindigkeit: {rate.toFixed(2)}x
               </label>
               <input
@@ -60,59 +64,55 @@ export function Settings() {
                 step="0.05"
                 value={rate}
                 onInput={(e) => setRate(parseFloat((e.target as HTMLInputElement).value))}
-                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-spanish-red"
+                class="w-full h-2 bg-sand-200 rounded-lg appearance-none cursor-pointer accent-terracotta"
               />
-              <div class="flex justify-between text-xs text-gray-400 mt-1">
-                <span>Langsam (0.5x)</span>
-                <span>Normal (1x)</span>
-                <span>Schnell (1.5x)</span>
+              <div class="flex justify-between text-xs text-warm-gray mt-2">
+                <span>Langsam</span>
+                <span>Normal</span>
+                <span>Schnell</span>
               </div>
             </div>
 
-            {/* Test-Button */}
-            <button onClick={handleTestVoice} class="btn btn-primary w-full">
-              🔊 Stimme testen
+            {/* Test button */}
+            <button onClick={handleTestVoice} class="btn btn-secondary w-full">
+              Stimme testen
             </button>
           </div>
         )}
-      </div>
+      </section>
 
-      {/* Daten */}
-      <div class="card">
-        <h2 class="text-xl font-bold mb-4">📊 Daten</h2>
+      {/* Data section */}
+      <section class="card">
+        <h2 class="mb-4 font-serif">Daten</h2>
+        <p class="text-sm text-warm-gray mb-4">
+          Dein Lernfortschritt wird lokal in deinem Browser gespeichert.
+        </p>
+        <button onClick={handleReset} class="btn btn-danger w-full">
+          Fortschritt zurücksetzen
+        </button>
+      </section>
 
-        <div class="space-y-3">
-          <p class="text-sm text-gray-600">
-            Dein Lernfortschritt wird lokal in deinem Browser gespeichert.
-          </p>
-
-          <button onClick={handleReset} class="btn btn-danger w-full">
-            🗑️ Fortschritt zurücksetzen
-          </button>
-        </div>
-      </div>
-
-      {/* Info */}
-      <div class="card bg-gray-50">
-        <h2 class="text-xl font-bold mb-4">ℹ️ Info</h2>
-        <div class="space-y-2 text-sm text-gray-600">
+      {/* Info section */}
+      <section class="card">
+        <h2 class="mb-4 font-serif">Über das Leitner-System</h2>
+        <div class="space-y-3 text-sm text-warm-gray">
           <p>
-            <strong>Leitner-System:</strong> Wörter werden nach dem Spaced-Repetition-Prinzip
-            wiederholt. Richtige Antworten verschieben ein Wort in eine höhere Box (seltener
-            wiederholen), falsche zurück zu Box 1.
+            Wörter werden nach dem Spaced-Repetition-Prinzip wiederholt.
+            Richtige Antworten verschieben ein Wort in eine höhere Stufe,
+            falsche zurück zu Stufe 1.
           </p>
-          <p>
-            <strong>Box-Intervalle:</strong>
-          </p>
-          <ul class="list-disc list-inside ml-2">
-            <li>Box 1: Täglich</li>
-            <li>Box 2: Alle 2 Tage</li>
-            <li>Box 3: Alle 4 Tage</li>
-            <li>Box 4: Alle 8 Tage</li>
-            <li>Box 5: Alle 16 Tage</li>
-          </ul>
+          <div class="space-y-1">
+            <p class="font-medium text-warm-brown">Wiederholungsintervalle:</p>
+            <ul class="space-y-1 ml-4">
+              <li>Stufe 1: Täglich</li>
+              <li>Stufe 2: Alle 2 Tage</li>
+              <li>Stufe 3: Alle 4 Tage</li>
+              <li>Stufe 4: Alle 8 Tage</li>
+              <li>Stufe 5: Alle 16 Tage</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
+import { SpeakerIcon } from './SpeakerIcon'
 
 interface Props {
   word: WordWithCategory
@@ -13,13 +14,11 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   const [showResult, setShowResult] = useState(false)
   const { speak } = useSpeech()
 
-  // Generiere 4 Optionen (1 richtig + 3 falsch)
   const options = useMemo(() => {
     const wrong = allWords
       .filter((w) => w.id !== word.id)
       .sort(() => Math.random() - 0.5)
       .slice(0, 3)
-
     return [...wrong, word].sort(() => Math.random() - 0.5)
   }, [word, allWords])
 
@@ -29,7 +28,6 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
     setShowResult(true)
     speak(word.spanish)
 
-    // Nach 1.5s automatisch weiter
     setTimeout(() => {
       onResult(option.id === word.id)
       setSelected(null)
@@ -38,25 +36,30 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   }
 
   const getButtonClass = (option: WordWithCategory): string => {
+    const base = 'w-full p-4 rounded-xl text-left font-medium transition-all duration-150'
     if (!showResult) {
-      return 'bg-white hover:bg-gray-50 border-2 border-gray-200'
+      return `${base} bg-white border border-sand-200 hover:border-terracotta hover:shadow-soft`
     }
     if (option.id === word.id) {
-      return 'bg-green-100 border-2 border-green-500 text-green-800'
+      return `${base} bg-olive/10 border-2 border-olive text-olive-dark`
     }
     if (option.id === selected?.id) {
-      return 'bg-red-100 border-2 border-red-500 text-red-800'
+      return `${base} bg-rose-muted/20 border-2 border-rose-muted text-rose-dark`
     }
-    return 'bg-gray-100 border-2 border-gray-200 opacity-50'
+    return `${base} bg-sand-100 border border-sand-200 opacity-50`
   }
 
   return (
     <div class="space-y-6">
-      <div class="card text-center">
-        <p class="text-sm text-gray-500 mb-2">Was bedeutet...</p>
-        <p class="text-3xl font-bold text-spanish-red">{word.spanish}</p>
-        <button onClick={() => speak(word.spanish)} class="mt-2 text-2xl hover:scale-110 transition-transform">
-          🔊
+      <div class="card text-center py-8">
+        <p class="text-sm text-warm-gray mb-3">Was bedeutet...</p>
+        <p class="text-3xl font-serif font-medium text-terracotta">{word.spanish}</p>
+        <button
+          onClick={() => speak(word.spanish)}
+          class="mt-3 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
+        >
+          <SpeakerIcon class="w-4 h-4" />
+          Anhören
         </button>
       </div>
 
@@ -66,18 +69,16 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
             key={option.id}
             onClick={() => handleSelect(option)}
             disabled={showResult}
-            class={`w-full p-4 rounded-xl text-left font-medium transition-all ${getButtonClass(option)}`}
+            class={getButtonClass(option)}
           >
             {option.german}
-            {showResult && option.id === word.id && <span class="float-right">✓</span>}
-            {showResult && option.id === selected?.id && option.id !== word.id && (
-              <span class="float-right">✗</span>
-            )}
           </button>
         ))}
       </div>
 
-      {showResult && <div class="text-center text-sm text-gray-500">Weiter in einen Moment...</div>}
+      {showResult && (
+        <p class="text-center text-sm text-warm-gray">Weiter in einem Moment...</p>
+      )}
     </div>
   )
 }

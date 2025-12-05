@@ -4,32 +4,149 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 min-h-screen;
+    @apply bg-sand-50 text-warm-brown min-h-screen antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Typography hierarchy */
+  h1 {
+    @apply text-2xl font-semibold tracking-tight text-warm-brown;
+  }
+
+  h2 {
+    @apply text-xl font-semibold text-warm-brown;
+  }
+
+  h3 {
+    @apply text-base font-medium text-warm-brown;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-white rounded-xl shadow-md p-6;
+    @apply bg-white rounded-xl shadow-soft p-6 transition-shadow duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-lifted;
   }
 
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+    @apply px-5 py-2.5 rounded-lg font-medium transition-all duration-150 ease-out;
   }
 
   .btn-primary {
-    @apply bg-spanish-red text-white hover:bg-red-700;
+    @apply bg-terracotta text-white hover:bg-terracotta-dark active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+    @apply bg-sand-200 text-warm-gray hover:bg-sand-300 active:scale-[0.98];
   }
 
   .btn-success {
-    @apply bg-green-500 text-white hover:bg-green-600;
+    @apply bg-olive text-white hover:bg-olive-dark active:scale-[0.98];
   }
 
   .btn-danger {
-    @apply bg-red-500 text-white hover:bg-red-600;
+    @apply bg-rose-muted text-warm-brown hover:bg-rose-dark hover:text-white active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply text-warm-gray hover:text-warm-brown hover:bg-sand-100 active:scale-[0.98];
+  }
+
+  /* Form elements */
+  .input {
+    @apply w-full px-4 py-3 bg-white border border-sand-200 rounded-lg
+           text-warm-brown placeholder:text-warm-gray/50
+           focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/10
+           transition-all duration-150;
+  }
+
+  .select {
+    @apply input appearance-none cursor-pointer
+           bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236b635b%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')]
+           bg-no-repeat bg-[right_12px_center];
+  }
+
+  /* Progress bars */
+  .progress-track {
+    @apply bg-sand-200 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply rounded-full transition-all duration-300 ease-out;
+  }
+
+  /* Subtle animations */
+  .fade-in {
+    animation: fadeIn 200ms ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Flashcard flip animation */
+  .flashcard-container {
+    perspective: 1000px;
+  }
+
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flashcard-inner.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-face {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(74, 64, 57, 0.08), 0 4px 12px rgba(74, 64, 57, 0.04);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .flashcard-inner:hover .flashcard-face {
+    box-shadow: 0 4px 12px rgba(74, 64, 57, 0.12), 0 8px 24px rgba(74, 64, 57, 0.08);
+  }
+
+  .flashcard-back {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+@layer utilities {
+  .scrollbar-subtle {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.sand.300') transparent;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar-thumb {
+    background-color: theme('colors.sand.300');
+    border-radius: 3px;
   }
 }

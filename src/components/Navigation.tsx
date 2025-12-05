@@ -5,30 +5,35 @@ interface Props {
   onTabChange: (tab: TabId) => void
 }
 
-const tabs: { id: TabId; label: string; icon: string }[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-  { id: 'practice', label: 'Üben', icon: '✏️' },
-  { id: 'vocabulary', label: 'Vokabeln', icon: '📚' },
-  { id: 'settings', label: 'Settings', icon: '⚙️' },
+const tabs: { id: TabId; label: string }[] = [
+  { id: 'dashboard', label: 'Übersicht' },
+  { id: 'practice', label: 'Üben' },
+  { id: 'vocabulary', label: 'Vokabeln' },
+  { id: 'settings', label: 'Einstellungen' },
 ]
 
 export function Navigation({ activeTab, onTabChange }: Props) {
   return (
-    <nav class="bg-white border-b border-gray-200">
-      <div class="container mx-auto max-w-2xl">
+    <nav class="bg-white border-b border-sand-200 sticky top-0 z-10">
+      <div class="container mx-auto max-w-2xl px-4">
         <div class="flex">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              class={`flex-1 py-3 px-4 text-center font-medium transition-colors duration-200 ${
-                activeTab === tab.id
-                  ? 'text-spanish-red border-b-2 border-spanish-red'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+              class={`
+                flex-1 py-3.5 text-sm font-medium transition-all duration-150
+                relative
+                ${activeTab === tab.id
+                  ? 'text-terracotta'
+                  : 'text-warm-gray hover:text-warm-brown'
+                }
+              `}
             >
-              <span class="mr-2">{tab.icon}</span>
-              <span class="hidden sm:inline">{tab.label}</span>
+              {tab.label}
+              {activeTab === tab.id && (
+                <span class="absolute bottom-0 left-4 right-4 h-0.5 bg-terracotta rounded-full" />
+              )}
             </button>
           ))}
         </div>

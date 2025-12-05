@@ -16,16 +16,12 @@ export function Practice() {
   const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
   const { updateWordProgress } = useProgress()
 
-  // Wörter für diese Sitzung
   const sessionWords = useMemo(() => {
     const words =
       selectedCategory === 'all' ? allWords : allWords.filter((w) => w.category === selectedCategory)
-
-    // Mische und nimm max 10 Wörter pro Sitzung
     return words.sort(() => Math.random() - 0.5).slice(0, 10)
   }, [selectedCategory, mode])
 
-  // Generiere zufällige Übungsreihenfolge für "mixed" Modus
   useMemo(() => {
     if (mode === 'mixed') {
       const order = sessionWords.map(() => EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)])
@@ -58,16 +54,17 @@ export function Practice() {
     setExerciseOrder([])
   }
 
-  // Übungsauswahl
+  // Exercise selection screen
   if (!mode) {
     return (
-      <div class="space-y-6">
-        <div class="card">
-          <h2 class="text-xl font-bold mb-4">Kategorie wählen</h2>
+      <div class="space-y-8">
+        {/* Category selection */}
+        <section>
+          <label class="block text-sm font-medium text-warm-gray mb-2">Kategorie</label>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
-            class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-spanish-red focus:outline-none"
+            class="select"
           >
             <option value="all">Alle Kategorien</option>
             {categories.map((cat) => (
@@ -76,111 +73,125 @@ export function Practice() {
               </option>
             ))}
           </select>
-        </div>
+        </section>
 
-        <div class="card">
-          <h2 class="text-xl font-bold mb-4">Übungsart wählen</h2>
+        {/* Exercise type selection */}
+        <section>
+          <h2 class="text-lg font-medium text-warm-brown mb-4">Übungsart wählen</h2>
           <div class="space-y-3">
             <button
               onClick={() => setMode('flashcard')}
-              class="w-full p-4 bg-gradient-to-r from-spanish-red to-red-600 text-white rounded-xl text-left hover:shadow-lg transition-shadow"
+              class="card-hover w-full p-5 text-left group"
             >
-              <span class="text-2xl mr-3">🎴</span>
-              <span class="font-bold">Karteikarten</span>
-              <p class="text-sm text-red-100 mt-1 ml-9">Klassisch: Umdrehen & selbst bewerten</p>
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Karteikarten</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Umdrehen und selbst bewerten
+              </p>
             </button>
 
             <button
               onClick={() => setMode('multiple-choice')}
-              class="w-full p-4 bg-gradient-to-r from-spanish-yellow to-yellow-500 text-gray-800 rounded-xl text-left hover:shadow-lg transition-shadow"
+              class="card-hover w-full p-5 text-left group"
             >
-              <span class="text-2xl mr-3">🔘</span>
-              <span class="font-bold">Multiple Choice</span>
-              <p class="text-sm text-yellow-800 mt-1 ml-9">Wähle aus 4 Antworten</p>
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Multiple Choice</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Wähle aus vier Antworten
+              </p>
             </button>
 
             <button
               onClick={() => setMode('write')}
-              class="w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl text-left hover:shadow-lg transition-shadow"
+              class="card-hover w-full p-5 text-left group"
             >
-              <span class="text-2xl mr-3">✏️</span>
-              <span class="font-bold">Schreiben</span>
-              <p class="text-sm text-green-100 mt-1 ml-9">Tippe die spanische Übersetzung</p>
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Schreiben</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Tippe die spanische Übersetzung
+              </p>
             </button>
 
             <button
               onClick={() => setMode('mixed')}
-              class="w-full p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl text-left hover:shadow-lg transition-shadow"
+              class="card-hover w-full p-5 text-left group border-2 border-dashed border-sand-300"
             >
-              <span class="text-2xl mr-3">🎲</span>
-              <span class="font-bold">Gemischt</span>
-              <p class="text-sm text-purple-100 mt-1 ml-9">Zufällige Übungsarten</p>
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Gemischt</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Zufällige Übungsarten
+              </p>
             </button>
           </div>
-        </div>
+        </section>
       </div>
     )
   }
 
-  // Sitzung abgeschlossen
+  // Session complete screen
   if (isComplete) {
     const total = sessionStats.correct + sessionStats.wrong
     const percentage = total > 0 ? Math.round((sessionStats.correct / total) * 100) : 0
 
     return (
-      <div class="card text-center space-y-6">
-        <div class="text-6xl">{percentage >= 80 ? '🎉' : percentage >= 50 ? '👍' : '💪'}</div>
-        <h2 class="text-2xl font-bold">Sitzung beendet!</h2>
+      <div class="card text-center space-y-8 py-8">
+        <div>
+          <p class="text-4xl font-semibold text-olive mb-2">{percentage}%</p>
+          <h2 class="text-xl text-warm-brown">Übung abgeschlossen</h2>
+        </div>
 
-        <div class="grid grid-cols-2 gap-4">
-          <div class="p-4 bg-green-50 rounded-xl">
-            <p class="text-3xl font-bold text-green-600">{sessionStats.correct}</p>
-            <p class="text-sm text-green-700">Richtig</p>
+        <div class="flex justify-center gap-8">
+          <div>
+            <p class="text-2xl font-semibold text-olive">{sessionStats.correct}</p>
+            <p class="text-sm text-warm-gray">Richtig</p>
           </div>
-          <div class="p-4 bg-red-50 rounded-xl">
-            <p class="text-3xl font-bold text-red-600">{sessionStats.wrong}</p>
-            <p class="text-sm text-red-700">Falsch</p>
+          <div class="w-px bg-sand-200" />
+          <div>
+            <p class="text-2xl font-semibold text-rose-muted">{sessionStats.wrong}</p>
+            <p class="text-sm text-warm-gray">Falsch</p>
           </div>
         </div>
 
-        <div class="text-4xl font-bold text-spanish-red">{percentage}%</div>
-
-        <button onClick={resetSession} class="btn btn-primary w-full py-3">
+        <button onClick={resetSession} class="btn btn-primary">
           Neue Übung starten
         </button>
       </div>
     )
   }
 
-  // Aktuelle Übung
+  // Active exercise
   const exerciseType: ExerciseType = mode === 'mixed' ? exerciseOrder[currentIndex] || 'flashcard' : mode
 
   return (
-    <div class="space-y-4">
-      {/* Fortschrittsanzeige */}
+    <div class="space-y-6">
+      {/* Progress header */}
       <div class="flex items-center gap-4">
-        <button onClick={resetSession} class="text-gray-500 hover:text-gray-700">
-          ← Zurück
+        <button onClick={resetSession} class="btn btn-ghost text-sm">
+          Abbrechen
         </button>
-        <div class="flex-1 bg-gray-200 rounded-full h-2">
+        <div class="flex-1 progress-track h-1.5">
           <div
-            class="bg-spanish-red h-2 rounded-full transition-all"
+            class="progress-fill h-full bg-terracotta"
             style={{ width: `${(currentIndex / sessionWords.length) * 100}%` }}
           />
         </div>
-        <span class="text-sm text-gray-500">
-          {currentIndex + 1} / {sessionWords.length}
+        <span class="text-sm text-warm-gray">
+          {currentIndex + 1}/{sessionWords.length}
         </span>
       </div>
 
-      {/* Kategorie-Badge */}
+      {/* Category badge */}
       <div class="text-center">
-        <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
+        <span class="inline-block px-3 py-1 bg-sand-100 text-warm-gray text-sm rounded-full">
           {currentWord.categoryName}
         </span>
       </div>
 
-      {/* Übung */}
+      {/* Exercise component */}
       {exerciseType === 'flashcard' && (
         <Flashcard word={currentWord} onResult={handleResult} onSkip={handleSkip} />
       )}

@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
+import { SpeakerIcon } from './SpeakerIcon'
 
 interface Props {
   word: WordWithCategory
@@ -19,52 +20,64 @@ export function Flashcard({ word, onResult, onSkip }: Props) {
 
   const handleResult = (correct: boolean) => {
     setFlipped(false)
-    onResult(correct)
+    // Small delay to let the flip animation complete before moving to next card
+    setTimeout(() => onResult(correct), 100)
+  }
+
+  const handleFlip = () => {
+    if (!flipped) {
+      setFlipped(true)
+      // Play audio when revealing the answer
+      setTimeout(() => speak(word.spanish), 300)
+    }
   }
 
   return (
     <div class="space-y-6">
-      <div
-        onClick={() => setFlipped(!flipped)}
-        class="card min-h-[250px] cursor-pointer flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-lg"
-      >
-        {!flipped ? (
-          <>
-            <p class="text-sm text-gray-500 mb-2">Wie heißt das auf Spanisch?</p>
-            <p class="text-3xl font-bold text-gray-800">{word.german}</p>
-            <p class="text-sm text-gray-400 mt-4">Tippe zum Umdrehen</p>
-          </>
-        ) : (
-          <>
-            <p class="text-sm text-gray-500 mb-2">Spanisch</p>
-            <p class="text-3xl font-bold text-spanish-red">{word.spanish}</p>
+      {/* Card with flip animation */}
+      <div class="flashcard-container min-h-[280px]">
+        <div
+          onClick={handleFlip}
+          class={`flashcard-inner min-h-[280px] cursor-pointer ${flipped ? 'flipped' : ''}`}
+        >
+          {/* Front face - German word */}
+          <div class="flashcard-face flashcard-front p-6 text-center bg-white">
+            <p class="text-sm text-warm-gray mb-3">Wie heißt das auf Spanisch?</p>
+            <p class="text-3xl font-serif font-medium text-warm-brown">{word.german}</p>
+            <p class="text-sm text-warm-gray/60 mt-6">Tippen zum Umdrehen</p>
+          </div>
+
+          {/* Back face - Spanish word */}
+          <div class="flashcard-face flashcard-back p-6 text-center bg-white">
+            <p class="text-sm text-warm-gray mb-3">Spanisch</p>
+            <p class="text-3xl font-serif font-medium text-terracotta">{word.spanish}</p>
             <button
               onClick={handleSpeak}
-              class="mt-3 text-2xl hover:scale-110 transition-transform"
+              class="mt-4 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
               disabled={isSpeaking}
             >
-              🔊
+              <SpeakerIcon class="w-4 h-4" />
+              Anhören
             </button>
-            <div class="mt-4 p-3 bg-gray-50 rounded-lg w-full">
-              <p class="text-sm text-gray-600 italic">"{word.example}"</p>
-              <p class="text-xs text-gray-400 mt-1">({word.exampleDe})</p>
+            <div class="mt-4 p-4 bg-sand-50 rounded-lg w-full max-w-sm">
+              <p class="text-sm font-serif text-warm-gray italic">„{word.example}"</p>
+              <p class="text-xs text-warm-gray/70 mt-1">{word.exampleDe}</p>
             </div>
-          </>
-        )}
+          </div>
+        </div>
       </div>
 
-      {flipped && (
-        <div class="flex gap-4">
+      {/* Action buttons */}
+      {flipped ? (
+        <div class="flex gap-3">
           <button onClick={() => handleResult(false)} class="btn btn-danger flex-1 py-3">
-            ❌ Falsch
+            Nochmal üben
           </button>
           <button onClick={() => handleResult(true)} class="btn btn-success flex-1 py-3">
-            ✓ Richtig
+            Gewusst
           </button>
         </div>
-      )}
-
-      {!flipped && (
+      ) : (
         <button onClick={onSkip} class="btn btn-secondary w-full">
           Überspringen
         </button>

@@ -101,5 +101,44 @@ export const categories: Category[] = [
 
 ## Farben
 
-- Spanisch-Rot: `#c60b1e` (spanish-red)
-- Spanisch-Gelb: `#ffc400` (spanish-yellow)
+### Design-Philosophie
+Warme und ruhige Farben für eine entspannte Lernumgebung. Die Farbpalette soll Konzentration fördern und nicht ablenken.
+
+### Empfohlene Farbpalette
+
+| Name | Hex | Verwendung |
+|------|-----|------------|
+| Sand | `#f5f0e8` | Hintergrund |
+| Warm Cream | `#faf6f0` | Karten, Container |
+| Terracotta | `#c77b58` | Primär-Akzent, Buttons |
+| Soft Clay | `#d4a574` | Sekundär-Akzent |
+| Olive | `#8b9a6d` | Erfolg, positive Aktionen |
+| Dusty Rose | `#c9a9a6` | Fehler (sanft) |
+| Warm Gray | `#6b635b` | Text |
+| Deep Brown | `#4a4039` | Überschriften |
+
+### Akzentfarben (sparsam verwenden)
+- Gedämpftes Gold: `#d4a84b` (Highlights, Streak-Anzeige)
+- Weiches Weinrot: `#a65d57` (wichtige Hinweise)
+
+## Playwright MCP - Visuelles Testing
+
+Der Playwright MCP kann verwendet werden, um die Webseite visuell zu inspizieren und iterativ zu verbessern.
+
+### Verwendung
+```
+URL: http://localhost:5173/
+```
+
+### Workflow
+1. `bun run dev` starten (Dev-Server läuft auf Port 5173)
+2. Mit `mcp__playwright__browser_navigate` zur URL navigieren
+3. Mit `mcp__playwright__browser_snapshot` den aktuellen Zustand erfassen
+4. Interaktiv testen: Buttons klicken, Navigation prüfen, Formulare ausfüllen
+5. Screenshots mit `mcp__playwright__browser_take_screenshot` für Dokumentation
+
+### Typische Anwendungsfälle
+- UI-Änderungen visuell verifizieren
+- Responsiveness prüfen (mit `browser_resize`)
+- Interaktive Flows durchspielen (Übungen, Navigation)
+- Visuelle Regressionen erkennen

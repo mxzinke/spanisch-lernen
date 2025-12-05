@@ -92,47 +92,57 @@ export function getRandomWords(count: number, excludeIds: string[] = []): WordWi
   return available.sort(() => Math.random() - 0.5).slice(0, count)
 }
 
-// Schwierigkeits-Mapping für Kategorien (1-5)
+// Schwierigkeits-Mapping für Kategorien (1-15)
 export const categoryDifficulty: Record<string, number> = {
-  // Level 1 - Anfänger
+  // Level 1 - Erste Schritte
   greetings: 1,
   basics: 1,
-  numbers: 1,
-  food: 1,
-  family: 1,
-  // Level 2 - Grundlagen
-  market: 2,
-  home: 2,
-  clothing: 2,
-  weather: 2,
+  // Level 2 - Zahlen & Alltag
+  numbers: 2,
   daily: 2,
-  restaurant: 2,
-  emergency: 2,
-  // Level 3 - Mittelstufe
-  travel: 3,
-  work: 3,
-  hobbies: 3,
-  emotions: 3,
-  city: 3,
-  health: 3,
-  animals: 3,
-  verbs: 3,
-  adjectives: 3,
-  prepositions: 3,
-  shapes: 3,
-  materials: 3,
-  foodExtended: 3,
-  // Level 4 - Fortgeschritten
-  technology: 4,
-  geography: 4,
-  music: 4,
-  spanishCulture: 4,
-  politics: 4,
-  business: 4,
-  connectors: 4,
-  // Level 5 - Experte
-  finance: 5,
-  idioms: 5,
+  // Level 3 - Familie & Zuhause
+  family: 3,
+  home: 3,
+  // Level 4 - Essen & Trinken
+  food: 4,
+  restaurant: 4,
+  // Level 5 - Einkaufen
+  market: 5,
+  clothing: 5,
+  // Level 6 - Natur & Wetter
+  weather: 6,
+  animals: 6,
+  // Level 7 - Unterwegs
+  travel: 7,
+  city: 7,
+  // Level 8 - Gesundheit & Notfall
+  health: 8,
+  emergency: 8,
+  // Level 9 - Arbeit & Freizeit
+  work: 9,
+  hobbies: 9,
+  // Level 10 - Gefühle & Ausdruck
+  emotions: 10,
+  connectors: 10,
+  // Level 11 - Beschreiben
+  adjectives: 11,
+  shapes: 11,
+  materials: 11,
+  // Level 12 - Grammatik-Bausteine
+  verbs: 12,
+  prepositions: 12,
+  // Level 13 - Kultur & Musik
+  music: 13,
+  'spanish-culture': 13,
+  // Level 14 - Welt & Moderne
+  geography: 14,
+  technology: 14,
+  'food-extended': 14,
+  // Level 15 - Fortgeschritten
+  politics: 15,
+  business: 15,
+  finance: 15,
+  idioms: 15,
 }
 
 // Kategorien mit Schwierigkeitsstufe

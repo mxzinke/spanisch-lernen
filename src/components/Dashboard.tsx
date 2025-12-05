@@ -424,7 +424,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               Schalte neue Kategorien frei, indem du 70% der Wörter im aktuellen Level meisterst.
             </p>
             <div class="space-y-1">
-              {[2, 3, 4, 5].map((level) => {
+              {Array.from({ length: 14 }, (_, i) => i + 2).map((level) => {
                 const catsAtLevel = lockedCategories.filter(c => c.difficulty === level)
                 if (catsAtLevel.length === 0) return null
                 return (

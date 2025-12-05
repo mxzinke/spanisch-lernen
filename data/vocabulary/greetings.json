@@ -1,0 +1,111 @@
+{
+  "category": "greetings",
+  "name": "Begrüßungen",
+  "words": [
+    {
+      "id": "hola",
+      "spanish": "Hola",
+      "german": "Hallo",
+      "example": "¡Hola! ¿Cómo estás?",
+      "exampleDe": "Hallo! Wie geht es dir?"
+    },
+    {
+      "id": "buenos_dias",
+      "spanish": "Buenos días",
+      "german": "Guten Morgen",
+      "example": "Buenos días, señora.",
+      "exampleDe": "Guten Morgen, gnädige Frau."
+    },
+    {
+      "id": "buenas_tardes",
+      "spanish": "Buenas tardes",
+      "german": "Guten Tag / Guten Nachmittag",
+      "example": "Buenas tardes, ¿cómo está usted?",
+      "exampleDe": "Guten Tag, wie geht es Ihnen?"
+    },
+    {
+      "id": "buenas_noches",
+      "spanish": "Buenas noches",
+      "german": "Guten Abend / Gute Nacht",
+      "example": "Buenas noches, hasta mañana.",
+      "exampleDe": "Gute Nacht, bis morgen."
+    },
+    {
+      "id": "adios",
+      "spanish": "Adiós",
+      "german": "Auf Wiedersehen",
+      "example": "Adiós, nos vemos pronto.",
+      "exampleDe": "Auf Wiedersehen, wir sehen uns bald."
+    },
+    {
+      "id": "hasta_luego",
+      "spanish": "Hasta luego",
+      "german": "Bis später",
+      "example": "Hasta luego, que te vaya bien.",
+      "exampleDe": "Bis später, alles Gute."
+    },
+    {
+      "id": "hasta_manana",
+      "spanish": "Hasta mañana",
+      "german": "Bis morgen",
+      "example": "Me voy, hasta mañana.",
+      "exampleDe": "Ich gehe, bis morgen."
+    },
+    {
+      "id": "gracias",
+      "spanish": "Gracias",
+      "german": "Danke",
+      "example": "Muchas gracias por tu ayuda.",
+      "exampleDe": "Vielen Dank für deine Hilfe."
+    },
+    {
+      "id": "de_nada",
+      "spanish": "De nada",
+      "german": "Bitte (Antwort auf Danke)",
+      "example": "—Gracias. —De nada.",
+      "exampleDe": "—Danke. —Bitte."
+    },
+    {
+      "id": "por_favor",
+      "spanish": "Por favor",
+      "german": "Bitte",
+      "example": "Un café, por favor.",
+      "exampleDe": "Einen Kaffee, bitte."
+    },
+    {
+      "id": "perdon",
+      "spanish": "Perdón",
+      "german": "Entschuldigung",
+      "example": "Perdón, ¿dónde está el baño?",
+      "exampleDe": "Entschuldigung, wo ist die Toilette?"
+    },
+    {
+      "id": "lo_siento",
+      "spanish": "Lo siento",
+      "german": "Es tut mir leid",
+      "example": "Lo siento, no puedo ir.",
+      "exampleDe": "Es tut mir leid, ich kann nicht gehen."
+    },
+    {
+      "id": "como_estas",
+      "spanish": "¿Cómo estás?",
+      "german": "Wie geht es dir?",
+      "example": "Hola, ¿cómo estás hoy?",
+      "exampleDe": "Hallo, wie geht es dir heute?"
+    },
+    {
+      "id": "muy_bien",
+      "spanish": "Muy bien",
+      "german": "Sehr gut",
+      "example": "Estoy muy bien, gracias.",
+      "exampleDe": "Es geht mir sehr gut, danke."
+    },
+    {
+      "id": "me_llamo",
+      "spanish": "Me llamo...",
+      "german": "Ich heiße...",
+      "example": "Me llamo María, ¿y tú?",
+      "exampleDe": "Ich heiße María, und du?"
+    }
+  ]
+}

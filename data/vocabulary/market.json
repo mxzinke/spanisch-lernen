@@ -1,0 +1,26 @@
+{
+  "category": "market",
+  "name": "Markt & Einkaufen",
+  "words": [
+    { "id": "mercado", "spanish": "El mercado", "german": "Der Markt", "example": "Voy al mercado.", "exampleDe": "Ich gehe zum Markt." },
+    { "id": "tienda", "spanish": "La tienda", "german": "Der Laden", "example": "La tienda está cerrada.", "exampleDe": "Der Laden ist geschlossen." },
+    { "id": "supermercado", "spanish": "El supermercado", "german": "Der Supermarkt", "example": "Compro en el supermercado.", "exampleDe": "Ich kaufe im Supermarkt ein." },
+    { "id": "precio", "spanish": "El precio", "german": "Der Preis", "example": "¿Cuál es el precio?", "exampleDe": "Was ist der Preis?" },
+    { "id": "barato", "spanish": "Barato", "german": "Billig / Günstig", "example": "Es muy barato.", "exampleDe": "Es ist sehr günstig." },
+    { "id": "caro", "spanish": "Caro", "german": "Teuer", "example": "Es demasiado caro.", "exampleDe": "Es ist zu teuer." },
+    { "id": "dinero", "spanish": "El dinero", "german": "Das Geld", "example": "No tengo dinero.", "exampleDe": "Ich habe kein Geld." },
+    { "id": "efectivo", "spanish": "En efectivo", "german": "Bar / In bar", "example": "Pago en efectivo.", "exampleDe": "Ich zahle bar." },
+    { "id": "tarjeta", "spanish": "La tarjeta", "german": "Die Karte", "example": "¿Puedo pagar con tarjeta?", "exampleDe": "Kann ich mit Karte zahlen?" },
+    { "id": "comprar", "spanish": "Comprar", "german": "Kaufen", "example": "Quiero comprar esto.", "exampleDe": "Ich möchte das kaufen." },
+    { "id": "vender", "spanish": "Vender", "german": "Verkaufen", "example": "¿Vendes frutas?", "exampleDe": "Verkaufst du Obst?" },
+    { "id": "pagar", "spanish": "Pagar", "german": "Bezahlen", "example": "¿Dónde puedo pagar?", "exampleDe": "Wo kann ich bezahlen?" },
+    { "id": "cuenta", "spanish": "La cuenta", "german": "Die Rechnung", "example": "La cuenta, por favor.", "exampleDe": "Die Rechnung, bitte." },
+    { "id": "bolsa", "spanish": "La bolsa", "german": "Die Tüte", "example": "¿Necesitas una bolsa?", "exampleDe": "Brauchst du eine Tüte?" },
+    { "id": "kilo", "spanish": "Un kilo", "german": "Ein Kilo", "example": "Un kilo de tomates.", "exampleDe": "Ein Kilo Tomaten." },
+    { "id": "medio_kilo", "spanish": "Medio kilo", "german": "Ein halbes Kilo", "example": "Medio kilo de queso.", "exampleDe": "Ein halbes Kilo Käse." },
+    { "id": "abierto", "spanish": "Abierto", "german": "Geöffnet", "example": "El mercado está abierto.", "exampleDe": "Der Markt ist geöffnet." },
+    { "id": "cerrado", "spanish": "Cerrado", "german": "Geschlossen", "example": "Hoy está cerrado.", "exampleDe": "Heute ist geschlossen." },
+    { "id": "fresco", "spanish": "Fresco", "german": "Frisch", "example": "Pescado fresco.", "exampleDe": "Frischer Fisch." },
+    { "id": "oferta", "spanish": "La oferta", "german": "Das Angebot", "example": "Hay una oferta especial.", "exampleDe": "Es gibt ein Sonderangebot." }
+  ]
+}

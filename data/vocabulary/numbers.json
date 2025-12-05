@@ -1,0 +1,24 @@
+{
+  "category": "numbers",
+  "name": "Zahlen",
+  "words": [
+    { "id": "uno", "spanish": "Uno", "german": "Eins", "example": "Tengo un hermano.", "exampleDe": "Ich habe einen Bruder." },
+    { "id": "dos", "spanish": "Dos", "german": "Zwei", "example": "Dos cafés, por favor.", "exampleDe": "Zwei Kaffees, bitte." },
+    { "id": "tres", "spanish": "Tres", "german": "Drei", "example": "Hay tres personas.", "exampleDe": "Es gibt drei Personen." },
+    { "id": "cuatro", "spanish": "Cuatro", "german": "Vier", "example": "Son las cuatro.", "exampleDe": "Es ist vier Uhr." },
+    { "id": "cinco", "spanish": "Cinco", "german": "Fünf", "example": "Cinco euros.", "exampleDe": "Fünf Euro." },
+    { "id": "seis", "spanish": "Seis", "german": "Sechs", "example": "Tengo seis años.", "exampleDe": "Ich bin sechs Jahre alt." },
+    { "id": "siete", "spanish": "Siete", "german": "Sieben", "example": "Siete días.", "exampleDe": "Sieben Tage." },
+    { "id": "ocho", "spanish": "Ocho", "german": "Acht", "example": "A las ocho.", "exampleDe": "Um acht Uhr." },
+    { "id": "nueve", "spanish": "Nueve", "german": "Neun", "example": "Nueve meses.", "exampleDe": "Neun Monate." },
+    { "id": "diez", "spanish": "Diez", "german": "Zehn", "example": "Diez minutos.", "exampleDe": "Zehn Minuten." },
+    { "id": "once", "spanish": "Once", "german": "Elf", "example": "Once personas.", "exampleDe": "Elf Personen." },
+    { "id": "doce", "spanish": "Doce", "german": "Zwölf", "example": "Doce huevos.", "exampleDe": "Zwölf Eier." },
+    { "id": "veinte", "spanish": "Veinte", "german": "Zwanzig", "example": "Veinte euros.", "exampleDe": "Zwanzig Euro." },
+    { "id": "treinta", "spanish": "Treinta", "german": "Dreißig", "example": "Treinta años.", "exampleDe": "Dreißig Jahre." },
+    { "id": "cuarenta", "spanish": "Cuarenta", "german": "Vierzig", "example": "Cuarenta grados.", "exampleDe": "Vierzig Grad." },
+    { "id": "cincuenta", "spanish": "Cincuenta", "german": "Fünfzig", "example": "Cincuenta por ciento.", "exampleDe": "Fünfzig Prozent." },
+    { "id": "cien", "spanish": "Cien", "german": "Hundert", "example": "Cien gramos.", "exampleDe": "Hundert Gramm." },
+    { "id": "mil", "spanish": "Mil", "german": "Tausend", "example": "Mil gracias.", "exampleDe": "Tausend Dank." }
+  ]
+}

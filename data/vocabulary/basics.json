@@ -1,0 +1,146 @@
+{
+  "category": "basics",
+  "name": "Grundlagen",
+  "words": [
+    {
+      "id": "si",
+      "spanish": "Sí",
+      "german": "Ja",
+      "example": "Sí, quiero un café.",
+      "exampleDe": "Ja, ich möchte einen Kaffee."
+    },
+    {
+      "id": "no",
+      "spanish": "No",
+      "german": "Nein",
+      "example": "No, gracias.",
+      "exampleDe": "Nein, danke."
+    },
+    {
+      "id": "yo",
+      "spanish": "Yo",
+      "german": "Ich",
+      "example": "Yo soy de Alemania.",
+      "exampleDe": "Ich bin aus Deutschland."
+    },
+    {
+      "id": "tu",
+      "spanish": "Tú",
+      "german": "Du",
+      "example": "¿Tú hablas español?",
+      "exampleDe": "Sprichst du Spanisch?"
+    },
+    {
+      "id": "el_ella",
+      "spanish": "Él / Ella",
+      "german": "Er / Sie",
+      "example": "Él es mi amigo. Ella es mi hermana.",
+      "exampleDe": "Er ist mein Freund. Sie ist meine Schwester."
+    },
+    {
+      "id": "nosotros",
+      "spanish": "Nosotros",
+      "german": "Wir",
+      "example": "Nosotros vivimos aquí.",
+      "exampleDe": "Wir wohnen hier."
+    },
+    {
+      "id": "que",
+      "spanish": "¿Qué?",
+      "german": "Was?",
+      "example": "¿Qué quieres comer?",
+      "exampleDe": "Was möchtest du essen?"
+    },
+    {
+      "id": "donde",
+      "spanish": "¿Dónde?",
+      "german": "Wo?",
+      "example": "¿Dónde está la estación?",
+      "exampleDe": "Wo ist der Bahnhof?"
+    },
+    {
+      "id": "cuando",
+      "spanish": "¿Cuándo?",
+      "german": "Wann?",
+      "example": "¿Cuándo llegas?",
+      "exampleDe": "Wann kommst du an?"
+    },
+    {
+      "id": "como",
+      "spanish": "¿Cómo?",
+      "german": "Wie?",
+      "example": "¿Cómo se dice en español?",
+      "exampleDe": "Wie sagt man auf Spanisch?"
+    },
+    {
+      "id": "por_que",
+      "spanish": "¿Por qué?",
+      "german": "Warum?",
+      "example": "¿Por qué estudias español?",
+      "exampleDe": "Warum lernst du Spanisch?"
+    },
+    {
+      "id": "cuanto",
+      "spanish": "¿Cuánto?",
+      "german": "Wie viel?",
+      "example": "¿Cuánto cuesta esto?",
+      "exampleDe": "Wie viel kostet das?"
+    },
+    {
+      "id": "aqui",
+      "spanish": "Aquí",
+      "german": "Hier",
+      "example": "El restaurante está aquí.",
+      "exampleDe": "Das Restaurant ist hier."
+    },
+    {
+      "id": "alli",
+      "spanish": "Allí",
+      "german": "Dort",
+      "example": "Mi casa está allí.",
+      "exampleDe": "Mein Haus ist dort."
+    },
+    {
+      "id": "hoy",
+      "spanish": "Hoy",
+      "german": "Heute",
+      "example": "Hoy hace buen tiempo.",
+      "exampleDe": "Heute ist schönes Wetter."
+    },
+    {
+      "id": "manana",
+      "spanish": "Mañana",
+      "german": "Morgen",
+      "example": "Mañana voy al mercado.",
+      "exampleDe": "Morgen gehe ich zum Markt."
+    },
+    {
+      "id": "ayer",
+      "spanish": "Ayer",
+      "german": "Gestern",
+      "example": "Ayer fui al cine.",
+      "exampleDe": "Gestern war ich im Kino."
+    },
+    {
+      "id": "ahora",
+      "spanish": "Ahora",
+      "german": "Jetzt",
+      "example": "Ahora estoy ocupado.",
+      "exampleDe": "Jetzt bin ich beschäftigt."
+    },
+    {
+      "id": "despues",
+      "spanish": "Después",
+      "german": "Danach / Später",
+      "example": "Después vamos a cenar.",
+      "exampleDe": "Danach gehen wir essen."
+    },
+    {
+      "id": "antes",
+      "spanish": "Antes",
+      "german": "Vorher",
+      "example": "Antes de comer, lávate las manos.",
+      "exampleDe": "Bevor du isst, wasch dir die Hände."
+    }
+  ]
+}

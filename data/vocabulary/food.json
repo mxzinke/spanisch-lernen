@@ -1,0 +1,29 @@
+{
+  "category": "food",
+  "name": "Essen & Trinken",
+  "words": [
+    { "id": "agua", "spanish": "El agua", "german": "Das Wasser", "example": "Un vaso de agua, por favor.", "exampleDe": "Ein Glas Wasser, bitte." },
+    { "id": "cafe", "spanish": "El café", "german": "Der Kaffee", "example": "Me gusta el café con leche.", "exampleDe": "Ich mag Kaffee mit Milch." },
+    { "id": "te", "spanish": "El té", "german": "Der Tee", "example": "Prefiero el té verde.", "exampleDe": "Ich bevorzuge grünen Tee." },
+    { "id": "leche", "spanish": "La leche", "german": "Die Milch", "example": "¿Tienes leche?", "exampleDe": "Hast du Milch?" },
+    { "id": "pan", "spanish": "El pan", "german": "Das Brot", "example": "Compro pan cada día.", "exampleDe": "Ich kaufe jeden Tag Brot." },
+    { "id": "queso", "spanish": "El queso", "german": "Der Käse", "example": "El queso manchego es delicioso.", "exampleDe": "Der Manchego-Käse ist köstlich." },
+    { "id": "jamon", "spanish": "El jamón", "german": "Der Schinken", "example": "Jamón serrano, por favor.", "exampleDe": "Serrano-Schinken, bitte." },
+    { "id": "carne", "spanish": "La carne", "german": "Das Fleisch", "example": "No como carne.", "exampleDe": "Ich esse kein Fleisch." },
+    { "id": "pollo", "spanish": "El pollo", "german": "Das Hähnchen", "example": "Pollo asado con patatas.", "exampleDe": "Gebratenes Hähnchen mit Kartoffeln." },
+    { "id": "pescado", "spanish": "El pescado", "german": "Der Fisch", "example": "Me encanta el pescado fresco.", "exampleDe": "Ich liebe frischen Fisch." },
+    { "id": "fruta", "spanish": "La fruta", "german": "Das Obst", "example": "Como mucha fruta.", "exampleDe": "Ich esse viel Obst." },
+    { "id": "manzana", "spanish": "La manzana", "german": "Der Apfel", "example": "Una manzana roja.", "exampleDe": "Ein roter Apfel." },
+    { "id": "naranja", "spanish": "La naranja", "german": "Die Orange", "example": "Zumo de naranja.", "exampleDe": "Orangensaft." },
+    { "id": "platano", "spanish": "El plátano", "german": "Die Banane", "example": "Los plátanos son amarillos.", "exampleDe": "Die Bananen sind gelb." },
+    { "id": "verdura", "spanish": "La verdura", "german": "Das Gemüse", "example": "Las verduras son sanas.", "exampleDe": "Gemüse ist gesund." },
+    { "id": "tomate", "spanish": "El tomate", "german": "Die Tomate", "example": "Ensalada de tomate.", "exampleDe": "Tomatensalat." },
+    { "id": "patata", "spanish": "La patata", "german": "Die Kartoffel", "example": "Patatas fritas.", "exampleDe": "Pommes frites." },
+    { "id": "arroz", "spanish": "El arroz", "german": "Der Reis", "example": "Paella con arroz.", "exampleDe": "Paella mit Reis." },
+    { "id": "huevo", "spanish": "El huevo", "german": "Das Ei", "example": "Huevos revueltos.", "exampleDe": "Rühreier." },
+    { "id": "cerveza", "spanish": "La cerveza", "german": "Das Bier", "example": "Una cerveza fría.", "exampleDe": "Ein kaltes Bier." },
+    { "id": "vino", "spanish": "El vino", "german": "Der Wein", "example": "Vino tinto o blanco?", "exampleDe": "Rot- oder Weißwein?" },
+    { "id": "azucar", "spanish": "El azúcar", "german": "Der Zucker", "example": "Sin azúcar, por favor.", "exampleDe": "Ohne Zucker, bitte." },
+    { "id": "sal", "spanish": "La sal", "german": "Das Salz", "example": "Pásame la sal.", "exampleDe": "Reich mir das Salz." }
+  ]
+}

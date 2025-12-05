@@ -54,22 +54,47 @@ export function Settings() {
       {/* Info section */}
       <section class="card">
         <h2 class="mb-4 font-serif">Über das Leitner-System</h2>
-        <div class="space-y-3 text-sm text-warm-gray">
+        <div class="space-y-4 text-sm text-warm-gray">
           <p>
-            Wörter werden nach dem Spaced-Repetition-Prinzip wiederholt.
-            Richtige Antworten verschieben ein Wort in eine höhere Stufe,
-            falsche zurück zu Stufe 1.
+            Das Leitner-System nutzt <span class="text-warm-brown font-medium">Spaced Repetition</span> –
+            eine wissenschaftlich bewährte Lernmethode. Die Idee: Wörter, die du gut kannst,
+            werden seltener abgefragt. Schwierige Wörter übst du öfter.
           </p>
-          <div class="space-y-1">
+          <p>
+            Jedes Wort durchläuft 5 Stufen. Bei einer <span class="text-olive">richtigen Antwort</span> steigt
+            es eine Stufe auf. Bei einer <span class="text-terracotta">falschen Antwort</span> fällt es
+            zurück zu Stufe 1 – so stellst du sicher, dass du es wirklich lernst.
+          </p>
+          <div class="space-y-2">
             <p class="font-medium text-warm-brown">Wiederholungsintervalle:</p>
-            <ul class="space-y-1 ml-4">
-              <li>Stufe 1: Täglich</li>
-              <li>Stufe 2: Alle 2 Tage</li>
-              <li>Stufe 3: Alle 4 Tage</li>
-              <li>Stufe 4: Alle 8 Tage</li>
-              <li>Stufe 5: Alle 16 Tage</li>
+            <ul class="space-y-1.5 ml-4">
+              <li class="flex items-center gap-2">
+                <span class="w-16">Stufe 1:</span>
+                <span class="text-warm-brown">Täglich</span>
+                <span class="text-warm-gray/60 text-xs">– neue Wörter</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-16">Stufe 2:</span>
+                <span class="text-warm-brown">Alle 2 Tage</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-16">Stufe 3:</span>
+                <span class="text-warm-brown">Alle 4 Tage</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-16">Stufe 4:</span>
+                <span class="text-warm-brown">Alle 8 Tage</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-16">Stufe 5:</span>
+                <span class="text-olive">Alle 16 Tage</span>
+                <span class="text-warm-gray/60 text-xs">– gemeistert!</span>
+              </li>
             </ul>
           </div>
+          <p class="text-xs text-warm-gray/70 pt-2 border-t border-sand-200">
+            Wörter auf Stufe 5 hast du gemeistert – sie zählen für deinen Level-Fortschritt.
+          </p>
         </div>
       </section>
       

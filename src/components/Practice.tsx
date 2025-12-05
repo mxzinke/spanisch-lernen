@@ -87,7 +87,7 @@ export function Practice({ initialCategory }: PracticeProps) {
               const isLocked = !unlockedCategoryIds.includes(cat.category)
               return (
                 <option key={cat.category} value={cat.category} disabled={isLocked}>
-                  {isLocked ? '\u{1F512} ' : ''}{cat.name} (Stufe {cat.difficulty}) - {cat.words.length} Wörter
+                  {isLocked ? '\u{1F512} ' : ''}{cat.name} (Level {cat.difficulty}) - {cat.words.length} Wörter
                 </option>
               )
             })}

@@ -1,6 +1,6 @@
 interface DifficultyBadgeProps {
   level: number
-  size?: 'sm' | 'md'
+  size?: 'sm' | 'md' | "lg"
 }
 
 const levelColors: Record<number, string> = {
@@ -15,5 +15,5 @@ export function DifficultyBadge({ level, size = 'sm' }: DifficultyBadgeProps) {
   const colorClass = levelColors[level] || levelColors[3]
   const sizeClass = size === 'sm' ? 'text-xs px-2 py-0.5' : 'text-sm px-2.5 py-1'
 
-  return <span class={`rounded-full font-medium ${colorClass} ${sizeClass}`}>Stufe {level}</span>
+  return <span class={`rounded-full font-medium ${colorClass} ${sizeClass}`}>Level {level}</span>
 }

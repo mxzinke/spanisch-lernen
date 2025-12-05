@@ -49,7 +49,7 @@ export function VocabList() {
         >
           <option value="all">Alle freigeschalteten Kategorien ({unlockedCategoryIds.length})</option>
           {[1, 2, 3, 4, 5].map((level) => (
-            <optgroup key={level} label={`Stufe ${level}`}>
+            <optgroup key={level} label={`Level ${level}`}>
               {sortedCategories
                 .filter((cat) => cat.difficulty === level)
                 .map((cat) => {

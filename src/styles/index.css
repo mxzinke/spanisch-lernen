@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
   body {
     @apply bg-sand-50 text-warm-brown min-h-screen antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    padding-bottom: calc(72px + var(--safe-area-inset-bottom));
   }
 
   /* Typography hierarchy */
@@ -88,6 +93,56 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* Page transition animations */
+  .page-transition {
+    transition: opacity 150ms ease-out, transform 150ms ease-out;
+  }
+
+  .page-enter {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .page-exit.slide-left {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .page-exit.slide-right {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .page-enter.slide-left {
+    animation: slideInFromRight 200ms ease-out;
+  }
+
+  .page-enter.slide-right {
+    animation: slideInFromLeft 200ms ease-out;
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   /* Flashcard flip animation */
   .flashcard-container {
     perspective: 1000px;
@@ -148,5 +203,14 @@
   .scrollbar-subtle::-webkit-scrollbar-thumb {
     background-color: theme('colors.sand.300');
     border-radius: 3px;
+  }
+
+  /* Safe area utilities for iOS */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
   }
 }

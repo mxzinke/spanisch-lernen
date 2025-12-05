@@ -40,18 +40,18 @@ export function Dashboard() {
       </section>
 
       {/* Main stats - clean grid */}
-      <section class="grid grid-cols-3 gap-4">
-        <div class="card text-center">
-          <p class="text-3xl font-semibold text-warm-gold mb-1">{stats.streak}</p>
-          <p class="text-sm text-warm-gray">Tage-Streak</p>
+      <section class="grid grid-cols-3 gap-3">
+        <div class="card text-center px-3 py-4">
+          <p class="text-2xl sm:text-3xl font-semibold text-warm-gold mb-1">{stats.streak}</p>
+          <p class="text-xs sm:text-sm text-warm-gray">Streak</p>
         </div>
-        <div class="card text-center">
-          <p class="text-3xl font-semibold text-terracotta mb-1">{learnedWords}</p>
-          <p class="text-sm text-warm-gray">Gelernt</p>
+        <div class="card text-center px-3 py-4">
+          <p class="text-2xl sm:text-3xl font-semibold text-terracotta mb-1">{learnedWords}</p>
+          <p class="text-xs sm:text-sm text-warm-gray">Gelernt</p>
         </div>
-        <div class="card text-center">
-          <p class="text-3xl font-semibold text-olive mb-1">{successRate}%</p>
-          <p class="text-sm text-warm-gray">Erfolgsquote</p>
+        <div class="card text-center px-3 py-4">
+          <p class="text-2xl sm:text-3xl font-semibold text-olive mb-1">{successRate}%</p>
+          <p class="text-xs sm:text-sm text-warm-gray">Erfolg</p>
         </div>
       </section>
 

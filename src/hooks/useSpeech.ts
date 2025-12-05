@@ -35,6 +35,8 @@ export function useSpeech() {
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [spanishVoices, setSpanishVoices] = useState<SpeechSynthesisVoice[]>([])
   const [settings, setSettings] = useState<SpeechSettings>(getDefaultSettings)
+  const [lastSpokenText, setLastSpokenText] = useState<string | null>(null)
+  const [speakSlow, setSpeakSlow] = useState(false)
 
   // Stimmen laden
   useEffect(() => {
@@ -104,6 +106,14 @@ export function useSpeech() {
 
       window.speechSynthesis.cancel()
 
+      // Prüfen ob gleicher Text erneut abgespielt wird
+      const isSameText = text === lastSpokenText
+      const shouldSpeakSlow = isSameText ? !speakSlow : false
+
+      // State aktualisieren
+      setLastSpokenText(text)
+      setSpeakSlow(shouldSpeakSlow)
+
       const utterance = new SpeechSynthesisUtterance(text)
 
       // Stimme setzen
@@ -115,8 +125,9 @@ export function useSpeech() {
         utterance.lang = 'es-ES'
       }
 
-      // Einstellungen anwenden
-      utterance.rate = options.rate ?? settings.rate
+      // Einstellungen anwenden - bei langsamem Modus halbe Geschwindigkeit
+      const baseRate = options.rate ?? settings.rate
+      utterance.rate = shouldSpeakSlow ? baseRate * 0.5 : baseRate
       utterance.pitch = options.pitch ?? 1
 
       utterance.onstart = () => setIsSpeaking(true)
@@ -125,7 +136,7 @@ export function useSpeech() {
 
       window.speechSynthesis.speak(utterance)
     },
-    [isSupported, getBestVoice, settings.rate]
+    [isSupported, getBestVoice, settings.rate, lastSpokenText, speakSlow]
   )
 
   const stop = useCallback(() => {

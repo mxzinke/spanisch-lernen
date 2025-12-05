@@ -59,10 +59,20 @@ export function Flashcard({ word, onResult, onSkip }: Props) {
               <SpeakerIcon class="w-4 h-4" />
               Anhören
             </button>
-            <div class="mt-4 p-4 bg-sand-50 rounded-lg w-full max-w-sm">
-              <p class="text-sm font-serif text-warm-gray italic">„{word.example}"</p>
-              <p class="text-xs text-warm-gray/70 mt-1">{word.exampleDe}</p>
-            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                speak(word.example)
+              }}
+              class="mt-4 p-4 bg-sand-50 hover:bg-sand-100 rounded-lg w-full max-w-sm text-center transition-colors group"
+              title="Beispielsatz anhören"
+            >
+              <p class="w-fit mx-auto text-sm font-serif text-warm-gray group-hover:text-terracotta italic flex items-center gap-2 transition-colors">
+                <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 shrink-0" />
+                <span>„{word.example}"</span>
+              </p>
+              <p class="text-xs text-warm-gray/70 mt-1 ml-5">{word.exampleDe}</p>
+            </button>
           </div>
         </div>
       </div>

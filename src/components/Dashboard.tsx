@@ -1,6 +1,93 @@
 import { useProgress } from '../hooks/useProgress'
 import { allWords, categories } from '../data/vocabulary'
 
+// Motivierende Sprüche nach Tageszeit und Zustand
+const motivationalMessages = {
+  morning: {
+    // 5:00 - 11:59
+    notPracticed: [
+      { title: '¡Buenos días!', subtitle: 'Starte deinen Tag mit Spanisch' },
+      { title: 'Guten Morgen!', subtitle: 'Morgens lernt es sich am besten' },
+      { title: 'Frisch ans Werk!', subtitle: 'Ein paar Vokabeln zum Wachwerden?' },
+      { title: '¡Arriba!', subtitle: 'Der frühe Vogel lernt Spanisch' },
+      { title: 'Bereit für heute?', subtitle: 'Starte entspannt in den Tag' },
+    ],
+    practiced: [
+      { title: '¡Excelente!', subtitle: 'Toll gestartet - der Tag kann kommen!' },
+      { title: 'Früh geübt!', subtitle: 'Du hast den Tag produktiv begonnen' },
+      { title: '¡Muy bien!', subtitle: 'Morgens gleich erledigt - super!' },
+    ],
+  },
+  afternoon: {
+    // 12:00 - 17:59
+    notPracticed: [
+      { title: '¡Buenas tardes!', subtitle: 'Zeit für eine Lernpause?' },
+      { title: 'Kurze Pause?', subtitle: 'Ideal für ein paar Vokabeln' },
+      { title: 'Halbzeit!', subtitle: 'Gönn dir eine Spanisch-Session' },
+      { title: '¡Vamos!', subtitle: 'Der Nachmittag ist noch jung' },
+      { title: 'Lust auf Spanisch?', subtitle: 'Kleine Pausen, große Fortschritte' },
+    ],
+    practiced: [
+      { title: 'Gut gemacht!', subtitle: 'Heute schon fleißig gewesen' },
+      { title: '¡Perfecto!', subtitle: 'Du bleibst am Ball' },
+      { title: 'Weiter so!', subtitle: 'Dein Einsatz zahlt sich aus' },
+    ],
+  },
+  evening: {
+    // 18:00 - 21:59
+    notPracticed: [
+      { title: '¡Buenas noches!', subtitle: 'Noch Zeit für eine Runde?' },
+      { title: 'Feierabend-Lernen?', subtitle: 'Entspannt den Tag ausklingen lassen' },
+      { title: 'Noch nicht geübt?', subtitle: 'Der Abend ist perfekt dafür' },
+      { title: '¡Hola!', subtitle: 'Ein paar Minuten vor dem Entspannen?' },
+      { title: 'Guten Abend!', subtitle: 'Abends prägt sich vieles besser ein' },
+    ],
+    practiced: [
+      { title: '¡Fantástico!', subtitle: 'Du hast heute alles gegeben' },
+      { title: 'Geschafft!', subtitle: 'Genieß deinen Feierabend' },
+      { title: '¡Bravo!', subtitle: 'Morgen geht es weiter' },
+    ],
+  },
+  night: {
+    // 22:00 - 4:59
+    notPracticed: [
+      { title: 'Noch wach?', subtitle: 'Eine kleine Runde geht noch' },
+      { title: 'Nachtschicht?', subtitle: 'Auch spät lernt es sich gut' },
+      { title: '¡Hola, buhó!', subtitle: 'Für Nachteulen ist es nie zu spät' },
+    ],
+    practiced: [
+      { title: 'Gut gemacht!', subtitle: 'Ab ins Bett - du hast es verdient' },
+      { title: '¡Dulces sueños!', subtitle: 'Im Schlaf festigt sich das Gelernte' },
+      { title: 'Schlaf gut!', subtitle: 'Morgen wartet neues Wissen' },
+    ],
+  },
+}
+
+type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night'
+
+function getTimeOfDay(): TimeOfDay {
+  const hour = new Date().getHours()
+  if (hour >= 5 && hour < 12) return 'morning'
+  if (hour >= 12 && hour < 18) return 'afternoon'
+  if (hour >= 18 && hour < 22) return 'evening'
+  return 'night'
+}
+
+// Wählt einen Spruch basierend auf Tageszeit und Datum
+function getDailyMessage(practiced: boolean): { title: string; subtitle: string } {
+  const timeOfDay = getTimeOfDay()
+  const messages = practiced
+    ? motivationalMessages[timeOfDay].practiced
+    : motivationalMessages[timeOfDay].notPracticed
+
+  const today = new Date()
+  const dayOfYear = Math.floor(
+    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24)
+  )
+  const index = dayOfYear % messages.length
+  return messages[index]
+}
+
 export function Dashboard() {
   const { progress, getStats, getWordsForReview } = useProgress()
   const stats = getStats()
@@ -23,20 +110,21 @@ export function Dashboard() {
       ? Math.round((stats.totalCorrect / (stats.totalCorrect + stats.totalWrong)) * 100)
       : 0
 
+  const dailyMessage = getDailyMessage(practicedToday)
+
+  // Untertitel: Bei nicht geübt zeigen wir Vokabel-Anzahl wenn vorhanden, sonst den motivierenden Spruch
+  const subtitle = practicedToday
+    ? dailyMessage.subtitle
+    : dailyMessage.subtitle
+
   return (
     <div class="space-y-8">
       {/* Welcome section - simple and warm */}
       <section class="text-center py-4">
         <h2 class="text-2xl font-semibold font-serif text-warm-brown mb-2">
-          {practicedToday ? 'Gut gemacht heute!' : 'Bereit zum Lernen?'}
+          {dailyMessage.title}
         </h2>
-        <p class="text-warm-gray">
-          {practicedToday
-            ? 'Du hast heute schon geübt. Weiter so!'
-            : wordsForReview > 0
-              ? `${wordsForReview} Vokabeln warten auf dich`
-              : 'Starte mit einer neuen Übung'}
-        </p>
+        <p class="text-warm-gray">{subtitle}</p>
       </section>
 
       {/* Main stats - clean grid */}

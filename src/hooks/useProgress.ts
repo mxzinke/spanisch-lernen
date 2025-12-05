@@ -1,31 +1,25 @@
 import { useState, useEffect, useCallback } from 'preact/hooks'
 import type { Progress, WordProgress, Stats, WordWithCategory } from '../types'
-
-const STORAGE_KEY = 'spanisch-lernen-progress'
-
-const defaultProgress: Progress = {
-  words: {},
-  stats: {
-    streak: 0,
-    lastPractice: null,
-    totalCorrect: 0,
-    totalWrong: 0,
-  },
-}
+import { getProgress, saveProgress, defaultProgress, exportProgress, importProgress } from '../lib/db'
 
 export function useProgress() {
-  const [progress, setProgress] = useState<Progress>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      return saved ? JSON.parse(saved) : defaultProgress
-    } catch {
-      return defaultProgress
-    }
-  })
+  const [progress, setProgress] = useState<Progress>(defaultProgress)
+  const [isLoading, setIsLoading] = useState(true)
 
+  // Load progress from IndexedDB on mount
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
-  }, [progress])
+    getProgress().then((loaded) => {
+      setProgress(loaded)
+      setIsLoading(false)
+    })
+  }, [])
+
+  // Save progress to IndexedDB whenever it changes
+  useEffect(() => {
+    if (!isLoading) {
+      saveProgress(progress)
+    }
+  }, [progress, isLoading])
 
   const updateWordProgress = useCallback((wordId: string, correct: boolean) => {
     setProgress((prev) => {
@@ -103,12 +97,26 @@ export function useProgress() {
     setProgress(defaultProgress)
   }, [])
 
+  // Export current progress as JSON file
+  const handleExport = useCallback(() => {
+    exportProgress(progress)
+  }, [progress])
+
+  // Import progress from JSON file
+  const handleImport = useCallback(async (file: File): Promise<void> => {
+    const imported = await importProgress(file)
+    setProgress(imported)
+  }, [])
+
   return {
     progress,
+    isLoading,
     updateWordProgress,
     getWordProgress,
     getStats,
     getWordsForReview,
     resetProgress,
+    exportProgress: handleExport,
+    importProgress: handleImport,
   }
 }

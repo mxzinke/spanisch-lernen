@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'preact/hooks'
+import { useState, useRef } from 'preact/hooks'
 import type { TabId } from './types'
 import { Navigation } from './components/Navigation'
 import { Dashboard } from './components/Dashboard'
@@ -6,6 +6,7 @@ import { Practice } from './components/Practice'
 import { VocabList } from './components/VocabList'
 import { Settings } from './components/Settings'
 import { Logo } from './components/Logo'
+import { InstallPrompt } from './components/InstallPrompt'
 
 export function App() {
   const [activeTab, setActiveTab] = useState<TabId>('dashboard')
@@ -60,6 +61,7 @@ export function App() {
       </main>
 
       <Navigation activeTab={activeTab} onTabChange={handleTabChange} />
+      <InstallPrompt />
     </div>
   )
 }

@@ -53,7 +53,7 @@ export function App() {
         <div
           class={`page-transition ${isAnimating ? 'page-exit' : 'page-enter'} ${getAnimationDirection()}`}
         >
-          {displayTab === 'dashboard' && <Dashboard />}
+          {displayTab === 'dashboard' && <Dashboard onNavigate={handleTabChange} />}
           {displayTab === 'practice' && <Practice />}
           {displayTab === 'vocabulary' && <VocabList />}
           {displayTab === 'settings' && <Settings />}

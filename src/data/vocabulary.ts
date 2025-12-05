@@ -1,4 +1,4 @@
-import type { Category, WordWithCategory } from '../types'
+import type { Category, CategoryWithDifficulty, WordWithCategory } from '../types'
 
 // Importiere alle Vokabel-Dateien
 import greetings from '../../data/vocabulary/greetings.json'
@@ -91,3 +91,57 @@ export function getRandomWords(count: number, excludeIds: string[] = []): WordWi
   const available = allWords.filter((w) => !excludeIds.includes(w.id))
   return available.sort(() => Math.random() - 0.5).slice(0, count)
 }
+
+// Schwierigkeits-Mapping für Kategorien (1-5)
+export const categoryDifficulty: Record<string, number> = {
+  // Level 1 - Anfänger
+  greetings: 1,
+  basics: 1,
+  numbers: 1,
+  food: 1,
+  family: 1,
+  // Level 2 - Grundlagen
+  market: 2,
+  home: 2,
+  clothing: 2,
+  weather: 2,
+  daily: 2,
+  restaurant: 2,
+  emergency: 2,
+  // Level 3 - Mittelstufe
+  travel: 3,
+  work: 3,
+  hobbies: 3,
+  emotions: 3,
+  city: 3,
+  health: 3,
+  animals: 3,
+  verbs: 3,
+  adjectives: 3,
+  prepositions: 3,
+  shapes: 3,
+  materials: 3,
+  foodExtended: 3,
+  // Level 4 - Fortgeschritten
+  technology: 4,
+  geography: 4,
+  music: 4,
+  spanishCulture: 4,
+  politics: 4,
+  business: 4,
+  connectors: 4,
+  // Level 5 - Experte
+  finance: 5,
+  idioms: 5,
+}
+
+// Kategorien mit Schwierigkeitsstufe
+export const categoriesWithDifficulty: CategoryWithDifficulty[] = categories.map((cat) => ({
+  ...cat,
+  difficulty: categoryDifficulty[cat.category] || 3,
+}))
+
+// Nach Schwierigkeit sortierte Kategorien
+export const sortedCategories = [...categoriesWithDifficulty].sort(
+  (a, b) => a.difficulty - b.difficulty || a.name.localeCompare(b.name, 'de')
+)

@@ -1,26 +1,42 @@
-import { useState, useMemo } from 'preact/hooks'
-import type { ExerciseType, WordWithCategory } from '../types'
+import { useState, useMemo, useEffect } from 'preact/hooks'
+import type { ExerciseType } from '../types'
 import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
 import { WriteExercise } from './WriteExercise'
 import { useProgress } from '../hooks/useProgress'
-import { allWords, categories } from '../data/vocabulary'
+import { useUserLevel } from '../hooks/useUserLevel'
+import { allWords, sortedCategories } from '../data/vocabulary'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
 
-export function Practice() {
+interface PracticeProps {
+  initialCategory?: string | null
+}
+
+export function Practice({ initialCategory }: PracticeProps) {
   const [mode, setMode] = useState<ExerciseType | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory || 'all')
+
+  // Kategorie aktualisieren wenn von außen geändert
+  useEffect(() => {
+    if (initialCategory) {
+      setSelectedCategory(initialCategory)
+    }
+  }, [initialCategory])
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 })
   const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
-  const { updateWordProgress } = useProgress()
+  const { progress, updateWordProgress } = useProgress()
+  const { unlockedCategoryIds } = useUserLevel(progress)
 
   const sessionWords = useMemo(() => {
+    // Nur Wörter aus freigeschalteten Kategorien
+    const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
     const words =
-      selectedCategory === 'all' ? allWords : allWords.filter((w) => w.category === selectedCategory)
+      selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
     return words.sort(() => Math.random() - 0.5).slice(0, 10)
-  }, [selectedCategory, mode])
+  }, [selectedCategory, mode, unlockedCategoryIds])
 
   useMemo(() => {
     if (mode === 'mixed') {
@@ -66,12 +82,15 @@ export function Practice() {
             onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
             class="select"
           >
-            <option value="all">Alle Kategorien</option>
-            {categories.map((cat) => (
-              <option key={cat.category} value={cat.category}>
-                {cat.name} ({cat.words.length} Wörter)
-              </option>
-            ))}
+            <option value="all">Alle freigeschalteten ({unlockedCategoryIds.length} Kategorien)</option>
+            {sortedCategories.map((cat) => {
+              const isLocked = !unlockedCategoryIds.includes(cat.category)
+              return (
+                <option key={cat.category} value={cat.category} disabled={isLocked}>
+                  {isLocked ? '\u{1F512} ' : ''}{cat.name} (Stufe {cat.difficulty}) - {cat.words.length} Wörter
+                </option>
+              )
+            })}
           </select>
         </section>
 

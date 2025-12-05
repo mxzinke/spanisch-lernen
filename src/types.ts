@@ -17,6 +17,10 @@ export interface Category {
   words: Word[]
 }
 
+export interface CategoryWithDifficulty extends Category {
+  difficulty: number // 1-5
+}
+
 export interface WordProgress {
   box: number
   lastSeen: string

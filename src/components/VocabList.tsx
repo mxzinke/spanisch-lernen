@@ -1,14 +1,16 @@
 import { useState } from 'preact/hooks'
 import { useSpeech } from '../hooks/useSpeech'
 import { useProgress } from '../hooks/useProgress'
-import { categories, allWords } from '../data/vocabulary'
+import { useUserLevel } from '../hooks/useUserLevel'
+import { sortedCategories, allWords } from '../data/vocabulary'
 import { SpeakerIcon } from './SpeakerIcon'
 
 export function VocabList() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [search, setSearch] = useState('')
   const { speak } = useSpeech()
-  const { getWordProgress } = useProgress()
+  const { progress, getWordProgress } = useProgress()
+  const { unlockedCategoryIds } = useUserLevel(progress)
 
   const filteredWords = allWords
     .filter((w) => selectedCategory === 'all' || w.category === selectedCategory)
@@ -45,11 +47,20 @@ export function VocabList() {
           onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
           class="select"
         >
-          <option value="all">Alle Kategorien ({allWords.length})</option>
-          {categories.map((cat) => (
-            <option key={cat.category} value={cat.category}>
-              {cat.name} ({cat.words.length})
-            </option>
+          <option value="all">Alle freigeschalteten Kategorien ({unlockedCategoryIds.length})</option>
+          {[1, 2, 3, 4, 5].map((level) => (
+            <optgroup key={level} label={`Stufe ${level}`}>
+              {sortedCategories
+                .filter((cat) => cat.difficulty === level)
+                .map((cat) => {
+                  const isLocked = !unlockedCategoryIds.includes(cat.category)
+                  return (
+                    <option key={cat.category} value={cat.category} disabled={isLocked}>
+                      {isLocked ? '\u{1F512} ' : ''}{cat.name} ({cat.words.length})
+                    </option>
+                  )
+                })}
+            </optgroup>
           ))}
         </select>
       </div>

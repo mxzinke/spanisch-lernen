@@ -1,5 +1,7 @@
 import { useProgress } from '../hooks/useProgress'
-import { allWords, categories } from '../data/vocabulary'
+import { useUserLevel } from '../hooks/useUserLevel'
+import { allWords, sortedCategories } from '../data/vocabulary'
+import { DifficultyBadge } from './DifficultyBadge'
 
 // Motivierende Sprüche nach Tageszeit und Zustand
 const motivationalMessages = {
@@ -100,11 +102,12 @@ function getMilestoneInfo(mastered: number) {
 }
 
 interface DashboardProps {
-  onNavigate?: (tab: 'practice' | 'vocabulary') => void
+  onNavigate?: (tab: 'practice' | 'vocabulary', category?: string) => void
 }
 
 export function Dashboard({ onNavigate }: DashboardProps) {
   const { progress, getStats, getWordsForReview } = useProgress()
+  const { currentLevel, progressToNextLevel, wordsInCurrentLevel, masteredInCurrentLevel, isMaxLevel } = useUserLevel(progress)
   const stats = getStats()
 
   const learnedWords = Object.keys(progress.words).length
@@ -133,17 +136,22 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   const dailyMessage = getDailyMessage(practicedToday)
   const milestone = getMilestoneInfo(masteredWords)
 
-  // Kategorien mit Fortschritt berechnen und sortieren
-  const categoriesWithProgress = categories.map((cat) => {
+  const { unlockedCategoryIds } = useUserLevel(progress)
+
+  // Kategorien mit Fortschritt berechnen
+  const categoriesWithProgress = sortedCategories.map((cat) => {
     const catWords = allWords.filter((w) => w.category === cat.category)
     const learned = catWords.filter((w) => progress.words[w.id]).length
     const mastered = catWords.filter((w) => progress.words[w.id]?.box >= 4).length
-    return { ...cat, total: catWords.length, learned, mastered }
-  }).sort((a, b) => b.mastered - a.mastered || b.learned - a.learned)
+    const isUnlocked = unlockedCategoryIds.includes(cat.category)
+    return { ...cat, total: catWords.length, learned, mastered, isUnlocked }
+  })
 
-  // Kategorien mit Fortschritt (mindestens 1 gelernt)
+  // Kategorien nach Status gruppieren
   const activeCategories = categoriesWithProgress.filter(c => c.learned > 0)
-  const inactiveCategories = categoriesWithProgress.filter(c => c.learned === 0)
+    .sort((a, b) => b.mastered - a.mastered || b.learned - a.learned)
+  const unlockedNotStarted = categoriesWithProgress.filter(c => c.learned === 0 && c.isUnlocked)
+  const lockedCategories = categoriesWithProgress.filter(c => !c.isUnlocked)
 
   // Hat der Nutzer schon begonnen?
   const hasStarted = learnedWords > 0
@@ -167,7 +175,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               Dein Wortschatz wartet
             </h3>
             <p class="text-warm-gray text-sm mb-6 leading-relaxed">
-              {totalWords.toLocaleString()} spanische Wörter in {categories.length} Kategorien
+              {totalWords.toLocaleString()} spanische Wörter in {sortedCategories.length} Kategorien
               warten darauf, von dir entdeckt zu werden.
             </p>
             <button
@@ -180,6 +188,36 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               </svg>
             </button>
           </div>
+        </section>
+      )}
+
+      {/* Dein Level */}
+      {hasStarted && (
+        <section class="card">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-medium text-warm-gray">Dein Level</h3>
+            <DifficultyBadge level={currentLevel} size="md" />
+          </div>
+
+          {!isMaxLevel && (
+            <>
+              <div class="progress-track h-2 mb-2">
+                <div
+                  class="progress-fill h-full bg-terracotta"
+                  style={{ width: `${progressToNextLevel}%` }}
+                />
+              </div>
+              <p class="text-xs text-warm-gray">
+                {masteredInCurrentLevel} von {wordsInCurrentLevel} Wörtern gemeistert ({progressToNextLevel}% bis Stufe {currentLevel + 1})
+              </p>
+            </>
+          )}
+
+          {isMaxLevel && (
+            <p class="text-sm text-olive">
+              Alle Level abgeschlossen - du bist ein Experte!
+            </p>
+          )}
         </section>
       )}
 
@@ -284,7 +322,12 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               const percentage = (cat.mastered / cat.total) * 100
               const isComplete = cat.mastered === cat.total
               return (
-                <div key={cat.category} class="flex items-center gap-3">
+                <div
+                  key={cat.category}
+                  class="flex items-center gap-3 py-1 px-2 -mx-2 rounded-lg hover:bg-sand-50 transition-colors cursor-pointer"
+                  onClick={() => onNavigate?.('practice', cat.category)}
+                >
+                  <DifficultyBadge level={cat.difficulty} size="sm" />
                   <span class={`text-sm flex-1 truncate ${isComplete ? 'text-olive' : 'text-warm-brown'}`}>
                     {cat.name}
                     {isComplete && <span class="ml-1 text-olive">✓</span>}
@@ -305,23 +348,73 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         </section>
       )}
 
-      {/* Noch nicht begonnene Kategorien */}
-      {inactiveCategories.length > 0 && (
+      {/* Freigeschaltete, noch nicht begonnene Kategorien */}
+      {unlockedNotStarted.length > 0 && (
+        <section class="card">
+          <h3 class="text-sm font-medium mb-4">Bereit zum Lernen</h3>
+          <div class="space-y-2">
+            {unlockedNotStarted.map((cat) => (
+              <div
+                key={cat.category}
+                class="flex items-center gap-3 py-2 px-3 rounded-lg bg-sand-50 hover:bg-sand-100 transition-colors cursor-pointer"
+                onClick={() => onNavigate?.('practice', cat.category)}
+              >
+                <DifficultyBadge level={cat.difficulty} size="sm" />
+                <span class="text-sm flex-1 text-warm-brown">{cat.name}</span>
+                <span class="text-xs text-warm-gray">{cat.total} Wörter</span>
+                <svg class="w-4 h-4 text-warm-gray/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Gesperrte Kategorien */}
+      {lockedCategories.length > 0 && (
         <section class="card">
           <details class="group">
             <summary class="cursor-pointer text-sm text-warm-gray hover:text-warm-brown transition-colors flex items-center justify-between">
-              <span>{inactiveCategories.length} weitere Kategorien</span>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span>{lockedCategories.length} Kategorien noch gesperrt</span>
+              </div>
               <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
-            <div class="mt-4 space-y-2">
-              {inactiveCategories.map((cat) => (
-                <div key={cat.category} class="flex items-center justify-between text-sm py-1">
-                  <span class="text-warm-gray">{cat.name}</span>
-                  <span class="text-xs text-warm-gray/50">{cat.total} Wörter</span>
-                </div>
-              ))}
+            <p class="text-xs text-warm-gray/70 mt-2 mb-4">
+              Schalte neue Kategorien frei, indem du 70% der Wörter im aktuellen Level meisterst.
+            </p>
+            <div class="space-y-1">
+              {[2, 3, 4, 5].map((level) => {
+                const catsAtLevel = lockedCategories.filter(c => c.difficulty === level)
+                if (catsAtLevel.length === 0) return null
+                return (
+                  <div key={level} class="py-2">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="text-xs font-medium text-warm-gray/60">Stufe {level}</span>
+                      <div class="flex-1 h-px bg-sand-200" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                      {catsAtLevel.map((cat) => (
+                        <div
+                          key={cat.category}
+                          class="flex items-center gap-2 py-1.5 px-2 rounded bg-sand-50/50 opacity-60"
+                        >
+                          <svg class="w-3 h-3 text-warm-gray/40 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                          </svg>
+                          <span class="text-xs text-warm-gray/70 truncate">{cat.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </details>
         </section>

@@ -12,12 +12,22 @@ export function App() {
   const [activeTab, setActiveTab] = useState<TabId>('dashboard')
   const [isAnimating, setIsAnimating] = useState(false)
   const [displayTab, setDisplayTab] = useState<TabId>('dashboard')
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const prevTabRef = useRef<TabId>('dashboard')
 
   // Tab order for determining animation direction
   const tabOrder: TabId[] = ['dashboard', 'practice', 'vocabulary', 'settings']
 
-  const handleTabChange = (newTab: TabId) => {
+  const handleTabChange = (newTab: TabId, category?: string) => {
+    if (newTab === activeTab && !category) return
+
+    // Kategorie setzen wenn übergeben
+    if (category) {
+      setSelectedCategory(category)
+    } else if (newTab !== 'practice') {
+      setSelectedCategory(null)
+    }
+
     if (newTab === activeTab) return
 
     prevTabRef.current = activeTab
@@ -54,7 +64,7 @@ export function App() {
           class={`page-transition ${isAnimating ? 'page-exit' : 'page-enter'} ${getAnimationDirection()}`}
         >
           {displayTab === 'dashboard' && <Dashboard onNavigate={handleTabChange} />}
-          {displayTab === 'practice' && <Practice />}
+          {displayTab === 'practice' && <Practice initialCategory={selectedCategory} />}
           {displayTab === 'vocabulary' && <VocabList />}
           {displayTab === 'settings' && <Settings />}
         </div>

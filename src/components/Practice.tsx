@@ -188,7 +188,7 @@ export function Practice({ initialCategory }: PracticeProps) {
     const percentage = total > 0 ? Math.round((sessionStats.correct / total) * 100) : 0
 
     return (
-      <div class="card text-center space-y-8 py-8">
+      <div class="card text-center space-y-6 py-6 -mb-16">
         <div>
           <p class="text-4xl font-semibold text-olive mb-2">{percentage}%</p>
           <h2 class="text-xl text-warm-brown">Übung abgeschlossen</h2>

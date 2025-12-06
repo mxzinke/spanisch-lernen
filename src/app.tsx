@@ -59,7 +59,7 @@ export function App() {
         </div>
       </header>
 
-      <main class="flex-1 container mx-auto px-4 py-6 max-w-2xl overflow-hidden">
+      <main class="flex-1 container mx-auto px-4 py-6 pb-24 max-w-2xl overflow-hidden">
         <div
           class={`page-transition ${isAnimating ? 'page-exit' : 'page-enter'} ${getAnimationDirection()}`}
         >

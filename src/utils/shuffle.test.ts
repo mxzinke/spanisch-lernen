@@ -290,6 +290,83 @@ describe('selectWordsForSession', () => {
     // Should have at least some variation
     expect(results.size).toBeGreaterThan(1)
   })
+
+  it('should never have duplicate words when maxOccurrences is 1', () => {
+    // Simulate a realistic practice session with many words
+    const input = [
+      { id: 'hola' }, { id: 'adios' }, { id: 'gracias' }, { id: 'por-favor' },
+      { id: 'buenos-dias' }, { id: 'buenas-noches' }, { id: 'como-estas' },
+      { id: 'bien' }, { id: 'mal' }, { id: 'si' }, { id: 'no' }, { id: 'uno' },
+      { id: 'dos' }, { id: 'tres' }, { id: 'cuatro' }, { id: 'cinco' },
+    ]
+
+    // Run many iterations to ensure consistency
+    for (let i = 0; i < 50; i++) {
+      const result = selectWordsForSession(input, getKey, 10, { maxOccurrences: 1 })
+
+      // Each word should appear exactly once
+      const counts = countOccurrences(result, getKey)
+      for (const [key, count] of counts.entries()) {
+        expect(count).toBe(1)
+      }
+
+      // All words in result should be unique
+      const uniqueIds = new Set(result.map((w) => w.id))
+      expect(uniqueIds.size).toBe(result.length)
+    }
+  })
+
+  it('should work with mixed mode session (10 unique words)', () => {
+    // Simulate the exact scenario from Practice.tsx mixed mode
+    const words = [
+      { id: 'word-1', spanish: 'uno', german: 'eins' },
+      { id: 'word-2', spanish: 'dos', german: 'zwei' },
+      { id: 'word-3', spanish: 'tres', german: 'drei' },
+      { id: 'word-4', spanish: 'cuatro', german: 'vier' },
+      { id: 'word-5', spanish: 'cinco', german: 'fünf' },
+      { id: 'word-6', spanish: 'seis', german: 'sechs' },
+      { id: 'word-7', spanish: 'siete', german: 'sieben' },
+      { id: 'word-8', spanish: 'ocho', german: 'acht' },
+      { id: 'word-9', spanish: 'nueve', german: 'neun' },
+      { id: 'word-10', spanish: 'diez', german: 'zehn' },
+      { id: 'word-11', spanish: 'once', german: 'elf' },
+      { id: 'word-12', spanish: 'doce', german: 'zwölf' },
+    ]
+
+    // Run 30 iterations simulating 30 practice sessions
+    for (let i = 0; i < 30; i++) {
+      const sessionWords = selectWordsForSession(words, (w) => w.id, 10, { maxOccurrences: 1 })
+
+      // Should get exactly 10 words
+      expect(sessionWords.length).toBe(10)
+
+      // Each word should appear only once
+      const uniqueIds = new Set(sessionWords.map((w) => w.id))
+      expect(uniqueIds.size).toBe(10)
+
+      // Verify no duplicates by checking counts
+      const counts = countOccurrences(sessionWords, (w) => w.id)
+      for (const count of counts.values()) {
+        expect(count).toBe(1)
+      }
+    }
+  })
+
+  it('should handle small word pools with maxOccurrences 1', () => {
+    // Edge case: fewer words than requested count
+    const input = [
+      { id: 'a' }, { id: 'b' }, { id: 'c' },
+    ]
+
+    const result = selectWordsForSession(input, getKey, 10, { maxOccurrences: 1 })
+
+    // Should only return 3 words (all available unique words)
+    expect(result.length).toBe(3)
+
+    // Each should be unique
+    const uniqueIds = new Set(result.map((w) => w.id))
+    expect(uniqueIds.size).toBe(3)
+  })
 })
 
 describe('countOccurrences', () => {

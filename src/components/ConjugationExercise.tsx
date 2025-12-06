@@ -29,9 +29,15 @@ export function ConjugationExercise({ verb, onResult }: Props) {
   const { speak } = useSpeech()
   const forms = conjugateVerb(verb, 'presente')
 
-  // Wähle 2 zufällige Personen beim Laden
+  // Reset alle States wenn ein neues Verb kommt
   useEffect(() => {
+    setPhase('infinitive')
+    setInfinitiveInput('')
+    setInfinitiveResult(null)
     setSelectedPersons(selectRandomPersons(2))
+    setUserInputs({})
+    setResults({})
+    setOverallCorrect(false)
   }, [verb.id])
 
   const handleInfinitiveSubmit = () => {

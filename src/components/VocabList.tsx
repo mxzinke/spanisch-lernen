@@ -114,7 +114,7 @@ export function VocabList() {
                       class="text-sm font-serif text-warm-gray mt-1 italic truncate text-left hover:text-terracotta transition-colors cursor-pointer flex items-center gap-1 group"
                       title="Beispielsatz anhören"
                     >
-                      <SpeakerIcon class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                      <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
                       <span class="truncate">„{word.example}"</span>
                     </button>
                   </div>

@@ -54,14 +54,14 @@ export function VerbDetailDialog({ verb, onClose }: Props) {
   }
 
   return createPortal(
-    <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div class="absolute inset-0 bg-warm-brown/30 backdrop-blur-sm" onClick={onClose} />
+    <div class="fixed inset-0 z-50 flex items-center justify-center sm:p-4">
+      {/* Backdrop - only visible on desktop */}
+      <div class="hidden sm:block absolute inset-0 bg-warm-brown/30 backdrop-blur-sm" onClick={onClose} />
 
-      {/* Dialog */}
-      <div class="relative bg-sand w-full max-w-lg max-h-[90vh] overflow-hidden rounded-2xl shadow-xl flex flex-col">
+      {/* Dialog - fullscreen on mobile, centered card on desktop */}
+      <div class="relative bg-white w-full h-full sm:h-auto sm:max-w-lg sm:max-h-[90vh] sm:rounded-2xl shadow-xl flex flex-col">
         {/* Header */}
-        <div class="p-6 border-b border-sand-200 bg-white">
+        <div class="p-4 sm:p-6 border-b border-sand-200 bg-white">
           <div class="flex items-start justify-between gap-4">
             <div class="space-y-2">
               <div class="flex items-center gap-3">
@@ -88,16 +88,16 @@ export function VerbDetailDialog({ verb, onClose }: Props) {
         </div>
 
         {/* Tense Tabs */}
-        <div class="px-4 pt-4 bg-sand-50 border-b border-sand-200">
-          <div class="flex gap-1 overflow-x-auto pb-px">
+        <div class="px-2 sm:px-4 pt-3 bg-white border-b border-sand-200 shrink-0">
+          <div class="flex gap-1">
             {allTenses.map((tense) => (
               <button
                 key={tense}
                 onClick={() => setSelectedTense(tense)}
                 class={`
-                  px-4 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors
+                  flex-1 px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors
                   ${selectedTense === tense
-                    ? 'bg-white text-terracotta border-t border-l border-r border-sand-200 -mb-px'
+                    ? 'bg-sand-50 text-terracotta border-t border-l border-r border-sand-200 -mb-px'
                     : 'text-warm-gray hover:text-warm-brown hover:bg-sand-100'
                   }
                 `}
@@ -112,7 +112,7 @@ export function VerbDetailDialog({ verb, onClose }: Props) {
         </div>
 
         {/* Content */}
-        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+        <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-sand-50">
           {/* Konjugationstabelle */}
           <div class="bg-white rounded-xl p-4 border border-sand-200">
             <ConjugationTable verb={verb} tense={selectedTense} />

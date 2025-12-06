@@ -55,9 +55,12 @@ export function WriteExercise({ word, onResult }: Props) {
             class="input text-lg"
             autoFocus
             autoComplete="off"
-            autoCapitalize="off"
+            autoCapitalize="none"
             autoCorrect="off"
             spellCheck={false}
+            data-form-type="other"
+            data-lpignore="true"
+            enterKeyHint="done"
           />
           <button
             type="submit"

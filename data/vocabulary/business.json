@@ -281,6 +281,27 @@
       "german": "die Wirtschaft",
       "example": "La economía del país está mejorando.",
       "exampleDe": "Die Wirtschaft des Landes verbessert sich."
+    },
+    {
+      "id": "business_041",
+      "spanish": "rentable",
+      "german": "rentabel",
+      "example": "El negocio es rentable.",
+      "exampleDe": "Das Geschäft ist rentabel."
+    },
+    {
+      "id": "business_042",
+      "spanish": "competitivo/a",
+      "german": "wettbewerbsfähig",
+      "example": "El mercado es muy competitivo.",
+      "exampleDe": "Der Markt ist sehr wettbewerbsfähig."
+    },
+    {
+      "id": "business_043",
+      "spanish": "sostenible",
+      "german": "nachhaltig",
+      "example": "Es un modelo sostenible.",
+      "exampleDe": "Es ist ein nachhaltiges Modell."
     }
   ]
 }

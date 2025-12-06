@@ -41,6 +41,10 @@
     { "id": "direccion", "spanish": "La dirección", "german": "Die Richtung / Adresse", "example": "¿En qué dirección?", "exampleDe": "In welche Richtung?" },
     { "id": "derecha", "spanish": "A la derecha", "german": "Nach rechts", "example": "Gira a la derecha.", "exampleDe": "Biege nach rechts ab." },
     { "id": "izquierda", "spanish": "A la izquierda", "german": "Nach links", "example": "Está a la izquierda.", "exampleDe": "Es ist auf der linken Seite." },
-    { "id": "recto", "spanish": "Todo recto", "german": "Geradeaus", "example": "Sigue todo recto.", "exampleDe": "Geh geradeaus weiter." }
+    { "id": "recto", "spanish": "Todo recto", "german": "Geradeaus", "example": "Sigue todo recto.", "exampleDe": "Geh geradeaus weiter." },
+    { "id": "directo", "spanish": "Directo/a", "german": "Direkt", "example": "Es un vuelo directo.", "exampleDe": "Es ist ein Direktflug." },
+    { "id": "turistico", "spanish": "Turístico/a", "german": "Touristisch", "example": "Es una zona turística.", "exampleDe": "Es ist eine touristische Gegend." },
+    { "id": "lejano", "spanish": "Lejano/a", "german": "Weit entfernt", "example": "Es un país lejano.", "exampleDe": "Es ist ein weit entferntes Land." },
+    { "id": "cercano", "spanish": "Cercano/a", "german": "Nah", "example": "La estación está cercana.", "exampleDe": "Der Bahnhof ist nah." }
   ]
 }

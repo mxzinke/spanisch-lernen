@@ -281,6 +281,27 @@
       "german": "der Fächer",
       "example": "Las mujeres usan el abanico en las ferias.",
       "exampleDe": "Die Frauen benutzen den Fächer auf den Volksfesten."
+    },
+    {
+      "id": "culture_traditional",
+      "spanish": "tradicional",
+      "german": "traditionell",
+      "example": "Es una fiesta tradicional.",
+      "exampleDe": "Es ist ein traditionelles Fest."
+    },
+    {
+      "id": "culture_typical",
+      "spanish": "típico/a",
+      "german": "typisch",
+      "example": "Es un plato típico español.",
+      "exampleDe": "Es ist ein typisch spanisches Gericht."
+    },
+    {
+      "id": "culture_authentic",
+      "spanish": "auténtico/a",
+      "german": "authentisch",
+      "example": "Es flamenco auténtico.",
+      "exampleDe": "Es ist authentischer Flamenco."
     }
   ]
 }

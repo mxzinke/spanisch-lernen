@@ -41,6 +41,10 @@
     { "id": "coleccionar", "spanish": "Coleccionar", "german": "Sammeln", "example": "Colecciono sellos.", "exampleDe": "Ich sammle Briefmarken." },
     { "id": "aprender_idiomas", "spanish": "Aprender idiomas", "german": "Sprachen lernen", "example": "Aprendo español.", "exampleDe": "Ich lerne Spanisch." },
     { "id": "viajar_hobby", "spanish": "Viajar", "german": "Reisen", "example": "Viajar es mi pasión.", "exampleDe": "Reisen ist meine Leidenschaft." },
-    { "id": "meditar", "spanish": "Meditar", "german": "Meditieren", "example": "Medito cada mañana.", "exampleDe": "Ich meditiere jeden Morgen." }
+    { "id": "meditar", "spanish": "Meditar", "german": "Meditieren", "example": "Medito cada mañana.", "exampleDe": "Ich meditiere jeden Morgen." },
+    { "id": "divertido", "spanish": "Divertido/a", "german": "Unterhaltsam", "example": "El juego es muy divertido.", "exampleDe": "Das Spiel ist sehr unterhaltsam." },
+    { "id": "emocionante", "spanish": "Emocionante", "german": "Aufregend", "example": "Fue una aventura emocionante.", "exampleDe": "Es war ein aufregendes Abenteuer." },
+    { "id": "creativo", "spanish": "Creativo/a", "german": "Kreativ", "example": "Es un hobby creativo.", "exampleDe": "Es ist ein kreatives Hobby." },
+    { "id": "relajante", "spanish": "Relajante", "german": "Entspannend", "example": "Leer es muy relajante.", "exampleDe": "Lesen ist sehr entspannend." }
   ]
 }

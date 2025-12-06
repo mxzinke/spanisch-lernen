@@ -41,6 +41,11 @@
     { "id": "gato", "spanish": "El gato", "german": "Die Katze", "example": "El gato duerme mucho.", "exampleDe": "Die Katze schläft viel." },
     { "id": "pajaro", "spanish": "El pájaro", "german": "Der Vogel", "example": "Los pájaros cantan.", "exampleDe": "Die Vögel singen." },
     { "id": "pez", "spanish": "El pez", "german": "Der Fisch", "example": "Hay muchos peces en el mar.", "exampleDe": "Es gibt viele Fische im Meer." },
-    { "id": "mariposa", "spanish": "La mariposa", "german": "Der Schmetterling", "example": "Vi una mariposa bonita.", "exampleDe": "Ich sah einen schönen Schmetterling." }
+    { "id": "mariposa", "spanish": "La mariposa", "german": "Der Schmetterling", "example": "Vi una mariposa bonita.", "exampleDe": "Ich sah einen schönen Schmetterling." },
+    { "id": "soleado", "spanish": "Soleado/a", "german": "Sonnig", "example": "Hoy está soleado.", "exampleDe": "Heute ist es sonnig." },
+    { "id": "nublado", "spanish": "Nublado/a", "german": "Bewölkt", "example": "El cielo está nublado.", "exampleDe": "Der Himmel ist bewölkt." },
+    { "id": "humedo", "spanish": "Húmedo/a", "german": "Feucht", "example": "El clima es muy húmedo.", "exampleDe": "Das Klima ist sehr feucht." },
+    { "id": "seco", "spanish": "Seco/a", "german": "Trocken", "example": "El verano es muy seco.", "exampleDe": "Der Sommer ist sehr trocken." },
+    { "id": "tormentoso", "spanish": "Tormentoso/a", "german": "Stürmisch", "example": "Será un día tormentoso.", "exampleDe": "Es wird ein stürmischer Tag." }
   ]
 }

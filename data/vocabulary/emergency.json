@@ -316,6 +316,20 @@
       "german": "schwer/ernst",
       "example": "Es una situación grave",
       "exampleDe": "Es ist eine ernste Situation"
+    },
+    {
+      "id": "urgent",
+      "spanish": "Urgente",
+      "german": "Dringend",
+      "example": "Es una situación urgente.",
+      "exampleDe": "Es ist eine dringende Situation."
+    },
+    {
+      "id": "herido_adj",
+      "spanish": "Herido/a",
+      "german": "Verletzt",
+      "example": "Hay una persona herida.",
+      "exampleDe": "Es gibt eine verletzte Person."
     }
   ]
 }

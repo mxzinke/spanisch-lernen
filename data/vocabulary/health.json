@@ -41,6 +41,11 @@
     { "id": "dolor", "spanish": "El dolor", "german": "Der Schmerz", "example": "Tengo dolor de cabeza.", "exampleDe": "Ich habe Kopfschmerzen." },
     { "id": "herida", "spanish": "La herida", "german": "Die Wunde", "example": "La herida está sanando.", "exampleDe": "Die Wunde heilt." },
     { "id": "cita", "spanish": "La cita médica", "german": "Der Arzttermin", "example": "Tengo una cita a las tres.", "exampleDe": "Ich habe um drei einen Termin." },
-    { "id": "ambulancia", "spanish": "La ambulancia", "german": "Der Krankenwagen", "example": "Llama a la ambulancia.", "exampleDe": "Ruf den Krankenwagen." }
+    { "id": "ambulancia", "spanish": "La ambulancia", "german": "Der Krankenwagen", "example": "Llama a la ambulancia.", "exampleDe": "Ruf den Krankenwagen." },
+    { "id": "sano_adj", "spanish": "Sano/a", "german": "Gesund", "example": "Quiero estar sano.", "exampleDe": "Ich möchte gesund sein." },
+    { "id": "enfermo_adj", "spanish": "Enfermo/a", "german": "Krank", "example": "Estoy enfermo.", "exampleDe": "Ich bin krank." },
+    { "id": "grave", "spanish": "Grave", "german": "Ernst/Schwer", "example": "La situación es grave.", "exampleDe": "Die Situation ist ernst." },
+    { "id": "leve", "spanish": "Leve", "german": "Leicht/Mild", "example": "Es una enfermedad leve.", "exampleDe": "Es ist eine leichte Krankheit." },
+    { "id": "contagioso", "spanish": "Contagioso/a", "german": "Ansteckend", "example": "La gripe es contagiosa.", "exampleDe": "Die Grippe ist ansteckend." }
   ]
 }

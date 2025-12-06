@@ -31,6 +31,11 @@
     { "id": "cortar", "spanish": "Cortar", "german": "Schneiden", "example": "Corto las verduras.", "exampleDe": "Ich schneide das Gemüse." },
     { "id": "mezclar", "spanish": "Mezclar", "german": "Mischen", "example": "Mezcla los ingredientes.", "exampleDe": "Mische die Zutaten." },
     { "id": "hervir", "spanish": "Hervir", "german": "Kochen (Wasser)", "example": "El agua está hirviendo.", "exampleDe": "Das Wasser kocht." },
-    { "id": "freir", "spanish": "Freír", "german": "Braten", "example": "Frío los huevos.", "exampleDe": "Ich brate die Eier." }
+    { "id": "freir", "spanish": "Freír", "german": "Braten", "example": "Frío los huevos.", "exampleDe": "Ich brate die Eier." },
+    { "id": "delicioso", "spanish": "Delicioso/a", "german": "Köstlich", "example": "La paella está deliciosa.", "exampleDe": "Die Paella ist köstlich." },
+    { "id": "dulce", "spanish": "Dulce", "german": "Süß", "example": "Esta fruta es muy dulce.", "exampleDe": "Diese Frucht ist sehr süß." },
+    { "id": "salado", "spanish": "Salado/a", "german": "Salzig", "example": "Las patatas están saladas.", "exampleDe": "Die Kartoffeln sind salzig." },
+    { "id": "picante", "spanish": "Picante", "german": "Scharf/Würzig", "example": "La salsa es muy picante.", "exampleDe": "Die Soße ist sehr scharf." },
+    { "id": "fresco", "spanish": "Fresco/a", "german": "Frisch", "example": "Las verduras son frescas.", "exampleDe": "Das Gemüse ist frisch." }
   ]
 }

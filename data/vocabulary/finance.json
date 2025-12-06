@@ -281,6 +281,20 @@
       "german": "die Filiale",
       "example": "Hay una sucursal del banco cerca de aquí.",
       "exampleDe": "Es gibt eine Bankfiliale in der Nähe."
+    },
+    {
+      "id": "finance_041",
+      "spanish": "financiero/a",
+      "german": "finanziell",
+      "example": "Es una crisis financiera.",
+      "exampleDe": "Es ist eine Finanzkrise."
+    },
+    {
+      "id": "finance_042",
+      "spanish": "económico/a",
+      "german": "wirtschaftlich/günstig",
+      "example": "Es una opción económica.",
+      "exampleDe": "Es ist eine günstige Option."
     }
   ]
 }

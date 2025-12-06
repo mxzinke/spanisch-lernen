@@ -43,6 +43,10 @@
     { "id": "encender", "spanish": "Encender", "german": "Einschalten / Anmachen", "example": "Enciendo la luz.", "exampleDe": "Ich mache das Licht an." },
     { "id": "apagar", "spanish": "Apagar", "german": "Ausschalten / Ausmachen", "example": "Apaga la televisión.", "exampleDe": "Mach den Fernseher aus." },
     { "id": "mudarse", "spanish": "Mudarse", "german": "Umziehen", "example": "Me mudo a Barcelona.", "exampleDe": "Ich ziehe nach Barcelona um." },
-    { "id": "alquilar", "spanish": "Alquilar", "german": "Mieten", "example": "Quiero alquilar un piso.", "exampleDe": "Ich möchte eine Wohnung mieten." }
+    { "id": "alquilar", "spanish": "Alquilar", "german": "Mieten", "example": "Quiero alquilar un piso.", "exampleDe": "Ich möchte eine Wohnung mieten." },
+    { "id": "acogedor", "spanish": "Acogedor/a", "german": "Gemütlich", "example": "La casa es acogedora.", "exampleDe": "Das Haus ist gemütlich." },
+    { "id": "amplio", "spanish": "Amplio/a", "german": "Geräumig", "example": "El salón es amplio.", "exampleDe": "Das Wohnzimmer ist geräumig." },
+    { "id": "luminoso", "spanish": "Luminoso/a", "german": "Hell / Lichtdurchflutet", "example": "El dormitorio es luminoso.", "exampleDe": "Das Schlafzimmer ist hell." },
+    { "id": "oscuro", "spanish": "Oscuro/a", "german": "Dunkel", "example": "El sótano está oscuro.", "exampleDe": "Der Keller ist dunkel." }
   ]
 }

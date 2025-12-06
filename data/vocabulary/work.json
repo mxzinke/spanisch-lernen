@@ -36,6 +36,10 @@
     { "id": "actor", "spanish": "El actor / La actriz", "german": "Der Schauspieler / Die Schauspielerin", "example": "Es un actor famoso.", "exampleDe": "Er ist ein berühmter Schauspieler." },
     { "id": "musico", "spanish": "El músico / La música", "german": "Der Musiker / Die Musikerin", "example": "El músico toca la guitarra.", "exampleDe": "Der Musiker spielt Gitarre." },
     { "id": "electricista", "spanish": "El/La electricista", "german": "Der Elektriker / Die Elektrikerin", "example": "Llamo al electricista.", "exampleDe": "Ich rufe den Elektriker." },
-    { "id": "mecanico", "spanish": "El mecánico / La mecánica", "german": "Der Mechaniker / Die Mechanikerin", "example": "El mecánico repara el coche.", "exampleDe": "Der Mechaniker repariert das Auto." }
+    { "id": "mecanico", "spanish": "El mecánico / La mecánica", "german": "Der Mechaniker / Die Mechanikerin", "example": "El mecánico repara el coche.", "exampleDe": "Der Mechaniker repariert das Auto." },
+    { "id": "ocupado", "spanish": "Ocupado/a", "german": "Beschäftigt", "example": "Estoy muy ocupado.", "exampleDe": "Ich bin sehr beschäftigt." },
+    { "id": "disponible", "spanish": "Disponible", "german": "Verfügbar", "example": "¿Estás disponible mañana?", "exampleDe": "Bist du morgen verfügbar?" },
+    { "id": "profesional", "spanish": "Profesional", "german": "Professionell", "example": "Es muy profesional.", "exampleDe": "Er ist sehr professionell." },
+    { "id": "temporal", "spanish": "Temporal", "german": "Befristet", "example": "Es un contrato temporal.", "exampleDe": "Es ist ein befristeter Vertrag." }
   ]
 }

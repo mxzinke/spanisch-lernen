@@ -211,6 +211,27 @@
       "german": "die Karte",
       "example": "Necesito un mapa de España.",
       "exampleDe": "Ich brauche eine Karte von Spanien."
+    },
+    {
+      "id": "geo_031",
+      "spanish": "montañoso/a",
+      "german": "bergig",
+      "example": "Es una región montañosa.",
+      "exampleDe": "Es ist eine bergige Region."
+    },
+    {
+      "id": "geo_032",
+      "spanish": "costero/a",
+      "german": "Küsten-",
+      "example": "Vivo en una ciudad costera.",
+      "exampleDe": "Ich lebe in einer Küstenstadt."
+    },
+    {
+      "id": "geo_033",
+      "spanish": "tropical",
+      "german": "tropisch",
+      "example": "El clima es tropical.",
+      "exampleDe": "Das Klima ist tropisch."
     }
   ]
 }

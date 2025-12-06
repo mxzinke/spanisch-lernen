@@ -36,6 +36,11 @@
     { "id": "pendientes", "spanish": "Los pendientes", "german": "Die Ohrringe", "example": "Lleva pendientes de plata.", "exampleDe": "Sie trägt silberne Ohrringe." },
     { "id": "talla", "spanish": "La talla", "german": "Die Größe", "example": "¿Qué talla usas?", "exampleDe": "Welche Größe trägst du?" },
     { "id": "probador", "spanish": "El probador", "german": "Die Umkleidekabine", "example": "¿Dónde está el probador?", "exampleDe": "Wo ist die Umkleidekabine?" },
-    { "id": "quedarse_bien", "spanish": "Quedarse bien", "german": "Gut passen / stehen", "example": "Este vestido te queda muy bien.", "exampleDe": "Dieses Kleid steht dir sehr gut." }
+    { "id": "quedarse_bien", "spanish": "Quedarse bien", "german": "Gut passen / stehen", "example": "Este vestido te queda muy bien.", "exampleDe": "Dieses Kleid steht dir sehr gut." },
+    { "id": "comodo", "spanish": "Cómodo/a", "german": "Bequem", "example": "Esta ropa es muy cómoda.", "exampleDe": "Diese Kleidung ist sehr bequem." },
+    { "id": "elegante", "spanish": "Elegante", "german": "Elegant", "example": "Lleva un vestido elegante.", "exampleDe": "Sie trägt ein elegantes Kleid." },
+    { "id": "ajustado", "spanish": "Ajustado/a", "german": "Eng anliegend", "example": "Los pantalones son ajustados.", "exampleDe": "Die Hose ist eng anliegend." },
+    { "id": "suelto", "spanish": "Suelto/a", "german": "Locker/Weit", "example": "Prefiero ropa suelta.", "exampleDe": "Ich bevorzuge lockere Kleidung." },
+    { "id": "de_moda", "spanish": "De moda", "german": "Modisch", "example": "Este estilo está muy de moda.", "exampleDe": "Dieser Stil ist sehr modisch." }
   ]
 }

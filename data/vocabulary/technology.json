@@ -41,6 +41,11 @@
     { "id": "virus", "spanish": "El virus", "german": "Der Virus", "example": "El ordenador tiene un virus.", "exampleDe": "Der Computer hat einen Virus." },
     { "id": "seguridad", "spanish": "La seguridad", "german": "Die Sicherheit", "example": "La seguridad es importante.", "exampleDe": "Sicherheit ist wichtig." },
     { "id": "camara", "spanish": "La cámara", "german": "Die Kamera", "example": "La cámara del móvil es buena.", "exampleDe": "Die Handykamera ist gut." },
-    { "id": "auriculares", "spanish": "Los auriculares", "german": "Die Kopfhörer", "example": "Uso auriculares.", "exampleDe": "Ich benutze Kopfhörer." }
+    { "id": "auriculares", "spanish": "Los auriculares", "german": "Die Kopfhörer", "example": "Uso auriculares.", "exampleDe": "Ich benutze Kopfhörer." },
+    { "id": "tech_digital", "spanish": "digital", "german": "digital", "example": "Vivimos en una era digital.", "exampleDe": "Wir leben im digitalen Zeitalter." },
+    { "id": "tech_portable", "spanish": "portátil", "german": "tragbar", "example": "Tengo un ordenador portátil.", "exampleDe": "Ich habe einen tragbaren Computer." },
+    { "id": "tech_wireless", "spanish": "inalámbrico/a", "german": "kabellos", "example": "El ratón es inalámbrico.", "exampleDe": "Die Maus ist kabellos." },
+    { "id": "tech_compatible", "spanish": "compatible", "german": "kompatibel", "example": "¿Es compatible con mi móvil?", "exampleDe": "Ist es mit meinem Handy kompatibel?" },
+    { "id": "tech_updated", "spanish": "actualizado/a", "german": "aktualisiert", "example": "El software está actualizado.", "exampleDe": "Die Software ist aktualisiert." }
   ]
 }

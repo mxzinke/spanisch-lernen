@@ -39,6 +39,9 @@
     { "id": "soltero", "spanish": "Soltero/a", "german": "Single / Ledig", "example": "Todavía soy soltero.", "exampleDe": "Ich bin noch ledig." },
     { "id": "casado", "spanish": "Casado/a", "german": "Verheiratet", "example": "Estoy casado desde hace cinco años.", "exampleDe": "Ich bin seit fünf Jahren verheiratet." },
     { "id": "divorciado", "spanish": "Divorciado/a", "german": "Geschieden", "example": "Mis padres están divorciados.", "exampleDe": "Meine Eltern sind geschieden." },
-    { "id": "viudo", "spanish": "Viudo/a", "german": "Verwitwet", "example": "Mi abuela es viuda.", "exampleDe": "Meine Großmutter ist verwitwet." }
+    { "id": "viudo", "spanish": "Viudo/a", "german": "Verwitwet", "example": "Mi abuela es viuda.", "exampleDe": "Meine Großmutter ist verwitwet." },
+    { "id": "mayor", "spanish": "Mayor", "german": "Älter", "example": "Mi hermano mayor tiene 30 años.", "exampleDe": "Mein älterer Bruder ist 30 Jahre alt." },
+    { "id": "menor", "spanish": "Menor", "german": "Jünger", "example": "Es mi hermana menor.", "exampleDe": "Sie ist meine jüngere Schwester." },
+    { "id": "cercano", "spanish": "Cercano/a", "german": "Eng / Nah", "example": "Somos una familia muy cercana.", "exampleDe": "Wir sind eine sehr enge Familie." }
   ]
 }

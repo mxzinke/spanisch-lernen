@@ -51,6 +51,10 @@
     { "id": "mosca", "spanish": "La mosca", "german": "Die Fliege", "example": "La mosca es molesta.", "exampleDe": "Die Fliege ist lästig." },
     { "id": "mosquito", "spanish": "El mosquito", "german": "Die Mücke", "example": "El mosquito me picó.", "exampleDe": "Die Mücke hat mich gestochen." },
     { "id": "hormiga", "spanish": "La hormiga", "german": "Die Ameise", "example": "Las hormigas trabajan mucho.", "exampleDe": "Die Ameisen arbeiten viel." },
-    { "id": "arana", "spanish": "La araña", "german": "Die Spinne", "example": "La araña teje su tela.", "exampleDe": "Die Spinne webt ihr Netz." }
+    { "id": "arana", "spanish": "La araña", "german": "Die Spinne", "example": "La araña teje su tela.", "exampleDe": "Die Spinne webt ihr Netz." },
+    { "id": "salvaje", "spanish": "Salvaje", "german": "Wild", "example": "El león es un animal salvaje.", "exampleDe": "Der Löwe ist ein wildes Tier." },
+    { "id": "domestico", "spanish": "Doméstico/a", "german": "Zahm / Haus-", "example": "El perro es un animal doméstico.", "exampleDe": "Der Hund ist ein Haustier." },
+    { "id": "peludo", "spanish": "Peludo/a", "german": "Pelzig / Flauschig", "example": "El gato es muy peludo.", "exampleDe": "Die Katze ist sehr flauschig." },
+    { "id": "feroz", "spanish": "Feroz", "german": "Wild / Gefährlich", "example": "El tigre es feroz.", "exampleDe": "Der Tiger ist wild." }
   ]
 }

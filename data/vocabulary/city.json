@@ -41,6 +41,11 @@
     { "id": "delante", "spanish": "Delante de", "german": "Vor", "example": "El coche está delante de la casa.", "exampleDe": "Das Auto ist vor dem Haus." },
     { "id": "entre", "spanish": "Entre", "german": "Zwischen", "example": "La farmacia está entre el banco y el supermercado.", "exampleDe": "Die Apotheke ist zwischen der Bank und dem Supermarkt." },
     { "id": "norte", "spanish": "El norte", "german": "Der Norden", "example": "Vivo en el norte de la ciudad.", "exampleDe": "Ich wohne im Norden der Stadt." },
-    { "id": "sur", "spanish": "El sur", "german": "Der Süden", "example": "El sur de España es muy caliente.", "exampleDe": "Der Süden Spaniens ist sehr heiß." }
+    { "id": "sur", "spanish": "El sur", "german": "Der Süden", "example": "El sur de España es muy caliente.", "exampleDe": "Der Süden Spaniens ist sehr heiß." },
+    { "id": "urbano", "spanish": "Urbano/a", "german": "Städtisch", "example": "Es una zona urbana.", "exampleDe": "Es ist ein städtisches Gebiet." },
+    { "id": "ruidoso", "spanish": "Ruidoso/a", "german": "Laut", "example": "La calle es muy ruidosa.", "exampleDe": "Die Straße ist sehr laut." },
+    { "id": "tranquilo", "spanish": "Tranquilo/a", "german": "Ruhig", "example": "Es un barrio tranquilo.", "exampleDe": "Es ist ein ruhiges Viertel." },
+    { "id": "historico", "spanish": "Histórico/a", "german": "Historisch", "example": "El centro es histórico.", "exampleDe": "Das Zentrum ist historisch." },
+    { "id": "moderno", "spanish": "Moderno/a", "german": "Modern", "example": "Es un edificio moderno.", "exampleDe": "Es ist ein modernes Gebäude." }
   ]
 }

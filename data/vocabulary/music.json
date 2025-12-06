@@ -211,6 +211,34 @@
       "german": "das Mikrofon",
       "example": "El cantante habló por el micrófono.",
       "exampleDe": "Der Sänger sprach ins Mikrofon."
+    },
+    {
+      "id": "music_melodic",
+      "spanish": "melódico/a",
+      "german": "melodisch",
+      "example": "Es una canción muy melódica.",
+      "exampleDe": "Es ist ein sehr melodisches Lied."
+    },
+    {
+      "id": "music_rhythmic",
+      "spanish": "rítmico/a",
+      "german": "rhythmisch",
+      "example": "La música es muy rítmica.",
+      "exampleDe": "Die Musik ist sehr rhythmisch."
+    },
+    {
+      "id": "music_acoustic",
+      "spanish": "acústico/a",
+      "german": "akustisch",
+      "example": "Prefiero la versión acústica.",
+      "exampleDe": "Ich bevorzuge die akustische Version."
+    },
+    {
+      "id": "music_live",
+      "spanish": "en vivo",
+      "german": "live",
+      "example": "El concierto es en vivo.",
+      "exampleDe": "Das Konzert ist live."
     }
   ]
 }

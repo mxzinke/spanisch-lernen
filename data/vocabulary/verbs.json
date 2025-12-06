@@ -2,55 +2,604 @@
   "category": "verbs",
   "name": "Wichtige Verben",
   "words": [
-    { "id": "ser", "spanish": "Ser", "german": "Sein (dauerhaft)", "example": "Soy estudiante.", "exampleDe": "Ich bin Student." },
-    { "id": "estar", "spanish": "Estar", "german": "Sein (temporär/Ort)", "example": "Estoy cansado.", "exampleDe": "Ich bin müde." },
-    { "id": "tener", "spanish": "Tener", "german": "Haben", "example": "Tengo hambre.", "exampleDe": "Ich habe Hunger." },
-    { "id": "hacer", "spanish": "Hacer", "german": "Machen / Tun", "example": "¿Qué haces?", "exampleDe": "Was machst du?" },
-    { "id": "ir", "spanish": "Ir", "german": "Gehen", "example": "Voy al trabajo.", "exampleDe": "Ich gehe zur Arbeit." },
-    { "id": "venir", "spanish": "Venir", "german": "Kommen", "example": "¿Vienes conmigo?", "exampleDe": "Kommst du mit mir?" },
-    { "id": "poder", "spanish": "Poder", "german": "Können", "example": "¿Puedes ayudarme?", "exampleDe": "Kannst du mir helfen?" },
-    { "id": "querer", "spanish": "Querer", "german": "Wollen / Lieben", "example": "Quiero aprender español.", "exampleDe": "Ich will Spanisch lernen." },
-    { "id": "saber", "spanish": "Saber", "german": "Wissen / Können", "example": "No sé nadar.", "exampleDe": "Ich kann nicht schwimmen." },
-    { "id": "conocer", "spanish": "Conocer", "german": "Kennen", "example": "¿Conoces a María?", "exampleDe": "Kennst du María?" },
-    { "id": "dar", "spanish": "Dar", "german": "Geben", "example": "Dame el libro.", "exampleDe": "Gib mir das Buch." },
-    { "id": "decir", "spanish": "Decir", "german": "Sagen", "example": "¿Qué dices?", "exampleDe": "Was sagst du?" },
-    { "id": "hablar", "spanish": "Hablar", "german": "Sprechen", "example": "Hablo un poco de español.", "exampleDe": "Ich spreche ein bisschen Spanisch." },
-    { "id": "ver", "spanish": "Ver", "german": "Sehen", "example": "Veo la televisión.", "exampleDe": "Ich sehe fern." },
-    { "id": "mirar", "spanish": "Mirar", "german": "Anschauen", "example": "Mira esto.", "exampleDe": "Schau dir das an." },
-    { "id": "escuchar", "spanish": "Escuchar", "german": "Hören / Zuhören", "example": "Escucho música.", "exampleDe": "Ich höre Musik." },
-    { "id": "oir", "spanish": "Oír", "german": "Hören", "example": "¿Oyes eso?", "exampleDe": "Hörst du das?" },
-    { "id": "leer", "spanish": "Leer", "german": "Lesen", "example": "Leo un libro.", "exampleDe": "Ich lese ein Buch." },
-    { "id": "escribir", "spanish": "Escribir", "german": "Schreiben", "example": "Escribo un email.", "exampleDe": "Ich schreibe eine E-Mail." },
-    { "id": "comer", "spanish": "Comer", "german": "Essen", "example": "Como a las dos.", "exampleDe": "Ich esse um zwei Uhr." },
-    { "id": "beber", "spanish": "Beber", "german": "Trinken", "example": "Bebo agua.", "exampleDe": "Ich trinke Wasser." },
-    { "id": "dormir", "spanish": "Dormir", "german": "Schlafen", "example": "Duermo ocho horas.", "exampleDe": "Ich schlafe acht Stunden." },
-    { "id": "despertar", "spanish": "Despertarse", "german": "Aufwachen", "example": "Me despierto temprano.", "exampleDe": "Ich wache früh auf." },
-    { "id": "trabajar", "spanish": "Trabajar", "german": "Arbeiten", "example": "Trabajo desde casa.", "exampleDe": "Ich arbeite von zu Hause." },
-    { "id": "estudiar", "spanish": "Estudiar", "german": "Lernen / Studieren", "example": "Estudio español.", "exampleDe": "Ich lerne Spanisch." },
-    { "id": "vivir", "spanish": "Vivir", "german": "Leben / Wohnen", "example": "Vivo en Madrid.", "exampleDe": "Ich lebe in Madrid." },
-    { "id": "pensar", "spanish": "Pensar", "german": "Denken", "example": "Pienso en ti.", "exampleDe": "Ich denke an dich." },
-    { "id": "creer", "spanish": "Creer", "german": "Glauben", "example": "Creo que sí.", "exampleDe": "Ich glaube schon." },
-    { "id": "sentir", "spanish": "Sentir", "german": "Fühlen", "example": "Siento frío.", "exampleDe": "Mir ist kalt." },
-    { "id": "encontrar", "spanish": "Encontrar", "german": "Finden", "example": "No encuentro mis llaves.", "exampleDe": "Ich finde meine Schlüssel nicht." },
-    { "id": "buscar", "spanish": "Buscar", "german": "Suchen", "example": "Busco trabajo.", "exampleDe": "Ich suche Arbeit." },
-    { "id": "llevar", "spanish": "Llevar", "german": "Tragen / Bringen", "example": "Llevo una camisa azul.", "exampleDe": "Ich trage ein blaues Hemd." },
-    { "id": "traer", "spanish": "Traer", "german": "Mitbringen", "example": "Trae el vino.", "exampleDe": "Bring den Wein mit." },
-    { "id": "poner", "spanish": "Poner", "german": "Setzen / Stellen / Legen", "example": "Pon la mesa.", "exampleDe": "Deck den Tisch." },
-    { "id": "salir", "spanish": "Salir", "german": "Ausgehen / Verlassen", "example": "Salgo a las ocho.", "exampleDe": "Ich gehe um acht raus." },
-    { "id": "entrar", "spanish": "Entrar", "german": "Eintreten", "example": "Entra en la casa.", "exampleDe": "Tritt ins Haus ein." },
-    { "id": "abrir", "spanish": "Abrir", "german": "Öffnen", "example": "Abre la ventana.", "exampleDe": "Öffne das Fenster." },
-    { "id": "cerrar", "spanish": "Cerrar", "german": "Schließen", "example": "Cierra la puerta.", "exampleDe": "Schließ die Tür." },
-    { "id": "empezar", "spanish": "Empezar", "german": "Anfangen", "example": "La clase empieza a las nueve.", "exampleDe": "Der Unterricht beginnt um neun." },
-    { "id": "terminar", "spanish": "Terminar", "german": "Beenden", "example": "Termino el trabajo.", "exampleDe": "Ich beende die Arbeit." },
-    { "id": "esperar", "spanish": "Esperar", "german": "Warten / Hoffen", "example": "Espero el autobús.", "exampleDe": "Ich warte auf den Bus." },
-    { "id": "llamar", "spanish": "Llamar", "german": "Rufen / Anrufen", "example": "Te llamo mañana.", "exampleDe": "Ich rufe dich morgen an." },
-    { "id": "preguntar", "spanish": "Preguntar", "german": "Fragen", "example": "Quiero preguntar algo.", "exampleDe": "Ich möchte etwas fragen." },
-    { "id": "responder", "spanish": "Responder", "german": "Antworten", "example": "Responde a mi mensaje.", "exampleDe": "Antworte auf meine Nachricht." },
-    { "id": "ayudar", "spanish": "Ayudar", "german": "Helfen", "example": "¿Me ayudas?", "exampleDe": "Hilfst du mir?" },
-    { "id": "necesitar", "spanish": "Necesitar", "german": "Brauchen", "example": "Necesito tiempo.", "exampleDe": "Ich brauche Zeit." },
-    { "id": "gustar", "spanish": "Gustar", "german": "Gefallen", "example": "Me gusta la música.", "exampleDe": "Mir gefällt die Musik." },
-    { "id": "encantar", "spanish": "Encantar", "german": "Begeistern / Lieben", "example": "Me encanta bailar.", "exampleDe": "Ich liebe es zu tanzen." },
-    { "id": "parecer", "spanish": "Parecer", "german": "Scheinen / Aussehen", "example": "Parece interesante.", "exampleDe": "Es scheint interessant." },
-    { "id": "cambiar", "spanish": "Cambiar", "german": "Ändern / Wechseln", "example": "Quiero cambiar de tema.", "exampleDe": "Ich möchte das Thema wechseln." }
+    {
+      "id": "ser",
+      "spanish": "ser",
+      "german": "sein (dauerhaft)",
+      "example": "Soy estudiante.",
+      "exampleDe": "Ich bin Student.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "soy", "tú": "eres", "él/ella": "es", "nosotros": "somos", "vosotros": "sois", "ellos": "son" },
+        "indefinido": { "yo": "fui", "tú": "fuiste", "él/ella": "fue", "nosotros": "fuimos", "vosotros": "fuisteis", "ellos": "fueron" },
+        "imperfecto": { "yo": "era", "tú": "eras", "él/ella": "era", "nosotros": "éramos", "vosotros": "erais", "ellos": "eran" }
+      }
+    },
+    {
+      "id": "estar",
+      "spanish": "estar",
+      "german": "sein (Zustand/Ort)",
+      "example": "Estoy cansado.",
+      "exampleDe": "Ich bin müde.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "estoy", "tú": "estás", "él/ella": "está", "nosotros": "estamos", "vosotros": "estáis", "ellos": "están" },
+        "indefinido": { "yo": "estuve", "tú": "estuviste", "él/ella": "estuvo", "nosotros": "estuvimos", "vosotros": "estuvisteis", "ellos": "estuvieron" }
+      }
+    },
+    {
+      "id": "tener",
+      "spanish": "tener",
+      "german": "haben",
+      "example": "Tengo hambre.",
+      "exampleDe": "Ich habe Hunger.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "stemChange": "e>ie",
+      "irregularForms": {
+        "presente": { "yo": "tengo" },
+        "indefinido": { "yo": "tuve", "tú": "tuviste", "él/ella": "tuvo", "nosotros": "tuvimos", "vosotros": "tuvisteis", "ellos": "tuvieron" },
+        "futuro": { "yo": "tendré", "tú": "tendrás", "él/ella": "tendrá", "nosotros": "tendremos", "vosotros": "tendréis", "ellos": "tendrán" }
+      }
+    },
+    {
+      "id": "hacer",
+      "spanish": "hacer",
+      "german": "machen / tun",
+      "example": "¿Qué haces?",
+      "exampleDe": "Was machst du?",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "hago" },
+        "indefinido": { "yo": "hice", "tú": "hiciste", "él/ella": "hizo", "nosotros": "hicimos", "vosotros": "hicisteis", "ellos": "hicieron" },
+        "futuro": { "yo": "haré", "tú": "harás", "él/ella": "hará", "nosotros": "haremos", "vosotros": "haréis", "ellos": "harán" }
+      }
+    },
+    {
+      "id": "ir",
+      "spanish": "ir",
+      "german": "gehen",
+      "example": "Voy al trabajo.",
+      "exampleDe": "Ich gehe zur Arbeit.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "voy", "tú": "vas", "él/ella": "va", "nosotros": "vamos", "vosotros": "vais", "ellos": "van" },
+        "indefinido": { "yo": "fui", "tú": "fuiste", "él/ella": "fue", "nosotros": "fuimos", "vosotros": "fuisteis", "ellos": "fueron" },
+        "imperfecto": { "yo": "iba", "tú": "ibas", "él/ella": "iba", "nosotros": "íbamos", "vosotros": "ibais", "ellos": "iban" }
+      }
+    },
+    {
+      "id": "venir",
+      "spanish": "venir",
+      "german": "kommen",
+      "example": "¿Vienes conmigo?",
+      "exampleDe": "Kommst du mit mir?",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "stemChange": "e>ie",
+      "irregularForms": {
+        "presente": { "yo": "vengo" },
+        "indefinido": { "yo": "vine", "tú": "viniste", "él/ella": "vino", "nosotros": "vinimos", "vosotros": "vinisteis", "ellos": "vinieron" },
+        "futuro": { "yo": "vendré", "tú": "vendrás", "él/ella": "vendrá", "nosotros": "vendremos", "vosotros": "vendréis", "ellos": "vendrán" }
+      }
+    },
+    {
+      "id": "poder",
+      "spanish": "poder",
+      "german": "können",
+      "example": "¿Puedes ayudarme?",
+      "exampleDe": "Kannst du mir helfen?",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "stemChange": "o>ue",
+      "irregularForms": {
+        "indefinido": { "yo": "pude", "tú": "pudiste", "él/ella": "pudo", "nosotros": "pudimos", "vosotros": "pudisteis", "ellos": "pudieron" },
+        "futuro": { "yo": "podré", "tú": "podrás", "él/ella": "podrá", "nosotros": "podremos", "vosotros": "podréis", "ellos": "podrán" }
+      }
+    },
+    {
+      "id": "querer",
+      "spanish": "querer",
+      "german": "wollen / lieben",
+      "example": "Quiero aprender español.",
+      "exampleDe": "Ich will Spanisch lernen.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "stemChange": "e>ie",
+      "irregularForms": {
+        "indefinido": { "yo": "quise", "tú": "quisiste", "él/ella": "quiso", "nosotros": "quisimos", "vosotros": "quisisteis", "ellos": "quisieron" },
+        "futuro": { "yo": "querré", "tú": "querrás", "él/ella": "querrá", "nosotros": "querremos", "vosotros": "querréis", "ellos": "querrán" }
+      }
+    },
+    {
+      "id": "saber",
+      "spanish": "saber",
+      "german": "wissen / können",
+      "example": "No sé nadar.",
+      "exampleDe": "Ich kann nicht schwimmen.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "sé" },
+        "indefinido": { "yo": "supe", "tú": "supiste", "él/ella": "supo", "nosotros": "supimos", "vosotros": "supisteis", "ellos": "supieron" },
+        "futuro": { "yo": "sabré", "tú": "sabrás", "él/ella": "sabrá", "nosotros": "sabremos", "vosotros": "sabréis", "ellos": "sabrán" }
+      }
+    },
+    {
+      "id": "conocer",
+      "spanish": "conocer",
+      "german": "kennen",
+      "example": "¿Conoces a María?",
+      "exampleDe": "Kennst du María?",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "conozco" }
+      }
+    },
+    {
+      "id": "dar",
+      "spanish": "dar",
+      "german": "geben",
+      "example": "Dame el libro.",
+      "exampleDe": "Gib mir das Buch.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "doy" },
+        "indefinido": { "yo": "di", "tú": "diste", "él/ella": "dio", "nosotros": "dimos", "vosotros": "disteis", "ellos": "dieron" }
+      }
+    },
+    {
+      "id": "decir",
+      "spanish": "decir",
+      "german": "sagen",
+      "example": "¿Qué dices?",
+      "exampleDe": "Was sagst du?",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "stemChange": "e>i",
+      "irregularForms": {
+        "presente": { "yo": "digo" },
+        "indefinido": { "yo": "dije", "tú": "dijiste", "él/ella": "dijo", "nosotros": "dijimos", "vosotros": "dijisteis", "ellos": "dijeron" },
+        "futuro": { "yo": "diré", "tú": "dirás", "él/ella": "dirá", "nosotros": "diremos", "vosotros": "diréis", "ellos": "dirán" }
+      }
+    },
+    {
+      "id": "hablar",
+      "spanish": "hablar",
+      "german": "sprechen",
+      "example": "Hablo un poco de español.",
+      "exampleDe": "Ich spreche ein bisschen Spanisch.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "ver",
+      "spanish": "ver",
+      "german": "sehen",
+      "example": "Veo la televisión.",
+      "exampleDe": "Ich sehe fern.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "veo" },
+        "indefinido": { "yo": "vi", "tú": "viste", "él/ella": "vio", "nosotros": "vimos", "vosotros": "visteis", "ellos": "vieron" },
+        "imperfecto": { "yo": "veía", "tú": "veías", "él/ella": "veía", "nosotros": "veíamos", "vosotros": "veíais", "ellos": "veían" }
+      }
+    },
+    {
+      "id": "mirar",
+      "spanish": "mirar",
+      "german": "anschauen",
+      "example": "Mira esto.",
+      "exampleDe": "Schau dir das an.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "escuchar",
+      "spanish": "escuchar",
+      "german": "hören / zuhören",
+      "example": "Escucho música.",
+      "exampleDe": "Ich höre Musik.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "oir",
+      "spanish": "oír",
+      "german": "hören",
+      "example": "¿Oyes eso?",
+      "exampleDe": "Hörst du das?",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "oigo", "tú": "oyes", "él/ella": "oye", "nosotros": "oímos", "vosotros": "oís", "ellos": "oyen" }
+      }
+    },
+    {
+      "id": "leer",
+      "spanish": "leer",
+      "german": "lesen",
+      "example": "Leo un libro.",
+      "exampleDe": "Ich lese ein Buch.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": true
+    },
+    {
+      "id": "escribir",
+      "spanish": "escribir",
+      "german": "schreiben",
+      "example": "Escribo un email.",
+      "exampleDe": "Ich schreibe eine E-Mail.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": true
+    },
+    {
+      "id": "comer",
+      "spanish": "comer",
+      "german": "essen",
+      "example": "Como a las dos.",
+      "exampleDe": "Ich esse um zwei Uhr.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": true
+    },
+    {
+      "id": "beber",
+      "spanish": "beber",
+      "german": "trinken",
+      "example": "Bebo agua.",
+      "exampleDe": "Ich trinke Wasser.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": true
+    },
+    {
+      "id": "dormir",
+      "spanish": "dormir",
+      "german": "schlafen",
+      "example": "Duermo ocho horas.",
+      "exampleDe": "Ich schlafe acht Stunden.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "stemChange": "o>ue",
+      "irregularForms": {
+        "indefinido": { "él/ella": "durmió", "ellos": "durmieron" }
+      }
+    },
+    {
+      "id": "despertar",
+      "spanish": "despertarse",
+      "german": "aufwachen",
+      "example": "Me despierto temprano.",
+      "exampleDe": "Ich wache früh auf.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "stemChange": "e>ie"
+    },
+    {
+      "id": "trabajar",
+      "spanish": "trabajar",
+      "german": "arbeiten",
+      "example": "Trabajo desde casa.",
+      "exampleDe": "Ich arbeite von zu Hause.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "estudiar",
+      "spanish": "estudiar",
+      "german": "lernen / studieren",
+      "example": "Estudio español.",
+      "exampleDe": "Ich lerne Spanisch.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "vivir",
+      "spanish": "vivir",
+      "german": "leben / wohnen",
+      "example": "Vivo en Madrid.",
+      "exampleDe": "Ich lebe in Madrid.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": true
+    },
+    {
+      "id": "pensar",
+      "spanish": "pensar",
+      "german": "denken",
+      "example": "Pienso en ti.",
+      "exampleDe": "Ich denke an dich.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "stemChange": "e>ie"
+    },
+    {
+      "id": "creer",
+      "spanish": "creer",
+      "german": "glauben",
+      "example": "Creo que sí.",
+      "exampleDe": "Ich glaube schon.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": true
+    },
+    {
+      "id": "sentir",
+      "spanish": "sentir",
+      "german": "fühlen",
+      "example": "Siento frío.",
+      "exampleDe": "Mir ist kalt.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "stemChange": "e>ie",
+      "irregularForms": {
+        "indefinido": { "él/ella": "sintió", "ellos": "sintieron" }
+      }
+    },
+    {
+      "id": "encontrar",
+      "spanish": "encontrar",
+      "german": "finden",
+      "example": "No encuentro mis llaves.",
+      "exampleDe": "Ich finde meine Schlüssel nicht.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "stemChange": "o>ue"
+    },
+    {
+      "id": "buscar",
+      "spanish": "buscar",
+      "german": "suchen",
+      "example": "Busco trabajo.",
+      "exampleDe": "Ich suche Arbeit.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "llevar",
+      "spanish": "llevar",
+      "german": "tragen / bringen",
+      "example": "Llevo una camisa azul.",
+      "exampleDe": "Ich trage ein blaues Hemd.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "traer",
+      "spanish": "traer",
+      "german": "mitbringen",
+      "example": "Trae el vino.",
+      "exampleDe": "Bring den Wein mit.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "traigo" },
+        "indefinido": { "yo": "traje", "tú": "trajiste", "él/ella": "trajo", "nosotros": "trajimos", "vosotros": "trajisteis", "ellos": "trajeron" }
+      }
+    },
+    {
+      "id": "poner",
+      "spanish": "poner",
+      "german": "setzen / stellen / legen",
+      "example": "Pon la mesa.",
+      "exampleDe": "Deck den Tisch.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "pongo" },
+        "indefinido": { "yo": "puse", "tú": "pusiste", "él/ella": "puso", "nosotros": "pusimos", "vosotros": "pusisteis", "ellos": "pusieron" },
+        "futuro": { "yo": "pondré", "tú": "pondrás", "él/ella": "pondrá", "nosotros": "pondremos", "vosotros": "pondréis", "ellos": "pondrán" }
+      }
+    },
+    {
+      "id": "salir",
+      "spanish": "salir",
+      "german": "ausgehen / verlassen",
+      "example": "Salgo a las ocho.",
+      "exampleDe": "Ich gehe um acht raus.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "salgo" },
+        "futuro": { "yo": "saldré", "tú": "saldrás", "él/ella": "saldrá", "nosotros": "saldremos", "vosotros": "saldréis", "ellos": "saldrán" }
+      }
+    },
+    {
+      "id": "entrar",
+      "spanish": "entrar",
+      "german": "eintreten",
+      "example": "Entra en la casa.",
+      "exampleDe": "Tritt ins Haus ein.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "abrir",
+      "spanish": "abrir",
+      "german": "öffnen",
+      "example": "Abre la ventana.",
+      "exampleDe": "Öffne das Fenster.",
+      "type": "verb",
+      "verbEnding": "ir",
+      "isRegular": true
+    },
+    {
+      "id": "cerrar",
+      "spanish": "cerrar",
+      "german": "schließen",
+      "example": "Cierra la puerta.",
+      "exampleDe": "Schließ die Tür.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "stemChange": "e>ie"
+    },
+    {
+      "id": "empezar",
+      "spanish": "empezar",
+      "german": "anfangen",
+      "example": "La clase empieza a las nueve.",
+      "exampleDe": "Der Unterricht beginnt um neun.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": false,
+      "stemChange": "e>ie",
+      "irregularForms": {
+        "indefinido": { "yo": "empecé" }
+      }
+    },
+    {
+      "id": "terminar",
+      "spanish": "terminar",
+      "german": "beenden",
+      "example": "Termino el trabajo.",
+      "exampleDe": "Ich beende die Arbeit.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "esperar",
+      "spanish": "esperar",
+      "german": "warten / hoffen",
+      "example": "Espero el autobús.",
+      "exampleDe": "Ich warte auf den Bus.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "llamar",
+      "spanish": "llamar",
+      "german": "rufen / anrufen",
+      "example": "Te llamo mañana.",
+      "exampleDe": "Ich rufe dich morgen an.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "preguntar",
+      "spanish": "preguntar",
+      "german": "fragen",
+      "example": "Quiero preguntar algo.",
+      "exampleDe": "Ich möchte etwas fragen.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "responder",
+      "spanish": "responder",
+      "german": "antworten",
+      "example": "Responde a mi mensaje.",
+      "exampleDe": "Antworte auf meine Nachricht.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": true
+    },
+    {
+      "id": "ayudar",
+      "spanish": "ayudar",
+      "german": "helfen",
+      "example": "¿Me ayudas?",
+      "exampleDe": "Hilfst du mir?",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "necesitar",
+      "spanish": "necesitar",
+      "german": "brauchen",
+      "example": "Necesito tiempo.",
+      "exampleDe": "Ich brauche Zeit.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "gustar",
+      "spanish": "gustar",
+      "german": "gefallen",
+      "example": "Me gusta la música.",
+      "exampleDe": "Mir gefällt die Musik.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "encantar",
+      "spanish": "encantar",
+      "german": "begeistern / lieben",
+      "example": "Me encanta bailar.",
+      "exampleDe": "Ich liebe es zu tanzen.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    },
+    {
+      "id": "parecer",
+      "spanish": "parecer",
+      "german": "scheinen / aussehen",
+      "example": "Parece interesante.",
+      "exampleDe": "Es scheint interessant.",
+      "type": "verb",
+      "verbEnding": "er",
+      "isRegular": false,
+      "irregularForms": {
+        "presente": { "yo": "parezco" }
+      }
+    },
+    {
+      "id": "cambiar",
+      "spanish": "cambiar",
+      "german": "ändern / wechseln",
+      "example": "Quiero cambiar de tema.",
+      "exampleDe": "Ich möchte das Thema wechseln.",
+      "type": "verb",
+      "verbEnding": "ar",
+      "isRegular": true
+    }
   ]
 }

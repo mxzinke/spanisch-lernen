@@ -81,6 +81,7 @@ export function App() {
         <div class="container mx-auto max-w-2xl px-4 py-3">
           <div
             class="flex items-center justify-center gap-2.5 cursor-pointer select-none"
+            style={{ touchAction: 'manipulation' }}
             onClick={handleLogoTap}
           >
             <Logo size={28} />

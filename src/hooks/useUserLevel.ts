@@ -21,7 +21,7 @@ export function useUserLevel(progress: Progress): UserLevelInfo {
     let wordsInCurrentLevel = 0
     let masteredInCurrentLevel = 0
 
-    for (let level = 1; level <= 15; level++) {
+    for (let level = 1; level <= 18; level++) {
       const categoriesAtLevel = categoriesWithDifficulty.filter((c) => c.difficulty === level)
       const categoryIds = categoriesAtLevel.map((c) => c.category)
       const wordsAtLevel = allWords.filter((w) => categoryIds.includes(w.category))
@@ -44,8 +44,8 @@ export function useUserLevel(progress: Progress): UserLevelInfo {
       }
 
       // Level abgeschlossen, zum nächsten
-      if (level === 15) {
-        currentLevel = 15
+      if (level === 18) {
+        currentLevel = 18
         progressToNextLevel = 100
         wordsInCurrentLevel = wordsAtLevel.length
         masteredInCurrentLevel = masteredWords.length
@@ -62,7 +62,7 @@ export function useUserLevel(progress: Progress): UserLevelInfo {
       wordsInCurrentLevel,
       masteredInCurrentLevel,
       unlockedCategoryIds,
-      isMaxLevel: currentLevel === 15 && progressToNextLevel === 100,
+      isMaxLevel: currentLevel === 18 && progressToNextLevel === 100,
     }
   }, [progress.words])
 }

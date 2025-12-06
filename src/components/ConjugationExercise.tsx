@@ -181,9 +181,19 @@ export function ConjugationExercise({ verb, onResult }: Props) {
         </div>
 
         {!infinitiveResult && (
-          <button onClick={handleInfinitiveSubmit} class="btn btn-primary w-full py-3">
-            Prüfen
-          </button>
+          <div class="flex gap-3">
+            <button
+              onClick={() => {
+                setInfinitiveResult('wrong')
+              }}
+              class="btn btn-secondary flex-1 py-3"
+            >
+              Weiß nicht
+            </button>
+            <button onClick={handleInfinitiveSubmit} class="btn btn-primary flex-1 py-3">
+              Prüfen
+            </button>
+          </div>
         )}
       </div>
     )

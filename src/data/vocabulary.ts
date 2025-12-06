@@ -396,9 +396,9 @@ export function getSmartDistractors(
       }
     }
 
-    // Bonus für gleiche Kategorie (+30)
+    // Bonus für gleiche Kategorie (+40) - wichtiger als phonetische Ähnlichkeit
     if (w.category === targetWord.category) {
-      score += 30
+      score += 40
     }
 
     // Bonus für ähnliche Schwierigkeit (+10 für ±2 Levels)
@@ -413,12 +413,13 @@ export function getSmartDistractors(
   // Sortiere nach Score (höchster zuerst)
   scoredWords.sort((a, b) => b.score - a.score)
 
-  // Wähle die Top-Kandidaten, aber mit etwas Zufall
-  // Nimm aus den Top 20% zufällig, um Variation zu gewährleisten
-  const topPoolSize = Math.max(count * 3, Math.ceil(scoredWords.length * 0.2))
+  // Strategie: Wähle die besten Kandidaten mit minimaler Zufallsvariation
+  // Nimm die Top-Kandidaten und wähle daraus, um etwas Variation zu haben
+  // aber nicht zu viel (nur aus den Top count + 2)
+  const topPoolSize = Math.min(count + 2, scoredWords.length)
   const topPool = scoredWords.slice(0, topPoolSize)
 
-  // Mische die Top-Kandidaten und wähle die gewünschte Anzahl
+  // Mische nur die Top-Kandidaten leicht
   const shuffled = topPool.sort(() => Math.random() - 0.5)
 
   return shuffled.slice(0, count).map((sw) => sw.word)

@@ -5,6 +5,7 @@ import {
   levenshteinDistance,
   calculateSimilarityScore,
   getSemanticGroup,
+  allWords,
 } from './vocabulary'
 import type { WordWithCategory } from '../types'
 
@@ -353,5 +354,107 @@ describe('getSmartDistractors mit semantischen Gruppen', () => {
 
     // Im Durchschnitt sollten mindestens 2 von 3 Wochentage sein
     expect(weekdayCount / 20).toBeGreaterThanOrEqual(2)
+  })
+})
+
+describe('getSmartDistractors mit echten Daten', () => {
+  it('sollte für ¿Cómo? andere Fragewörter anzeigen', () => {
+    // Finde ¿Cómo? in den echten Daten
+    const como = allWords.find(w => w.spanish === '¿Cómo?')
+    expect(como).toBeDefined()
+
+    if (!como) return
+
+    // Sammle Statistiken über 10 Durchläufe
+    const distractorStats: Record<string, number> = {}
+
+    for (let i = 0; i < 10; i++) {
+      const result = getSmartDistractors(como, allWords, 3)
+
+      result.forEach(w => {
+        distractorStats[w.spanish] = (distractorStats[w.spanish] || 0) + 1
+      })
+    }
+
+    // Logge die häufigsten Distraktoren
+    const sorted = Object.entries(distractorStats)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+
+    console.log('Häufigste Distraktoren für ¿Cómo?:')
+    sorted.forEach(([word, count]) => {
+      const group = getSemanticGroup(word)
+      console.log(`  ${word}: ${count}x (Gruppe: ${group})`)
+    })
+
+    // Prüfe, dass mindestens 2 Fragewörter in den Top 5 sind
+    const top5 = sorted.slice(0, 5).map(([word]) => word)
+    const questionWordsInTop5 = top5.filter(w => getSemanticGroup(w) === 'question_word')
+    expect(questionWordsInTop5.length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('sollte für Hoy andere Zeitadverbien anzeigen', () => {
+    const hoy = allWords.find(w => w.spanish === 'Hoy')
+    expect(hoy).toBeDefined()
+
+    if (!hoy) return
+
+    const distractorStats: Record<string, number> = {}
+
+    for (let i = 0; i < 10; i++) {
+      const result = getSmartDistractors(hoy, allWords, 3)
+      result.forEach(w => {
+        distractorStats[w.spanish] = (distractorStats[w.spanish] || 0) + 1
+      })
+    }
+
+    const sorted = Object.entries(distractorStats)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+
+    console.log('Häufigste Distraktoren für Hoy:')
+    sorted.forEach(([word, count]) => {
+      const group = getSemanticGroup(word)
+      console.log(`  ${word}: ${count}x (Gruppe: ${group})`)
+    })
+
+    // Prüfe, dass mindestens 2 Zeitadverbien in den Top 5 sind
+    const top5 = sorted.slice(0, 5).map(([word]) => word)
+    const timeAdverbsInTop5 = top5.filter(w => getSemanticGroup(w) === 'time_adverb')
+    expect(timeAdverbsInTop5.length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('sollte für El perro andere Tiere anzeigen', () => {
+    // Explizit nach dem Tier suchen (category: 'animals')
+    const perro = allWords.find(w => w.spanish === 'El perro' && w.category === 'animals')
+    expect(perro).toBeDefined()
+
+    if (!perro) return
+
+    const distractorStats: Record<string, { count: number; category: string }> = {}
+
+    for (let i = 0; i < 10; i++) {
+      const result = getSmartDistractors(perro, allWords, 3)
+      result.forEach(w => {
+        if (!distractorStats[w.spanish]) {
+          distractorStats[w.spanish] = { count: 0, category: w.category }
+        }
+        distractorStats[w.spanish].count++
+      })
+    }
+
+    const sorted = Object.entries(distractorStats)
+      .sort((a, b) => b[1].count - a[1].count)
+      .slice(0, 10)
+
+    console.log('Häufigste Distraktoren für El perro (animals):')
+    sorted.forEach(([word, { count, category }]) => {
+      console.log(`  ${word}: ${count}x (Kategorie: ${category})`)
+    })
+
+    // Prüfe, dass mindestens 2 Tiere in den Top 5 sind
+    const top5 = sorted.slice(0, 5)
+    const animalsInTop5 = top5.filter(([, { category }]) => category === 'animals')
+    expect(animalsInTop5.length).toBeGreaterThanOrEqual(2)
   })
 })

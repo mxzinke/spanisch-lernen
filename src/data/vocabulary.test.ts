@@ -11,18 +11,18 @@ import type { WordWithCategory } from '../types'
 
 // Mock-Daten für Tests
 const mockWords: WordWithCategory[] = [
-  // Tiere (Level 6)
+  // Tiere (Level 8)
   { id: 'perro', spanish: 'El perro', german: 'Der Hund', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
   { id: 'gato', spanish: 'El gato', german: 'Die Katze', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
   { id: 'conejo', spanish: 'El conejo', german: 'Das Kaninchen', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
   { id: 'caballo', spanish: 'El caballo', german: 'Das Pferd', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
-  // Wetter (Level 6)
+  // Wetter (Level 8)
   { id: 'sol', spanish: 'El sol', german: 'Die Sonne', example: '', exampleDe: '', category: 'weather', categoryName: 'Wetter' },
   { id: 'lluvia', spanish: 'La lluvia', german: 'Der Regen', example: '', exampleDe: '', category: 'weather', categoryName: 'Wetter' },
-  // Reisen (Level 7)
+  // Reisen (Level 9)
   { id: 'avion', spanish: 'El avión', german: 'Das Flugzeug', example: '', exampleDe: '', category: 'travel', categoryName: 'Reisen' },
   { id: 'tren', spanish: 'El tren', german: 'Der Zug', example: '', exampleDe: '', category: 'travel', categoryName: 'Reisen' },
-  // Politik (Level 15 - weit entfernt)
+  // Politik (Level 17 - weit entfernt)
   { id: 'gobierno', spanish: 'El gobierno', german: 'Die Regierung', example: '', exampleDe: '', category: 'politics', categoryName: 'Politik' },
   { id: 'eleccion', spanish: 'La elección', german: 'Die Wahl', example: '', exampleDe: '', category: 'politics', categoryName: 'Politik' },
   // Greetings (Level 1 - weit entfernt)
@@ -59,7 +59,7 @@ describe('getSmartDistractors', () => {
 
   it('sollte bei wenig Kategorie-Wörtern auf ähnliche Schwierigkeit zurückfallen', () => {
     // Wetter hat nur 2 Wörter
-    const target = mockWords[4] // sol (weather, Level 6)
+    const target = mockWords[4] // sol (weather, Level 8)
 
     // Mehrere Durchläufe wegen Zufallskomponente
     let lluviaCount = 0
@@ -71,10 +71,10 @@ describe('getSmartDistractors', () => {
 
       if (result.some(w => w.id === 'lluvia')) lluviaCount++
 
-      // Rest sollte aus ähnlichen Levels kommen (Level 4-8)
+      // Rest sollte aus ähnlichen Levels kommen (Level 6-10)
       const similarLevelWords = result.filter(w => {
         const diff = categoryDifficulty[w.category] || 8
-        return Math.abs(diff - 6) <= 2
+        return Math.abs(diff - 8) <= 2
       })
       similarLevelTotal += similarLevelWords.length
     }
@@ -86,7 +86,7 @@ describe('getSmartDistractors', () => {
   })
 
   it('sollte weit entfernte Kategorien vermeiden wenn möglich', () => {
-    const target = mockWords[0] // perro (animals, Level 6)
+    const target = mockWords[0] // perro (animals, Level 8)
 
     // Mehrere Durchläufe für statistische Sicherheit
     let politicsCount = 0
@@ -98,12 +98,12 @@ describe('getSmartDistractors', () => {
       greetingsCount += result.filter(w => w.category === 'greetings').length
     }
 
-    // Politik (Level 15) und Greetings (Level 1) sind weit von Level 6 entfernt
+    // Politik (Level 17) und Greetings (Level 1) sind weit von Level 8 entfernt
     // Sollten selten oder nie gewählt werden wenn genug nähere Alternativen existieren
     const animalsAndNearbyCount = mockWords.filter(w => {
       if (w.id === target.id) return false
       const diff = categoryDifficulty[w.category] || 8
-      return Math.abs(diff - 6) <= 2
+      return Math.abs(diff - 8) <= 2
     }).length
 
     // Wenn genug nahegelegene Wörter existieren (>= 3), sollten entfernte selten gewählt werden

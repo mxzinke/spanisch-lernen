@@ -97,57 +97,60 @@ export function getAllVerbs(): WordWithCategory[] {
   return allWords.filter((w) => w.type === 'verb')
 }
 
-// Schwierigkeits-Mapping für Kategorien (1-15)
+// Schwierigkeits-Mapping für Kategorien (1-18)
 export const categoryDifficulty: Record<string, number> = {
   // Level 1 - Erste Schritte
   greetings: 1,
   basics: 1,
-  // Level 2 - Zahlen & Alltag
+  // Level 2 - Zahlen & Beschreiben
   numbers: 2,
-  daily: 2,
-  // Level 3 - Familie & Zuhause
+  adjectives: 2,
+  // Level 3 - Familie & Grundverben
   family: 3,
-  home: 3,
-  // Level 4 - Essen & Trinken
-  food: 4,
-  restaurant: 4,
-  // Level 5 - Einkaufen
-  market: 5,
-  clothing: 5,
-  // Level 6 - Natur & Wetter
-  weather: 6,
-  animals: 6,
-  // Level 7 - Unterwegs
-  travel: 7,
-  city: 7,
-  // Level 8 - Gesundheit & Notfall
-  health: 8,
-  emergency: 8,
-  // Level 9 - Arbeit & Freizeit
-  work: 9,
-  hobbies: 9,
-  // Level 10 - Gefühle & Ausdruck
-  emotions: 10,
-  connectors: 10,
-  // Level 11 - Beschreiben
-  adjectives: 11,
-  shapes: 11,
-  materials: 11,
-  // Level 12 - Grammatik-Bausteine
-  verbs: 12,
-  prepositions: 12,
-  // Level 13 - Kultur & Musik
-  music: 13,
-  'spanish-culture': 13,
-  // Level 14 - Welt & Moderne
-  geography: 14,
-  technology: 14,
-  'food-extended': 14,
-  // Level 15 - Fortgeschritten
-  politics: 15,
-  business: 15,
-  finance: 15,
-  idioms: 15,
+  verbs: 3,
+  // Level 4 - Zuhause & Ortsangaben
+  home: 4,
+  prepositions: 4,
+  // Level 5 - Essen & Trinken
+  food: 5,
+  restaurant: 5,
+  // Level 6 - Einkaufen
+  market: 6,
+  clothing: 6,
+  // Level 7 - Alltag & Verbindungswörter
+  daily: 7,
+  connectors: 7,
+  // Level 8 - Natur
+  weather: 8,
+  animals: 8,
+  // Level 9 - Unterwegs
+  travel: 9,
+  city: 9,
+  // Level 10 - Gesundheit & Notfall
+  health: 10,
+  emergency: 10,
+  // Level 11 - Arbeit & Freizeit
+  work: 11,
+  hobbies: 11,
+  // Level 12 - Gefühle
+  emotions: 12,
+  // Level 13 - Formen & Materialien
+  shapes: 13,
+  materials: 13,
+  // Level 14 - Kultur & Musik
+  music: 14,
+  'spanish-culture': 14,
+  // Level 15 - Geografie
+  geography: 15,
+  // Level 16 - Technik & Erweitertes Essen
+  technology: 16,
+  'food-extended': 16,
+  // Level 17 - Politik & Geschäft
+  politics: 17,
+  business: 17,
+  // Level 18 - Finanzen & Redewendungen
+  finance: 18,
+  idioms: 18,
 }
 
 // Kategorien mit Schwierigkeitsstufe

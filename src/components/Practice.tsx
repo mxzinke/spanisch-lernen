@@ -10,7 +10,7 @@ import { allWords, sortedCategories, getAllVerbs } from '../data/vocabulary'
 import { selectWordsForSession } from '../utils/shuffle'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
-const MIN_LEVEL_FOR_CONJUGATION = 2
+const MIN_LEVEL_FOR_CONJUGATION = 4 // Verben sind auf Level 3, Konjugation ab Level 4
 
 interface PracticeProps {
   initialCategory?: string | null

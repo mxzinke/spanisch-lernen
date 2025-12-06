@@ -167,14 +167,9 @@ export function ConjugationExercise({ verb, onResult }: Props) {
                 </p>
               )}
               {infinitiveResult === 'wrong' && (
-                <div class="space-y-1">
-                  <p class="text-dusty-rose font-medium">
-                    Die richtige Antwort ist: <span class="font-serif text-lg">{verb.spanish}</span>
-                  </p>
-                  <p class="text-sm text-warm-gray">
-                    Drücke Enter, um mit der Konjugation fortzufahren
-                  </p>
-                </div>
+                <p class="text-dusty-rose font-medium">
+                  Die richtige Antwort ist: <span class="font-serif text-lg">{verb.spanish}</span>
+                </p>
               )}
             </div>
           )}
@@ -194,6 +189,18 @@ export function ConjugationExercise({ verb, onResult }: Props) {
               Prüfen
             </button>
           </div>
+        )}
+
+        {infinitiveResult === 'wrong' && (
+          <button
+            onClick={() => {
+              speak(verb.spanish)
+              setPhase('conjugate')
+            }}
+            class="btn btn-primary w-full py-3"
+          >
+            Weiter zur Konjugation
+          </button>
         )}
       </div>
     )

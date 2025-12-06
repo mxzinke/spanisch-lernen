@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import type { ExerciseType } from '../types'
 import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
@@ -6,102 +6,55 @@ import { WriteExercise } from './WriteExercise'
 import { ConjugationExercise } from './ConjugationExercise'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
-import { allWords, sortedCategories, getAllVerbs } from '../data/vocabulary'
-import { selectWordsForSession } from '../utils/shuffle'
+import { useSession } from '../hooks/useSession'
+import { allWords, sortedCategories } from '../data/vocabulary'
 
-const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
-const MIN_LEVEL_FOR_CONJUGATION = 3 // Verben sind auf Level 3, Konjugation direkt verfügbar
+const MIN_LEVEL_FOR_CONJUGATION = 3
 
 interface PracticeProps {
   initialCategory?: string | null
 }
 
 export function Practice({ initialCategory }: PracticeProps) {
-  const [mode, setMode] = useState<ExerciseType | null>(null)
   const [selectedCategory, setSelectedCategory] = useState(initialCategory || 'all')
 
-  // Kategorie aktualisieren wenn von außen geändert
   useEffect(() => {
     if (initialCategory) {
       setSelectedCategory(initialCategory)
     }
   }, [initialCategory])
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 })
-  const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
-  const [sessionWords, setSessionWords] = useState<typeof allWords>([])
   const { progress, updateWordProgress } = useProgress()
   const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
   const canUseConjugation = currentLevel >= MIN_LEVEL_FOR_CONJUGATION
 
-  // Session-Wörter nur einmal beim Start der Session festlegen
-  // Dadurch bleiben die Wörter während der Session stabil
-  useEffect(() => {
-    if (mode === null) {
-      // Keine Session aktiv - nichts tun
-      return
-    }
-
-    // Session startet: Wörter auswählen und fixieren
-    if (mode === 'conjugation') {
-      const allVerbs = getAllVerbs()
-      const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
-      const words = selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
-      setSessionWords(words)
-
-      // Für Konjugation: alle Übungen sind 'conjugation'
-      setExerciseOrder(words.map(() => 'conjugation' as ExerciseType))
-    } else {
-      const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
-      const filteredWords =
-        selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
-      const words = selectWordsForSession(filteredWords, (w) => w.id, 10, { maxOccurrences: 1 })
-      setSessionWords(words)
-
-      if (mode === 'mixed') {
-        // Für mixed: zufällige Übungstypen pro Wort
-        const order = words.map((word) => {
-          if (canUseConjugation && word.type === 'verb') {
-            const typesWithConjugation: ExerciseType[] = [...EXERCISE_TYPES, 'conjugation']
-            return typesWithConjugation[Math.floor(Math.random() * typesWithConjugation.length)]
-          }
-          return EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)]
-        })
-        setExerciseOrder(order)
-      } else {
-        // Für einzelne Modi: alle Übungen sind vom gleichen Typ
-        setExerciseOrder(words.map(() => mode))
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- Nur beim Session-Start ausführen
-  }, [mode])
-
-  const currentWord = sessionWords[currentIndex]
-  const isSessionReady = sessionWords.length > 0
-  const isComplete = isSessionReady && currentIndex >= sessionWords.length
+  const {
+    mode,
+    currentWord,
+    currentExerciseType,
+    sessionWords,
+    stats,
+    currentIndex,
+    isReady,
+    isComplete,
+    progress: sessionProgress,
+    startSession,
+    recordResult,
+    skip,
+    reset,
+  } = useSession({
+    selectedCategory,
+    unlockedCategoryIds,
+    canUseConjugation,
+  })
 
   const handleResult = (correct: boolean | null) => {
     if (currentWord && correct !== null) {
       updateWordProgress(currentWord.id, correct)
-      setSessionStats((prev) => ({
-        correct: prev.correct + (correct ? 1 : 0),
-        wrong: prev.wrong + (correct ? 0 : 1),
-      }))
+      recordResult(correct)
+    } else {
+      skip()
     }
-    setCurrentIndex((i) => i + 1)
-  }
-
-  const handleSkip = () => {
-    setCurrentIndex((i) => i + 1)
-  }
-
-  const resetSession = () => {
-    setMode(null)
-    setCurrentIndex(0)
-    setSessionStats({ correct: 0, wrong: 0 })
-    setExerciseOrder([])
-    setSessionWords([])
   }
 
   // Exercise selection screen
@@ -133,7 +86,7 @@ export function Practice({ initialCategory }: PracticeProps) {
           <h2 class="text-lg font-medium text-warm-brown mb-4">Übungsart wählen</h2>
           <div class="space-y-3">
             <button
-              onClick={() => setMode('mixed')}
+              onClick={() => startSession('mixed')}
               class="card-hover w-full p-5 text-left group border-2 border-terracotta/30"
             >
               <div class="flex items-center gap-4">
@@ -145,7 +98,7 @@ export function Practice({ initialCategory }: PracticeProps) {
             </button>
 
             <button
-              onClick={() => setMode('flashcard')}
+              onClick={() => startSession('flashcard')}
               class="card-hover w-full p-5 text-left group"
             >
               <div class="flex items-center gap-4">
@@ -157,7 +110,7 @@ export function Practice({ initialCategory }: PracticeProps) {
             </button>
 
             <button
-              onClick={() => setMode('multiple-choice')}
+              onClick={() => startSession('multiple-choice')}
               class="card-hover w-full p-5 text-left group"
             >
               <div class="flex items-center gap-4">
@@ -169,7 +122,7 @@ export function Practice({ initialCategory }: PracticeProps) {
             </button>
 
             <button
-              onClick={() => setMode('write')}
+              onClick={() => startSession('write')}
               class="card-hover w-full p-5 text-left group"
             >
               <div class="flex items-center gap-4">
@@ -182,7 +135,7 @@ export function Practice({ initialCategory }: PracticeProps) {
 
             {/* Konjugation - ab Level 3 */}
             <button
-              onClick={() => canUseConjugation && setMode('conjugation')}
+              onClick={() => canUseConjugation && startSession('conjugation')}
               class={`card-hover w-full p-5 text-left group ${!canUseConjugation ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={!canUseConjugation}
             >
@@ -205,7 +158,7 @@ export function Practice({ initialCategory }: PracticeProps) {
   }
 
   // Loading state while session words are being prepared
-  if (!isSessionReady) {
+  if (!isReady) {
     return (
       <div class="card text-center py-8">
         <p class="text-warm-gray">Lade Übung...</p>
@@ -215,8 +168,8 @@ export function Practice({ initialCategory }: PracticeProps) {
 
   // Session complete screen
   if (isComplete) {
-    const total = sessionStats.correct + sessionStats.wrong
-    const percentage = total > 0 ? Math.round((sessionStats.correct / total) * 100) : 0
+    const total = stats.correct + stats.wrong
+    const percentage = total > 0 ? Math.round((stats.correct / total) * 100) : 0
 
     return (
       <div class="card text-center space-y-8 py-8">
@@ -227,17 +180,17 @@ export function Practice({ initialCategory }: PracticeProps) {
 
         <div class="flex justify-center gap-8">
           <div>
-            <p class="text-2xl font-semibold text-olive">{sessionStats.correct}</p>
+            <p class="text-2xl font-semibold text-olive">{stats.correct}</p>
             <p class="text-sm text-warm-gray">Richtig</p>
           </div>
           <div class="w-px bg-sand-200" />
           <div>
-            <p class="text-2xl font-semibold text-rose-muted">{sessionStats.wrong}</p>
+            <p class="text-2xl font-semibold text-rose-muted">{stats.wrong}</p>
             <p class="text-sm text-warm-gray">Falsch</p>
           </div>
         </div>
 
-        <button onClick={resetSession} class="btn btn-primary">
+        <button onClick={reset} class="btn btn-primary">
           Neue Übung starten
         </button>
       </div>
@@ -245,19 +198,17 @@ export function Practice({ initialCategory }: PracticeProps) {
   }
 
   // Active exercise
-  const exerciseType: ExerciseType = mode === 'mixed' ? exerciseOrder[currentIndex] || 'flashcard' : mode
-
   return (
     <div class="space-y-6">
       {/* Progress header */}
       <div class="flex items-center gap-4">
-        <button onClick={resetSession} class="btn btn-ghost text-sm">
+        <button onClick={reset} class="btn btn-ghost text-sm">
           Abbrechen
         </button>
         <div class="flex-1 progress-track h-1.5">
           <div
             class="progress-fill h-full bg-terracotta"
-            style={{ width: `${(currentIndex / sessionWords.length) * 100}%` }}
+            style={{ width: `${sessionProgress}%` }}
           />
         </div>
         <span class="text-sm text-warm-gray">
@@ -273,14 +224,14 @@ export function Practice({ initialCategory }: PracticeProps) {
       </div>
 
       {/* Exercise component */}
-      {exerciseType === 'flashcard' && (
-        <Flashcard word={currentWord} onResult={handleResult} onSkip={handleSkip} />
+      {currentExerciseType === 'flashcard' && (
+        <Flashcard word={currentWord} onResult={handleResult} onSkip={skip} />
       )}
-      {exerciseType === 'multiple-choice' && (
+      {currentExerciseType === 'multiple-choice' && (
         <MultipleChoice word={currentWord} allWords={allWords} onResult={handleResult} />
       )}
-      {exerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
-      {exerciseType === 'conjugation' && <ConjugationExercise verb={currentWord} onResult={handleResult} />}
+      {currentExerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
+      {currentExerciseType === 'conjugation' && <ConjugationExercise verb={currentWord} onResult={handleResult} />}
     </div>
   )
 }

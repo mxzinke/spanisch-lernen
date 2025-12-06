@@ -1,0 +1,3 @@
+# Robots.txt für Spanisch Lernen
+User-agent: *
+Allow: /

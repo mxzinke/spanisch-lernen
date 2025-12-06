@@ -160,3 +160,49 @@ export const categoriesWithDifficulty: CategoryWithDifficulty[] = categories.map
 export const sortedCategories = [...categoriesWithDifficulty].sort(
   (a, b) => a.difficulty - b.difficulty || a.name.localeCompare(b.name, 'de')
 )
+
+/**
+ * Wählt intelligente Distraktoren (falsche Antworten) für Multiple-Choice
+ * Priorisierung:
+ * 1. Gleiche Kategorie (am schwierigsten zu unterscheiden)
+ * 2. Ähnliche Schwierigkeitsstufe (±2 Levels)
+ * 3. Zufällige Wörter als Fallback
+ */
+export function getSmartDistractors(
+  targetWord: WordWithCategory,
+  allWords: WordWithCategory[],
+  count: number = 3
+): WordWithCategory[] {
+  const targetDifficulty = categoryDifficulty[targetWord.category] || 8
+  const candidates: WordWithCategory[] = []
+
+  // Alle außer dem Zielwort
+  const available = allWords.filter((w) => w.id !== targetWord.id)
+
+  // 1. Priorität: Gleiche Kategorie
+  const sameCategory = available.filter((w) => w.category === targetWord.category)
+  const shuffledSameCategory = sameCategory.sort(() => Math.random() - 0.5)
+  candidates.push(...shuffledSameCategory)
+
+  // 2. Priorität: Ähnliche Schwierigkeit (±2 Levels), aber andere Kategorie
+  if (candidates.length < count) {
+    const similarDifficulty = available
+      .filter((w) => {
+        if (w.category === targetWord.category) return false
+        const diff = categoryDifficulty[w.category] || 8
+        return Math.abs(diff - targetDifficulty) <= 2
+      })
+      .sort(() => Math.random() - 0.5)
+    candidates.push(...similarDifficulty)
+  }
+
+  // 3. Fallback: Alle anderen Wörter
+  if (candidates.length < count) {
+    const remaining = available
+      .filter((w) => !candidates.some((c) => c.id === w.id))
+      .sort(() => Math.random() - 0.5)
+    candidates.push(...remaining)
+  }
+
+  return candidates.slice(0, count)
+}

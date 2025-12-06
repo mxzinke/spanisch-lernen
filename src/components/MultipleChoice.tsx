@@ -29,9 +29,10 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
     speak(word.spanish)
 
     setTimeout(() => {
-      onResult(option.id === word.id)
+      const isCorrect = option.id === word.id
       setSelected(null)
       setShowResult(false)
+      onResult(isCorrect)
     }, 1500)
   }
 

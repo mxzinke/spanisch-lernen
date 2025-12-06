@@ -17,7 +17,13 @@ export function VocabList() {
   const { unlockedCategoryIds } = useUserLevel(progress)
 
   const filteredWords = allWords
-    .filter((w) => selectedCategory === 'all' || w.category === selectedCategory)
+    .filter((w) => {
+      if (selectedCategory === 'all') {
+        // Bei "alle" nur freigeschaltete Kategorien zeigen
+        return unlockedCategoryIds.includes(w.category)
+      }
+      return w.category === selectedCategory
+    })
     .filter(
       (w) =>
         w.spanish.toLowerCase().includes(search.toLowerCase()) ||

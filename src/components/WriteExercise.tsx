@@ -106,14 +106,17 @@ export function WriteExercise({ word, onResult }: Props) {
                 Anhören
               </button>
 
-              <button
-                onClick={() => speak(word.example)}
-                class="text-sm font-serif text-warm-gray mt-4 italic hover:text-terracotta transition-colors flex items-center gap-1 mx-auto group"
-                title="Beispielsatz anhören"
-              >
-                <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 shrink-0" />
-                <span>„{word.example}"</span>
-              </button>
+              <div class="mt-4 space-y-1">
+                <button
+                  onClick={() => speak(word.example)}
+                  class="text-base font-serif text-warm-gray italic hover:text-terracotta transition-colors flex items-center gap-1 mx-auto group"
+                  title="Beispielsatz anhören"
+                >
+                  <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 shrink-0" />
+                  <span>„{word.example}"</span>
+                </button>
+                <p class="text-sm text-warm-gray/60 italic">{word.exampleDe}</p>
+              </div>
             </div>
           </div>
 

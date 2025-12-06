@@ -8,9 +8,8 @@
   }
 
   body {
-    @apply bg-sand-50 text-warm-brown min-h-screen antialiased;
+    @apply bg-sand-50 text-warm-brown h-screen antialiased overflow-hidden;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    padding-bottom: calc(72px + var(--safe-area-inset-bottom));
   }
 
   /* Typography hierarchy */

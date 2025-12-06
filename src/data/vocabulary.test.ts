@@ -143,6 +143,31 @@ describe('getSmartDistractors', () => {
     }
   })
 
+  it('sollte keine Duplikate zurückgeben auch wenn allWords Duplikate enthält', () => {
+    // Simuliere den Fall, wo dasselbe Wort mehrfach in allWords vorkommt
+    const wordsWithDuplicates: WordWithCategory[] = [
+      { id: 'perro', spanish: 'El perro', german: 'Der Hund', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+      { id: 'gato', spanish: 'El gato', german: 'Die Katze', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+      { id: 'gato', spanish: 'El gato', german: 'Die Katze', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' }, // Duplikat
+      { id: 'gato', spanish: 'El gato', german: 'Die Katze', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' }, // Duplikat
+      { id: 'conejo', spanish: 'El conejo', german: 'Das Kaninchen', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+      { id: 'conejo', spanish: 'El conejo', german: 'Das Kaninchen', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' }, // Duplikat
+      { id: 'caballo', spanish: 'El caballo', german: 'Das Pferd', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+    ]
+
+    const target = wordsWithDuplicates[0] // perro
+
+    for (let i = 0; i < 20; i++) {
+      const result = getSmartDistractors(target, wordsWithDuplicates, 3)
+      const ids = result.map(w => w.id)
+      const uniqueIds = new Set(ids)
+
+      // Muss immer 3 unique Distraktoren zurückgeben
+      expect(result.length).toBe(3)
+      expect(uniqueIds.size).toBe(3)
+    }
+  })
+
   it('sollte phonetisch ähnliche Wörter bevorzugen', () => {
     // Test mit Wörtern die phonetisch ähnlich sind
     const phoneticallySimlarWords: WordWithCategory[] = [

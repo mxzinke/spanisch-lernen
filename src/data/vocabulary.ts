@@ -383,8 +383,15 @@ export function getSmartDistractors(
   const targetDifficulty = categoryDifficulty[targetWord.category] || 8
   const targetSemanticGroup = getSemanticGroup(targetWord.spanish)
 
-  // Alle außer dem Zielwort
-  const available = allWords.filter((w) => w.id !== targetWord.id)
+  // Alle außer dem Zielwort - Duplikate nach ID entfernen
+  const seenIds = new Set<string>([targetWord.id])
+  const available: WordWithCategory[] = []
+  for (const w of allWords) {
+    if (!seenIds.has(w.id)) {
+      seenIds.add(w.id)
+      available.push(w)
+    }
+  }
 
   // Berechne Ähnlichkeits-Scores für alle Wörter
   const scoredWords: ScoredWord[] = available.map((w) => {

@@ -6,7 +6,7 @@ import { WriteExercise } from './WriteExercise'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
 import { allWords, sortedCategories } from '../data/vocabulary'
-import { shuffleWithoutConsecutiveDuplicates } from '../utils/shuffle'
+import { selectWordsForSession } from '../utils/shuffle'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
 
@@ -36,9 +36,8 @@ export function Practice({ initialCategory }: PracticeProps) {
     const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
     const words =
       selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
-    // Shuffle ohne direkt aufeinanderfolgende Duplikate
-    const shuffled = shuffleWithoutConsecutiveDuplicates(words, (w) => w.id)
-    return shuffled.slice(0, 10)
+    // Wähle 10 Wörter: max 2x gleiche, mind. 3 Wörter Abstand
+    return selectWordsForSession(words, (w) => w.id, 10)
   }, [selectedCategory, mode, unlockedCategoryIds])
 
   useMemo(() => {

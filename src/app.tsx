@@ -24,7 +24,7 @@ export function App() {
 
   const handleLogoTap = () => {
     const now = Date.now()
-    if (now - lastTapRef.current > 500) {
+    if (now - lastTapRef.current > 2000) {
       tapCountRef.current = 0
     }
     lastTapRef.current = now

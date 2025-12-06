@@ -111,6 +111,18 @@ export function Practice({ initialCategory }: PracticeProps) {
           <h2 class="text-lg font-medium text-warm-brown mb-4">Übungsart wählen</h2>
           <div class="space-y-3">
             <button
+              onClick={() => setMode('mixed')}
+              class="card-hover w-full p-5 text-left group border-2 border-terracotta/30"
+            >
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Gemischt</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Zufällige Übungsarten
+              </p>
+            </button>
+
+            <button
               onClick={() => setMode('flashcard')}
               class="card-hover w-full p-5 text-left group"
             >
@@ -146,19 +158,7 @@ export function Practice({ initialCategory }: PracticeProps) {
               </p>
             </button>
 
-            <button
-              onClick={() => setMode('mixed')}
-              class="card-hover w-full p-5 text-left group border-2 border-dashed border-sand-300"
-            >
-              <div class="flex items-center gap-4">
-                <span class="text-2xl">Gemischt</span>
-              </div>
-              <p class="text-sm text-warm-gray mt-1">
-                Zufällige Übungsarten
-              </p>
-            </button>
-
-            {/* Konjugation - ab Level 2 */}
+            {/* Konjugation - ab Level 3 */}
             <button
               onClick={() => canUseConjugation && setMode('conjugation')}
               class={`card-hover w-full p-5 text-left group ${!canUseConjugation ? 'opacity-50 cursor-not-allowed' : ''}`}

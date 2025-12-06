@@ -56,6 +56,8 @@ export function WriteExercise({ word, onResult }: Props) {
             autoFocus
             autoComplete="off"
             autoCapitalize="off"
+            autoCorrect="off"
+            spellCheck={false}
           />
           <button
             type="submit"

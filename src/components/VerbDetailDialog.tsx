@@ -1,4 +1,5 @@
-import { useState } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
+import { createPortal } from 'preact/compat'
 import type { Tense, WordWithCategory } from '../types'
 import { ConjugationTable } from './ConjugationTable'
 import { getConjugationExplanation } from '../utils/conjugation'
@@ -15,6 +16,14 @@ const allTenses: Tense[] = ['presente', 'indefinido', 'imperfecto', 'futuro']
 export function VerbDetailDialog({ verb, onClose }: Props) {
   const [selectedTense, setSelectedTense] = useState<Tense>('presente')
   const { speak } = useSpeech()
+
+  // Prevent body scroll when dialog is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   const getVerbTypeLabel = () => {
     if (verb.isRegular) {
@@ -44,7 +53,7 @@ export function VerbDetailDialog({ verb, onClose }: Props) {
     )
   }
 
-  return (
+  return createPortal(
     <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div class="absolute inset-0 bg-warm-brown/30 backdrop-blur-sm" onClick={onClose} />
@@ -138,6 +147,7 @@ export function VerbDetailDialog({ verb, onClose }: Props) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

@@ -30,42 +30,56 @@ export function Practice({ initialCategory }: PracticeProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 })
   const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
+  const [sessionWords, setSessionWords] = useState<typeof allWords>([])
   const { progress, updateWordProgress } = useProgress()
   const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
   const canUseConjugation = currentLevel >= MIN_LEVEL_FOR_CONJUGATION
 
-  const sessionWords = useMemo(() => {
-    // Bei Konjugation: nur Verben verwenden
+  // Session-Wörter nur einmal beim Start der Session festlegen
+  // Dadurch bleiben die Wörter während der Session stabil
+  useEffect(() => {
+    if (mode === null) {
+      // Keine Session aktiv - nichts tun
+      return
+    }
+
+    // Session startet: Wörter auswählen und fixieren
     if (mode === 'conjugation') {
       const allVerbs = getAllVerbs()
       const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
-      return selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
-    }
+      const words = selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
+      setSessionWords(words)
 
-    // Normale Übungen: Wörter aus freigeschalteten Kategorien
-    const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
-    const words =
-      selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
-    // Wähle 10 Wörter: jedes Wort nur 1x pro Session
-    return selectWordsForSession(words, (w) => w.id, 10, { maxOccurrences: 1 })
-  }, [selectedCategory, mode, unlockedCategoryIds])
+      // Für Konjugation: alle Übungen sind 'conjugation'
+      setExerciseOrder(words.map(() => 'conjugation' as ExerciseType))
+    } else {
+      const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
+      const filteredWords =
+        selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
+      const words = selectWordsForSession(filteredWords, (w) => w.id, 10, { maxOccurrences: 1 })
+      setSessionWords(words)
 
-  useMemo(() => {
-    if (mode === 'mixed') {
-      const order = sessionWords.map((word) => {
-        // If conjugation is unlocked and this word is a verb, include conjugation as option
-        if (canUseConjugation && word.type === 'verb') {
-          const typesWithConjugation: ExerciseType[] = [...EXERCISE_TYPES, 'conjugation']
-          return typesWithConjugation[Math.floor(Math.random() * typesWithConjugation.length)]
-        }
-        return EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)]
-      })
-      setExerciseOrder(order)
+      if (mode === 'mixed') {
+        // Für mixed: zufällige Übungstypen pro Wort
+        const order = words.map((word) => {
+          if (canUseConjugation && word.type === 'verb') {
+            const typesWithConjugation: ExerciseType[] = [...EXERCISE_TYPES, 'conjugation']
+            return typesWithConjugation[Math.floor(Math.random() * typesWithConjugation.length)]
+          }
+          return EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)]
+        })
+        setExerciseOrder(order)
+      } else {
+        // Für einzelne Modi: alle Übungen sind vom gleichen Typ
+        setExerciseOrder(words.map(() => mode))
+      }
     }
-  }, [mode, sessionWords, canUseConjugation])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Nur beim Session-Start ausführen
+  }, [mode])
 
   const currentWord = sessionWords[currentIndex]
-  const isComplete = currentIndex >= sessionWords.length
+  const isSessionReady = sessionWords.length > 0
+  const isComplete = isSessionReady && currentIndex >= sessionWords.length
 
   const handleResult = (correct: boolean | null) => {
     if (currentWord && correct !== null) {
@@ -87,6 +101,7 @@ export function Practice({ initialCategory }: PracticeProps) {
     setCurrentIndex(0)
     setSessionStats({ correct: 0, wrong: 0 })
     setExerciseOrder([])
+    setSessionWords([])
   }
 
   // Exercise selection screen
@@ -185,6 +200,15 @@ export function Practice({ initialCategory }: PracticeProps) {
             </button>
           </div>
         </section>
+      </div>
+    )
+  }
+
+  // Loading state while session words are being prepared
+  if (!isSessionReady) {
+    return (
+      <div class="card text-center py-8">
+        <p class="text-warm-gray">Lade Übung...</p>
       </div>
     )
   }

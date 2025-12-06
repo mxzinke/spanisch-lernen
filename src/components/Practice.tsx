@@ -3,12 +3,14 @@ import type { ExerciseType } from '../types'
 import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
 import { WriteExercise } from './WriteExercise'
+import { ConjugationExercise } from './ConjugationExercise'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
-import { allWords, sortedCategories } from '../data/vocabulary'
+import { allWords, sortedCategories, getAllVerbs } from '../data/vocabulary'
 import { selectWordsForSession } from '../utils/shuffle'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
+const MIN_LEVEL_FOR_CONJUGATION = 2
 
 interface PracticeProps {
   initialCategory?: string | null
@@ -29,10 +31,18 @@ export function Practice({ initialCategory }: PracticeProps) {
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0 })
   const [exerciseOrder, setExerciseOrder] = useState<ExerciseType[]>([])
   const { progress, updateWordProgress } = useProgress()
-  const { unlockedCategoryIds } = useUserLevel(progress)
+  const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
+  const canUseConjugation = currentLevel >= MIN_LEVEL_FOR_CONJUGATION
 
   const sessionWords = useMemo(() => {
-    // Nur Wörter aus freigeschalteten Kategorien
+    // Bei Konjugation: nur Verben verwenden
+    if (mode === 'conjugation') {
+      const allVerbs = getAllVerbs()
+      const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
+      return selectWordsForSession(unlockedVerbs, (w) => w.id, 10)
+    }
+
+    // Normale Übungen: Wörter aus freigeschalteten Kategorien
     const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
     const words =
       selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
@@ -147,6 +157,25 @@ export function Practice({ initialCategory }: PracticeProps) {
                 Zufällige Übungsarten
               </p>
             </button>
+
+            {/* Konjugation - ab Level 2 */}
+            <button
+              onClick={() => canUseConjugation && setMode('conjugation')}
+              class={`card-hover w-full p-5 text-left group ${!canUseConjugation ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={!canUseConjugation}
+            >
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-2xl">Konjugation</span>
+                {!canUseConjugation && (
+                  <span class="text-xs bg-sand-200 text-warm-gray px-2 py-1 rounded-full">
+                    Ab Level {MIN_LEVEL_FOR_CONJUGATION}
+                  </span>
+                )}
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Verben konjugieren lernen
+              </p>
+            </button>
           </div>
         </section>
       </div>
@@ -220,6 +249,7 @@ export function Practice({ initialCategory }: PracticeProps) {
         <MultipleChoice word={currentWord} allWords={allWords} onResult={handleResult} />
       )}
       {exerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
+      {exerciseType === 'conjugation' && <ConjugationExercise verb={currentWord} onResult={handleResult} />}
     </div>
   )
 }

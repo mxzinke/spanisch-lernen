@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'preact/hooks'
 import type { Progress, WordProgress, Stats, WordWithCategory } from '../types'
 import { getProgress, saveProgress, defaultProgress, exportProgress, importProgress } from '../lib/db'
+import { allWords, categoryDifficulty } from '../data/vocabulary'
 
 export function useProgress() {
   const [progress, setProgress] = useState<Progress>(defaultProgress)
@@ -97,6 +98,31 @@ export function useProgress() {
     setProgress(defaultProgress)
   }, [])
 
+  // Dev-Funktion: Boost auf ein bestimmtes Level (setzt alle Wörter bis zu diesem Level auf Box 4)
+  const boostToLevel = useCallback((targetLevel: number) => {
+    const today = new Date().toISOString().split('T')[0]
+    const wordsToBoost = allWords.filter((w) => {
+      const level = categoryDifficulty[w.category] || 99
+      return level < targetLevel
+    })
+
+    setProgress((prev) => {
+      const newWords = { ...prev.words }
+      wordsToBoost.forEach((word) => {
+        newWords[word.id] = {
+          box: 4, // Box 4 = fast gemeistert (70% Threshold erreicht)
+          lastSeen: today,
+          correct: 5,
+          wrong: 0,
+        }
+      })
+      return {
+        ...prev,
+        words: newWords,
+      }
+    })
+  }, [])
+
   // Export current progress as JSON file
   const handleExport = useCallback(() => {
     exportProgress(progress)
@@ -116,6 +142,7 @@ export function useProgress() {
     getStats,
     getWordsForReview,
     resetProgress,
+    boostToLevel,
     exportProgress: handleExport,
     importProgress: handleImport,
   }

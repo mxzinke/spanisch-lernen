@@ -117,9 +117,13 @@ export function VocabList() {
                         <span class="font-serif font-medium text-terracotta">{word.spanish}</span>
                       )}
                       {isVerbWord(word) && (
-                        <span class="text-xs px-2 py-0.5 bg-terracotta/10 text-terracotta rounded">
+                        <button
+                          onClick={() => setSelectedVerb(word)}
+                          class="text-xs px-2 py-0.5 bg-terracotta/10 text-terracotta rounded hover:bg-terracotta/20 transition-colors"
+                          title="Konjugationen anzeigen"
+                        >
                           Verb
-                        </span>
+                        </button>
                       )}
                       {hasProgress && (
                         <span class="text-xs px-2 py-0.5 bg-white/50 text-warm-gray rounded">

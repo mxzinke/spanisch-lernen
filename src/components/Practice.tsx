@@ -39,15 +39,15 @@ export function Practice({ initialCategory }: PracticeProps) {
     if (mode === 'conjugation') {
       const allVerbs = getAllVerbs()
       const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
-      return selectWordsForSession(unlockedVerbs, (w) => w.id, 10)
+      return selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
     }
 
     // Normale Übungen: Wörter aus freigeschalteten Kategorien
     const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
     const words =
       selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
-    // Wähle 10 Wörter: max 2x gleiche, mind. 3 Wörter Abstand
-    return selectWordsForSession(words, (w) => w.id, 10)
+    // Wähle 10 Wörter: jedes Wort nur 1x pro Session
+    return selectWordsForSession(words, (w) => w.id, 10, { maxOccurrences: 1 })
   }, [selectedCategory, mode, unlockedCategoryIds])
 
   useMemo(() => {

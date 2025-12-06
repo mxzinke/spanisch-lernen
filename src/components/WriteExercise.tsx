@@ -81,6 +81,12 @@ export function WriteExercise({ word, onResult }: Props) {
     speak(word.spanish)
   }
 
+  const handleDontKnow = () => {
+    setResult('wrong')
+    setShowResult(true)
+    speak(word.spanish)
+  }
+
   const handleContinue = () => {
     const resultValue = result === 'correct' ? true : result === 'wrong' ? false : null
     onResult(resultValue)
@@ -145,6 +151,13 @@ export function WriteExercise({ word, onResult }: Props) {
             disabled={!input.trim()}
           >
             Prüfen
+          </button>
+          <button
+            type="button"
+            onClick={handleDontKnow}
+            class="btn w-full py-3 bg-warm-cream border border-warm-gray/20 text-warm-gray hover:bg-sand hover:border-warm-gray/30"
+          >
+            Weiß ich nicht
           </button>
         </form>
       ) : (

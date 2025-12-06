@@ -2,6 +2,7 @@ import { useState, useMemo } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
 import { SpeakerIcon } from './SpeakerIcon'
+import { getSmartDistractors } from '../data/vocabulary'
 
 interface Props {
   word: WordWithCategory
@@ -15,11 +16,9 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   const { speak } = useSpeech()
 
   const options = useMemo(() => {
-    const wrong = allWords
-      .filter((w) => w.id !== word.id)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 3)
-    return [...wrong, word].sort(() => Math.random() - 0.5)
+    // Intelligente Auswahl: gleiche Kategorie bevorzugen, dann ähnliche Schwierigkeit
+    const distractors = getSmartDistractors(word, allWords, 3)
+    return [...distractors, word].sort(() => Math.random() - 0.5)
   }, [word, allWords])
 
   const handleSelect = (option: WordWithCategory) => {

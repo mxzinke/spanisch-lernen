@@ -48,7 +48,7 @@ export function App() {
   }
 
   return (
-    <div class="h-full flex flex-col">
+    <div class="min-h-screen flex flex-col">
       {/* Header with logo */}
       <header class="bg-white/95 backdrop-blur-sm border-b border-sand-200 sticky top-0 z-40 pt-safe">
         <div class="container mx-auto max-w-2xl px-4 py-3">
@@ -59,7 +59,7 @@ export function App() {
         </div>
       </header>
 
-      <main class="flex-1 container mx-auto px-4 py-6 max-w-2xl overflow-y-auto pb-24">
+      <main class="flex-1 container mx-auto px-4 py-6 max-w-2xl overflow-hidden">
         <div
           class={`page-transition ${isAnimating ? 'page-exit' : 'page-enter'} ${getAnimationDirection()}`}
         >

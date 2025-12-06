@@ -17,7 +17,13 @@ export function VocabList() {
   const { unlockedCategoryIds } = useUserLevel(progress)
 
   const filteredWords = allWords
-    .filter((w) => selectedCategory === 'all' || w.category === selectedCategory)
+    .filter((w) => {
+      if (selectedCategory === 'all') {
+        // Bei "alle" nur freigeschaltete Kategorien zeigen
+        return unlockedCategoryIds.includes(w.category)
+      }
+      return w.category === selectedCategory
+    })
     .filter(
       (w) =>
         w.spanish.toLowerCase().includes(search.toLowerCase()) ||
@@ -105,16 +111,23 @@ export function VocabList() {
                   </button>
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-2 flex-wrap">
-                      <span class="font-serif font-medium text-terracotta">{word.spanish}</span>
+                      {isVerbWord(word) ? (
+                        <button
+                          onClick={() => setSelectedVerb(word)}
+                          class="font-serif font-medium text-terracotta hover:text-terracotta/80 hover:underline transition-colors cursor-pointer text-left"
+                          title="Konjugationen anzeigen"
+                        >
+                          {word.spanish}
+                        </button>
+                      ) : (
+                        <span class="font-serif font-medium text-terracotta">{word.spanish}</span>
+                      )}
                       {isVerbWord(word) && (
                         <button
                           onClick={() => setSelectedVerb(word)}
-                          class="text-xs px-2 py-0.5 bg-terracotta/10 text-terracotta rounded hover:bg-terracotta/20 transition-colors flex items-center gap-1"
+                          class="text-xs px-2 py-0.5 bg-terracotta/10 text-terracotta rounded hover:bg-terracotta/20 transition-colors"
                           title="Konjugationen anzeigen"
                         >
-                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                          </svg>
                           Verb
                         </button>
                       )}

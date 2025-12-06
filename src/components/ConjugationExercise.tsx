@@ -29,9 +29,15 @@ export function ConjugationExercise({ verb, onResult }: Props) {
   const { speak } = useSpeech()
   const forms = conjugateVerb(verb, 'presente')
 
-  // Wähle 2 zufällige Personen beim Laden
+  // Reset alle States wenn ein neues Verb kommt
   useEffect(() => {
+    setPhase('infinitive')
+    setInfinitiveInput('')
+    setInfinitiveResult(null)
     setSelectedPersons(selectRandomPersons(2))
+    setUserInputs({})
+    setResults({})
+    setOverallCorrect(false)
   }, [verb.id])
 
   const handleInfinitiveSubmit = () => {
@@ -167,22 +173,39 @@ export function ConjugationExercise({ verb, onResult }: Props) {
                 </p>
               )}
               {infinitiveResult === 'wrong' && (
-                <div class="space-y-1">
-                  <p class="text-dusty-rose font-medium">
-                    Die richtige Antwort ist: <span class="font-serif text-lg">{verb.spanish}</span>
-                  </p>
-                  <p class="text-sm text-warm-gray">
-                    Drücke Enter, um mit der Konjugation fortzufahren
-                  </p>
-                </div>
+                <p class="text-dusty-rose font-medium">
+                  Die richtige Antwort ist: <span class="font-serif text-lg">{verb.spanish}</span>
+                </p>
               )}
             </div>
           )}
         </div>
 
         {!infinitiveResult && (
-          <button onClick={handleInfinitiveSubmit} class="btn btn-primary w-full py-3">
-            Prüfen
+          <div class="flex gap-3">
+            <button
+              onClick={() => {
+                setInfinitiveResult('wrong')
+              }}
+              class="btn btn-secondary flex-1 py-3"
+            >
+              Weiß nicht
+            </button>
+            <button onClick={handleInfinitiveSubmit} class="btn btn-primary flex-1 py-3">
+              Prüfen
+            </button>
+          </div>
+        )}
+
+        {infinitiveResult === 'wrong' && (
+          <button
+            onClick={() => {
+              speak(verb.spanish)
+              setPhase('conjugate')
+            }}
+            class="btn btn-primary w-full py-3"
+          >
+            Weiter zur Konjugation
           </button>
         )}
       </div>

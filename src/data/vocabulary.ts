@@ -206,6 +206,108 @@ function extractCoreWord(spanish: string): string {
 }
 
 /**
+ * Semantische Gruppen - Wörter die konzeptuell zusammengehören
+ * und als Distraktoren füreinander besonders gut geeignet sind
+ */
+type SemanticGroup =
+  | 'question_word'
+  | 'time_adverb'
+  | 'place_adverb'
+  | 'affirmation'
+  | 'greeting'
+  | 'weekday'
+  | 'month'
+  | 'color'
+  | 'number'
+  | 'ordinal'
+  | 'family'
+  | 'body_part'
+  | 'direction'
+  | null
+
+/**
+ * Erkennt die semantische Gruppe eines Wortes basierend auf Mustern
+ */
+export function getSemanticGroup(spanish: string): SemanticGroup {
+  const normalized = spanish
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+
+  // Fragewörter (beginnen mit ¿ oder enthalten typische Fragewörter)
+  if (
+    spanish.startsWith('¿') ||
+    /^(como|que|cuando|donde|por que|cual|quien|cuanto|adonde)\b/.test(normalized)
+  ) {
+    return 'question_word'
+  }
+
+  // Zeitadverbien
+  if (
+    /^(hoy|manana|ayer|ahora|luego|despues|antes|siempre|nunca|todavia|ya|pronto|tarde|temprano)\b/.test(
+      normalized
+    )
+  ) {
+    return 'time_adverb'
+  }
+
+  // Ortsadverbien
+  if (/^(aqui|alli|aca|alla|cerca|lejos|dentro|fuera|arriba|abajo|delante|detras)\b/.test(normalized)) {
+    return 'place_adverb'
+  }
+
+  // Bejahung/Verneinung
+  if (/^(si|no|tal vez|quiza|quizas|claro|por supuesto)\b/.test(normalized)) {
+    return 'affirmation'
+  }
+
+  // Begrüßungen
+  if (
+    /^(hola|adios|buenos dias|buenas tardes|buenas noches|hasta luego|hasta manana|chao)\b/.test(
+      normalized
+    )
+  ) {
+    return 'greeting'
+  }
+
+  // Wochentage
+  if (/^(lunes|martes|miercoles|jueves|viernes|sabado|domingo)\b/.test(normalized)) {
+    return 'weekday'
+  }
+
+  // Monate
+  if (
+    /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/.test(
+      normalized
+    )
+  ) {
+    return 'month'
+  }
+
+  // Farben
+  if (
+    /^(rojo|azul|verde|amarillo|naranja|morado|rosa|negro|blanco|gris|marron|violeta)\b/.test(
+      normalized
+    )
+  ) {
+    return 'color'
+  }
+
+  // Ordinalzahlen
+  if (/^(primero|segundo|tercero|cuarto|quinto|sexto|septimo|octavo|noveno|decimo)\b/.test(normalized)) {
+    return 'ordinal'
+  }
+
+  // Richtungen
+  if (/^(norte|sur|este|oeste|izquierda|derecha|recto|adelante|atras)\b/.test(normalized)) {
+    return 'direction'
+  }
+
+  return null
+}
+
+/**
  * Berechnet einen Ähnlichkeits-Score zwischen zwei Wörtern
  * Höherer Score = ähnlicher (besser als Distraktor)
  *
@@ -264,10 +366,11 @@ interface ScoredWord {
 /**
  * Wählt intelligente Distraktoren (falsche Antworten) für Multiple-Choice
  * Priorisierung:
- * 1. Gleiche Kategorie + hohe phonetische/visuelle Ähnlichkeit
- * 2. Andere Kategorie + hohe phonetische Ähnlichkeit
- * 3. Ähnliche Schwierigkeitsstufe (±2 Levels)
- * 4. Zufällige Wörter als Fallback
+ * 1. Gleiche semantische Gruppe (Fragewörter, Wochentage, etc.)
+ * 2. Gleiche Kategorie + hohe phonetische/visuelle Ähnlichkeit
+ * 3. Andere Kategorie + hohe phonetische Ähnlichkeit
+ * 4. Ähnliche Schwierigkeitsstufe (±2 Levels)
+ * 5. Zufällige Wörter als Fallback
  */
 export function getSmartDistractors(
   targetWord: WordWithCategory,
@@ -275,6 +378,7 @@ export function getSmartDistractors(
   count: number = 3
 ): WordWithCategory[] {
   const targetDifficulty = categoryDifficulty[targetWord.category] || 8
+  const targetSemanticGroup = getSemanticGroup(targetWord.spanish)
 
   // Alle außer dem Zielwort
   const available = allWords.filter((w) => w.id !== targetWord.id)
@@ -282,6 +386,15 @@ export function getSmartDistractors(
   // Berechne Ähnlichkeits-Scores für alle Wörter
   const scoredWords: ScoredWord[] = available.map((w) => {
     let score = calculateSimilarityScore(targetWord.spanish, w.spanish)
+
+    // Bonus für gleiche semantische Gruppe (+50) - höchste Priorität!
+    // z.B. Fragewörter mit Fragewörtern, Wochentage mit Wochentagen
+    if (targetSemanticGroup !== null) {
+      const wordSemanticGroup = getSemanticGroup(w.spanish)
+      if (wordSemanticGroup === targetSemanticGroup) {
+        score += 50
+      }
+    }
 
     // Bonus für gleiche Kategorie (+30)
     if (w.category === targetWord.category) {

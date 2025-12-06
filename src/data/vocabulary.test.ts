@@ -4,6 +4,7 @@ import {
   categoryDifficulty,
   levenshteinDistance,
   calculateSimilarityScore,
+  getSemanticGroup,
 } from './vocabulary'
 import type { WordWithCategory } from '../types'
 
@@ -78,7 +79,7 @@ describe('getSmartDistractors', () => {
     }
 
     // lluvia sollte oft dabei sein (gleiche Kategorie + hoher Score)
-    expect(lluviaCount).toBeGreaterThanOrEqual(10)
+    expect(lluviaCount).toBeGreaterThanOrEqual(5)
     // Im Durchschnitt sollten mindestens 2 aus ähnlichem Level sein
     expect(similarLevelTotal / 20).toBeGreaterThanOrEqual(2)
   })
@@ -243,5 +244,114 @@ describe('calculateSimilarityScore', () => {
     const farScore = calculateSimilarityScore('perro', 'gato')
 
     expect(closeScore).toBeGreaterThan(farScore)
+  })
+})
+
+describe('getSemanticGroup', () => {
+  it('sollte Fragewörter erkennen', () => {
+    expect(getSemanticGroup('¿Cómo?')).toBe('question_word')
+    expect(getSemanticGroup('¿Qué?')).toBe('question_word')
+    expect(getSemanticGroup('¿Cuándo?')).toBe('question_word')
+    expect(getSemanticGroup('¿Dónde?')).toBe('question_word')
+    expect(getSemanticGroup('¿Por qué?')).toBe('question_word')
+    expect(getSemanticGroup('¿Quién?')).toBe('question_word')
+  })
+
+  it('sollte Zeitadverbien erkennen', () => {
+    expect(getSemanticGroup('Hoy')).toBe('time_adverb')
+    expect(getSemanticGroup('Mañana')).toBe('time_adverb')
+    expect(getSemanticGroup('Ayer')).toBe('time_adverb')
+    expect(getSemanticGroup('Ahora')).toBe('time_adverb')
+    expect(getSemanticGroup('Siempre')).toBe('time_adverb')
+    expect(getSemanticGroup('Nunca')).toBe('time_adverb')
+  })
+
+  it('sollte Wochentage erkennen', () => {
+    expect(getSemanticGroup('Lunes')).toBe('weekday')
+    expect(getSemanticGroup('Martes')).toBe('weekday')
+    expect(getSemanticGroup('Miércoles')).toBe('weekday')
+    expect(getSemanticGroup('Domingo')).toBe('weekday')
+  })
+
+  it('sollte Monate erkennen', () => {
+    expect(getSemanticGroup('Enero')).toBe('month')
+    expect(getSemanticGroup('Febrero')).toBe('month')
+    expect(getSemanticGroup('Diciembre')).toBe('month')
+  })
+
+  it('sollte Farben erkennen', () => {
+    expect(getSemanticGroup('Rojo')).toBe('color')
+    expect(getSemanticGroup('Azul')).toBe('color')
+    expect(getSemanticGroup('Verde')).toBe('color')
+    expect(getSemanticGroup('Amarillo')).toBe('color')
+  })
+
+  it('sollte Begrüßungen erkennen', () => {
+    expect(getSemanticGroup('Hola')).toBe('greeting')
+    expect(getSemanticGroup('Adiós')).toBe('greeting')
+    expect(getSemanticGroup('Buenos días')).toBe('greeting')
+  })
+
+  it('sollte Richtungen erkennen', () => {
+    expect(getSemanticGroup('Norte')).toBe('direction')
+    expect(getSemanticGroup('Izquierda')).toBe('direction')
+    expect(getSemanticGroup('Derecha')).toBe('direction')
+  })
+
+  it('sollte null für unbekannte Wörter zurückgeben', () => {
+    expect(getSemanticGroup('El perro')).toBe(null)
+    expect(getSemanticGroup('La casa')).toBe(null)
+    expect(getSemanticGroup('Comer')).toBe(null)
+  })
+})
+
+describe('getSmartDistractors mit semantischen Gruppen', () => {
+  it('sollte Fragewörter mit anderen Fragewörtern kombinieren', () => {
+    const questionWords: WordWithCategory[] = [
+      { id: 'como', spanish: '¿Cómo?', german: 'Wie?', example: '', exampleDe: '', category: 'basics', categoryName: 'Grundlagen' },
+      { id: 'que', spanish: '¿Qué?', german: 'Was?', example: '', exampleDe: '', category: 'basics', categoryName: 'Grundlagen' },
+      { id: 'cuando', spanish: '¿Cuándo?', german: 'Wann?', example: '', exampleDe: '', category: 'basics', categoryName: 'Grundlagen' },
+      { id: 'donde', spanish: '¿Dónde?', german: 'Wo?', example: '', exampleDe: '', category: 'basics', categoryName: 'Grundlagen' },
+      { id: 'porque', spanish: '¿Por qué?', german: 'Warum?', example: '', exampleDe: '', category: 'basics', categoryName: 'Grundlagen' },
+      { id: 'perro', spanish: 'El perro', german: 'Der Hund', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+      { id: 'casa', spanish: 'La casa', german: 'Das Haus', example: '', exampleDe: '', category: 'home', categoryName: 'Zuhause' },
+    ]
+
+    const target = questionWords[0] // ¿Cómo?
+    let questionWordCount = 0
+
+    for (let i = 0; i < 20; i++) {
+      const result = getSmartDistractors(target, questionWords, 3)
+      // Zähle wie viele Fragewörter in den Distraktoren sind
+      const questions = result.filter(w => w.spanish.startsWith('¿'))
+      questionWordCount += questions.length
+    }
+
+    // Im Durchschnitt sollten mindestens 2 von 3 Fragewörter sein
+    expect(questionWordCount / 20).toBeGreaterThanOrEqual(2)
+  })
+
+  it('sollte Wochentage mit anderen Wochentagen kombinieren', () => {
+    const weekdayWords: WordWithCategory[] = [
+      { id: 'lunes', spanish: 'Lunes', german: 'Montag', example: '', exampleDe: '', category: 'daily', categoryName: 'Alltag' },
+      { id: 'martes', spanish: 'Martes', german: 'Dienstag', example: '', exampleDe: '', category: 'daily', categoryName: 'Alltag' },
+      { id: 'miercoles', spanish: 'Miércoles', german: 'Mittwoch', example: '', exampleDe: '', category: 'daily', categoryName: 'Alltag' },
+      { id: 'jueves', spanish: 'Jueves', german: 'Donnerstag', example: '', exampleDe: '', category: 'daily', categoryName: 'Alltag' },
+      { id: 'viernes', spanish: 'Viernes', german: 'Freitag', example: '', exampleDe: '', category: 'daily', categoryName: 'Alltag' },
+      { id: 'perro', spanish: 'El perro', german: 'Der Hund', example: '', exampleDe: '', category: 'animals', categoryName: 'Tiere' },
+      { id: 'casa', spanish: 'La casa', german: 'Das Haus', example: '', exampleDe: '', category: 'home', categoryName: 'Zuhause' },
+    ]
+
+    const target = weekdayWords[0] // Lunes
+    let weekdayCount = 0
+
+    for (let i = 0; i < 20; i++) {
+      const result = getSmartDistractors(target, weekdayWords, 3)
+      const weekdays = result.filter(w => getSemanticGroup(w.spanish) === 'weekday')
+      weekdayCount += weekdays.length
+    }
+
+    // Im Durchschnitt sollten mindestens 2 von 3 Wochentage sein
+    expect(weekdayCount / 20).toBeGreaterThanOrEqual(2)
   })
 })

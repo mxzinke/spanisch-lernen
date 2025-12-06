@@ -36,6 +36,13 @@
     { "id": "lavadora", "spanish": "La lavadora", "german": "Die Waschmaschine", "example": "Pongo la lavadora.", "exampleDe": "Ich stelle die Waschmaschine an." },
     { "id": "llave", "spanish": "La llave", "german": "Der Schlüssel", "example": "¿Dónde están las llaves?", "exampleDe": "Wo sind die Schlüssel?" },
     { "id": "alquiler", "spanish": "El alquiler", "german": "Die Miete", "example": "El alquiler es muy caro.", "exampleDe": "Die Miete ist sehr teuer." },
-    { "id": "vecindario", "spanish": "El vecindario", "german": "Die Nachbarschaft", "example": "Es un buen vecindario.", "exampleDe": "Es ist eine gute Nachbarschaft." }
+    { "id": "vecindario", "spanish": "El vecindario", "german": "Die Nachbarschaft", "example": "Es un buen vecindario.", "exampleDe": "Es ist eine gute Nachbarschaft." },
+    { "id": "vivir", "spanish": "Vivir", "german": "Wohnen / Leben", "example": "Vivo en Madrid.", "exampleDe": "Ich wohne in Madrid." },
+    { "id": "abrir", "spanish": "Abrir", "german": "Öffnen", "example": "Abre la puerta, por favor.", "exampleDe": "Öffne bitte die Tür." },
+    { "id": "cerrar", "spanish": "Cerrar", "german": "Schließen", "example": "Cierra la ventana.", "exampleDe": "Schließ das Fenster." },
+    { "id": "encender", "spanish": "Encender", "german": "Einschalten / Anmachen", "example": "Enciendo la luz.", "exampleDe": "Ich mache das Licht an." },
+    { "id": "apagar", "spanish": "Apagar", "german": "Ausschalten / Ausmachen", "example": "Apaga la televisión.", "exampleDe": "Mach den Fernseher aus." },
+    { "id": "mudarse", "spanish": "Mudarse", "german": "Umziehen", "example": "Me mudo a Barcelona.", "exampleDe": "Ich ziehe nach Barcelona um." },
+    { "id": "alquilar", "spanish": "Alquilar", "german": "Mieten", "example": "Quiero alquilar un piso.", "exampleDe": "Ich möchte eine Wohnung mieten." }
   ]
 }

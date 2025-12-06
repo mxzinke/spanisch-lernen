@@ -24,6 +24,13 @@
     { "id": "cerveza", "spanish": "La cerveza", "german": "Das Bier", "example": "Una cerveza fría.", "exampleDe": "Ein kaltes Bier." },
     { "id": "vino", "spanish": "El vino", "german": "Der Wein", "example": "Vino tinto o blanco?", "exampleDe": "Rot- oder Weißwein?" },
     { "id": "azucar", "spanish": "El azúcar", "german": "Der Zucker", "example": "Sin azúcar, por favor.", "exampleDe": "Ohne Zucker, bitte." },
-    { "id": "sal", "spanish": "La sal", "german": "Das Salz", "example": "Pásame la sal.", "exampleDe": "Reich mir das Salz." }
+    { "id": "sal", "spanish": "La sal", "german": "Das Salz", "example": "Pásame la sal.", "exampleDe": "Reich mir das Salz." },
+    { "id": "comer", "spanish": "Comer", "german": "Essen", "example": "¿Quieres comer algo?", "exampleDe": "Möchtest du etwas essen?" },
+    { "id": "beber", "spanish": "Beber", "german": "Trinken", "example": "Necesito beber agua.", "exampleDe": "Ich muss Wasser trinken." },
+    { "id": "probar", "spanish": "Probar", "german": "Probieren", "example": "¿Quieres probar mi paella?", "exampleDe": "Möchtest du meine Paella probieren?" },
+    { "id": "cortar", "spanish": "Cortar", "german": "Schneiden", "example": "Corto las verduras.", "exampleDe": "Ich schneide das Gemüse." },
+    { "id": "mezclar", "spanish": "Mezclar", "german": "Mischen", "example": "Mezcla los ingredientes.", "exampleDe": "Mische die Zutaten." },
+    { "id": "hervir", "spanish": "Hervir", "german": "Kochen (Wasser)", "example": "El agua está hirviendo.", "exampleDe": "Das Wasser kocht." },
+    { "id": "freir", "spanish": "Freír", "german": "Braten", "example": "Frío los huevos.", "exampleDe": "Ich brate die Eier." }
   ]
 }

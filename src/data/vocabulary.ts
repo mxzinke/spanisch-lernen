@@ -3,6 +3,7 @@ import type { Category, CategoryWithDifficulty, WordWithCategory } from '../type
 // Importiere alle Vokabel-Dateien
 import greetings from '../../data/vocabulary/greetings.json'
 import basics from '../../data/vocabulary/basics.json'
+import conjugations from '../../data/vocabulary/conjugations.json'
 import numbers from '../../data/vocabulary/numbers.json'
 import food from '../../data/vocabulary/food.json'
 import market from '../../data/vocabulary/market.json'
@@ -39,6 +40,7 @@ import idioms from '../../data/vocabulary/idioms.json'
 export const categories: Category[] = [
   greetings,
   basics,
+  conjugations,
   numbers,
   food,
   market,
@@ -97,9 +99,10 @@ export const categoryDifficulty: Record<string, number> = {
   // Level 1 - Erste Schritte
   greetings: 1,
   basics: 1,
-  // Level 2 - Zahlen & Alltag
+  // Level 2 - Zahlen, Alltag & Verbformen
   numbers: 2,
   daily: 2,
+  conjugations: 2,
   // Level 3 - Familie & Zuhause
   family: 3,
   home: 3,

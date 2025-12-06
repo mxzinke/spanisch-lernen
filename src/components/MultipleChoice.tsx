@@ -15,6 +15,9 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   const [showResult, setShowResult] = useState(false)
   const { speak } = useSpeech()
 
+  // Zufällig Richtung wählen: true = Spanisch→Deutsch, false = Deutsch→Spanisch
+  const isSpanishToGerman = useMemo(() => Math.random() > 0.5, [word])
+
   const options = useMemo(() => {
     // Intelligente Auswahl: gleiche Kategorie bevorzugen, dann ähnliche Schwierigkeit
     const distractors = getSmartDistractors(word, allWords, 3)
@@ -25,7 +28,8 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
     if (showResult) return
     setSelected(option)
     setShowResult(true)
-    speak(word.spanish)
+    // Bei Deutsch→Spanisch die gewählte spanische Antwort vorlesen
+    speak(isSpanishToGerman ? word.spanish : option.spanish)
 
     setTimeout(() => {
       const isCorrect = option.id === word.id
@@ -52,15 +56,21 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   return (
     <div class="space-y-6">
       <div class="card text-center py-8">
-        <p class="text-sm text-warm-gray mb-3">Was bedeutet...</p>
-        <p class="text-3xl font-serif font-medium text-terracotta">{word.spanish}</p>
-        <button
-          onClick={() => speak(word.spanish)}
-          class="mt-3 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
-        >
-          <SpeakerIcon class="w-4 h-4" />
-          Anhören
-        </button>
+        <p class="text-sm text-warm-gray mb-3">
+          {isSpanishToGerman ? 'Was bedeutet...' : 'Wie sagt man auf Spanisch...'}
+        </p>
+        <p class="text-3xl font-serif font-medium text-terracotta">
+          {isSpanishToGerman ? word.spanish : word.german}
+        </p>
+        {isSpanishToGerman && (
+          <button
+            onClick={() => speak(word.spanish)}
+            class="mt-3 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
+          >
+            <SpeakerIcon class="w-4 h-4" />
+            Anhören
+          </button>
+        )}
       </div>
 
       <div class="space-y-3">
@@ -71,7 +81,7 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
             disabled={showResult}
             class={getButtonClass(option)}
           >
-            {option.german}
+            {isSpanishToGerman ? option.german : option.spanish}
           </button>
         ))}
       </div>

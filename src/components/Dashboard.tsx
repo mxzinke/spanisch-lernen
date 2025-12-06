@@ -192,7 +192,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               <div>
                 <h3 class="text-lg font-medium text-warm-brown">Dein Level</h3>
                 {!isMaxLevel && (
-                  <p class="text-xs text-warm-gray">{progressToNextLevel}% bis Level {currentLevel + 1}</p>
+                  <p class="text-xs text-warm-gray">{100 - progressToNextLevel}% bis Level {currentLevel + 1}</p>
                 )}
               </div>
             </div>

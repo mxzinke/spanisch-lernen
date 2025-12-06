@@ -52,10 +52,17 @@ export function Practice({ initialCategory }: PracticeProps) {
 
   useMemo(() => {
     if (mode === 'mixed') {
-      const order = sessionWords.map(() => EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)])
+      const order = sessionWords.map((word) => {
+        // If conjugation is unlocked and this word is a verb, include conjugation as option
+        if (canUseConjugation && word.type === 'verb') {
+          const typesWithConjugation: ExerciseType[] = [...EXERCISE_TYPES, 'conjugation']
+          return typesWithConjugation[Math.floor(Math.random() * typesWithConjugation.length)]
+        }
+        return EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)]
+      })
       setExerciseOrder(order)
     }
-  }, [mode, sessionWords])
+  }, [mode, sessionWords, canUseConjugation])
 
   const currentWord = sessionWords[currentIndex]
   const isComplete = currentIndex >= sessionWords.length

@@ -3,15 +3,44 @@ import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
 import { SpeakerIcon } from './SpeakerIcon'
 
+type Result = 'correct' | 'close' | 'wrong'
+
 interface Props {
   word: WordWithCategory
-  onResult: (correct: boolean) => void
+  onResult: (correct: boolean | null) => void
+}
+
+function levenshtein(a: string, b: string): number {
+  const matrix: number[][] = []
+
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i]
+  }
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j
+  }
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1]
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        )
+      }
+    }
+  }
+
+  return matrix[b.length][a.length]
 }
 
 export function WriteExercise({ word, onResult }: Props) {
   const [input, setInput] = useState('')
   const [showResult, setShowResult] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(false)
+  const [result, setResult] = useState<Result>('wrong')
   const { speak } = useSpeech()
 
   const normalize = (str: string): string => {
@@ -20,23 +49,69 @@ export function WriteExercise({ word, onResult }: Props) {
       .trim()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
+      .replace(/^[¿¡]+|[?!]+$/g, '')
+      .replace(/\s+/g, ' ')
+  }
+
+  const checkAnswer = (userInput: string, expected: string): Result => {
+    const normalizedInput = normalize(userInput)
+    const normalizedExpected = normalize(expected)
+
+    if (normalizedInput === normalizedExpected) {
+      return 'correct'
+    }
+
+    const distance = levenshtein(normalizedInput, normalizedExpected)
+    const maxAllowed = Math.max(2, Math.floor(normalizedExpected.length * 0.2))
+
+    if (distance <= maxAllowed) {
+      return 'close'
+    }
+
+    return 'wrong'
   }
 
   const handleSubmit = (e: Event) => {
     e.preventDefault()
     if (!input.trim()) return
 
-    const correct = normalize(input) === normalize(word.spanish)
-    setIsCorrect(correct)
+    const answerResult = checkAnswer(input, word.spanish)
+    setResult(answerResult)
     setShowResult(true)
     speak(word.spanish)
   }
 
   const handleContinue = () => {
-    onResult(isCorrect)
+    const resultValue = result === 'correct' ? true : result === 'wrong' ? false : null
+    onResult(resultValue)
     setInput('')
     setShowResult(false)
   }
+
+  const getResultStyles = () => {
+    switch (result) {
+      case 'correct':
+        return {
+          bg: 'bg-olive/5 border border-olive/30',
+          text: 'text-olive-dark',
+          title: 'Richtig!',
+        }
+      case 'close':
+        return {
+          bg: 'bg-amber-50 border border-amber-300/50',
+          text: 'text-amber-700',
+          title: 'Fast richtig!',
+        }
+      case 'wrong':
+        return {
+          bg: 'bg-rose-muted/10 border border-rose-muted/30',
+          text: 'text-rose-dark',
+          title: 'Nicht ganz...',
+        }
+    }
+  }
+
+  const styles = getResultStyles()
 
   return (
     <div class="space-y-6">
@@ -57,7 +132,7 @@ export function WriteExercise({ word, onResult }: Props) {
             autoComplete="off"
             autoCapitalize="none"
             autoCorrect="off"
-            spellCheck={false}
+            spellcheck={false}
             inputMode="text"
             lang="es"
             data-form-type="other"
@@ -74,27 +149,29 @@ export function WriteExercise({ word, onResult }: Props) {
         </form>
       ) : (
         <div class="space-y-4">
-          <div
-            class={`card ${
-              isCorrect
-                ? 'bg-olive/5 border border-olive/30'
-                : 'bg-rose-muted/10 border border-rose-muted/30'
-            }`}
-          >
+          <div class={`card ${styles.bg}`}>
             <div class="text-center py-4">
-              <p class={`text-xl font-semibold mb-4 ${isCorrect ? 'text-olive-dark' : 'text-rose-dark'}`}>
-                {isCorrect ? 'Richtig!' : 'Nicht ganz...'}
+              <p class={`text-xl font-semibold mb-4 ${styles.text}`}>
+                {styles.title}
               </p>
 
-              {!isCorrect && (
+              {result !== 'correct' && (
                 <div class="mb-4">
                   <p class="text-sm text-warm-gray">Deine Antwort:</p>
-                  <p class="text-lg text-rose-dark line-through">{input}</p>
+                  <p class={`text-lg ${result === 'close' ? 'text-amber-600' : 'text-rose-dark'} ${result === 'wrong' ? 'line-through' : ''}`}>
+                    {input}
+                  </p>
                 </div>
               )}
 
+              {result === 'close' && (
+                <p class="text-sm text-amber-600 mb-4">
+                  Achte auf die genaue Schreibweise
+                </p>
+              )}
+
               <p class="text-sm text-warm-gray">
-                {isCorrect ? 'Die Antwort:' : 'Richtige Antwort:'}
+                {result === 'correct' ? 'Die Antwort:' : 'Richtige Antwort:'}
               </p>
               <p class="text-2xl font-serif font-medium text-terracotta mt-1">{word.spanish}</p>
 

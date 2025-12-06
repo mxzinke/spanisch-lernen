@@ -50,8 +50,8 @@ export function Practice({ initialCategory }: PracticeProps) {
   const currentWord = sessionWords[currentIndex]
   const isComplete = currentIndex >= sessionWords.length
 
-  const handleResult = (correct: boolean) => {
-    if (currentWord) {
+  const handleResult = (correct: boolean | null) => {
+    if (currentWord && correct !== null) {
       updateWordProgress(currentWord.id, correct)
       setSessionStats((prev) => ({
         correct: prev.correct + (correct ? 1 : 0),

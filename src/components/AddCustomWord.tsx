@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo } from 'preact/hooks'
 import { createPortal } from 'preact/compat'
-import type { CustomWord } from '../types'
+import type { CustomWord, VerbEnding } from '../types'
 import { findExistingWord, type ExistingWordInfo } from '../data/vocabulary'
 import { useUserLevel } from '../hooks/useUserLevel'
 import { useProgress } from '../hooks/useProgress'
+
+const MIN_LEVEL_FOR_VERBS = 3
 
 interface Props {
   onSave: (word: Omit<CustomWord, 'id' | 'createdAt'>) => void
@@ -17,10 +19,13 @@ export function AddCustomWord({ onSave, onClose, existingWord, hasCustomWord }: 
   const [german, setGerman] = useState(existingWord?.german || '')
   const [example, setExample] = useState(existingWord?.example || '')
   const [exampleDe, setExampleDe] = useState(existingWord?.exampleDe || '')
+  const [isVerb, setIsVerb] = useState(existingWord?.type === 'verb')
+  const [verbEnding, setVerbEnding] = useState<VerbEnding>(existingWord?.verbEnding || 'ar')
   const [error, setError] = useState('')
 
   const { progress } = useProgress()
   const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
+  const canAddVerbs = currentLevel >= MIN_LEVEL_FOR_VERBS
 
   // Check for existing word in vocabulary
   const existingInVocabulary: ExistingWordInfo | null = useMemo(() => {
@@ -64,13 +69,45 @@ export function AddCustomWord({ onSave, onClose, existingWord, hasCustomWord }: 
       return
     }
 
-    onSave({
+    // Validate verb ending
+    if (isVerb && canAddVerbs) {
+      const lowerSpanish = trimmedSpanish.toLowerCase()
+      if (!lowerSpanish.endsWith('ar') && !lowerSpanish.endsWith('er') && !lowerSpanish.endsWith('ir')) {
+        setError('Ein Verb muss auf -ar, -er oder -ir enden.')
+        return
+      }
+    }
+
+    const wordData: Omit<CustomWord, 'id' | 'createdAt'> = {
       spanish: trimmedSpanish,
       german: trimmedGerman,
       example: example.trim() || undefined,
       exampleDe: exampleDe.trim() || undefined,
-    })
+    }
+
+    // Add verb fields if it's a verb
+    if (isVerb && canAddVerbs) {
+      wordData.type = 'verb'
+      wordData.verbEnding = verbEnding
+      wordData.isRegular = true // Custom verbs are always regular
+    }
+
+    onSave(wordData)
   }
+
+  // Auto-detect verb ending from spanish word
+  useEffect(() => {
+    if (isVerb && spanish.trim()) {
+      const lowerSpanish = spanish.toLowerCase().trim()
+      if (lowerSpanish.endsWith('ar')) {
+        setVerbEnding('ar')
+      } else if (lowerSpanish.endsWith('er')) {
+        setVerbEnding('er')
+      } else if (lowerSpanish.endsWith('ir')) {
+        setVerbEnding('ir')
+      }
+    }
+  }, [spanish, isVerb])
 
   return createPortal(
     <div class="fixed inset-0 z-50 flex items-center justify-center sm:p-4">
@@ -170,6 +207,42 @@ export function AddCustomWord({ onSave, onClose, existingWord, hasCustomWord }: 
               class="input"
             />
           </div>
+
+          {/* Verb option - only available from Level 3 */}
+          {canAddVerbs && (
+            <div class="space-y-3 p-3 rounded-lg bg-white border border-sand-200">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={isVerb}
+                  onChange={(e) => setIsVerb((e.target as HTMLInputElement).checked)}
+                  class="w-5 h-5 rounded border-sand-300 text-terracotta focus:ring-terracotta"
+                />
+                <span class="text-sm font-medium text-warm-brown">Dies ist ein Verb</span>
+              </label>
+
+              {isVerb && (
+                <div class="space-y-2 pl-8">
+                  <p class="text-xs text-warm-gray">
+                    Das Verb wird automatisch konjugiert (regelmäßig). Die Endung wird aus dem Infinitiv erkannt.
+                  </p>
+                  <div class="flex items-center gap-2 text-sm">
+                    <span class="text-warm-gray">Erkannte Endung:</span>
+                    <span class="px-2 py-0.5 bg-terracotta/10 text-terracotta rounded font-medium">
+                      -{verbEnding}
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Hint for users below Level 3 */}
+          {!canAddVerbs && (
+            <div class="p-3 rounded-lg bg-sand-100 border border-sand-200 text-sm text-warm-gray">
+              Ab Level {MIN_LEVEL_FOR_VERBS} kannst du auch eigene Verben hinzufügen, die dann in Konjugationsübungen erscheinen.
+            </div>
+          )}
 
           {/* Example */}
           <div class="space-y-1">

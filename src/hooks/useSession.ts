@@ -45,9 +45,12 @@ export function useSession(options: UseSessionOptions) {
     let exerciseOrder: ExerciseType[]
 
     if (mode === 'conjugation') {
-      const allVerbs = getAllVerbs()
-      const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
-      words = selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
+      // Get verbs from standard categories
+      const standardVerbs = getAllVerbs().filter((w) => unlockedCategoryIds.includes(w.category))
+      // Also include custom verbs (they have type === 'verb')
+      const customVerbsList = customWords.filter((w) => w.type === 'verb')
+      const allVerbs = [...standardVerbs, ...customVerbsList]
+      words = selectWordsForSession(allVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
       exerciseOrder = words.map(() => 'conjugation' as ExerciseType)
     } else {
       // Include custom words (category 'custom') along with unlocked categories

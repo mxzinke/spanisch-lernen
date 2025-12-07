@@ -97,6 +97,10 @@ export interface CustomWord {
   example?: string
   exampleDe?: string
   createdAt: string
+  // Optionale Verb-Felder (ab Level 3)
+  type?: 'verb'
+  verbEnding?: VerbEnding
+  isRegular?: boolean
 }
 
 // Custom Word als WordWithCategory für Integration

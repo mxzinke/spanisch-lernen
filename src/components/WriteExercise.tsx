@@ -2,74 +2,18 @@ import { useState } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
 import { SpeakerIcon } from './SpeakerIcon'
-
-type Result = 'correct' | 'close' | 'wrong'
+import { checkAnswer, type AnswerResult } from '../utils/answerCheck'
 
 interface Props {
   word: WordWithCategory
   onResult: (correct: boolean | null) => void
 }
 
-function levenshtein(a: string, b: string): number {
-  const matrix: number[][] = []
-
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i]
-  }
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j
-  }
-
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1]
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
-        )
-      }
-    }
-  }
-
-  return matrix[b.length][a.length]
-}
-
 export function WriteExercise({ word, onResult }: Props) {
   const [input, setInput] = useState('')
   const [showResult, setShowResult] = useState(false)
-  const [result, setResult] = useState<Result>('wrong')
+  const [result, setResult] = useState<AnswerResult>('wrong')
   const { speak } = useSpeech()
-
-  const normalize = (str: string): string => {
-    return str
-      .toLowerCase()
-      .trim()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/^[¿¡]+|[?!]+$/g, '')
-      .replace(/\s+/g, ' ')
-  }
-
-  const checkAnswer = (userInput: string, expected: string): Result => {
-    const normalizedInput = normalize(userInput)
-    const normalizedExpected = normalize(expected)
-
-    if (normalizedInput === normalizedExpected) {
-      return 'correct'
-    }
-
-    const distance = levenshtein(normalizedInput, normalizedExpected)
-    const maxAllowed = Math.max(2, Math.floor(normalizedExpected.length * 0.2))
-
-    if (distance <= maxAllowed) {
-      return 'close'
-    }
-
-    return 'wrong'
-  }
 
   const handleSubmit = (e: Event) => {
     e.preventDefault()

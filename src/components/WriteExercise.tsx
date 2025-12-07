@@ -50,7 +50,9 @@ export function WriteExercise({ word, onResult }: Props) {
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/^[¿¡]+|[?!]+$/g, '')
+      .replace(/\.{2,}|…/g, '')
       .replace(/\s+/g, ' ')
+      .trim()
   }
 
   const checkAnswer = (userInput: string, expected: string): Result => {

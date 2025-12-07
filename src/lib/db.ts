@@ -128,8 +128,22 @@ function migrateFromLocalStorage(): Progress | null {
 }
 
 // Export/Import functions
-export function exportProgress(progress: Progress): void {
-  const dataStr = JSON.stringify(progress, null, 2)
+export interface BackupData {
+  progress: Progress
+  customWords: CustomWord[]
+  version: number
+}
+
+export async function exportBackup(progress: Progress): Promise<void> {
+  const customWords = await getCustomWords()
+
+  const backup: BackupData = {
+    progress,
+    customWords,
+    version: 1,
+  }
+
+  const dataStr = JSON.stringify(backup, null, 2)
   const blob = new Blob([dataStr], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
 
@@ -145,21 +159,39 @@ export function exportProgress(progress: Progress): void {
   URL.revokeObjectURL(url)
 }
 
-export function importProgress(file: File): Promise<Progress> {
+export interface ImportResult {
+  progress: Progress
+  customWords: CustomWord[]
+}
+
+export function importBackup(file: File): Promise<ImportResult> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
 
     reader.onload = (event) => {
       try {
         const content = event.target?.result as string
-        const progress = JSON.parse(content) as Progress
+        const data = JSON.parse(content)
 
-        // Validate structure
-        if (!progress.words || !progress.stats) {
+        // Support new backup format with customWords
+        if (data.version && data.progress) {
+          if (!data.progress.words || !data.progress.stats) {
+            throw new Error('Ungültiges Backup-Format')
+          }
+          resolve({
+            progress: data.progress,
+            customWords: data.customWords || [],
+          })
+        }
+        // Support old backup format (just Progress)
+        else if (data.words && data.stats) {
+          resolve({
+            progress: data as Progress,
+            customWords: [],
+          })
+        } else {
           throw new Error('Ungültiges Backup-Format')
         }
-
-        resolve(progress)
       } catch (error) {
         reject(new Error('Konnte Backup nicht lesen. Ist die Datei korrekt?'))
       }
@@ -168,6 +200,15 @@ export function importProgress(file: File): Promise<Progress> {
     reader.onerror = () => reject(new Error('Fehler beim Lesen der Datei'))
     reader.readAsText(file)
   })
+}
+
+// Legacy functions for backwards compatibility
+export function exportProgress(progress: Progress): void {
+  exportBackup(progress)
+}
+
+export function importProgress(file: File): Promise<Progress> {
+  return importBackup(file).then((result) => result.progress)
 }
 
 // Custom Words Storage

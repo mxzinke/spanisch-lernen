@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'preact/hooks'
 import type { Progress, WordProgress, Stats, WordWithCategory } from '../types'
-import { getProgress, saveProgress, defaultProgress, exportProgress, importProgress } from '../lib/db'
+import { getProgress, saveProgress, defaultProgress, exportBackup, importBackup, saveCustomWords } from '../lib/db'
 import { allWords, categoryDifficulty } from '../data/vocabulary'
 
 export function useProgress() {
@@ -123,15 +123,21 @@ export function useProgress() {
     })
   }, [])
 
-  // Export current progress as JSON file
-  const handleExport = useCallback(() => {
-    exportProgress(progress)
+  // Export current progress and custom words as JSON file
+  const handleExport = useCallback(async () => {
+    await exportBackup(progress)
   }, [progress])
 
-  // Import progress from JSON file
+  // Import progress and custom words from JSON file
   const handleImport = useCallback(async (file: File): Promise<void> => {
-    const imported = await importProgress(file)
-    setProgress(imported)
+    const { progress: importedProgress, customWords } = await importBackup(file)
+    setProgress(importedProgress)
+    // Also restore custom words if present
+    if (customWords.length > 0) {
+      await saveCustomWords(customWords)
+      // Trigger a page reload to refresh custom words state
+      window.location.reload()
+    }
   }, [])
 
   return {

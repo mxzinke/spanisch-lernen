@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'preact/hooks'
-import type { ExerciseType, Word } from '../types'
-import { allWords, getAllVerbs } from '../data/vocabulary'
+import type { ExerciseType, Word, WordWithCategory } from '../types'
+import { allWords as defaultAllWords, getAllVerbs } from '../data/vocabulary'
 import { selectWordsForSession } from '../utils/shuffle'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
@@ -9,6 +9,7 @@ interface UseSessionOptions {
   selectedCategory: string
   unlockedCategoryIds: string[]
   canUseConjugation: boolean
+  customWords?: WordWithCategory[]
 }
 
 interface SessionState {
@@ -26,10 +27,13 @@ const INITIAL_STATE: SessionState = {
 }
 
 export function useSession(options: UseSessionOptions) {
-  const { selectedCategory, unlockedCategoryIds, canUseConjugation } = options
+  const { selectedCategory, unlockedCategoryIds, canUseConjugation, customWords = [] } = options
 
   const [mode, setMode] = useState<ExerciseType | 'mixed' | null>(null)
   const [session, setSession] = useState<SessionState>(INITIAL_STATE)
+
+  // Combine default words with custom words
+  const allWords = [...defaultAllWords, ...customWords]
 
   // Session-Wörter nur einmal beim Start der Session festlegen
   useEffect(() => {
@@ -41,14 +45,24 @@ export function useSession(options: UseSessionOptions) {
     let exerciseOrder: ExerciseType[]
 
     if (mode === 'conjugation') {
-      const allVerbs = getAllVerbs()
-      const unlockedVerbs = allVerbs.filter((w) => unlockedCategoryIds.includes(w.category))
-      words = selectWordsForSession(unlockedVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
+      // Get verbs from standard categories
+      const standardVerbs = getAllVerbs().filter((w) => unlockedCategoryIds.includes(w.category))
+      // Also include custom verbs (they have type === 'verb')
+      const customVerbsList = customWords.filter((w) => w.type === 'verb')
+      const allVerbs = [...standardVerbs, ...customVerbsList]
+      words = selectWordsForSession(allVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
       exerciseOrder = words.map(() => 'conjugation' as ExerciseType)
     } else {
-      const unlockedWords = allWords.filter((w) => unlockedCategoryIds.includes(w.category))
+      // Include custom words (category 'custom') along with unlocked categories
+      const unlockedWords = allWords.filter(
+        (w) => unlockedCategoryIds.includes(w.category) || w.category === 'custom'
+      )
       const filteredWords =
-        selectedCategory === 'all' ? unlockedWords : unlockedWords.filter((w) => w.category === selectedCategory)
+        selectedCategory === 'all'
+          ? unlockedWords
+          : selectedCategory === 'custom'
+          ? unlockedWords.filter((w) => w.category === 'custom')
+          : unlockedWords.filter((w) => w.category === selectedCategory)
       words = selectWordsForSession(filteredWords, (w) => w.id, 10, { maxOccurrences: 1 })
 
       if (mode === 'mixed') {

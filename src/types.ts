@@ -88,3 +88,23 @@ export interface SpeechSettings {
 export type ExerciseType = 'flashcard' | 'multiple-choice' | 'write' | 'mixed' | 'conjugation'
 
 export type TabId = 'dashboard' | 'practice' | 'vocabulary' | 'settings'
+
+// Custom Word - benutzerdefinierte Vokabeln (Beispiele optional)
+export interface CustomWord {
+  id: string
+  spanish: string
+  german: string
+  example?: string
+  exampleDe?: string
+  createdAt: string
+  // Optionale Verb-Felder (ab Level 3)
+  type?: 'verb'
+  verbEnding?: VerbEnding
+  isRegular?: boolean
+}
+
+// Custom Word als WordWithCategory für Integration
+export interface CustomWordWithCategory extends CustomWord {
+  category: 'custom'
+  categoryName: string
+}

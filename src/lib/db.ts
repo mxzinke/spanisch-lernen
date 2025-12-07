@@ -1,9 +1,10 @@
-import type { Progress } from '../types'
+import type { Progress, CustomWord } from '../types'
 
 const DB_NAME = 'spanisch-lernen'
 const DB_VERSION = 1
 const STORE_NAME = 'progress'
 const PROGRESS_KEY = 'user-progress'
+const CUSTOM_WORDS_KEY = 'custom-words'
 
 let dbInstance: IDBDatabase | null = null
 
@@ -127,8 +128,22 @@ function migrateFromLocalStorage(): Progress | null {
 }
 
 // Export/Import functions
-export function exportProgress(progress: Progress): void {
-  const dataStr = JSON.stringify(progress, null, 2)
+export interface BackupData {
+  progress: Progress
+  customWords: CustomWord[]
+  version: number
+}
+
+export async function exportBackup(progress: Progress): Promise<void> {
+  const customWords = await getCustomWords()
+
+  const backup: BackupData = {
+    progress,
+    customWords,
+    version: 1,
+  }
+
+  const dataStr = JSON.stringify(backup, null, 2)
   const blob = new Blob([dataStr], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
 
@@ -144,21 +159,39 @@ export function exportProgress(progress: Progress): void {
   URL.revokeObjectURL(url)
 }
 
-export function importProgress(file: File): Promise<Progress> {
+export interface ImportResult {
+  progress: Progress
+  customWords: CustomWord[]
+}
+
+export function importBackup(file: File): Promise<ImportResult> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
 
     reader.onload = (event) => {
       try {
         const content = event.target?.result as string
-        const progress = JSON.parse(content) as Progress
+        const data = JSON.parse(content)
 
-        // Validate structure
-        if (!progress.words || !progress.stats) {
+        // Support new backup format with customWords
+        if (data.version && data.progress) {
+          if (!data.progress.words || !data.progress.stats) {
+            throw new Error('Ungültiges Backup-Format')
+          }
+          resolve({
+            progress: data.progress,
+            customWords: data.customWords || [],
+          })
+        }
+        // Support old backup format (just Progress)
+        else if (data.words && data.stats) {
+          resolve({
+            progress: data as Progress,
+            customWords: [],
+          })
+        } else {
           throw new Error('Ungültiges Backup-Format')
         }
-
-        resolve(progress)
       } catch (error) {
         reject(new Error('Konnte Backup nicht lesen. Ist die Datei korrekt?'))
       }
@@ -168,3 +201,113 @@ export function importProgress(file: File): Promise<Progress> {
     reader.readAsText(file)
   })
 }
+
+// Legacy functions for backwards compatibility
+export function exportProgress(progress: Progress): void {
+  exportBackup(progress)
+}
+
+export function importProgress(file: File): Promise<Progress> {
+  return importBackup(file).then((result) => result.progress)
+}
+
+// Custom Words Storage
+const CUSTOM_WORDS_STORAGE_KEY = 'spanisch-lernen-custom-words'
+
+export async function getCustomWords(): Promise<CustomWord[]> {
+  try {
+    const db = await openDB()
+    return new Promise((resolve) => {
+      const transaction = db.transaction(STORE_NAME, 'readonly')
+      const store = transaction.objectStore(STORE_NAME)
+      const request = store.get(CUSTOM_WORDS_KEY)
+
+      request.onsuccess = () => {
+        if (request.result && Array.isArray(request.result)) {
+          resolve(request.result)
+        } else {
+          // Try to migrate from localStorage
+          const migrated = getCustomWordsFromLocalStorage()
+          if (migrated.length > 0) {
+            saveCustomWords(migrated).then(() => {
+              // Only remove from localStorage after successful IndexedDB save
+              localStorage.removeItem(CUSTOM_WORDS_STORAGE_KEY)
+              console.log('Migrated custom words from localStorage to IndexedDB')
+              resolve(migrated)
+            }).catch(() => {
+              // Keep in localStorage if IndexedDB save fails
+              resolve(migrated)
+            })
+          } else {
+            resolve([])
+          }
+        }
+      }
+
+      request.onerror = () => {
+        console.error('IndexedDB read error:', request.error)
+        resolve([])
+      }
+    })
+  } catch (error) {
+    console.error('IndexedDB not available:', error)
+    return getCustomWordsFromLocalStorage()
+  }
+}
+
+export async function saveCustomWords(words: CustomWord[]): Promise<void> {
+  try {
+    const db = await openDB()
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction(STORE_NAME, 'readwrite')
+      const store = transaction.objectStore(STORE_NAME)
+      const request = store.put(words, CUSTOM_WORDS_KEY)
+
+      request.onsuccess = () => resolve()
+      request.onerror = () => reject(request.error)
+    })
+  } catch (error) {
+    console.error('IndexedDB save error, falling back to localStorage:', error)
+    saveCustomWordsToLocalStorage(words)
+  }
+}
+
+export async function addCustomWord(word: CustomWord): Promise<void> {
+  const words = await getCustomWords()
+  words.push(word)
+  await saveCustomWords(words)
+}
+
+export async function updateCustomWord(word: CustomWord): Promise<void> {
+  const words = await getCustomWords()
+  const index = words.findIndex((w) => w.id === word.id)
+  if (index !== -1) {
+    words[index] = word
+    await saveCustomWords(words)
+  }
+}
+
+export async function deleteCustomWord(id: string): Promise<void> {
+  const words = await getCustomWords()
+  const filtered = words.filter((w) => w.id !== id)
+  await saveCustomWords(filtered)
+}
+
+// localStorage fallback for custom words
+function getCustomWordsFromLocalStorage(): CustomWord[] {
+  try {
+    const saved = localStorage.getItem(CUSTOM_WORDS_STORAGE_KEY)
+    return saved ? JSON.parse(saved) : []
+  } catch {
+    return []
+  }
+}
+
+function saveCustomWordsToLocalStorage(words: CustomWord[]): void {
+  try {
+    localStorage.setItem(CUSTOM_WORDS_STORAGE_KEY, JSON.stringify(words))
+  } catch (error) {
+    console.error('localStorage save error:', error)
+  }
+}
+

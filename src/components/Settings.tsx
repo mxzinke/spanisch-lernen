@@ -86,14 +86,15 @@ export function Settings() {
                 <span class="text-warm-brown">Alle 8 Tage</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-16">Stufe 5:</span>
-                <span class="text-olive">Alle 16 Tage</span>
+                <span class="w-16">Stufe 5+:</span>
+                <span class="text-olive">Ab 16 Tage</span>
                 <span class="text-warm-gray/60 text-xs">– gemeistert!</span>
               </li>
             </ul>
           </div>
           <p class="text-xs text-warm-gray/70 pt-2 border-t border-sand-200">
-            Wörter auf Stufe 5 hast du gemeistert – sie zählen für deinen Level-Fortschritt.
+            Ab Stufe 5 hast du ein Wort gemeistert. Danach wachsen die Intervalle weiter exponentiell
+            (32, 64, 128 Tage...), sodass gut gelernte Wörter dich kaum noch stören.
           </p>
         </div>
       </section>

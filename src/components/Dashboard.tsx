@@ -113,10 +113,11 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   const learnedWords = Object.keys(progress.words).length
   const totalWords = allWords.length
 
-  // Box distribution
+  // Box distribution (Boxen ≥5 werden alle als Stufe 5 "gemeistert" gezählt)
   const boxDistribution = [0, 0, 0, 0, 0]
   Object.values(progress.words).forEach((wp) => {
-    boxDistribution[wp.box - 1]++
+    const displayBox = Math.min(wp.box, 5) // Alles ab Box 5 als gemeistert anzeigen
+    boxDistribution[displayBox - 1]++
   })
 
   // Motivierende Zahlen

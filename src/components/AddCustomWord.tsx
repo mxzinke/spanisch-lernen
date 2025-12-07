@@ -63,8 +63,9 @@ export function AddCustomWord({ onSave, onClose, existingWord, hasCustomWord }: 
       return
     }
 
-    // Check for duplicate in custom words (only when adding new)
-    if (!existingWord && hasCustomWord(trimmedSpanish)) {
+    // Check for duplicate in custom words (when adding new or changing the spanish word)
+    const spanishChanged = existingWord && trimmedSpanish.toLowerCase() !== existingWord.spanish.toLowerCase()
+    if ((!existingWord || spanishChanged) && hasCustomWord(trimmedSpanish)) {
       setError('Diese Vokabel existiert bereits in deinen eigenen Vokabeln.')
       return
     }

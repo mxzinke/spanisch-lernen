@@ -227,9 +227,17 @@ export async function getCustomWords(): Promise<CustomWord[]> {
           resolve(request.result)
         } else {
           // Try to migrate from localStorage
-          const migrated = migrateCustomWordsFromLocalStorage()
+          const migrated = getCustomWordsFromLocalStorage()
           if (migrated.length > 0) {
-            saveCustomWords(migrated).then(() => resolve(migrated))
+            saveCustomWords(migrated).then(() => {
+              // Only remove from localStorage after successful IndexedDB save
+              localStorage.removeItem(CUSTOM_WORDS_STORAGE_KEY)
+              console.log('Migrated custom words from localStorage to IndexedDB')
+              resolve(migrated)
+            }).catch(() => {
+              // Keep in localStorage if IndexedDB save fails
+              resolve(migrated)
+            })
           } else {
             resolve([])
           }
@@ -303,17 +311,3 @@ function saveCustomWordsToLocalStorage(words: CustomWord[]): void {
   }
 }
 
-function migrateCustomWordsFromLocalStorage(): CustomWord[] {
-  try {
-    const saved = localStorage.getItem(CUSTOM_WORDS_STORAGE_KEY)
-    if (saved) {
-      const words = JSON.parse(saved)
-      localStorage.removeItem(CUSTOM_WORDS_STORAGE_KEY)
-      console.log('Migrated custom words from localStorage to IndexedDB')
-      return words
-    }
-  } catch (error) {
-    console.error('Migration error:', error)
-  }
-  return []
-}

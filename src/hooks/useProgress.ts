@@ -27,8 +27,9 @@ export function useProgress() {
       const wordProgress = prev.words[wordId] || { box: 1, correct: 0, wrong: 0, lastSeen: '' }
       const today = new Date().toISOString().split('T')[0]
 
-      // Leitner-System: richtig = höhere Box, falsch = zurück zu Box 1
-      const newBox = correct ? Math.min(wordProgress.box + 1, 5) : 1
+      // Leitner-System: richtig = höhere Box (unbegrenzt für exponentielles Spacing), falsch = zurück zu Box 1
+      // Ab Box 5 gilt als "gemeistert", aber die Box steigt weiter für längere Intervalle
+      const newBox = correct ? wordProgress.box + 1 : 1
 
       // Streak-Logik
       const lastPractice = prev.stats.lastPractice

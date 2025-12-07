@@ -28,8 +28,8 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
     if (showResult) return
     setSelected(option)
     setShowResult(true)
-    // Bei Deutsch→Spanisch die gewählte spanische Antwort vorlesen
-    speak(isSpanishToGerman ? word.spanish : option.spanish)
+    // Immer die richtige spanische Antwort vorlesen
+    speak(word.spanish)
 
     setTimeout(() => {
       const isCorrect = option.id === word.id

@@ -1,9 +1,10 @@
-import type { Progress } from '../types'
+import type { Progress, CustomWord } from '../types'
 
 const DB_NAME = 'spanisch-lernen'
 const DB_VERSION = 1
 const STORE_NAME = 'progress'
 const PROGRESS_KEY = 'user-progress'
+const CUSTOM_WORDS_KEY = 'custom-words'
 
 let dbInstance: IDBDatabase | null = null
 
@@ -167,4 +168,111 @@ export function importProgress(file: File): Promise<Progress> {
     reader.onerror = () => reject(new Error('Fehler beim Lesen der Datei'))
     reader.readAsText(file)
   })
+}
+
+// Custom Words Storage
+const CUSTOM_WORDS_STORAGE_KEY = 'spanisch-lernen-custom-words'
+
+export async function getCustomWords(): Promise<CustomWord[]> {
+  try {
+    const db = await openDB()
+    return new Promise((resolve) => {
+      const transaction = db.transaction(STORE_NAME, 'readonly')
+      const store = transaction.objectStore(STORE_NAME)
+      const request = store.get(CUSTOM_WORDS_KEY)
+
+      request.onsuccess = () => {
+        if (request.result && Array.isArray(request.result)) {
+          resolve(request.result)
+        } else {
+          // Try to migrate from localStorage
+          const migrated = migrateCustomWordsFromLocalStorage()
+          if (migrated.length > 0) {
+            saveCustomWords(migrated).then(() => resolve(migrated))
+          } else {
+            resolve([])
+          }
+        }
+      }
+
+      request.onerror = () => {
+        console.error('IndexedDB read error:', request.error)
+        resolve([])
+      }
+    })
+  } catch (error) {
+    console.error('IndexedDB not available:', error)
+    return getCustomWordsFromLocalStorage()
+  }
+}
+
+export async function saveCustomWords(words: CustomWord[]): Promise<void> {
+  try {
+    const db = await openDB()
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction(STORE_NAME, 'readwrite')
+      const store = transaction.objectStore(STORE_NAME)
+      const request = store.put(words, CUSTOM_WORDS_KEY)
+
+      request.onsuccess = () => resolve()
+      request.onerror = () => reject(request.error)
+    })
+  } catch (error) {
+    console.error('IndexedDB save error, falling back to localStorage:', error)
+    saveCustomWordsToLocalStorage(words)
+  }
+}
+
+export async function addCustomWord(word: CustomWord): Promise<void> {
+  const words = await getCustomWords()
+  words.push(word)
+  await saveCustomWords(words)
+}
+
+export async function updateCustomWord(word: CustomWord): Promise<void> {
+  const words = await getCustomWords()
+  const index = words.findIndex((w) => w.id === word.id)
+  if (index !== -1) {
+    words[index] = word
+    await saveCustomWords(words)
+  }
+}
+
+export async function deleteCustomWord(id: string): Promise<void> {
+  const words = await getCustomWords()
+  const filtered = words.filter((w) => w.id !== id)
+  await saveCustomWords(filtered)
+}
+
+// localStorage fallback for custom words
+function getCustomWordsFromLocalStorage(): CustomWord[] {
+  try {
+    const saved = localStorage.getItem(CUSTOM_WORDS_STORAGE_KEY)
+    return saved ? JSON.parse(saved) : []
+  } catch {
+    return []
+  }
+}
+
+function saveCustomWordsToLocalStorage(words: CustomWord[]): void {
+  try {
+    localStorage.setItem(CUSTOM_WORDS_STORAGE_KEY, JSON.stringify(words))
+  } catch (error) {
+    console.error('localStorage save error:', error)
+  }
+}
+
+function migrateCustomWordsFromLocalStorage(): CustomWord[] {
+  try {
+    const saved = localStorage.getItem(CUSTOM_WORDS_STORAGE_KEY)
+    if (saved) {
+      const words = JSON.parse(saved)
+      localStorage.removeItem(CUSTOM_WORDS_STORAGE_KEY)
+      console.log('Migrated custom words from localStorage to IndexedDB')
+      return words
+    }
+  } catch (error) {
+    console.error('Migration error:', error)
+  }
+  return []
 }

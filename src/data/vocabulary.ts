@@ -434,3 +434,40 @@ export function getSmartDistractors(
 
   return shuffled.slice(0, count).map((sw) => sw.word)
 }
+
+// Ergebnis der Duplikat-Suche
+export interface ExistingWordInfo {
+  word: WordWithCategory
+  level: number
+  categoryName: string
+}
+
+/**
+ * Sucht nach einem existierenden Wort in allen Kategorien
+ * Gibt Informationen zurück, wenn das Wort gefunden wurde
+ */
+export function findExistingWord(spanish: string): ExistingWordInfo | null {
+  const normalizedSpanish = spanish
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+
+  for (const word of allWords) {
+    const normalizedWord = word.spanish
+      .toLowerCase()
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+
+    if (normalizedWord === normalizedSpanish) {
+      return {
+        word,
+        level: categoryDifficulty[word.category] || 1,
+        categoryName: word.categoryName,
+      }
+    }
+  }
+
+  return null
+}

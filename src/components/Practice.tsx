@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useEffect, useMemo } from 'preact/hooks'
 import type { ExerciseType } from '../types'
 import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
@@ -7,6 +7,7 @@ import { ConjugationExercise } from './ConjugationExercise'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
 import { useSession } from '../hooks/useSession'
+import { useCustomWords, CUSTOM_CATEGORY_NAME } from '../hooks/useCustomWords'
 import { allWords, sortedCategories } from '../data/vocabulary'
 
 const MIN_LEVEL_FOR_CONJUGATION = 3
@@ -27,6 +28,13 @@ export function Practice({ initialCategory }: PracticeProps) {
   const { progress, updateWordProgress } = useProgress()
   const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
   const canUseConjugation = currentLevel >= MIN_LEVEL_FOR_CONJUGATION
+  const { customWords, customWordsWithCategory } = useCustomWords()
+
+  // Combine all words with custom words for Multiple Choice distractors
+  const allWordsWithCustom = useMemo(
+    () => [...allWords, ...customWordsWithCategory],
+    [customWordsWithCategory]
+  )
 
   const {
     mode,
@@ -46,6 +54,7 @@ export function Practice({ initialCategory }: PracticeProps) {
     selectedCategory,
     unlockedCategoryIds,
     canUseConjugation,
+    customWords: customWordsWithCategory,
   })
 
   const handleResult = (correct: boolean | null) => {
@@ -69,7 +78,10 @@ export function Practice({ initialCategory }: PracticeProps) {
             onChange={(e) => setSelectedCategory((e.target as HTMLSelectElement).value)}
             class="select"
           >
-            <option value="all">Alle freigeschalteten ({unlockedCategoryIds.length} Kategorien)</option>
+            <option value="all">Alle freigeschalteten ({unlockedCategoryIds.length + (customWords.length > 0 ? 1 : 0)} Kategorien)</option>
+            {customWords.length > 0 && (
+              <option value="custom">{CUSTOM_CATEGORY_NAME} - {customWords.length} Wörter</option>
+            )}
             {sortedCategories.map((cat) => {
               const isLocked = !unlockedCategoryIds.includes(cat.category)
               return (
@@ -228,7 +240,7 @@ export function Practice({ initialCategory }: PracticeProps) {
         <Flashcard word={currentWord} onResult={handleResult} onSkip={skip} />
       )}
       {currentExerciseType === 'multiple-choice' && (
-        <MultipleChoice word={currentWord} allWords={allWords} onResult={handleResult} />
+        <MultipleChoice word={currentWord} allWords={allWordsWithCustom} onResult={handleResult} />
       )}
       {currentExerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
       {currentExerciseType === 'conjugation' && <ConjugationExercise verb={currentWord} onResult={handleResult} />}

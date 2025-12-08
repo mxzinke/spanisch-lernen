@@ -75,7 +75,9 @@ export function VocabList() {
       'bg-olive-light/30',
       'bg-olive/20',
     ]
-    return styles[box - 1] || ''
+    // Intern kann die Box über 5 steigen, aber für die Anzeige auf max 5 begrenzen
+    const displayBox = Math.min(box, 5)
+    return styles[displayBox - 1] || ''
   }
 
   return (
@@ -191,7 +193,7 @@ export function VocabList() {
                       )}
                       {hasProgress && (
                         <span class="text-xs px-2 py-0.5 bg-white/50 text-warm-gray rounded">
-                          Stufe {wp.box}
+                          Stufe {Math.min(wp.box, 5)}
                         </span>
                       )}
                     </div>

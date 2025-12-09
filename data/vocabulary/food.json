@@ -2,6 +2,7 @@
   "category": "food",
   "name": "Essen & Trinken",
   "words": [
+    { "id": "comida", "spanish": "La comida", "german": "Das Essen", "example": "La comida española es deliciosa.", "exampleDe": "Das spanische Essen ist köstlich." },
     { "id": "agua", "spanish": "El agua", "german": "Das Wasser", "example": "Un vaso de agua, por favor.", "exampleDe": "Ein Glas Wasser, bitte." },
     { "id": "cafe", "spanish": "El café", "german": "Der Kaffee", "example": "Me gusta el café con leche.", "exampleDe": "Ich mag Kaffee mit Milch." },
     { "id": "te", "spanish": "El té", "german": "Der Tee", "example": "Prefiero el té verde.", "exampleDe": "Ich bevorzuge grünen Tee." },

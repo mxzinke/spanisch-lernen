@@ -141,6 +141,27 @@
       "german": "Vorher",
       "example": "Antes de comer, lávate las manos.",
       "exampleDe": "Bevor du isst, wasch dir die Hände."
+    },
+    {
+      "id": "saludos_a",
+      "spanish": "Saludos a...",
+      "german": "Viele Grüße an...",
+      "example": "Saludos a tu familia.",
+      "exampleDe": "Viele Grüße an deine Familie."
+    },
+    {
+      "id": "no_entiendo",
+      "spanish": "No entiendo",
+      "german": "Ich verstehe nicht",
+      "example": "No entiendo, ¿puedes repetir?",
+      "exampleDe": "Ich verstehe nicht, kannst du wiederholen?"
+    },
+    {
+      "id": "no_hay_problema",
+      "spanish": "No hay problema",
+      "german": "Kein Problem",
+      "example": "No hay problema, te ayudo.",
+      "exampleDe": "Kein Problem, ich helfe dir."
     }
   ]
 }

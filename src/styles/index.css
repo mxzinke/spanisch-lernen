@@ -60,6 +60,23 @@
     @apply text-warm-gray hover:text-warm-brown hover:bg-sand-100 active:scale-[0.98];
   }
 
+  /* Multiple choice options - hover only on devices that support it */
+  .mc-option {
+    @apply w-full p-4 rounded-xl text-left font-medium transition-all duration-150
+           bg-white border border-sand-200;
+  }
+
+  @media (hover: hover) {
+    .mc-option:not(:disabled):hover {
+      @apply border-terracotta shadow-soft;
+    }
+  }
+
+  /* Active state for touch feedback */
+  .mc-option:not(:disabled):active {
+    @apply border-terracotta scale-[0.98];
+  }
+
   /* Form elements */
   .input {
     @apply w-full px-4 py-3 bg-white border border-sand-200 rounded-lg

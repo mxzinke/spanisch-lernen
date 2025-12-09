@@ -42,7 +42,8 @@ export function MultipleChoice({ word, allWords, onResult }: Props) {
   const getButtonClass = (option: WordWithCategory): string => {
     const base = 'w-full p-4 rounded-xl text-left font-medium transition-all duration-150'
     if (!showResult) {
-      return `${base} bg-white border border-sand-200 hover:border-terracotta hover:shadow-soft`
+      // Use mc-option class for touch-safe hover (only on devices that support hover)
+      return 'mc-option'
     }
     if (option.id === word.id) {
       return `${base} bg-olive/10 border-2 border-olive text-olive-dark`

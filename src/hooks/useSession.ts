@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'preact/hooks'
-import type { ExerciseType, Word, WordWithCategory } from '../types'
+import type { ExerciseType, Word, WordWithCategory, WordProgress } from '../types'
 import { allWords as defaultAllWords, getAllVerbs } from '../data/vocabulary'
-import { selectWordsForSession } from '../utils/shuffle'
+import { shuffle } from '../utils/shuffle'
+import { selectWordsWithLeitner } from '../utils/leitner'
 
 const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
 
@@ -10,6 +11,7 @@ interface UseSessionOptions {
   unlockedCategoryIds: string[]
   canUseConjugation: boolean
   customWords?: WordWithCategory[]
+  progressMap?: Record<string, WordProgress>
 }
 
 interface SessionState {
@@ -27,7 +29,7 @@ const INITIAL_STATE: SessionState = {
 }
 
 export function useSession(options: UseSessionOptions) {
-  const { selectedCategory, unlockedCategoryIds, canUseConjugation, customWords = [] } = options
+  const { selectedCategory, unlockedCategoryIds, canUseConjugation, customWords = [], progressMap = {} } = options
 
   const [mode, setMode] = useState<ExerciseType | 'mixed' | null>(null)
   const [session, setSession] = useState<SessionState>(INITIAL_STATE)
@@ -50,7 +52,9 @@ export function useSession(options: UseSessionOptions) {
       // Also include custom verbs (they have type === 'verb')
       const customVerbsList = customWords.filter((w) => w.type === 'verb')
       const allVerbs = [...standardVerbs, ...customVerbsList]
-      words = selectWordsForSession(allVerbs, (w) => w.id, 10, { maxOccurrences: 1 })
+      // Use Leitner prioritization for verb selection, then shuffle for variety
+      const prioritizedVerbs = selectWordsWithLeitner(allVerbs, progressMap, 10)
+      words = shuffle(prioritizedVerbs)
       exerciseOrder = words.map(() => 'conjugation' as ExerciseType)
     } else {
       // Include custom words (category 'custom') along with unlocked categories
@@ -63,7 +67,11 @@ export function useSession(options: UseSessionOptions) {
           : selectedCategory === 'custom'
           ? unlockedWords.filter((w) => w.category === 'custom')
           : unlockedWords.filter((w) => w.category === selectedCategory)
-      words = selectWordsForSession(filteredWords, (w) => w.id, 10, { maxOccurrences: 1 })
+
+      // Use Leitner prioritization: select words based on spaced repetition,
+      // then shuffle to add variety while keeping priority-based selection
+      const prioritizedWords = selectWordsWithLeitner(filteredWords, progressMap, 10)
+      words = shuffle(prioritizedWords)
 
       if (mode === 'mixed') {
         exerciseOrder = words.map((word) => {

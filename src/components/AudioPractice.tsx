@@ -140,25 +140,30 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
           const isCorrect = option.id === word.id
           const isSelected = option.id === selected?.id
 
+          // Nur richtige und ausgewählte Antwort aufdecken
+          const shouldReveal = showResult && (isCorrect || isSelected)
+
           return (
             <div key={option.id} class={getCardClass(option)}>
-              {/* Play audio area */}
+              {/* Play audio area - feste Höhe um Layout Shift zu vermeiden */}
               <button
                 onClick={(e) => handlePlay(option, e)}
                 disabled={showResult}
-                class="flex-1 flex flex-col items-center justify-center py-6 px-4 text-warm-gray"
+                class="h-24 flex flex-col items-center justify-center px-4 text-warm-gray"
               >
-                <AudioWaveIcon isPlaying={isPlaying} />
-                {showResult ? (
+                {shouldReveal ? (
                   <span
-                    class={`text-base font-medium mt-3 animate-fade-in ${
-                      isCorrect ? 'text-olive-dark' : isSelected ? 'text-rose-dark' : 'text-warm-gray'
+                    class={`text-lg font-medium animate-fade-in ${
+                      isCorrect ? 'text-olive-dark' : 'text-rose-dark'
                     }`}
                   >
                     {option.spanish}
                   </span>
                 ) : (
-                  <span class="text-xs text-warm-gray/60 mt-2">Anhören</span>
+                  <>
+                    <AudioWaveIcon isPlaying={isPlaying} />
+                    <span class="text-xs text-warm-gray/60 mt-2">Anhören</span>
+                  </>
                 )}
               </button>
 
@@ -168,32 +173,32 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
                 disabled={showResult}
                 class={`
                   flex items-center justify-center gap-2 py-3 px-4 border-t transition-colors
-                  ${showResult
+                  ${shouldReveal
                     ? isCorrect
                       ? 'border-olive/30 bg-olive/5'
-                      : isSelected
-                        ? 'border-rose-muted/30 bg-rose-muted/5'
-                        : 'border-sand-200 bg-sand-50'
-                    : 'border-sand-200 hover:bg-sand-50'
+                      : 'border-rose-muted/30 bg-rose-muted/5'
+                    : showResult
+                      ? 'border-sand-200 bg-sand-50'
+                      : 'border-sand-200 hover:bg-sand-50'
                   }
                 `}
               >
                 <CheckCircle
-                  checked={showResult && (isCorrect || isSelected)}
-                  disabled={showResult && !isCorrect && !isSelected}
+                  checked={shouldReveal}
+                  disabled={showResult && !shouldReveal}
                 />
                 <span
                   class={`text-sm font-medium ${
-                    showResult
+                    shouldReveal
                       ? isCorrect
                         ? 'text-olive-dark'
-                        : isSelected
-                          ? 'text-rose-dark'
-                          : 'text-warm-gray/50'
-                      : 'text-warm-gray'
+                        : 'text-rose-dark'
+                      : showResult
+                        ? 'text-warm-gray/50'
+                        : 'text-warm-gray'
                   }`}
                 >
-                  {showResult ? (isCorrect ? 'Richtig' : isSelected ? 'Falsch' : '') : 'Auswählen'}
+                  {shouldReveal ? (isCorrect ? 'Richtig' : 'Falsch') : 'Auswählen'}
                 </span>
               </button>
             </div>

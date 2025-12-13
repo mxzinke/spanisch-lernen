@@ -153,7 +153,7 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
               >
                 {shouldReveal ? (
                   <span
-                    class={`text-lg font-medium animate-fade-in ${
+                    class={`text-lg font-medium fade-in ${
                       isCorrect ? 'text-olive-dark' : 'text-rose-dark'
                     }`}
                   >
@@ -220,7 +220,7 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
 
       {/* Result feedback */}
       {showResult && (
-        <p class="text-center text-sm text-warm-gray animate-fade-in">
+        <p class="text-center text-sm text-warm-gray fade-in">
           {selected?.id === word.id ? 'Gut gehört!' : `Die Antwort war "${word.spanish}"`}
         </p>
       )}

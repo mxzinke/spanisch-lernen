@@ -239,10 +239,6 @@
       opacity: 1;
     }
   }
-
-  .animate-fade-in {
-    animation: fadeIn 200ms ease-out;
-  }
 }
 
 /* Install prompt animation */

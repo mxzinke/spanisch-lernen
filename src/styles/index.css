@@ -60,10 +60,26 @@
     @apply text-warm-gray hover:text-warm-brown hover:bg-sand-100 active:scale-[0.98];
   }
 
-  /* Multiple choice options - touch-safe hover (only applies on hover-capable devices) */
+  /* Touch-safe hover effects (only applies on hover-capable devices) */
   @media (hover: hover) {
     .mc-option-hover:not(:disabled):hover {
       @apply border-terracotta shadow-soft;
+    }
+
+    .audio-card-hover:not(:disabled):hover {
+      @apply border-terracotta/40 shadow-soft;
+    }
+
+    .audio-select-hover:not(:disabled):hover {
+      @apply bg-sand-50;
+    }
+
+    .audio-check-hover:hover {
+      @apply border-terracotta/50;
+    }
+
+    .skip-hover:hover {
+      @apply text-warm-gray;
     }
   }
 
@@ -189,6 +205,39 @@
 
   .flashcard-back {
     transform: rotateY(180deg);
+  }
+
+  /* Audio waveform animations */
+  .animate-wave-1 {
+    animation: wave 0.6s ease-in-out infinite;
+    animation-delay: 0ms;
+  }
+  .animate-wave-2 {
+    animation: wave 0.6s ease-in-out infinite;
+    animation-delay: 100ms;
+  }
+  .animate-wave-3 {
+    animation: wave 0.6s ease-in-out infinite;
+    animation-delay: 200ms;
+  }
+  .animate-wave-4 {
+    animation: wave 0.6s ease-in-out infinite;
+    animation-delay: 300ms;
+  }
+  .animate-wave-5 {
+    animation: wave 0.6s ease-in-out infinite;
+    animation-delay: 400ms;
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: scaleY(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scaleY(0.5);
+      opacity: 1;
+    }
   }
 }
 

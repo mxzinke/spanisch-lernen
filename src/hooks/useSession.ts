@@ -4,7 +4,7 @@ import { allWords as defaultAllWords, getAllVerbs } from '../data/vocabulary'
 import { shuffle } from '../utils/shuffle'
 import { selectWordsWithLeitner } from '../utils/leitner'
 
-const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write']
+const EXERCISE_TYPES: ExerciseType[] = ['flashcard', 'multiple-choice', 'write', 'audio-practice']
 
 interface UseSessionOptions {
   selectedCategory: string

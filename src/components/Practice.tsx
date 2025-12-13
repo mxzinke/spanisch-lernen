@@ -4,6 +4,7 @@ import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
 import { WriteExercise } from './WriteExercise'
 import { ConjugationExercise } from './ConjugationExercise'
+import { AudioPractice } from './AudioPractice'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
 import { useSession } from '../hooks/useSession'
@@ -146,6 +147,18 @@ export function Practice({ initialCategory }: PracticeProps) {
               </p>
             </button>
 
+            <button
+              onClick={() => startSession('audio-practice')}
+              class="card-hover w-full p-5 text-left group"
+            >
+              <div class="flex items-center gap-4">
+                <span class="text-2xl">Hörübung</span>
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Erkenne Wörter nur durch Hören
+              </p>
+            </button>
+
             {/* Konjugation - ab Level 3 */}
             <button
               onClick={() => canUseConjugation && startSession('conjugation')}
@@ -245,6 +258,9 @@ export function Practice({ initialCategory }: PracticeProps) {
       )}
       {currentExerciseType === 'write' && <WriteExercise word={currentWord} onResult={handleResult} />}
       {currentExerciseType === 'conjugation' && <ConjugationExercise verb={currentWord} onResult={handleResult} />}
+      {currentExerciseType === 'audio-practice' && (
+        <AudioPractice word={currentWord} allWords={allWordsWithCustom} onResult={handleResult} onSkip={skip} />
+      )}
     </div>
   )
 }

@@ -85,7 +85,7 @@ export interface SpeechSettings {
   voiceName: string | null
 }
 
-export type ExerciseType = 'flashcard' | 'multiple-choice' | 'write' | 'mixed' | 'conjugation'
+export type ExerciseType = 'flashcard' | 'multiple-choice' | 'write' | 'mixed' | 'conjugation' | 'audio-practice'
 
 export type TabId = 'dashboard' | 'practice' | 'vocabulary' | 'settings'
 

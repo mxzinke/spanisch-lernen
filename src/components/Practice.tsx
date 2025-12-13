@@ -55,6 +55,7 @@ export function Practice({ initialCategory }: PracticeProps) {
     unlockedCategoryIds,
     canUseConjugation,
     customWords: customWordsWithCategory,
+    progressMap: progress.words,
   })
 
   const handleResult = (correct: boolean | null) => {

@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks'
+import { useState, useLayoutEffect } from 'preact/hooks'
 import type { WordWithCategory } from '../types'
 import { useSpeech } from '../hooks/useSpeech'
 import { SpeakerIcon } from './SpeakerIcon'
@@ -12,6 +12,11 @@ interface Props {
 export function Flashcard({ word, onResult, onSkip }: Props) {
   const [flipped, setFlipped] = useState(false)
   const { speak, isSpeaking } = useSpeech()
+
+  // Reset flip state synchronously when word changes (before browser paint)
+  useLayoutEffect(() => {
+    setFlipped(false)
+  }, [word.id])
 
   const handleSpeak = (e: Event) => {
     e.stopPropagation()
@@ -47,32 +52,36 @@ export function Flashcard({ word, onResult, onSkip }: Props) {
             <p class="text-sm text-warm-gray/60 mt-6">Tippen zum Umdrehen</p>
           </div>
 
-          {/* Back face - Spanish word */}
+          {/* Back face - Spanish word (only render content when flipped to prevent flash during animation) */}
           <div class="flashcard-face flashcard-back p-6 text-center bg-white">
-            <p class="text-sm text-warm-gray mb-3">Spanisch</p>
-            <p class="text-3xl font-serif font-medium text-terracotta">{word.spanish}</p>
-            <button
-              onClick={handleSpeak}
-              class="mt-4 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
-              disabled={isSpeaking}
-            >
-              <SpeakerIcon class="w-4 h-4" />
-              Anhören
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                speak(word.example)
-              }}
-              class="mt-4 p-4 bg-sand-50 hover:bg-sand-100 rounded-lg w-full max-w-sm text-center transition-colors group"
-              title="Beispielsatz anhören"
-            >
-              <p class="w-fit mx-auto text-sm font-serif text-warm-gray group-hover:text-terracotta italic flex items-center gap-2 transition-colors">
-                <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 shrink-0" />
-                <span>„{word.example}"</span>
-              </p>
-              <p class="text-xs text-warm-gray/70 mt-1 ml-5">{word.exampleDe}</p>
-            </button>
+            {flipped && (
+              <>
+                <p class="text-sm text-warm-gray mb-3">Spanisch</p>
+                <p class="text-3xl font-serif font-medium text-terracotta">{word.spanish}</p>
+                <button
+                  onClick={handleSpeak}
+                  class="mt-4 px-4 py-2 text-sm text-warm-gray hover:text-warm-brown hover:bg-sand-100 rounded-lg transition-colors inline-flex items-center gap-2"
+                  disabled={isSpeaking}
+                >
+                  <SpeakerIcon class="w-4 h-4" />
+                  Anhören
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    speak(word.example)
+                  }}
+                  class="mt-4 p-4 bg-sand-50 hover:bg-sand-100 rounded-lg w-full max-w-sm text-center transition-colors group"
+                  title="Beispielsatz anhören"
+                >
+                  <p class="w-fit mx-auto text-sm font-serif text-warm-gray group-hover:text-terracotta italic flex items-center gap-2 transition-colors">
+                    <SpeakerIcon class="w-3 h-3 opacity-50 group-hover:opacity-100 shrink-0" />
+                    <span>„{word.example}"</span>
+                  </p>
+                  <p class="text-xs text-warm-gray/70 mt-1 ml-5">{word.exampleDe}</p>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

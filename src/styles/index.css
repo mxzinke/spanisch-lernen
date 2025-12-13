@@ -60,10 +60,26 @@
     @apply text-warm-gray hover:text-warm-brown hover:bg-sand-100 active:scale-[0.98];
   }
 
-  /* Multiple choice options - touch-safe hover (only applies on hover-capable devices) */
+  /* Touch-safe hover effects (only applies on hover-capable devices) */
   @media (hover: hover) {
     .mc-option-hover:not(:disabled):hover {
       @apply border-terracotta shadow-soft;
+    }
+
+    .audio-card-hover:not(:disabled):hover {
+      @apply border-terracotta/40 shadow-soft;
+    }
+
+    .audio-select-hover:not(:disabled):hover {
+      @apply bg-sand-50;
+    }
+
+    .audio-check-hover:hover {
+      @apply border-terracotta/50;
+    }
+
+    .skip-hover:hover {
+      @apply text-warm-gray;
     }
   }
 

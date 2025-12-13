@@ -38,7 +38,7 @@ function CheckCircle({ checked, disabled }: { checked: boolean; disabled: boolea
           ? 'bg-terracotta border-terracotta text-white'
           : disabled
             ? 'border-sand-300 bg-sand-100'
-            : 'border-sand-300 bg-white hover:border-terracotta/50'
+            : 'border-sand-300 bg-white audio-check-hover'
         }
       `}
     >
@@ -89,7 +89,7 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
     const base = 'relative flex flex-col rounded-xl transition-all duration-200 overflow-hidden'
 
     if (!showResult) {
-      return `${base} bg-white border-2 border-sand-200 hover:border-terracotta/40 hover:shadow-soft`
+      return `${base} bg-white border-2 border-sand-200 audio-card-hover`
     }
     if (option.id === word.id) {
       return `${base} bg-olive/10 border-2 border-olive`
@@ -179,7 +179,7 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
                       : 'border-rose-muted/30 bg-rose-muted/5'
                     : showResult
                       ? 'border-sand-200 bg-sand-50'
-                      : 'border-sand-200 hover:bg-sand-50'
+                      : 'border-sand-200 audio-select-hover'
                   }
                 `}
               >
@@ -211,7 +211,7 @@ export function AudioPractice({ word, allWords, onResult, onSkip }: Props) {
         <div class="text-center pt-2">
           <button
             onClick={onSkip}
-            class="text-sm text-warm-gray/60 hover:text-warm-gray transition-colors"
+            class="text-sm text-warm-gray/60 skip-hover transition-colors"
           >
             Kann gerade nicht hören
           </button>

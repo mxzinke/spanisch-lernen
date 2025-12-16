@@ -84,7 +84,7 @@ export function ConjugationTable({
                     value={userInputs[person] || ''}
                     onInput={(e) => onInputChange?.(person, (e.target as HTMLInputElement).value)}
                     class={`
-                      w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg border-2 transition-colors
+                      w-full px-3 py-2 text-base rounded-lg border-2 transition-colors
                       focus:outline-none focus:border-terracotta
                       ${results[person] === 'wrong' ? 'border-dusty-rose' : 'border-sand-200'}
                     `}

@@ -85,7 +85,29 @@ export interface SpeechSettings {
   voiceName: string | null
 }
 
-export type ExerciseType = 'flashcard' | 'multiple-choice' | 'write' | 'mixed' | 'conjugation' | 'audio-practice'
+export type ExerciseType = 'flashcard' | 'multiple-choice' | 'write' | 'mixed' | 'conjugation' | 'audio-practice' | 'sentence'
+
+// Satz-Übung Typen
+export interface SentenceTemplate {
+  id: string
+  german: string           // Deutscher Satz mit {slot} Platzhaltern
+  spanish: string          // Spanischer Satz mit {slot} Platzhaltern
+  slots: SentenceSlot[]    // Welche Wörter eingesetzt werden
+  hints?: string[]         // Optionale Hilfestellungen
+}
+
+export interface SentenceSlot {
+  key: string              // Platzhalter-Name z.B. "food"
+  categories: string[]     // Erlaubte Kategorien für diesen Slot
+  wordIds?: string[]       // Oder spezifische Wort-IDs
+}
+
+export interface GeneratedSentence {
+  german: string           // Fertiger deutscher Satz
+  spanish: string          // Fertiger spanischer Satz
+  usedWords: WordWithCategory[]  // Verwendete Vokabeln (für Fortschritts-Update)
+  template: SentenceTemplate     // Original-Template
+}
 
 export type TabId = 'dashboard' | 'practice' | 'vocabulary' | 'settings'
 

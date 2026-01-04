@@ -1,17 +1,20 @@
 import { useState, useEffect, useMemo } from 'preact/hooks'
-import type { ExerciseType } from '../types'
+import type { ExerciseType, GeneratedSentence } from '../types'
 import { Flashcard } from './Flashcard'
 import { MultipleChoice } from './MultipleChoice'
 import { WriteExercise } from './WriteExercise'
 import { ConjugationExercise } from './ConjugationExercise'
 import { AudioPractice } from './AudioPractice'
+import { SentenceExercise } from './SentenceExercise'
 import { useProgress } from '../hooks/useProgress'
 import { useUserLevel } from '../hooks/useUserLevel'
 import { useSession } from '../hooks/useSession'
 import { useCustomWords, CUSTOM_CATEGORY_NAME } from '../hooks/useCustomWords'
+import { useSentenceGenerator } from '../hooks/useSentenceGenerator'
 import { allWords, sortedCategories } from '../data/vocabulary'
 
 const MIN_LEVEL_FOR_CONJUGATION = 3
+const MIN_LEVEL_FOR_SENTENCES = 4
 
 interface PracticeProps {
   initialCategory?: string | null
@@ -29,7 +32,21 @@ export function Practice({ initialCategory }: PracticeProps) {
   const { progress, updateWordProgress } = useProgress()
   const { currentLevel, unlockedCategoryIds } = useUserLevel(progress)
   const canUseConjugation = currentLevel >= MIN_LEVEL_FOR_CONJUGATION
+  const canUseSentences = currentLevel >= MIN_LEVEL_FOR_SENTENCES
   const { customWords, customWordsWithCategory } = useCustomWords()
+
+  // Satz-Generator
+  const { isAvailable: sentencesAvailable, generateSentences, learnedWordsCount } = useSentenceGenerator({
+    progressMap: progress.words,
+    unlockedCategoryIds,
+  })
+
+  // Satz-Session State
+  const [sentenceSession, setSentenceSession] = useState<{
+    sentences: GeneratedSentence[]
+    currentIndex: number
+    stats: { correct: number; wrong: number }
+  } | null>(null)
 
   // Combine all words with custom words for Multiple Choice distractors
   const allWordsWithCustom = useMemo(
@@ -66,6 +83,115 @@ export function Practice({ initialCategory }: PracticeProps) {
     } else {
       skip()
     }
+  }
+
+  // Satz-Session starten
+  const startSentenceSession = () => {
+    const sentences = generateSentences(10)
+    if (sentences.length > 0) {
+      setSentenceSession({
+        sentences,
+        currentIndex: 0,
+        stats: { correct: 0, wrong: 0 },
+      })
+    }
+  }
+
+  // Satz-Ergebnis verarbeiten
+  const handleSentenceResult = (correct: boolean) => {
+    if (!sentenceSession) return
+
+    const currentSentence = sentenceSession.sentences[sentenceSession.currentIndex]
+
+    // Update progress für alle verwendeten Wörter
+    for (const word of currentSentence.usedWords) {
+      updateWordProgress(word.id, correct)
+    }
+
+    setSentenceSession((prev) => {
+      if (!prev) return null
+      return {
+        ...prev,
+        currentIndex: prev.currentIndex + 1,
+        stats: {
+          correct: prev.stats.correct + (correct ? 1 : 0),
+          wrong: prev.stats.wrong + (correct ? 0 : 1),
+        },
+      }
+    })
+  }
+
+  // Satz-Session beenden
+  const resetSentenceSession = () => {
+    setSentenceSession(null)
+  }
+
+  // Aktive Satz-Session
+  if (sentenceSession) {
+    const { sentences, currentIndex, stats } = sentenceSession
+    const isComplete = currentIndex >= sentences.length
+    const sessionProgress = (currentIndex / sentences.length) * 100
+
+    if (isComplete) {
+      const total = stats.correct + stats.wrong
+      const percentage = total > 0 ? Math.round((stats.correct / total) * 100) : 0
+
+      return (
+        <div class="card text-center space-y-8 py-8">
+          <div>
+            <p class="text-4xl font-semibold text-olive mb-2">{percentage}%</p>
+            <h2 class="text-xl text-warm-brown">Satz-Übung abgeschlossen</h2>
+          </div>
+
+          <div class="flex justify-center gap-8">
+            <div>
+              <p class="text-2xl font-semibold text-olive">{stats.correct}</p>
+              <p class="text-sm text-warm-gray">Richtig</p>
+            </div>
+            <div class="w-px bg-sand-200" />
+            <div>
+              <p class="text-2xl font-semibold text-rose-muted">{stats.wrong}</p>
+              <p class="text-sm text-warm-gray">Falsch</p>
+            </div>
+          </div>
+
+          <button type="button" onClick={resetSentenceSession} class="btn btn-primary">
+            Neue Übung starten
+          </button>
+        </div>
+      )
+    }
+
+    const currentSentence = sentences[currentIndex]
+
+    return (
+      <div class="space-y-6">
+        {/* Progress header */}
+        <div class="flex items-center gap-4">
+          <button type="button" onClick={resetSentenceSession} class="btn btn-ghost text-sm">
+            Abbrechen
+          </button>
+          <div class="flex-1 progress-track h-1.5">
+            <div
+              class="progress-fill h-full bg-terracotta"
+              style={{ width: `${sessionProgress}%` }}
+            />
+          </div>
+          <span class="text-sm text-warm-gray">
+            {currentIndex + 1}/{sentences.length}
+          </span>
+        </div>
+
+        {/* Badge */}
+        <div class="text-center">
+          <span class="inline-block px-3 py-1 bg-sand-100 text-warm-gray text-sm rounded-full">
+            Satz-Übung
+          </span>
+        </div>
+
+        <SentenceExercise key={currentIndex} sentence={currentSentence} onResult={handleSentenceResult} />
+      </div>
+    )
   }
 
   // Exercise selection screen
@@ -175,6 +301,30 @@ export function Practice({ initialCategory }: PracticeProps) {
               </div>
               <p class="text-sm text-warm-gray mt-1">
                 Verben konjugieren lernen
+              </p>
+            </button>
+
+            {/* Satz-Übung - ab Level 4 */}
+            <button
+              type="button"
+              onClick={() => canUseSentences && sentencesAvailable && startSentenceSession()}
+              class={`card-hover w-full p-5 text-left group ${!canUseSentences || !sentencesAvailable ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={!canUseSentences || !sentencesAvailable}
+            >
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-2xl">Sätze schreiben</span>
+                {!canUseSentences ? (
+                  <span class="text-xs bg-sand-200 text-warm-gray px-2 py-1 rounded-full">
+                    Ab Level {MIN_LEVEL_FOR_SENTENCES}
+                  </span>
+                ) : !sentencesAvailable ? (
+                  <span class="text-xs bg-sand-200 text-warm-gray px-2 py-1 rounded-full">
+                    {learnedWordsCount}/5 Wörter in Box 4+
+                  </span>
+                ) : null}
+              </div>
+              <p class="text-sm text-warm-gray mt-1">
+                Kombiniere gelernte Vokabeln zu ganzen Sätzen
               </p>
             </button>
           </div>

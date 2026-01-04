@@ -1,0 +1,1320 @@
+{
+  "templates": [
+    {
+      "id": "want-food",
+      "german": "Ich möchte {food} bitte.",
+      "spanish": "Quiero {food} por favor.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "have-question",
+      "german": "Haben Sie {food}?",
+      "spanish": "¿Tiene {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "food-taste",
+      "german": "{food} ist {adjective}.",
+      "spanish": "{food} está {adjective}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "adjective", "wordIds": ["delicioso", "dulce", "salado", "fresco"] }
+      ]
+    },
+    {
+      "id": "need-quantity",
+      "german": "Ich brauche {number} {food}.",
+      "spanish": "Necesito {number} {food}.",
+      "slots": [
+        { "key": "number", "categories": ["numbers"] },
+        { "key": "food", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "time-market",
+      "german": "{time} gehe ich zum Markt.",
+      "spanish": "{time} voy al mercado.",
+      "slots": [{ "key": "time", "wordIds": ["hoy", "manana", "ahora", "despues"] }]
+    },
+    {
+      "id": "greeting-where",
+      "german": "{greeting}, wo ist das Restaurant?",
+      "spanish": "{greeting}, ¿dónde está el restaurante?",
+      "slots": [{ "key": "greeting", "categories": ["greetings"] }]
+    },
+    {
+      "id": "glass-of",
+      "german": "Ein Glas {drink} bitte.",
+      "spanish": "Un vaso de {drink} por favor.",
+      "slots": [{ "key": "drink", "wordIds": ["agua", "leche", "vino", "cerveza"] }]
+    },
+    {
+      "id": "cost-question",
+      "german": "Wie viel kostet {food}?",
+      "spanish": "¿Cuánto cuesta {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "like-much",
+      "german": "Ich mag {food} sehr gern.",
+      "spanish": "Me gusta mucho {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "buy-amount",
+      "german": "Ich kaufe {number} {food}.",
+      "spanish": "Compro {number} {food}.",
+      "slots": [
+        { "key": "number", "categories": ["numbers"] },
+        { "key": "food", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "no-thanks",
+      "german": "Nein danke, ich möchte kein {food}.",
+      "spanish": "No gracias, no quiero {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "where-buy",
+      "german": "Wo kann ich {food} kaufen?",
+      "spanish": "¿Dónde puedo comprar {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "because-like",
+      "german": "Ich esse {food}, weil es {adjective} ist.",
+      "spanish": "Como {food} porque está {adjective}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "adjective", "wordIds": ["delicioso", "dulce", "fresco"] }
+      ]
+    },
+    {
+      "id": "but-prefer",
+      "german": "Ich mag {food1}, aber ich bevorzuge {food2}.",
+      "spanish": "Me gusta {food1}, pero prefiero {food2}.",
+      "slots": [
+        { "key": "food1", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "also-want",
+      "german": "Ich möchte auch {food}.",
+      "spanish": "También quiero {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "always-eat",
+      "german": "Ich esse immer {food} zum Frühstück.",
+      "spanish": "Siempre como {food} para el desayuno.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "never-drink",
+      "german": "Ich trinke nie {drink}.",
+      "spanish": "Nunca bebo {drink}.",
+      "slots": [{ "key": "drink", "wordIds": ["cafe", "te", "cerveza", "vino", "leche"] }]
+    },
+    {
+      "id": "question-or",
+      "german": "Möchten Sie {food1} oder {food2}?",
+      "spanish": "¿Quiere {food1} o {food2}?",
+      "slots": [
+        { "key": "food1", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "there-is",
+      "german": "Es gibt {food} im Kühlschrank.",
+      "spanish": "Hay {food} en el refrigerador.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "there-is-no",
+      "german": "Es gibt kein {food} mehr.",
+      "spanish": "Ya no hay {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "when-question",
+      "german": "Wann essen wir {food}?",
+      "spanish": "¿Cuándo comemos {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "what-want",
+      "german": "Was möchten Sie trinken?",
+      "spanish": "¿Qué quiere beber?",
+      "slots": []
+    },
+    {
+      "id": "how-much-cost",
+      "german": "Wie viel kosten {number} {food}?",
+      "spanish": "¿Cuánto cuestan {number} {food}?",
+      "slots": [
+        { "key": "number", "categories": ["numbers"] },
+        { "key": "food", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "why-question",
+      "german": "Warum ist {food} so teuer?",
+      "spanish": "¿Por qué es tan caro {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "if-then",
+      "german": "Wenn du {food} möchtest, kaufe ich es.",
+      "spanish": "Si quieres {food}, lo compro.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "with-food",
+      "german": "Ich esse {food1} mit {food2}.",
+      "spanish": "Como {food1} con {food2}.",
+      "slots": [
+        { "key": "food1", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "without-food",
+      "german": "Kaffee ohne {food} bitte.",
+      "spanish": "Café sin {food} por favor.",
+      "slots": [{ "key": "food", "wordIds": ["azucar", "leche"] }]
+    },
+    {
+      "id": "for-you",
+      "german": "{food} ist für dich.",
+      "spanish": "{food} es para ti.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "imperative-give",
+      "german": "Gib mir bitte {food}.",
+      "spanish": "Dame {food} por favor.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "imperative-try",
+      "german": "Probiere {food}!",
+      "spanish": "¡Prueba {food}!",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "imperative-dont",
+      "german": "Iss nicht so viel {food}!",
+      "spanish": "¡No comas tanto {food}!",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "time-every-day",
+      "german": "Ich trinke jeden Tag {drink}.",
+      "spanish": "Bebo {drink} todos los días.",
+      "slots": [{ "key": "drink", "wordIds": ["cafe", "te", "agua", "leche"] }]
+    },
+    {
+      "id": "time-yesterday",
+      "german": "Gestern habe ich {food} gegessen.",
+      "spanish": "Ayer comí {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "time-tomorrow",
+      "german": "Morgen kaufe ich {food}.",
+      "spanish": "Mañana compro {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "comparison",
+      "german": "{food1} ist besser als {food2}.",
+      "spanish": "{food1} es mejor que {food2}.",
+      "slots": [
+        { "key": "food1", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "superlative",
+      "german": "{food} ist das Beste!",
+      "spanish": "¡{food} es lo mejor!",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "too-much",
+      "german": "Das ist zu viel {food}.",
+      "spanish": "Es demasiado {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "very-adjective",
+      "german": "{food} ist sehr {adjective}.",
+      "spanish": "{food} es muy {adjective}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "adjective", "wordIds": ["delicioso", "dulce", "salado", "fresco"] }
+      ]
+    },
+    {
+      "id": "greeting-thanks",
+      "german": "{greeting}! Vielen Dank!",
+      "spanish": "¡{greeting}! ¡Muchas gracias!",
+      "slots": [{ "key": "greeting", "categories": ["greetings"] }]
+    },
+    {
+      "id": "goodbye-see",
+      "german": "Auf Wiedersehen, bis {time}!",
+      "spanish": "¡Adiós, hasta {time}!",
+      "slots": [{ "key": "time", "wordIds": ["manana", "despues"] }]
+    },
+    {
+      "id": "l5-food-1",
+      "german": "Ich esse gern {food} zum Frühstück.",
+      "spanish": "Me gusta comer {food} para el desayuno.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-food-2",
+      "german": "Möchtest du {food} oder {food2} probieren?",
+      "spanish": "¿Quieres probar {food} o {food2}?",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "l5-restaurant-1",
+      "german": "Im Restaurant bestelle ich {food}.",
+      "spanish": "En el restaurante pido {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-restaurant-2",
+      "german": "Der Kellner bringt {food} und {food2}.",
+      "spanish": "El camarero trae {food} y {food2}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "food2", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "l5-restaurant-3",
+      "german": "Können Sie mir {food} empfehlen?",
+      "spanish": "¿Me puede recomendar {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-restaurant-4",
+      "german": "Als Vorspeise möchte ich {food}.",
+      "spanish": "De entrante quiero {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-restaurant-5",
+      "german": "Ich reserviere einen Tisch, weil ich {food} essen möchte.",
+      "spanish": "Reservo una mesa porque quiero comer {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-restaurant-6",
+      "german": "Die Rechnung bitte, das {food} war köstlich.",
+      "spanish": "La cuenta por favor, {food} estaba delicioso.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-restaurant-7",
+      "german": "Ist {food} vegetarisch?",
+      "spanish": "¿{food} es vegetariano?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l5-food-taste-1",
+      "german": "{food} ist sehr süß, aber ich mag es.",
+      "spanish": "{food} es muy dulce, pero me gusta.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-1",
+      "german": "Auf dem Markt kaufe ich {food}.",
+      "spanish": "En el mercado compro {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-2",
+      "german": "Ein Kilo {food} kostet fünf Euro.",
+      "spanish": "Un kilo de {food} cuesta cinco euros.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-3",
+      "german": "Dieses {food} ist zu teuer.",
+      "spanish": "Este {food} es demasiado caro.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-4",
+      "german": "Ich möchte {food} kaufen, weil es frisch ist.",
+      "spanish": "Quiero comprar {food} porque es fresco.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-5",
+      "german": "Verkaufen Sie {food}?",
+      "spanish": "¿Vende {food}?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-market-6",
+      "german": "Ich zahle bar für {food}.",
+      "spanish": "Pago en efectivo por {food}.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-clothing-1",
+      "german": "Ich trage {clothing} im Restaurant.",
+      "spanish": "Llevo {clothing} en el restaurante.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-2",
+      "german": "Diese {clothing} ist sehr bequem.",
+      "spanish": "Este {clothing} es muy cómodo.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-3",
+      "german": "Wo ist die Umkleidekabine? Ich möchte {clothing} anprobieren.",
+      "spanish": "¿Dónde está el probador? Quiero probar {clothing}.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-4",
+      "german": "{clothing} steht dir sehr gut.",
+      "spanish": "{clothing} te queda muy bien.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-5",
+      "german": "Ich kaufe {clothing} auf dem Markt.",
+      "spanish": "Compro {clothing} en el mercado.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-6",
+      "german": "Diese {clothing} kostet zu viel Geld.",
+      "spanish": "Este {clothing} cuesta demasiado dinero.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-clothing-market",
+      "german": "Auf dem Markt ist {clothing} billiger als im Laden.",
+      "spanish": "En el mercado {clothing} es más barato que en la tienda.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l6-mixed-1",
+      "german": "Ich gehe zum Markt, weil ich {food} und {clothing} brauche.",
+      "spanish": "Voy al mercado porque necesito {food} y {clothing}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "clothing", "categories": ["clothing"] }
+      ]
+    },
+    {
+      "id": "l6-mixed-2",
+      "german": "Ich bezahle mit Karte für {food}, aber bar für {clothing}.",
+      "spanish": "Pago con tarjeta por {food}, pero en efectivo por {clothing}.",
+      "slots": [
+        { "key": "food", "categories": ["food"] },
+        { "key": "clothing", "categories": ["clothing"] }
+      ]
+    },
+    {
+      "id": "l5-restaurant-mixed",
+      "german": "Im Restaurant trage ich {clothing} und esse {food}.",
+      "spanish": "En el restaurante llevo {clothing} y como {food}.",
+      "slots": [
+        { "key": "clothing", "categories": ["clothing"] },
+        { "key": "food", "categories": ["food"] }
+      ]
+    },
+    {
+      "id": "l5-question-1",
+      "german": "Was kostet {food} auf dem Markt?",
+      "spanish": "¿Cuánto cuesta {food} en el mercado?",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-question-2",
+      "german": "Welche Größe haben Sie für {clothing}?",
+      "spanish": "¿Qué talla tiene de {clothing}?",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "l5-conditional",
+      "german": "Wenn das Restaurant geschlossen ist, kaufe ich {food} auf dem Markt.",
+      "spanish": "Si el restaurante está cerrado, compro {food} en el mercado.",
+      "slots": [{ "key": "food", "categories": ["food"] }]
+    },
+    {
+      "id": "l6-preference",
+      "german": "Ich bevorzuge {clothing}, weil es elegant ist.",
+      "spanish": "Prefiero {clothing} porque es elegante.",
+      "slots": [{ "key": "clothing", "categories": ["clothing"] }]
+    },
+    {
+      "id": "daily-connector-1",
+      "german": "Ich {daily}, weil ich müde bin.",
+      "spanish": "Me {daily} porque estoy cansado.",
+      "slots": [{ "key": "daily", "categories": ["daily"] }]
+    },
+    {
+      "id": "daily-connector-2",
+      "german": "Ich muss {daily}, aber ich habe keine Zeit.",
+      "spanish": "Tengo que {daily}, pero no tengo tiempo.",
+      "slots": [{ "key": "daily", "categories": ["daily"] }]
+    },
+    {
+      "id": "daily-connector-3",
+      "german": "Wenn ich {daily}, fühle ich mich besser.",
+      "spanish": "Cuando me {daily}, me siento mejor.",
+      "slots": [{ "key": "daily", "categories": ["daily"] }]
+    },
+    {
+      "id": "daily-connector-4",
+      "german": "Ich {daily} jeden {day}, obwohl es langweilig ist.",
+      "spanish": "Me {daily} cada {day}, aunque es aburrido.",
+      "slots": [
+        { "key": "daily", "categories": ["daily"] },
+        { "key": "day", "categories": ["daily"] }
+      ]
+    },
+    {
+      "id": "daily-connector-5",
+      "german": "Normalerweise {daily} ich zuerst, dann frühstücke ich.",
+      "spanish": "Normalmente me {daily} primero, luego desayuno.",
+      "slots": [{ "key": "daily", "categories": ["daily"] }]
+    },
+    {
+      "id": "daily-connector-6",
+      "german": "Ich möchte {daily}, jedoch ist es zu spät.",
+      "spanish": "Quiero {daily}, sin embargo es muy tarde.",
+      "slots": [{ "key": "daily", "categories": ["daily"] }]
+    },
+    {
+      "id": "daily-connector-7",
+      "german": "Am {day} {daily} ich immer früh.",
+      "spanish": "El {day} me {daily} siempre temprano.",
+      "slots": [
+        { "key": "day", "categories": ["daily"] },
+        { "key": "daily", "categories": ["daily"] }
+      ]
+    },
+    {
+      "id": "weather-connector-1",
+      "german": "Heute ist {weather}, deshalb bleibe ich zu Hause.",
+      "spanish": "Hoy hace {weather}, por eso me quedo en casa.",
+      "slots": [{ "key": "weather", "categories": ["weather"] }]
+    },
+    {
+      "id": "weather-connector-2",
+      "german": "Obwohl {weather} ist, gehe ich spazieren.",
+      "spanish": "Aunque hace {weather}, voy a pasear.",
+      "slots": [{ "key": "weather", "categories": ["weather"] }]
+    },
+    {
+      "id": "weather-connector-3",
+      "german": "Wenn {weather} ist, trage ich {clothing}.",
+      "spanish": "Si hace {weather}, llevo {clothing}.",
+      "slots": [
+        { "key": "weather", "categories": ["weather"] },
+        { "key": "clothing", "categories": ["basics"] }
+      ]
+    },
+    {
+      "id": "weather-season-1",
+      "german": "Im {season} ist das Wetter oft {weather}.",
+      "spanish": "En {season} hace normalmente {weather}.",
+      "slots": [
+        { "key": "season", "categories": ["weather"] },
+        { "key": "weather", "categories": ["weather"] }
+      ]
+    },
+    {
+      "id": "weather-season-2",
+      "german": "Ich mag den {season}, weil {weather} ist.",
+      "spanish": "Me gusta {season} porque hace {weather}.",
+      "slots": [
+        { "key": "season", "categories": ["weather"] },
+        { "key": "weather", "categories": ["weather"] }
+      ]
+    },
+    {
+      "id": "weather-nature-1",
+      "german": "Der {nature} ist sehr schön, wenn {weather} ist.",
+      "spanish": "{nature} es muy bonito/a cuando hace {weather}.",
+      "slots": [
+        { "key": "nature", "categories": ["weather"] },
+        { "key": "weather", "categories": ["weather"] }
+      ]
+    },
+    {
+      "id": "weather-nature-2",
+      "german": "Ich gehe zum {nature}, falls {weather} ist.",
+      "spanish": "Voy a {nature} en caso de que haga {weather}.",
+      "slots": [
+        { "key": "nature", "categories": ["weather"] },
+        { "key": "weather", "categories": ["weather"] }
+      ]
+    },
+    {
+      "id": "animals-1",
+      "german": "Ich habe {animal} als Haustier gesehen.",
+      "spanish": "He visto {animal} como mascota.",
+      "slots": [{ "key": "animal", "categories": ["animals"] }]
+    },
+    {
+      "id": "animals-2",
+      "german": "Der {animal} ist {adjective}, aber auch gefährlich.",
+      "spanish": "{animal} es {adjective}, pero también peligroso.",
+      "slots": [
+        { "key": "animal", "categories": ["animals"] },
+        { "key": "adjective", "categories": ["animals"] }
+      ]
+    },
+    {
+      "id": "animals-3",
+      "german": "Ich mag {animal}, weil sie intelligent sind.",
+      "spanish": "Me gustan {animal} porque son inteligentes.",
+      "slots": [{ "key": "animal", "categories": ["animals"] }]
+    },
+    {
+      "id": "animals-4",
+      "german": "Im Zoo habe ich {animal1} und {animal2} gesehen.",
+      "spanish": "En el zoo he visto {animal1} y {animal2}.",
+      "slots": [
+        { "key": "animal1", "categories": ["animals"] },
+        { "key": "animal2", "categories": ["animals"] }
+      ]
+    },
+    {
+      "id": "animals-nature-1",
+      "german": "{animal} leben im {nature}, nicht in der Stadt.",
+      "spanish": "{animal} viven en {nature}, no en la ciudad.",
+      "slots": [
+        { "key": "animal", "categories": ["animals"] },
+        { "key": "nature", "categories": ["weather"] }
+      ]
+    },
+    {
+      "id": "animals-connector-1",
+      "german": "Ich möchte {animal} haben, jedoch habe ich keine Zeit.",
+      "spanish": "Quiero tener {animal}, sin embargo no tengo tiempo.",
+      "slots": [{ "key": "animal", "categories": ["animals"] }]
+    },
+    {
+      "id": "travel-1",
+      "german": "Ich fahre mit dem {transport} zum {place}.",
+      "spanish": "Voy en {transport} a {place}.",
+      "slots": [
+        { "key": "transport", "categories": ["travel"] },
+        { "key": "place", "categories": ["city"] }
+      ]
+    },
+    {
+      "id": "travel-2",
+      "german": "Wo ist {place}? Ich suche das Hotel.",
+      "spanish": "¿Dónde está {place}? Busco el hotel.",
+      "slots": [{ "key": "place", "categories": ["city"] }]
+    },
+    {
+      "id": "travel-3",
+      "german": "Entschuldigung, wie komme ich zum {place}?",
+      "spanish": "Perdone, ¿cómo llego a {place}?",
+      "slots": [{ "key": "place", "categories": ["city"] }]
+    },
+    {
+      "id": "travel-4",
+      "german": "{place} ist {direction}, neben {place2}.",
+      "spanish": "{place} está {direction}, al lado de {place2}.",
+      "slots": [
+        { "key": "place", "categories": ["city"] },
+        { "key": "direction", "categories": ["city"] },
+        { "key": "place2", "categories": ["city"] }
+      ]
+    },
+    {
+      "id": "travel-5",
+      "german": "Ich brauche {item}, bevor ich zum Flughafen gehe.",
+      "spanish": "Necesito {item} antes de que vaya al aeropuerto.",
+      "slots": [{ "key": "item", "categories": ["travel"] }]
+    },
+    {
+      "id": "travel-6",
+      "german": "Der {transport} hat Verspätung, deshalb warte ich.",
+      "spanish": "{transport} tiene retraso, por lo tanto espero.",
+      "slots": [{ "key": "transport", "categories": ["travel"] }]
+    },
+    {
+      "id": "city-1",
+      "german": "Gehen Sie {direction}, dann sehen Sie {place}.",
+      "spanish": "Vaya {direction}, luego verá {place}.",
+      "slots": [
+        { "key": "direction", "categories": ["travel", "city"] },
+        { "key": "place", "categories": ["city"] }
+      ]
+    },
+    {
+      "id": "city-2",
+      "german": "{place} ist {adjective} und sehr bekannt.",
+      "spanish": "{place} es {adjective} y muy famoso.",
+      "slots": [
+        { "key": "place", "categories": ["city"] },
+        { "key": "adjective", "categories": ["city"] }
+      ]
+    },
+    {
+      "id": "city-3",
+      "german": "Ich wohne {position} von {place}.",
+      "spanish": "Vivo {position} de {place}.",
+      "slots": [
+        { "key": "position", "categories": ["city"] },
+        { "key": "place", "categories": ["city"] }
+      ]
+    },
+    {
+      "id": "city-travel-1",
+      "german": "Ich kaufe Brot in {shop}, während ich auf den {transport} warte.",
+      "spanish": "Compro pan en {shop} mientras espero {transport}.",
+      "slots": [
+        { "key": "shop", "categories": ["city"] },
+        { "key": "transport", "categories": ["travel"] }
+      ]
+    },
+    {
+      "id": "city-travel-2",
+      "german": "Die {place} ist {direction}, obwohl die Karte etwas anderes zeigt.",
+      "spanish": "{place} está {direction}, aunque el mapa muestra otra cosa.",
+      "slots": [
+        { "key": "place", "categories": ["city"] },
+        { "key": "direction", "categories": ["city", "travel"] }
+      ]
+    },
+    {
+      "id": "health-1",
+      "german": "Mein {bodypart} tut weh seit gestern.",
+      "spanish": "Me duele {bodypart} desde ayer.",
+      "slots": [{ "key": "bodypart", "categories": ["health"] }]
+    },
+    {
+      "id": "health-2",
+      "german": "Ich habe {symptom}, deshalb gehe ich zum Arzt.",
+      "spanish": "Tengo {symptom}, por eso voy al médico.",
+      "slots": [{ "key": "symptom", "categories": ["health"] }]
+    },
+    {
+      "id": "health-3",
+      "german": "Der Arzt sagt, ich brauche {medicine}.",
+      "spanish": "El médico dice que necesito {medicine}.",
+      "slots": [{ "key": "medicine", "categories": ["health"] }]
+    },
+    {
+      "id": "health-4",
+      "german": "Ich fühle mich krank, weil ich {symptom} habe.",
+      "spanish": "Me siento enfermo porque tengo {symptom}.",
+      "slots": [{ "key": "symptom", "categories": ["health"] }]
+    },
+    {
+      "id": "health-5",
+      "german": "Ich gehe zur {place}, falls ich {medicine} brauche.",
+      "spanish": "Voy a {place} en caso de que necesite {medicine}.",
+      "slots": [
+        { "key": "place", "categories": ["health", "city"] },
+        { "key": "medicine", "categories": ["health"] }
+      ]
+    },
+    {
+      "id": "emergency-1",
+      "german": "Hilfe! Rufen Sie {service}!",
+      "spanish": "¡Ayuda! ¡Llame a {service}!",
+      "slots": [{ "key": "service", "categories": ["emergency"] }]
+    },
+    {
+      "id": "emergency-2",
+      "german": "Es ist ein Notfall! Ich brauche {service} sofort!",
+      "spanish": "¡Es una emergencia! ¡Necesito {service} ahora!",
+      "slots": [{ "key": "service", "categories": ["emergency"] }]
+    },
+    {
+      "id": "emergency-3",
+      "german": "Wo ist {place}? Es ist dringend!",
+      "spanish": "¿Dónde está {place}? ¡Es urgente!",
+      "slots": [{ "key": "place", "categories": ["emergency", "health"] }]
+    },
+    {
+      "id": "emergency-4",
+      "german": "Ich kann nicht {action}, weil mein {bodypart} {condition} ist.",
+      "spanish": "No puedo {action} porque mi {bodypart} está {condition}.",
+      "slots": [
+        { "key": "action", "categories": ["daily"] },
+        { "key": "bodypart", "categories": ["health", "emergency"] },
+        { "key": "condition", "categories": ["emergency"] }
+      ]
+    },
+    {
+      "id": "emergency-5",
+      "german": "Die Person ist {condition}, rufen Sie {service}!",
+      "spanish": "¡La persona está {condition}, llame a {service}!",
+      "slots": [
+        { "key": "condition", "categories": ["emergency"] },
+        { "key": "service", "categories": ["emergency"] }
+      ]
+    },
+    {
+      "id": "health-emergency-1",
+      "german": "Ich habe {symptom} und mein {bodypart} tut sehr weh.",
+      "spanish": "Tengo {symptom} y me duele mucho {bodypart}.",
+      "slots": [
+        { "key": "symptom", "categories": ["health", "emergency"] },
+        { "key": "bodypart", "categories": ["health"] }
+      ]
+    },
+    {
+      "id": "health-emergency-2",
+      "german": "Bringen Sie mich zu {place}, ich brauche einen Arzt.",
+      "spanish": "Lléveme a {place}, necesito un médico.",
+      "slots": [{ "key": "place", "categories": ["emergency"] }]
+    },
+    {
+      "id": "health-connector-1",
+      "german": "Obwohl ich {symptom} habe, muss ich {action}.",
+      "spanish": "Aunque tengo {symptom}, tengo que {action}.",
+      "slots": [
+        { "key": "symptom", "categories": ["health"] },
+        { "key": "action", "categories": ["daily"] }
+      ]
+    },
+    {
+      "id": "emergency-connector-1",
+      "german": "Es gab einen Unfall, deshalb kommt {service}.",
+      "spanish": "Ha habido un accidente, por eso viene {service}.",
+      "slots": [{ "key": "service", "categories": ["emergency"] }]
+    },
+    {
+      "id": "health-city-1",
+      "german": "Wo ist {place}? Ich brauche {medicine}.",
+      "spanish": "¿Dónde está {place}? Necesito {medicine}.",
+      "slots": [
+        { "key": "place", "categories": ["city", "health"] },
+        { "key": "medicine", "categories": ["health"] }
+      ]
+    },
+    {
+      "id": "work-1",
+      "german": "Ich arbeite als {job}, weil mir die Arbeit gefällt.",
+      "spanish": "Trabajo como {job} porque me gusta el trabajo.",
+      "slots": [{ "key": "job", "categories": ["work"] }]
+    },
+    {
+      "id": "work-2",
+      "german": "Mein {boss} hat mir gesagt, dass ich eine {meeting} habe.",
+      "spanish": "Mi {boss} me dijo que tengo una {meeting}.",
+      "slots": [
+        { "key": "boss", "categories": ["work"] },
+        { "key": "meeting", "categories": ["work"] }
+      ]
+    },
+    {
+      "id": "work-3",
+      "german": "Obwohl das {salary} niedrig ist, bleibe ich in der {company}.",
+      "spanish": "Aunque {salary} es bajo, me quedo en {company}.",
+      "slots": [
+        { "key": "salary", "categories": ["work"] },
+        { "key": "company", "categories": ["work"] }
+      ]
+    },
+    {
+      "id": "work-4",
+      "german": "Ich suche {job}, deshalb schicke ich mein {cv}.",
+      "spanish": "Busco trabajo como {job}, por eso envío mi {cv}.",
+      "slots": [
+        { "key": "job", "categories": ["work"] },
+        { "key": "cv", "categories": ["work"] }
+      ]
+    },
+    {
+      "id": "work-5",
+      "german": "Wenn ich {vacation} habe, möchte ich nach Spanien reisen.",
+      "spanish": "Cuando tenga {vacation}, quiero viajar a España.",
+      "slots": [{ "key": "vacation", "categories": ["work"] }]
+    },
+    {
+      "id": "hobby-1",
+      "german": "In meiner Freizeit spiele ich {hobby}, weil es mich entspannt.",
+      "spanish": "En mi tiempo libre practico {hobby} porque me relaja.",
+      "slots": [{ "key": "hobby", "categories": ["hobbies"] }]
+    },
+    {
+      "id": "hobby-2",
+      "german": "Ich möchte {instrument} lernen, jedoch fehlt mir die Zeit.",
+      "spanish": "Quiero aprender a tocar {instrument}, sin embargo me falta tiempo.",
+      "slots": [{ "key": "instrument", "categories": ["hobbies"] }]
+    },
+    {
+      "id": "hobby-3",
+      "german": "Am Wochenende gehe ich zum {hobby}, obwohl das Wetter schlecht ist.",
+      "spanish": "El fin de semana voy a {hobby}, aunque el tiempo es malo.",
+      "slots": [{ "key": "hobby", "categories": ["hobbies"] }]
+    },
+    {
+      "id": "work-hobby-1",
+      "german": "Nach der Arbeit als {job} übe ich {hobby}.",
+      "spanish": "Después de trabajar como {job}, practico {hobby}.",
+      "slots": [
+        { "key": "job", "categories": ["work"] },
+        { "key": "hobby", "categories": ["hobbies"] }
+      ]
+    },
+    {
+      "id": "work-emotion-1",
+      "german": "Ich bin {emotion} bei der Arbeit, weil mein {project} erfolgreich war.",
+      "spanish": "Estoy {emotion} en el trabajo porque mi {project} fue exitoso.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "project", "categories": ["work"] }
+      ]
+    },
+    {
+      "id": "emotion-1",
+      "german": "Ich bin {emotion}, weil ich die Prüfung bestanden habe.",
+      "spanish": "Estoy {emotion} porque aprobé el examen.",
+      "slots": [{ "key": "emotion", "categories": ["emotions"] }]
+    },
+    {
+      "id": "emotion-2",
+      "german": "Sie fühlt sich {emotion}, obwohl alles gut gelaufen ist.",
+      "spanish": "Se siente {emotion}, aunque todo salió bien.",
+      "slots": [{ "key": "emotion", "categories": ["emotions"] }]
+    },
+    {
+      "id": "emotion-3",
+      "german": "Wenn ich {emotion} bin, {action} ich gerne.",
+      "spanish": "Cuando estoy {emotion}, me gusta {action}.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "action", "categories": ["hobbies"] }
+      ]
+    },
+    {
+      "id": "emotion-4",
+      "german": "Ich war {emotion}, als ich die Nachricht erhielt.",
+      "spanish": "Estaba {emotion} cuando recibí la noticia.",
+      "slots": [{ "key": "emotion", "categories": ["emotions"] }]
+    },
+    {
+      "id": "emotion-5",
+      "german": "Er ist {emotion1} und {emotion2} zugleich.",
+      "spanish": "Está {emotion1} y {emotion2} a la vez.",
+      "slots": [
+        { "key": "emotion1", "categories": ["emotions"] },
+        { "key": "emotion2", "categories": ["emotions"] }
+      ]
+    },
+    {
+      "id": "emotion-6",
+      "german": "Ich fühle {feeling}, deshalb brauche ich eine Pause.",
+      "spanish": "Siento {feeling}, por lo tanto necesito un descanso.",
+      "slots": [{ "key": "feeling", "categories": ["emotions"] }]
+    },
+    {
+      "id": "emotion-work-1",
+      "german": "Ich bin {emotion} bei der {meeting}, weil ich nicht vorbereitet war.",
+      "spanish": "Estoy {emotion} en {meeting} porque no estaba preparado.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "meeting", "categories": ["work"] }
+      ]
+    },
+    {
+      "id": "emotion-7",
+      "german": "Obwohl ich {emotion} bin, muss ich weitermachen.",
+      "spanish": "Aunque esté {emotion}, tengo que continuar.",
+      "slots": [{ "key": "emotion", "categories": ["emotions"] }]
+    },
+    {
+      "id": "emotion-8",
+      "german": "Sie macht mich {emotion}, wenn sie {action}.",
+      "spanish": "Me pone {emotion} cuando ella {action}.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "action", "categories": ["daily"] }
+      ]
+    },
+    {
+      "id": "shape-1",
+      "german": "Der Tisch hat eine {shape} Form.",
+      "spanish": "La mesa tiene forma {shape}.",
+      "slots": [{ "key": "shape", "categories": ["shapes"] }]
+    },
+    {
+      "id": "material-1",
+      "german": "Dieses Haus ist aus {material}, deshalb ist es sehr stabil.",
+      "spanish": "Esta casa es de {material}, por eso es muy estable.",
+      "slots": [{ "key": "material", "categories": ["materials"] }]
+    },
+    {
+      "id": "material-2",
+      "german": "Ich möchte einen Tisch aus {material}, weil er langlebig ist.",
+      "spanish": "Quiero una mesa de {material} porque es duradera.",
+      "slots": [{ "key": "material", "categories": ["materials"] }]
+    },
+    {
+      "id": "shape-material-1",
+      "german": "Die {shape} Box ist aus {material} gemacht.",
+      "spanish": "La caja {shape} está hecha de {material}.",
+      "slots": [
+        { "key": "shape", "categories": ["shapes"] },
+        { "key": "material", "categories": ["materials"] }
+      ]
+    },
+    {
+      "id": "material-3",
+      "german": "Obwohl {material} teuer ist, kaufe ich es trotzdem.",
+      "spanish": "Aunque {material} es caro, lo compro de todas formas.",
+      "slots": [{ "key": "material", "categories": ["materials"] }]
+    },
+    {
+      "id": "shape-2",
+      "german": "Das Fenster ist {shape}, nicht quadratisch.",
+      "spanish": "La ventana es {shape}, no cuadrada.",
+      "slots": [{ "key": "shape", "categories": ["shapes"] }]
+    },
+    {
+      "id": "material-emotion-1",
+      "german": "Ich bin {emotion}, weil der Ring aus {material} ist.",
+      "spanish": "Estoy {emotion} porque el anillo es de {material}.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "material", "categories": ["materials"] }
+      ]
+    },
+    {
+      "id": "music-1",
+      "german": "Ich spiele {instrument}, seit ich Kind war.",
+      "spanish": "Toco {instrument} desde que era niño.",
+      "slots": [{ "key": "instrument", "categories": ["music"] }]
+    },
+    {
+      "id": "music-2",
+      "german": "Heute Abend gehe ich zu einem {concert}, obwohl ich müde bin.",
+      "spanish": "Esta noche voy a un {concert}, aunque estoy cansado.",
+      "slots": [{ "key": "concert", "categories": ["music"] }]
+    },
+    {
+      "id": "music-3",
+      "german": "Ich mag {genre}, weil der {rhythm} energiegeladen ist.",
+      "spanish": "Me gusta {genre} porque {rhythm} es enérgico.",
+      "slots": [
+        { "key": "genre", "categories": ["music"] },
+        { "key": "rhythm", "categories": ["music"] }
+      ]
+    },
+    {
+      "id": "music-4",
+      "german": "Der {musician} spielt {instrument} fantastisch.",
+      "spanish": "{musician} toca {instrument} fantásticamente.",
+      "slots": [
+        { "key": "musician", "categories": ["music"] },
+        { "key": "instrument", "categories": ["music"] }
+      ]
+    },
+    {
+      "id": "culture-1",
+      "german": "Ich interessiere mich für {culture}, deshalb lerne ich Spanisch.",
+      "spanish": "Me interesa {culture}, por eso estudio español.",
+      "slots": [{ "key": "culture", "categories": ["spanish-culture"] }]
+    },
+    {
+      "id": "culture-2",
+      "german": "In Spanien ist {tradition} sehr wichtig.",
+      "spanish": "En España {tradition} es muy importante.",
+      "slots": [{ "key": "tradition", "categories": ["spanish-culture"] }]
+    },
+    {
+      "id": "music-emotion-1",
+      "german": "Diese {song} macht mich {emotion}, wenn ich sie höre.",
+      "spanish": "Esta {song} me pone {emotion} cuando la escucho.",
+      "slots": [
+        { "key": "song", "categories": ["music"] },
+        { "key": "emotion", "categories": ["emotions"] }
+      ]
+    },
+    {
+      "id": "culture-food-1",
+      "german": "Ich esse {dish}, weil es ein typisches spanisches Gericht ist.",
+      "spanish": "Como {dish} porque es un plato típico español.",
+      "slots": [{ "key": "dish", "categories": ["food-extended", "spanish-culture"] }]
+    },
+    {
+      "id": "geography-1",
+      "german": "Ich reise nach {country}, weil ich die Kultur kennenlernen möchte.",
+      "spanish": "Viajo a {country} porque quiero conocer la cultura.",
+      "slots": [{ "key": "country", "categories": ["geography"] }]
+    },
+    {
+      "id": "geography-2",
+      "german": "Die {mountain} ist sehr hoch, deshalb ist das Wandern schwierig.",
+      "spanish": "{mountain} es muy alta, por eso es difícil hacer senderismo.",
+      "slots": [{ "key": "mountain", "categories": ["geography"] }]
+    },
+    {
+      "id": "geography-3",
+      "german": "Der {river} fließt durch {city}.",
+      "spanish": "{river} fluye por {city}.",
+      "slots": [
+        { "key": "river", "categories": ["geography"] },
+        { "key": "city", "categories": ["geography"] }
+      ]
+    },
+    {
+      "id": "geography-4",
+      "german": "Ich wohne in {continent}, in der Nähe von {country}.",
+      "spanish": "Vivo en {continent}, cerca de {country}.",
+      "slots": [
+        { "key": "continent", "categories": ["geography"] },
+        { "key": "country", "categories": ["geography"] }
+      ]
+    },
+    {
+      "id": "geography-5",
+      "german": "Obwohl {city} weit weg ist, möchte ich sie besuchen.",
+      "spanish": "Aunque {city} esté lejos, quiero visitarla.",
+      "slots": [{ "key": "city", "categories": ["geography"] }]
+    },
+    {
+      "id": "geography-culture-1",
+      "german": "In {country} gibt es eine besondere {tradition}.",
+      "spanish": "En {country} hay una {tradition} especial.",
+      "slots": [
+        { "key": "country", "categories": ["geography"] },
+        { "key": "tradition", "categories": ["spanish-culture"] }
+      ]
+    },
+    {
+      "id": "geography-6",
+      "german": "Die {coast} ist schön, daher verbringe ich meinen Urlaub dort.",
+      "spanish": "{coast} es hermosa, por lo tanto paso mis vacaciones allí.",
+      "slots": [{ "key": "coast", "categories": ["geography"] }]
+    },
+    {
+      "id": "tech-1",
+      "german": "Mein {device} funktioniert nicht mehr, deshalb muss ich es reparieren.",
+      "spanish": "Mi {device} ya no funciona, por eso tengo que repararlo.",
+      "slots": [{ "key": "device", "categories": ["technology"] }]
+    },
+    {
+      "id": "tech-2",
+      "german": "Ich lade die {app} herunter, weil sie nützlich ist.",
+      "spanish": "Descargo {app} porque es útil.",
+      "slots": [{ "key": "app", "categories": ["technology"] }]
+    },
+    {
+      "id": "tech-3",
+      "german": "Obwohl das {internet} langsam ist, kann ich arbeiten.",
+      "spanish": "Aunque {internet} sea lento, puedo trabajar.",
+      "slots": [{ "key": "internet", "categories": ["technology"] }]
+    },
+    {
+      "id": "tech-4",
+      "german": "Ich vergesse immer mein {password}, daher speichere ich es.",
+      "spanish": "Siempre olvido mi {password}, por lo tanto lo guardo.",
+      "slots": [{ "key": "password", "categories": ["technology"] }]
+    },
+    {
+      "id": "tech-5",
+      "german": "Der {computer} ist alt, jedoch funktioniert er noch gut.",
+      "spanish": "{computer} es viejo, sin embargo todavía funciona bien.",
+      "slots": [{ "key": "computer", "categories": ["technology"] }]
+    },
+    {
+      "id": "food-extended-1",
+      "german": "Ich koche {dish}, weil es gesund ist.",
+      "spanish": "Cocino {dish} porque es saludable.",
+      "slots": [{ "key": "dish", "categories": ["food-extended"] }]
+    },
+    {
+      "id": "food-extended-2",
+      "german": "Dieses {ingredient} ist wichtig für {dish}.",
+      "spanish": "Este {ingredient} es importante para {dish}.",
+      "slots": [
+        { "key": "ingredient", "categories": ["food-extended"] },
+        { "key": "dish", "categories": ["food-extended"] }
+      ]
+    },
+    {
+      "id": "tech-emotion-1",
+      "german": "Ich bin {emotion}, weil mein {device} kaputt ist.",
+      "spanish": "Estoy {emotion} porque mi {device} está roto.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "device", "categories": ["technology"] }
+      ]
+    },
+    {
+      "id": "food-emotion-1",
+      "german": "Ich bin {emotion}, wenn ich {dish} esse.",
+      "spanish": "Estoy {emotion} cuando como {dish}.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "dish", "categories": ["food-extended"] }
+      ]
+    },
+    {
+      "id": "politics-1",
+      "german": "Die {government} hat ein neues Gesetz verabschiedet.",
+      "spanish": "{government} ha aprobado una nueva ley.",
+      "slots": [{ "key": "government", "categories": ["politics"] }]
+    },
+    {
+      "id": "politics-2",
+      "german": "Ich interessiere mich für {politics}, obwohl es kompliziert ist.",
+      "spanish": "Me interesa {politics}, aunque es complicado.",
+      "slots": [{ "key": "politics", "categories": ["politics"] }]
+    },
+    {
+      "id": "business-1",
+      "german": "Die {company} hat ihre {sales} um 20% gesteigert.",
+      "spanish": "{company} ha aumentado sus {sales} en un 20%.",
+      "slots": [
+        { "key": "company", "categories": ["business"] },
+        { "key": "sales", "categories": ["business"] }
+      ]
+    },
+    {
+      "id": "business-2",
+      "german": "Der {market} ist sehr wettbewerbsfähig, deshalb müssen wir innovativ sein.",
+      "spanish": "{market} es muy competitivo, por eso debemos ser innovadores.",
+      "slots": [{ "key": "market", "categories": ["business"] }]
+    },
+    {
+      "id": "business-3",
+      "german": "Wir suchen einen {partner}, weil wir expandieren möchten.",
+      "spanish": "Buscamos un {partner} porque queremos expandirnos.",
+      "slots": [{ "key": "partner", "categories": ["business"] }]
+    },
+    {
+      "id": "business-4",
+      "german": "Obwohl die {costs} hoch sind, machen wir {profit}.",
+      "spanish": "Aunque {costs} sean altos, obtenemos {profit}.",
+      "slots": [
+        { "key": "costs", "categories": ["business"] },
+        { "key": "profit", "categories": ["business"] }
+      ]
+    },
+    {
+      "id": "politics-business-1",
+      "german": "Die neue {policy} wird der {economy} helfen.",
+      "spanish": "La nueva {policy} ayudará a {economy}.",
+      "slots": [
+        { "key": "policy", "categories": ["politics"] },
+        { "key": "economy", "categories": ["business"] }
+      ]
+    },
+    {
+      "id": "business-5",
+      "german": "Die {company} investiert in neue {products}, damit sie konkurrenzfähig bleibt.",
+      "spanish": "{company} invierte en nuevos {products} para seguir siendo competitiva.",
+      "slots": [
+        { "key": "company", "categories": ["business"] },
+        { "key": "products", "categories": ["business"] }
+      ]
+    },
+    {
+      "id": "finance-1",
+      "german": "Ich möchte ein {account} eröffnen, weil ich sparen will.",
+      "spanish": "Quiero abrir {account} porque quiero ahorrar.",
+      "slots": [{ "key": "account", "categories": ["finance"] }]
+    },
+    {
+      "id": "finance-2",
+      "german": "Die {interest} sind niedrig, deshalb ist ein {loan} günstig.",
+      "spanish": "{interest} son bajos, por eso {loan} es barato.",
+      "slots": [
+        { "key": "interest", "categories": ["finance"] },
+        { "key": "loan", "categories": ["finance"] }
+      ]
+    },
+    {
+      "id": "finance-3",
+      "german": "Ich zahle mit {card}, weil ich kein {cash} habe.",
+      "spanish": "Pago con {card} porque no tengo {cash}.",
+      "slots": [
+        { "key": "card", "categories": ["finance"] },
+        { "key": "cash", "categories": ["finance"] }
+      ]
+    },
+    {
+      "id": "finance-4",
+      "german": "Obwohl die {fees} hoch sind, benutze ich diese Bank.",
+      "spanish": "Aunque {fees} sean altas, uso este banco.",
+      "slots": [{ "key": "fees", "categories": ["finance"] }]
+    },
+    {
+      "id": "finance-5",
+      "german": "Ich muss die {mortgage} abbezahlen, daher arbeite ich viel.",
+      "spanish": "Tengo que pagar {mortgage}, por lo tanto trabajo mucho.",
+      "slots": [{ "key": "mortgage", "categories": ["finance"] }]
+    },
+    {
+      "id": "idiom-1",
+      "german": "Das war ein Kinderspiel, obwohl alle dachten, es wäre schwer.",
+      "spanish": "Fue pan comido, aunque todos pensaban que sería difícil.",
+      "slots": []
+    },
+    {
+      "id": "idiom-2",
+      "german": "Er hat kein Blatt vor den Mund genommen, als er seine Meinung sagte.",
+      "spanish": "No tuvo pelos en la lengua cuando dijo su opinión.",
+      "slots": []
+    },
+    {
+      "id": "finance-emotion-1",
+      "german": "Ich bin {emotion}, weil ich meine {debt} abbezahlt habe.",
+      "spanish": "Estoy {emotion} porque he pagado mi {debt}.",
+      "slots": [
+        { "key": "emotion", "categories": ["emotions"] },
+        { "key": "debt", "categories": ["finance"] }
+      ]
+    },
+    {
+      "id": "finance-business-1",
+      "german": "Die {investment} in {company} war erfolgreich.",
+      "spanish": "{investment} en {company} fue exitosa.",
+      "slots": [
+        { "key": "investment", "categories": ["finance", "business"] },
+        { "key": "company", "categories": ["business"] }
+      ]
+    },
+    {
+      "id": "idiom-context-1",
+      "german": "Bei der {meeting} habe ich ins Fettnäpfchen getreten.",
+      "spanish": "En {meeting} metí la pata.",
+      "slots": [{ "key": "meeting", "categories": ["work"] }]
+    },
+    {
+      "id": "finance-6",
+      "german": "Der {exchange_rate} ist günstig, daher wechsle ich Geld.",
+      "spanish": "{exchange_rate} está favorable, por lo tanto cambio dinero.",
+      "slots": [{ "key": "exchange_rate", "categories": ["finance"] }]
+    },
+    {
+      "id": "idiom-context-2",
+      "german": "Ich muss den Stier bei den Hörnern packen und mit meinem {boss} reden.",
+      "spanish": "Tengo que coger el toro por los cuernos y hablar con mi {boss}.",
+      "slots": [{ "key": "boss", "categories": ["work"] }]
+    }
+  ]
+}
